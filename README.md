@@ -1,20 +1,14 @@
 # SERP Secrets
 
-A technical blog exploring the intersection of SEO and AI, focusing on data-driven strategies and practical implementations.
+[![Built with Astro](https://img.shields.io/badge/Built%20with-Astro-171717.svg?style=for-the-badge&logo=astro&logoColor=F2F1EC)](https://astro.build)
+[![TypeScript](https://img.shields.io/badge/TypeScript-171717?style=for-the-badge&logo=typescript&logoColor=F2F1EC)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-171717?style=for-the-badge&logo=tailwind-css&logoColor=F2F1EC)](https://tailwindcss.com/)
 
-## Content Focus
+A technical publication exploring the convergence of SEO and artificial intelligence, providing data-driven insights and practical implementations for search optimization professionals.
 
-- AI-powered SEO strategies
-- Technical SEO implementation
-- Machine learning in search
-- Algorithm analysis
-- Data-driven optimization
+## Stack
 
-## Technology
-
-Built with [Astro](https://astro.build/), [TypeScript](https://www.typescriptlang.org/), and [Tailwind CSS](https://tailwindcss.com/). Features responsive design, dark mode, and advanced search functionality.
-
-Also [astro-cookieconsent](https://github.com/jop-software/astro-cookieconsent) for cookie management and [Fuse.js](https://www.fusejs.io/) for internal search.
+The platform leverages Astro for static site generation, TypeScript for robust development, and Tailwind CSS for styling. Enhanced with [Fuse.js](https://www.fusejs.io/) for advanced search capabilities and [astro-cookieconsent](https://github.com/jop-software/astro-cookieconsent) for privacy compliance.
 
 ## Development
 
@@ -25,19 +19,16 @@ npm run build      # Production build
 npm run preview    # Preview build
 ```
 
-## Contributing
+## Contribute
 
-- Issue reports: [GitHub Issues](https://github.com/JustGoodUI/dante-astro-theme/issues)
-- Content suggestions: [Contact Form](https://www.serp-secrets.com/contact)
+For technical issues, submit through [GitHub Issues](https://github.com/JustGoodUI/dante-astro-theme/issues). Content suggestions and collaborations can be proposed via our [Contact Form](https://www.serp-secrets.com/contact).
 
 ## License
 
-- Content: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-- Theme: [GPL-3.0](https://github.com/JustGoodUI/dante-astro-theme/blob/main/LICENSE)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-171717?style=for-the-badge&logoColor=F2F1EC)](https://creativecommons.org/licenses/by/4.0/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-171717?style=for-the-badge&logoColor=F2F1EC)](https://www.gnu.org/licenses/gpl-3.0)
 
-## Credits
-
-Built with [Dante](https://justgoodui.com/), an Astro theme by [justgoodui.com](https://justgoodui.com/).
+Built with [Dante](https://justgoodui.com/), an Astro theme by JustGoodUI. Content licensed under CC BY 4.0, theme under GPL-3.0.
 
 ---
 
