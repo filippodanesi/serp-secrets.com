@@ -1,0 +1,104 @@
+---
+// src/components/Analytics.astro
+---
+
+<script is:inline>
+    // Global initialization flag
+    let initializationInProgress = false;
+  
+    // Function to check and handle analytics consent
+    function checkAnalyticsConsent() {
+      console.log('Checking analytics consent...');
+      
+      // Prevent concurrent initialization attempts
+      if (initializationInProgress) {
+        console.log('Initialization already in progress, skipping...');
+        return;
+      }
+      
+      if (document.cookie.split(';').some((item) => item.trim().startsWith('cc_cookie='))) {
+        try {
+          // Extract and parse the cookie value
+          const cookieValue = document.cookie
+            .split('; ')
+            .find((row) => row.startsWith('cc_cookie='))
+            .split('=')[1];
+          const cookieObj = JSON.parse(decodeURIComponent(cookieValue));
+          
+          console.log('Cookie consent object:', cookieObj);
+          
+          // Check if analytics is included in the consented categories
+          if (cookieObj.categories && cookieObj.categories.includes('analytics')) {
+            console.log('Analytics consent granted, initializing GA...');
+            
+            // Prevent multiple GA initializations
+            if (!window.gaInitialized && !document.querySelector('script[src*="googletagmanager"]')) {
+              initializationInProgress = true;
+              window['ga-disable-G-MBR9G1TX79'] = false;
+              
+              // Create and configure GA script
+              const script = document.createElement('script');
+              script.src = 'https://www.googletagmanager.com/gtag/js?id=G-MBR9G1TX79';
+              script.async = true;
+              
+              script.onload = () => {
+                console.log('GA script loaded successfully');
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                window.gtag = gtag;  // Make gtag globally available
+                gtag('js', new Date());
+                gtag('config', 'G-MBR9G1TX79', {
+                  debug_mode: true
+                });
+                
+                // Mark GA as initialized
+                window.gaInitialized = true;
+                initializationInProgress = false;
+                
+                // Send a test event to verify tracking
+                gtag('event', 'page_view', {
+                  page_location: window.location.href,
+                  page_title: document.title
+                });
+                
+                console.log('GA initialized with debug mode');
+              };
+              
+              script.onerror = (error) => {
+                console.error('Error loading GA script:', error);
+                initializationInProgress = false;
+              };
+              
+              document.head.appendChild(script);
+            } else {
+              console.log('GA already initialized or script already present');
+            }
+          } else {
+            console.log('Analytics consent not granted');
+            window['ga-disable-G-MBR9G1TX79'] = true;
+          }
+        } catch (e) {
+          console.error('Error parsing cookie:', e);
+          console.error('Cookie value:', document.cookie);
+          initializationInProgress = false;
+        }
+      } else {
+        console.log('No cookie consent found');
+      }
+    }
+  
+    // Single initialization point using a small delay to ensure DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(checkAnalyticsConsent, 100);
+      });
+    } else {
+      setTimeout(checkAnalyticsConsent, 100);
+    }
+  
+    // Listen for cookie consent changes
+    document.addEventListener('cookie.changed', (event) => {
+      console.log('Cookie changed event detected:', event);
+      setTimeout(checkAnalyticsConsent, 100);
+    });
+  </script>

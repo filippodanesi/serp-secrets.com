@@ -1,11 +1,11 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
 import BaseHead, { type Props as HeadProps } from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Nav from '../components/Nav.astro';
 import AboutStructuredData from '../components/AboutStructuredData.astro';
 import ContactPageStructuredData from '../components/ContactPageStructuredData.astro';
+import Analytics from '../components/Analytics.astro';
 import '../styles/cookieconsent-style.css';
 
 export type Props = HeadProps & { 
@@ -42,7 +42,6 @@ const headProps = {
                 document.documentElement.classList.add('cc--darkmode');
             }
         </script>
-        <!-- <ViewTransitions /> -->
     </head>
     <body class="bg-main text-main">
         <div class="flex flex-col min-h-screen px-4 md:px-8">
@@ -50,6 +49,7 @@ const headProps = {
             {showHeader && <Header />}
             <main class="grow w-full max-w-3xl mx-auto">
                 <slot />
+                <Analytics />
             </main>
             <Footer />
         </div>
