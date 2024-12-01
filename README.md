@@ -1,4 +1,4 @@
-![Cover Image](https://github.com/filippodanesi/serp-secrets.com/blob/main/139shots_so.png)
+![Cover Image](https://github.com/filippodanesi/serp-secrets.com/blob/main/public/36shots_so.png)
 
 # SERP Secrets
 
