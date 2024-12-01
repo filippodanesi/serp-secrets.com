@@ -1,3 +1,5 @@
+![Cover Image](https://github.com/filippodanesi/serp-secrets.com/blob/main/28shots_so.png)
+
 # SERP Secrets
 
 [![Built with Astro](https://img.shields.io/badge/Built%20with-Astro-171717.svg?style=for-the-badge&logo=astro&logoColor=F2F1EC)](https://astro.build)
