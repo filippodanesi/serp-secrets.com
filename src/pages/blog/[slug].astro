@@ -54,7 +54,7 @@ const { Content, remarkPluginFrontmatter } = await post.render();
             <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight" transition:name={`post-title-${post.slug}`}>
                 {title}
             </h1>
-            <div class="mt-4 text-sm flex items-center flex-wrap gap-x-2" transition:name={`post-meta-${post.slug}`}>
+            <div class="mt-4 sm:text-sm text-xs flex items-center flex-wrap gap-x-2" transition:name={`post-meta-${post.slug}`}>
                 <span class="inline-flex items-center gap-1 whitespace-nowrap">
                     by <a href="https://www.filippodanesi.it" target="_blank" class="font-medium hover:underline">Filippo Danesi</a>
                 </span>
