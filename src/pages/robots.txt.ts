@@ -6,21 +6,25 @@ export const GET: APIRoute = async ({ site }) => {
         return new Response('Site URL not configured', { status: 500 });
     }
 
-    const robotsTxt = `User-agent: Amazonbot
-User-agent: Anthropic-ai 
-User-agent: Applebot-Extended
-User-agent: AwarioRssBot
-User-agent: AwarioSmartBot
-User-agent: Bytespider
-User-agent: CCBot
+    const robotsTxt = `# Block AI and Scraping Bots
+# AI Training Models
+User-agent: Anthropic-ai
 User-agent: ChatGPT-User
 User-agent: ClaudeBot
 User-agent: Claude-Web
 User-agent: Cohere-ai
+User-agent: GPTBot
+User-agent: Google-Extended
+Disallow: /
+
+# Content Scrapers and Analytics
+User-agent: Amazonbot
+User-agent: AwarioRssBot
+User-agent: AwarioSmartBot
+User-agent: Bytespider
+User-agent: CCBot
 User-agent: DataForSeoBot
 User-agent: FacebookBot
-User-agent: Google-Extended
-User-agent: GPTBot
 User-agent: ImagesiftBot
 User-agent: Magpie-crawler
 User-agent: Omgili
@@ -31,20 +35,23 @@ User-agent: PerplexityBot
 User-agent: YouBot
 Disallow: /
 
+# Allow Search Engine Crawlers
 User-agent: *
 Allow: /
 
-# Sitemaps
-Sitemap: ${new URL('sitemap.xml', site)}
-Sitemap: ${new URL('news-sitemap.xml', site)}
-Sitemap: ${new URL('image-sitemap.xml', site)}
-
-# Common crawl optimizations
+# Crawling Optimizations
+Disallow: /_astro/
+Disallow: /_image/
 Disallow: /api/
 Disallow: /*.json$
-Disallow: /*?
+Disallow: /*?*
 Disallow: /search
-`;
+Disallow: /cdn-cgi/
+
+# XML Sitemaps
+Sitemap: ${new URL('sitemap.xml', site)}
+Sitemap: ${new URL('news-sitemap.xml', site)}
+Sitemap: ${new URL('image-sitemap.xml', site)}`;
 
     return new Response(robotsTxt.trim(), {
         headers: {
