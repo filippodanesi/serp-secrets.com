@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import PostPreview from '../components/PostPreview.astro';
+import siteConfig from '../data/site-config'
+import { sortItemsByDateDesc } from '../utils/data-utils';
+import BlogStructuredData from '../components/structured-data/BlogStructuredData.astro';
+
+const posts = (await getCollection('blog')).sort(sortItemsByDateDesc).slice(0, 5);
+---
+
+<BaseLayout 
+    title="SERPsecrets — SEO Analysis, Strategies & AI Insights"
+    description={siteConfig.description} 
+    image={siteConfig.image}
+    isHome={true}
+>
+   <BlogStructuredData slot="structured-data" posts={posts} />
+    {
+        posts.length > 0 && (
+            <div class="mb-16 sm:mb-24">
+                {/* <p class="mb-12 sm:mb-16 text-xl font-serif italic sm:mb-10 sm:text-2xl" style="color: rgb(var(--color-text-muted) / 0.6) !important;">Latest Posts</p> */}
+                {posts.map((post) => (
+                    <PostPreview post={post} class="mb-10 sm:mb-12" headingLevel="h3" />
+                ))}
+                <div class="mt-12 sm:mt-16">
+                    <Button href="/blog/">View All Posts</Button>
+                </div>
+            </div>
+        )
+    }
+</BaseLayout>

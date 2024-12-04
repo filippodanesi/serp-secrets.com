@@ -1,0 +1,364 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "/artificial-intelligence/the-future-of-seo-if-chatgpt-kills-search-engines",
+			"headers": {
+				"Location": "/blog/the-future-of-seo-if-chatgpt-kills-search-engines/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/artificial-intelligence",
+			"headers": {
+				"Location": "/categories/artificial-intelligence/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/blog/artificial-intelligence/the-future-of-seo-if-chatgpt-kills-search-engines",
+			"headers": {
+				"Location": "/blog/the-future-of-seo-if-chatgpt-kills-search-engines/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/blog/posts/how-to-use-ai-in-seo-forecasting",
+			"headers": {
+				"Location": "/blog/how-to-use-ai-in-seo-forecasting/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/blog/seo-news/in-depth-analysis-of-googles-march-2024-updates",
+			"headers": {
+				"Location": "/blog/in-depth-analysis-of-googles-march-2024-updates/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/blog/seo-news/seo-2025-upcoming-changes-and-how-to-adapt",
+			"headers": {
+				"Location": "/blog/seo-2025-upcoming-changes-and-how-to-adapt/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/blog/seo-news/the-future-of-seo-navigating-a-world-where-chatgpt-reigns-supreme",
+			"headers": {
+				"Location": "/blog/the-future-of-seo-navigating-a-world-where-chatgpt-reigns-supreme/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/blog/seo-strategies/how-to-use-ai-in-seo-forecasting",
+			"headers": {
+				"Location": "/blog/how-to-use-ai-in-seo-forecasting/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/blog/seo-strategies/optimizing-content-for-google-search-generative-experience",
+			"headers": {
+				"Location": "/blog/optimizing-content-for-google-search-generative-experience/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/blog/seo-strategies/seo-in-2024-trends-tips-strategies-guide",
+			"headers": {
+				"Location": "/blog/seo-in-2024-trends-tips-strategies-guide/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/blog/seo-strategies/training-search-engines-the-next-evolution-of-seo",
+			"headers": {
+				"Location": "/blog/training-search-engines-the-next-evolution-of-seo/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/blog/technical-seo/advanced-strategies-for-schema-markup-optimization",
+			"headers": {
+				"Location": "/blog/advanced-strategies-for-schema-markup-optimization/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/blog/technical-seo/mastering-bert-in-seo-for-better-semantic-insight",
+			"headers": {
+				"Location": "/blog/mastering-bert-in-seo-for-better-semantic-insight/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/blog/technical-seo/understanding-shadow-dom-for-a-optimized-indexing",
+			"headers": {
+				"Location": "/blog/understanding-shadow-dom-for-a-optimized-indexing/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/posts/how-to-use-ai-in-seo-forecasting",
+			"headers": {
+				"Location": "/blog/how-to-use-ai-in-seo-forecasting/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/seo-news/in-depth-analysis-of-googles-march-2024-updates",
+			"headers": {
+				"Location": "/blog/in-depth-analysis-of-googles-march-2024-updates/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/seo-news/seo-2025-upcoming-changes-and-how-to-adapt",
+			"headers": {
+				"Location": "/blog/seo-2025-upcoming-changes-and-how-to-adapt/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/seo-news/the-future-of-seo-navigating-a-world-where-chatgpt-reigns-supreme",
+			"headers": {
+				"Location": "/blog/the-future-of-seo-navigating-a-world-where-chatgpt-reigns-supreme/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/seo-news",
+			"headers": {
+				"Location": "/categories/seo-news/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/seo-strategies/how-to-use-ai-in-seo-forecasting",
+			"headers": {
+				"Location": "/blog/how-to-use-ai-in-seo-forecasting/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/seo-strategies/optimizing-content-for-google-search-generative-experience",
+			"headers": {
+				"Location": "/blog/optimizing-content-for-google-search-generative-experience/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/seo-strategies/seo-in-2024-trends-tips-strategies-guide",
+			"headers": {
+				"Location": "/blog/seo-in-2024-trends-tips-strategies-guide/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/seo-strategies/training-search-engines-the-next-evolution-of-seo",
+			"headers": {
+				"Location": "/blog/training-search-engines-the-next-evolution-of-seo/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/seo-strategies",
+			"headers": {
+				"Location": "/categories/seo-strategies/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/technical-seo/advanced-strategies-for-schema-markup-optimization",
+			"headers": {
+				"Location": "/blog/advanced-strategies-for-schema-markup-optimization/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/technical-seo/mastering-bert-in-seo-for-better-semantic-insight",
+			"headers": {
+				"Location": "/blog/mastering-bert-in-seo-for-better-semantic-insight/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/technical-seo/understanding-shadow-dom-for-a-optimized-indexing",
+			"headers": {
+				"Location": "/blog/understanding-shadow-dom-for-a-optimized-indexing/"
+			},
+			"status": 301
+		},
+		{
+			"src": "/technical-seo",
+			"headers": {
+				"Location": "/categories/technical-seo/"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^\\/_image$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/404\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/categories\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/image-sitemap\\.xml\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/robots\\.txt\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/rss\\.xml\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/search\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/sitemap\\.xml\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/artificial-intelligence\\/the-future-of-seo-if-chatgpt-kills-search-engines\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/artificial-intelligence\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/blog\\/artificial-intelligence\\/the-future-of-seo-if-chatgpt-kills-search-engines\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/blog\\/posts\\/how-to-use-ai-in-seo-forecasting\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/blog\\/seo-news\\/in-depth-analysis-of-googles-march-2024-updates\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/blog\\/seo-news\\/seo-2025-upcoming-changes-and-how-to-adapt\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/blog\\/seo-news\\/the-future-of-seo-navigating-a-world-where-chatgpt-reigns-supreme\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/blog\\/seo-strategies\\/how-to-use-ai-in-seo-forecasting\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/blog\\/seo-strategies\\/optimizing-content-for-google-search-generative-experience\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/blog\\/seo-strategies\\/seo-in-2024-trends-tips-strategies-guide\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/blog\\/seo-strategies\\/training-search-engines-the-next-evolution-of-seo\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/blog\\/technical-seo\\/advanced-strategies-for-schema-markup-optimization\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/blog\\/technical-seo\\/mastering-bert-in-seo-for-better-semantic-insight\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/blog\\/technical-seo\\/understanding-shadow-dom-for-a-optimized-indexing\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/posts\\/how-to-use-ai-in-seo-forecasting\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/seo-news\\/in-depth-analysis-of-googles-march-2024-updates\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/seo-news\\/seo-2025-upcoming-changes-and-how-to-adapt\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/seo-news\\/the-future-of-seo-navigating-a-world-where-chatgpt-reigns-supreme\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/seo-news\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/seo-strategies\\/how-to-use-ai-in-seo-forecasting\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/seo-strategies\\/optimizing-content-for-google-search-generative-experience\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/seo-strategies\\/seo-in-2024-trends-tips-strategies-guide\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/seo-strategies\\/training-search-engines-the-next-evolution-of-seo\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/seo-strategies\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/technical-seo\\/advanced-strategies-for-schema-markup-optimization\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/technical-seo\\/mastering-bert-in-seo-for-better-semantic-insight\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/technical-seo\\/understanding-shadow-dom-for-a-optimized-indexing\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^\\/technical-seo\\/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "/.*",
+			"dest": "_render",
+			"status": 404
+		}
+	]
+}

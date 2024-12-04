@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+
+const title = "404: Page Not Found";
+const description = "Sorry, we couldn't find the page you're looking for. Let's get you back on track.";
+---
+
+<BaseLayout 
+    title={title}
+    description={description}
+    showHeader={false}
+>
+    <div class="flex flex-col items-center justify-center py-16 md:py-24 text-center">
+        <div class="space-y-8">
+            <div class="space-y-4">
+                <h1 class="text-3xl leading-tight font-serif sm:text-4xl italic mb-4 sm:leading-tight">
+                    404
+                </h1>
+                <p class="text-s leading-tight mt-1">
+                    {description}
+                </p>
+            </div>
+
+            <div class="inline-flex flex-col gap-4 sm:flex-row sm:gap-6">
+              <Button href="/">
+                  Back to Homepage
+              </Button>
+              <Button href="/blog/">
+                  Explore Articles
+              </Button>
+          </div>
+
+            <p class="text-sm text-muted opacity-60">
+                Think this is a mistake? <a href="/contact" class="underline hover:text-current transition-colors">Let us know</a>
+            </p>
+        </div>
+    </div>
+</BaseLayout>

@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import vercel from '@astrojs/vercel/serverless';
-import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import jopSoftwarecookieconsent from '@jop-software/astro-cookieconsent';
 import react from '@astrojs/react';
@@ -48,7 +47,6 @@ export default defineConfig({
     '/blog/seo-news/the-future-of-seo-navigating-a-world-where-chatgpt-reigns-supreme/': '/blog/the-future-of-seo-navigating-a-world-where-chatgpt-reigns-supreme/',
   },
   integrations: [
-    sitemap(),
     tailwind({ applyBaseStyles: false }),
     react(),
     jopSoftwarecookieconsent({

@@ -1,8 +1,13 @@
+// src/pages/robots.txt.ts
 import type { APIRoute } from 'astro';
 
-const getRobotsTxt = (sitemapURL: URL) => `
-User-agent: Amazonbot
-User-agent: Anthropic-ai
+export const GET: APIRoute = async ({ site }) => {
+    if (!site) {
+        return new Response('Site URL not configured', { status: 500 });
+    }
+
+    const robotsTxt = `User-agent: Amazonbot
+User-agent: Anthropic-ai 
 User-agent: Applebot-Extended
 User-agent: AwarioRssBot
 User-agent: AwarioSmartBot
@@ -29,10 +34,23 @@ Disallow: /
 User-agent: *
 Allow: /
 
-Sitemap: ${sitemapURL.href}
+# Sitemaps
+Sitemap: ${new URL('sitemap.xml', site)}
+Sitemap: ${new URL('blog-sitemap.xml', site)}
+Sitemap: ${new URL('news-sitemap.xml', site)}
+Sitemap: ${new URL('image-sitemap.xml', site)}
+
+# Common crawl optimizations
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /*?
+Disallow: /search
 `;
 
-export const GET: APIRoute = ({ site }) => {
-    const sitemapURL = new URL('sitemap-index.xml', site);
-    return new Response(getRobotsTxt(sitemapURL));
+    return new Response(robotsTxt.trim(), {
+        headers: {
+            'Content-Type': 'text/plain',
+            'Cache-Control': 'public, max-age=3600'
+        }
+    });
 };
