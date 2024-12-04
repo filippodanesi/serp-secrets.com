@@ -1,6 +1,6 @@
 ---
-title: "GEO: The Future of Digital Optimization"
-excerpt: "Discover how Generative Experience Optimization (GEO) is revolutionizing digital strategy by bridging SEO and AI assistants for enhanced user experience and visibility."
+title: "GEO, The Future of Digital Optimization"
+excerpt: "Discover how Generative Experience Optimization (GEO) is changing digital strategy by bridging SEO and AI assistants for enhanced UX and visibility."
 publishDate: 'Dec 4 2024'
 isFeatured: true
 tags:
