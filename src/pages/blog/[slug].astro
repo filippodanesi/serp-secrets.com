@@ -35,6 +35,7 @@ const { Content, remarkPluginFrontmatter } = await post.render();
 <BaseLayout title={seo?.title ?? title} description={seo?.description ?? excerpt} image={seo?.image ?? image} pageType="article" showHeader={false}>
     <BlogPostingStructuredData slot="structured-data" {...post.data} body={post.body} />
     <article class="mb-16 sm:mb-24">
+        {/* Featured Image */}
         {
             image && (
                 <div class="relative mb-8 -mx-4 sm:mx-0 sm:rounded-xl overflow-hidden aspect-[16/9]">
@@ -50,49 +51,59 @@ const { Content, remarkPluginFrontmatter } = await post.render();
                 </div>
             )
         }
+        
+        {/* Article Header */}
         <header class="mb-8 mt-6">
+            {/* Category above title - uppercase and bold styling with muted color */}
+            {tags.length > 0 && (
+                <a 
+                    href={`/categories/${slugify(tags[0])}/`}
+                    class="inline-block mb-4 text-sm font-bold tracking-wide uppercase hover:underline"
+                    style="color: rgb(var(--color-text-muted) / 0.6) !important"
+                >
+                    {tags[0]}
+                </a>
+            )}
+            
+            {/* Article Title */}
             <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight" transition:name={`post-title-${post.slug}`}>
                 {title}
             </h1>
+
+            {/* Meta information - "Published on [date] by [author]" format */}
             <div class="mt-4 text-sm flex items-center flex-wrap gap-x-2" transition:name={`post-meta-${post.slug}`}>
-                <span class="inline-flex items-center gap-1 whitespace-nowrap">
-                    <FormattedDate date={publishDate} />
-                </span>
-                {
-                    tags.length > 0 && (
-                        <>
-                            <span class="text-neutral-500">/</span>
-                            <a href={`/categories/${slugify(tags[0])}/`} class="hover:underline">{tags[0]}</a>
-                        </>
-                    )
-                }
-                {
-                    updatedDate && (
-                        <>
-                            <span class="text-neutral-500">/</span>
-                            <span>
-                                (Updated on <FormattedDate date={updatedDate} />)
-                            </span>
-                        </>
-                    )
-                }
-                {
-                    remarkPluginFrontmatter.minutesRead && (
-                        <>
-                            <span class="text-neutral-500">/</span>
-                            <span class="inline-flex items-center gap-1 whitespace-nowrap">
-                                {remarkPluginFrontmatter.minutesRead}
-                            </span>
-                        </>
-                    )
-                }
+                <span>Published on <FormattedDate date={publishDate} /></span>
+                <span>by</span>
+                <a href="https://www.filippodanesi.it" class="text-medium hover:underline">Filippo Danesi</a>
+                
+                {/* Reading time */}
+                {remarkPluginFrontmatter.minutesRead && (
+                    <>
+                        <span class="text-neutral-500">/</span>
+                        <span class="inline-flex items-center gap-1 whitespace-nowrap">
+                            {remarkPluginFrontmatter.minutesRead}
+                        </span>
+                    </>
+                )}
+                
+                {/* Update date if present */}
+                {updatedDate && (
+                    <>
+                        <span class="text-neutral-500">/</span>
+                        <span>
+                            Updated on <FormattedDate date={updatedDate} />
+                        </span>
+                    </>
+                )}
             </div>
         </header>
 
+        {/* Article Content */}
         <div class="max-w-none prose prose-dante dark:prose-invert sm:prose-lg" transition:animate="slide">
             <Content />
         </div>
 
+        {/* Share Button */}
         <div class="mt-8 flex flex-wrap items-center gap-6 text-sm justify-between sm:mt-12 sm:text-base">
             <Button class="copy-url-button" aria-label="Copy link" data-url={href} data-tooltip-default="Copy link" data-tooltip-success="Copied">
                 Share
@@ -100,6 +111,7 @@ const { Content, remarkPluginFrontmatter } = await post.render();
         </div>
     </article>
 
+    {/* Related Posts Section */}
     {
         (prevPost || nextPost) && (
             <div class="my-16 sm:my-24">
