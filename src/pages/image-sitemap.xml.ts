@@ -12,10 +12,8 @@ export const GET: APIRoute = async ({ site }) => {
   try {
     console.log("Starting image sitemap generation...");
     
-    // Get public images - using absolute path
-    const publicDir = path.join(process.cwd(), 'public');
-    console.log("Public directory:", publicDir);
-    const publicImages = getPublicImages(publicDir);
+    // Get public images
+    const publicImages = getPublicImages('./public');
     console.log("Public images found:", publicImages.length);
 
     // Get blog posts
