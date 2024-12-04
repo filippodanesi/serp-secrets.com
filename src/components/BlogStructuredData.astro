@@ -4,7 +4,7 @@ import siteConfig from '../data/site-config';
 
 type Props = CollectionEntry<'blog'>['data'] & { body?: string };
 
-const { title, excerpt, publishDate, updatedDate, image, tags, seo, body, isFeatured } = Astro.props;
+const { title, excerpt, publishDate, updatedDate, image, tags, seo, body } = Astro.props;
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site);
 
@@ -23,7 +23,11 @@ const personInfo = {
     '@id': `${Astro.site}#identity`,
     'name': 'Filippo Danesi',
     'url': Astro.site?.toString(),
-    'sameAs': siteConfig.socialLinks?.map(link => link.href) || [],
+    'sameAs': [
+        'https://www.linkedin.com/in/filippodanesi/',
+        'https://github.com/filippodanesi/',
+        'https://x.com/filippodanesi'
+    ],
     'image': {
         '@type': 'ImageObject',
         '@id': `${Astro.site}og-image.webp`,
@@ -43,13 +47,13 @@ const breadcrumbList = {
         {
             '@type': 'ListItem',
             'position': 1,
-            'name': siteConfig.headerNavLinks?.find(link => link.href === '/')?.text || 'Home',
+            'name': 'Home',
             'item': Astro.site?.toString()
         },
         {
             '@type': 'ListItem',
             'position': 2,
-            'name': siteConfig.headerNavLinks?.find(link => link.href === '/blog/')?.text || 'Archive',
+            'name': 'Archive',
             'item': `${Astro.site}blog/`
         }
     ]
@@ -67,7 +71,6 @@ if (tags.length > 0) {
         'item': `${Astro.site}categories/${categorySlug}/`
     });
     
-    // Adjust current page position
     breadcrumbList.itemListElement.push({
         '@type': 'ListItem',
         'position': 4,
@@ -75,7 +78,6 @@ if (tags.length > 0) {
         'item': pageUrl.toString()
     });
 } else {
-    // If no category, current page is position 3
     breadcrumbList.itemListElement.push({
         '@type': 'ListItem',
         'position': 3,
@@ -105,18 +107,11 @@ const structuredData = [
             'name': siteConfig.title,
             'publisher': personInfo
         },
-        'image': image ? {
+        'image': {
             '@type': 'ImageObject',
-            '@id': `${Astro.site}${image.src.replace('/', '')}`,
-            'url': `${Astro.site}${image.src.replace('/', '')}`,
-            'caption': image.alt || '',
-            'width': '1200',
-            'height': '630'
-        } : {
-            '@type': 'ImageObject',
-            '@id': `${Astro.site}${siteConfig.image.src.replace('/', '')}`,
-            'url': `${Astro.site}${siteConfig.image.src.replace('/', '')}`,
-            'caption': siteConfig.image.alt || '',
+            '@id': `${Astro.site}${(image?.src || siteConfig.image.src).replace(/^\//, '')}`,
+            'url': `${Astro.site}${(image?.src || siteConfig.image.src).replace(/^\//, '')}`,
+            'caption': image?.alt || siteConfig.image.alt || '',
             'width': '1200',
             'height': '630'
         },
@@ -128,8 +123,7 @@ const structuredData = [
         'wordCount': wordCount,
         'isAccessibleForFree': 'http://schema.org/True',
         'copyrightYear': new Date(publishDate).getFullYear(),
-        'copyrightHolder': personInfo,
-        'isFeatured': isFeatured
+        'copyrightHolder': personInfo
     },
     breadcrumbList
 ];
