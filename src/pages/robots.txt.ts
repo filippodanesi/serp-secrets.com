@@ -41,12 +41,8 @@ Allow: /
 
 # Crawling Optimizations
 Disallow: /_astro/
-Disallow: /_image/
 Disallow: /api/
-Disallow: /*.json$
-Disallow: /*?*
 Disallow: /search
-Disallow: /cdn-cgi/
 
 # XML Sitemaps
 Sitemap: ${new URL('sitemap.xml', site)}
