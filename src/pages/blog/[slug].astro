@@ -85,7 +85,7 @@ if (tags.length > 0) {
             {tags.length > 0 && (
                 <a 
                     href={`/categories/${slugify(tags[0])}/`}
-                    class="inline-block mb-4 text-sm font-bold tracking-wide uppercase hover:underline"
+                    class="inline-block mb-4 text-sm font-semibold tracking-wide uppercase hover:underline"
                     style="color: rgb(var(--color-text-muted) / 0.6) !important"
                 >
                     {tags[0]}
@@ -101,7 +101,7 @@ if (tags.length > 0) {
             <div class="mt-4 text-sm flex items-center flex-wrap gap-x-2" transition:name={`post-meta-${post.slug}`}>
                 <span>Published on <FormattedDate date={publishDate} /></span>
                 <span>by</span>
-                <a href="https://www.filippodanesi.it" class="text-medium hover:underline">Filippo Danesi</a>
+                <a href="https://www.filippodanesi.it" class="font-medium hover:underline">Filippo Danesi</a>
                 
                 {/* Reading time */}
                 {remarkPluginFrontmatter.minutesRead && (
