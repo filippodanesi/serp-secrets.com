@@ -6,8 +6,7 @@ export const GET: APIRoute = async ({ site }) => {
         return new Response('Site URL not configured', { status: 500 });
     }
 
-    const robotsTxt = `# Block AI and Scraping Bots
-# AI Training Models
+    const robotsTxt = `# Block AI Training and Content Scraping Bots
 User-agent: Anthropic-ai
 User-agent: ChatGPT-User
 User-agent: ClaudeBot
@@ -15,9 +14,6 @@ User-agent: Claude-Web
 User-agent: Cohere-ai
 User-agent: GPTBot
 User-agent: Google-Extended
-Disallow: /
-
-# Content Scrapers and Analytics
 User-agent: Amazonbot
 User-agent: AwarioRssBot
 User-agent: AwarioSmartBot
@@ -39,12 +35,11 @@ Disallow: /
 User-agent: *
 Allow: /
 
-# Crawling Optimizations
+# Block System and Technical URLs
 Disallow: /_astro/
 Disallow: /api/
-Disallow: /search
 
-# XML Sitemaps
+# Sitemaps
 Sitemap: ${new URL('sitemap.xml', site)}
 Sitemap: ${new URL('news-sitemap.xml', site)}
 Sitemap: ${new URL('image-sitemap.xml', site)}`;
