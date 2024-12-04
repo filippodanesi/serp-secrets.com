@@ -11,6 +11,11 @@ seo:
     alt: abstract 3d illustration with abstract light scattering on it
 ---
 
+<figure>
+  <img src="/generative-ai-and-predictive-ai.webp" alt="Product Photography on Office Table Backdrop 3d Render">
+  <figcaption>Photo by <a href="https://unsplash.com/@theshubhamdhage?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Shubham Dhage</a> on <a href="https://unsplash.com/photos/a-close-up-of-a-cell-phone-with-a-blurry-background-hYGyOBXFZ9o?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></figcaption>
+</figure>
+
 As we venture deeper into the AI revolution, **Generative Experience Optimization (GEO)** is emerging as a game-changing approach to digital presence. While traditional SEO focused on pleasing search engines, GEO represents a **paradigm shift toward optimizing for both AI assistants and human users**. Let's explore this transformation and its implications for digital strategy.
 
 ## The Evolution from SEO to GEO
