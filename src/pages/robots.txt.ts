@@ -36,7 +36,6 @@ Allow: /
 
 # Sitemaps
 Sitemap: ${new URL('sitemap.xml', site)}
-Sitemap: ${new URL('blog-sitemap.xml', site)}
 Sitemap: ${new URL('news-sitemap.xml', site)}
 Sitemap: ${new URL('image-sitemap.xml', site)}
 
