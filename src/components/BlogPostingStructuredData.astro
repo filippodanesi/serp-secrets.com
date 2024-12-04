@@ -14,6 +14,12 @@ const getArticleSection = (tags: string[]) => {
    return /^[A-Z]/.test(primaryTag) ? primaryTag : primaryTag.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 };
 
+const getWordCount = (content: string) => {
+   return content.replace(/\s+/g, ' ').replace(/[^\w\s]/g, '').trim().split(' ').filter(word => word.length > 0).length;
+};
+
+const wordCount = body ? getWordCount(body) : 0;
+
 const personInfo = {
     '@type': 'Person',
     '@id': `${Astro.site}#identity`,
@@ -88,18 +94,44 @@ const structuredData = [
         '@type': 'BlogPosting',
         '@id': `${pageUrl.toString()}#BlogPosting`,
         'headline': title,
+        'name': title,
         'description': excerpt || seo?.description || siteConfig.description,
         'datePublished': publishDate.toISOString(),
         'dateModified': updatedDate?.toISOString() || publishDate.toISOString(),
         'url': pageUrl.toString(),
+        'mainEntityOfPage': {
+            '@type': 'WebPage',
+            '@id': pageUrl.toString()
+        },
         'image': imageObject,
         'author': personInfo,
         'publisher': personInfo,
         'keywords': tags?.join(', ') || '',
-        'articleSection': getArticleSection(tags || [])
+        'articleSection': getArticleSection(tags || []),
+        'wordCount': wordCount,
+        'isAccessibleForFree': 'http://schema.org/True',
+        'copyrightYear': new Date(publishDate).getFullYear(),
+        'copyrightHolder': personInfo,
+        'isPartOf': {
+            '@type': 'Blog',
+            '@id': `${Astro.site}blog/`,
+            'name': siteConfig.title,
+            'publisher': personInfo
+        }
     },
     breadcrumbList
 ];
+
+if (tags.length) {
+    const normalizedTag = tags[0].toLowerCase().replace(/\s+/g, '-');
+    if (siteConfig.tagDescriptions[normalizedTag]) {
+        structuredData[0].about = {
+            '@type': 'Thing',
+            'name': getArticleSection([tags[0]]),
+            'description': siteConfig.tagDescriptions[normalizedTag]
+        };
+    }
+}
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
