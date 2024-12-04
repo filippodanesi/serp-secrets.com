@@ -1,0 +1,87 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import siteConfig from '@/data/site-config';
+
+type Props = CollectionEntry<'blog'>['data'] & { body?: string };
+
+const { title, excerpt, publishDate, updatedDate, image, tags, seo, body } = Astro.props;
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site);
+
+const getArticleSection = (tags: string[]) => {
+   if (!tags.length) return 'Blog';
+   const primaryTag = tags[0];
+   return /^[A-Z]/.test(primaryTag) ? primaryTag : primaryTag.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+};
+
+const getWordCount = (content: string) => {
+   return content.replace(/\s+/g, ' ').replace(/[^\w\s]/g, '').trim().split(' ').filter(word => word.length > 0).length;
+};
+
+const wordCount = body ? getWordCount(body) : 0;
+
+const personInfo = {
+    '@type': 'Person',
+    '@id': `${Astro.site}#identity`,
+    'name': 'Filippo Danesi',
+    'url': Astro.site?.toString(),
+    'sameAs': [
+        'https://www.linkedin.com/in/filippodanesi/',
+        'https://github.com/filippodanesi/',
+        'https://x.com/filippodanesi'
+    ]
+};
+
+const imageObject = {
+    '@type': 'ImageObject',
+    '@id': `${Astro.site}${(image?.src || 'og-image.webp').replace(/^\//, '')}`,
+    'url': `${Astro.site}${(image?.src || 'og-image.webp').replace(/^\//, '')}`,
+    'caption': image?.alt || '',
+    'width': '1200',
+    'height': '630'
+};
+
+const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    '@id': `${pageUrl.toString()}#BlogPosting`,
+    'headline': title,
+    'name': title,
+    'description': excerpt || seo?.description || siteConfig.description,
+    'datePublished': publishDate.toISOString(),
+    'dateModified': updatedDate?.toISOString() || publishDate.toISOString(),
+    'url': pageUrl.toString(),
+    'mainEntityOfPage': {
+        '@type': 'WebPage',
+        '@id': pageUrl.toString()
+    },
+    'image': imageObject,
+    'author': personInfo,
+    'publisher': personInfo,
+    'keywords': tags?.join(', ') || '',
+    'articleSection': getArticleSection(tags || []),
+    'wordCount': wordCount,
+    'isAccessibleForFree': 'http://schema.org/True',
+    'copyrightYear': new Date(publishDate).getFullYear(),
+    'copyrightHolder': personInfo,
+    'isPartOf': {
+        '@type': 'Blog',
+        '@id': `${Astro.site}blog/`,
+        'name': siteConfig.title,
+        'publisher': personInfo
+    }
+};
+
+if (tags.length) {
+    const normalizedTag = tags[0].toLowerCase().replace(/\s+/g, '-');
+    if (siteConfig.tagDescriptions[normalizedTag]) {
+        structuredData.about = {
+            '@type': 'Thing',
+            'name': getArticleSection([tags[0]]),
+            'description': siteConfig.tagDescriptions[normalizedTag]
+        };
+    }
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

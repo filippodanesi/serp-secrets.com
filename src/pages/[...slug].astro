@@ -19,9 +19,31 @@ type Props = { page: CollectionEntry<'pages'> };
 const { page } = Astro.props;
 const { title, seo } = page.data;
 const { Content } = await page.render();
+
+// Preparazione breadcrumb
+const breadcrumbItems = [];
+
+// Formatta il nome della pagina
+const getPageName = (title: string) => {
+    return title
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+};
+
+const pageName = getPageName(title);
 ---
 
-<BaseLayout title={seo?.title ?? title} description={seo?.description} image={seo?.image} showHeader={false}>
+<BaseLayout 
+    title={seo?.title ?? title} 
+    description={seo?.description} 
+    image={seo?.image} 
+    showHeader={false}
+    breadcrumb={{
+        items: breadcrumbItems,
+        currentPageName: pageName
+    }}
+>
     <article class="mb-16 sm:mb-24">
         <header class="mb-8">
             <h1 class="text-3xl leading-tight font-serif sm:text-4xl italic mb-4 sm:leading-tight">{title}</h1>

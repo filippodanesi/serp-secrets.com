@@ -3,8 +3,9 @@ import BaseHead, { type Props as HeadProps } from '../components/BaseHead.astro'
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Nav from '../components/Nav.astro';
-import AboutStructuredData from '../components/AboutStructuredData.astro';
-import ContactPageStructuredData from '../components/ContactPageStructuredData.astro';
+import BreadcrumbListStructuredData from '../components/structured-data/BreadcrumbListStructuredData.astro';
+import AboutStructuredData from '../components/structured-data/AboutStructuredData.astro';
+import ContactPageStructuredData from '../components/structured-data/ContactPageStructuredData.astro';
 import Analytics from '../components/Analytics.astro';
 import '../styles/cookieconsent-style.css';
 
@@ -14,10 +15,14 @@ export type Props = HeadProps & {
         title?: string;
         description?: string;
         robots?: string;
-    }
+    };
+    breadcrumb?: {
+        items?: Array<{ name: string; item: string }>;
+        currentPageName?: string;
+    };
 };
 
-const { showHeader = true, metaTags, ...head } = Astro.props;
+const { showHeader = true, metaTags, breadcrumb, ...head } = Astro.props;
 
 const pathname = Astro.url.pathname;
 const isAboutPage = pathname === '/about' || pathname === '/about/';
@@ -33,6 +38,7 @@ const headProps = {
 <html lang="en" class="antialiased break-words">
     <head>
         <BaseHead {...headProps} />
+        <BreadcrumbListStructuredData {...breadcrumb} />
         {isAboutPage && <AboutStructuredData />}
         {isContactPage && <ContactPageStructuredData />}
         <slot name="structured-data" />

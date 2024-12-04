@@ -7,7 +7,7 @@ import PostPreview from '../../components/PostPreview.astro';
 import Subscribe from '../../components/Subscribe.astro';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
 import { slugify } from '../../utils/common-utils';
-import BlogPostingStructuredData from '../../components/BlogPostingStructuredData.astro';
+import BlogPostingStructuredData from '../../components/structured-data/BlogPostingStructuredData.astro';
 
 export const prerender = true;
 
@@ -30,9 +30,36 @@ const { href } = Astro.url;
 const { post, prevPost, nextPost } = Astro.props;
 const { title, publishDate, updatedDate, excerpt, tags = [], seo, image } = post.data;
 const { Content, remarkPluginFrontmatter } = await post.render();
+
+// Preparazione breadcrumb
+const breadcrumbItems = [
+    {
+        name: 'Archive',
+        item: `${Astro.site}blog/`
+    }
+];
+
+// Aggiungi categoria se presente
+if (tags.length > 0) {
+    const categorySlug = slugify(tags[0]);
+    breadcrumbItems.push({
+        name: tags[0],
+        item: `${Astro.site}categories/${categorySlug}/`
+    });
+}
 ---
 
-<BaseLayout title={seo?.title ?? title} description={seo?.description ?? excerpt} image={seo?.image ?? image} pageType="article" showHeader={false}>
+<BaseLayout 
+    title={seo?.title ?? title} 
+    description={seo?.description ?? excerpt} 
+    image={seo?.image ?? image} 
+    pageType="article" 
+    showHeader={false}
+    breadcrumb={{
+        items: breadcrumbItems,
+        currentPageName: title
+    }}
+>
     <BlogPostingStructuredData slot="structured-data" {...post.data} body={post.body} />
     <article class="mb-16 sm:mb-24">
         {/* Featured Image */}

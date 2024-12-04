@@ -3,7 +3,7 @@ import type { Link } from '../data/site-config';
 import NavLink from './NavLink.astro';
 import ThemeToggle from './ThemeToggle.astro';
 import SearchIcon from '../icons/Search.astro';
-import siteConfig from '../data/site-config';
+import siteConfig from '@/data/site-config';
 
 const navLinks = (siteConfig.headerNavLinks ?? []).filter((link: Link) => link.href !== '/search');
 ---

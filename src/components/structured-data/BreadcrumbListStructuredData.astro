@@ -1,0 +1,62 @@
+---
+import siteConfig from '@/data/site-config';
+
+interface BreadcrumbItem {
+    name: string;
+    item: string;
+}
+
+export interface Props {
+    items?: BreadcrumbItem[];
+    currentPageName?: string;
+}
+
+const { items = [], currentPageName } = Astro.props;
+const pageUrl = new URL(Astro.url.pathname, Astro.site);
+
+// Get current page name if not provided
+const getCurrentPageName = () => {
+    if (currentPageName) return currentPageName;
+    
+    const path = pageUrl.pathname.split('/').filter(Boolean);
+    if (path.length === 0) return 'Home';
+    
+    return path[path.length - 1]
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+};
+
+// Build breadcrumb items
+const breadcrumbItems = [
+    // Home is always first
+    {
+        name: 'Home',
+        item: Astro.site?.toString() || '/'
+    },
+    // Add provided items
+    ...items,
+    // Add current page if not already included
+    ...(items.length === 0 || items[items.length - 1].item !== pageUrl.toString()
+        ? [{
+            name: getCurrentPageName(),
+            item: pageUrl.toString()
+        }]
+        : []
+    )
+].map((item, index) => ({
+    '@type': 'ListItem',
+    'position': index + 1,
+    'name': item.name,
+    'item': item.item.endsWith('/') ? item.item : `${item.item}/`
+}));
+
+const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl.toString()}#breadcrumb`,
+    'itemListElement': breadcrumbItems
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

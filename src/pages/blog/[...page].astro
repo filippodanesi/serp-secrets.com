@@ -19,13 +19,28 @@ type Props = { page: Page<CollectionEntry<'blog'>> };
 
 const { page } = Astro.props;
 const blog = page.data;
+
+// Preparazione breadcrumb
+const breadcrumbItems = [
+    {
+        name: 'Archive',
+        item: `${Astro.site}blog/`
+    }
+];
+
+// Se siamo in una pagina diversa dalla prima, aggiungiamo il numero della pagina
+const currentPageName = page.currentPage > 1 ? `Archive - Page ${page.currentPage}` : 'Archive';
 ---
 
 <BaseLayout
     title="Blog"
-    description="If you’re looking a list with every single thing that I’ve ever published on my little corner of the web, you’ve come to the right place."
+    description="If you're looking a list with every single thing that I've ever published on my little corner of the web, you've come to the right place."
     image={{ src: '/og-image.webp' }}
     showHeader={false}
+    breadcrumb={{
+        items: breadcrumbItems,
+        currentPageName: currentPageName
+    }}
 >
     <h1 class="text-3xl leading-tight font-serif sm:text-4xl italic mb-4 sm:leading-tight">Blog Archive</h1>
     <h2 class="mb-12 sm:mb-16 text-sm sm:text-base leading-normal pb-6 border-b border-solid border-main inline-block">

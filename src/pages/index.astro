@@ -3,9 +3,9 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import PostPreview from '../components/PostPreview.astro';
-import siteConfig from '../data/site-config';
+import siteConfig from '../data/site-config'
 import { sortItemsByDateDesc } from '../utils/data-utils';
-import BlogStructuredData from '../components/BlogStructuredData.astro';
+import BlogStructuredData from '../components/structured-data/BlogStructuredData.astro';
 
 const posts = (await getCollection('blog')).sort(sortItemsByDateDesc).slice(0, 5);
 ---
