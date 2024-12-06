@@ -86,10 +86,10 @@ if (tags.length > 0) {
                 {title}
             </h1>
 
-            {/* Meta information - Two columns layout */}
-            <div class="mt-4 text-sm flex items-center justify-between" transition:name={`post-meta-${post.slug}`}>
+            {/* Meta information - Responsive layout */}
+            <div class="mt-4 text-sm flex flex-col gap-y-3 sm:flex-row sm:items-center sm:justify-between" transition:name={`post-meta-${post.slug}`}>
                 {/* Left side: Date and author */}
-                <div class="flex items-center gap-x-1.5">
+                <div class="flex items-center flex-wrap gap-x-1.5">
                     <span>Published on<FormattedDate date={publishDate} /></span>
                     <span>by</span>
                     <a href="https://www.filippodanesi.it" class="font-medium hover:underline">Filippo Danesi</a>
@@ -104,12 +104,12 @@ if (tags.length > 0) {
                     )}
                 </div>
 
-                {/* Right side: Category tag */}
+                {/* Right side: Category tag - Smaller size */}
                 {tags.length > 0 && (
                     <a 
                         href={`/categories/${slugify(tags[0])}/`}
-                        class="inline-flex items-center justify-center px-6 py-2 font-serif text-sm leading-tight italic 
-                            text-black bg-white border border-black rounded-full hover:underline"
+                        class="inline-flex items-center justify-center px-4 py-1 font-serif text-xs leading-tight italic 
+                            text-black bg-white border border-black rounded-full hover:underline self-start sm:self-auto"
                     >
                         {tags[0]}
                     </a>
