@@ -84,13 +84,14 @@ if (tags.length > 0) {
             {/* Category above title - uppercase and bold styling with muted color */}
             {tags.length > 0 && (
                 <a 
-                    href={`/categories/${slugify(tags[0])}/`}
-                    class="inline-block mb-6 text-sm font-bold tracking-wide uppercase hover:underline"
-                    style="color: rgb(var(--color-text-muted) / 0.6) !important"
+                  href={`/categories/${slugify(tags[0])}/`}
+                  className="inline-flex items-center justify-center px-4 py-1.5 font-serif text-sm leading-relaxed italic 
+                            text-gray-700 bg-gray-50 border border-gray-200 rounded-full transition duration-200
+                            hover:bg-gray-100 hover:border-gray-300 hover:text-gray-900"
                 >
-                    {tags[0]}
+                  {tags[0]}
                 </a>
-            )}
+              )}
             
             {/* Article Title */}
             <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight" transition:name={`post-title-${post.slug}`}>
