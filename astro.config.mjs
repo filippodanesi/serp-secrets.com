@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel';
+import vercel from '@astrojs/vercel/serverless';
 import tailwind from '@astrojs/tailwind';
 import jopSoftwarecookieconsent from '@jop-software/astro-cookieconsent';
 import react from '@astrojs/react';
@@ -9,6 +9,7 @@ export default defineConfig({
   site: 'https://www.serp-secrets.com',
   output: 'server',
   adapter: vercel({
+    webAnalytics: { enabled: false },
     isr: { expiration: 60 * 60 * 24 },
   }),
   trailingSlash: 'always',
