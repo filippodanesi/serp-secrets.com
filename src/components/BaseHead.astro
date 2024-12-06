@@ -57,6 +57,8 @@ function formatCanonicalURL(url: string | URL) {
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>{title}</title>
 <meta name="generator" content={Astro.generator} />
+<meta name="author" content="Filippo Danesi">
+
 
 <!-- Google Analytics -->
 <script 
@@ -101,12 +103,14 @@ function formatCanonicalURL(url: string | URL) {
 <meta property="og:url" content={formatCanonicalURL(canonicalURL)} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
+<meta property="og:author" content="Filippo Danesi">
 {resolvedImage?.src && <meta property="og:image" content={resolvedImage.src} />}
 {resolvedImage?.alt && <meta property="og:image:alt" content={resolvedImage.alt} />}
 
 <!-- X/Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={formatCanonicalURL(canonicalURL)} />
+<meta name="twitter:creator" content="@filippodanesi">
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 {resolvedImage?.src && <meta property="twitter:image" content={resolvedImage.src} />}
