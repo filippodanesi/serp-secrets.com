@@ -38,3 +38,13 @@ figcaption a {
     font-size: 0.7rem !important;
     color: rgb(var(--color-text-muted) / 0.6) !important;
 }
+
+/* No scrollbar for meta in article */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
