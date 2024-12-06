@@ -87,7 +87,7 @@ if (tags.length > 0) {
             </h1>
 
             {/* Meta information - Responsive layout */}
-            <div class="mt-4 text-sm flex flex-col gap-y-3 sm:flex-row sm:items-center sm:justify-between" transition:name={`post-meta-${post.slug}`}>
+            <div class="mt-4 text-sm flex flex-col gap-y-5 sm:flex-row sm:items-center sm:justify-between" transition:name={`post-meta-${post.slug}`}>
                 {/* Left side: Date and author */}
                 <div class="flex items-center flex-wrap gap-x-1.5">
                     <span>Published on<FormattedDate date={publishDate} /></span>
@@ -104,12 +104,14 @@ if (tags.length > 0) {
                     )}
                 </div>
 
-                {/* Right side: Category tag - Smaller size */}
+                {/* Right side: Category tag - With theme colors */}
                 {tags.length > 0 && (
                     <a 
                         href={`/categories/${slugify(tags[0])}/`}
                         class="inline-flex items-center justify-center px-4 py-1 font-serif text-xs leading-tight italic 
-                            text-black bg-white border border-black rounded-full hover:underline self-start sm:self-auto"
+                            text-[rgb(var(--color-text-main))] bg-[rgb(var(--color-bg-main))] 
+                            border border-[rgb(var(--color-border-main))] rounded-full hover:underline 
+                            self-start sm:self-auto"
                     >
                         {tags[0]}
                     </a>
