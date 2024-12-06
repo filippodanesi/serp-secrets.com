@@ -103,7 +103,7 @@ function formatCanonicalURL(url: string | URL) {
 <meta property="og:url" content={formatCanonicalURL(canonicalURL)} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:author" content="Filippo Danesi">
+<meta property="article:author" content="Filippo Danesi">
 {resolvedImage?.src && <meta property="og:image" content={resolvedImage.src} />}
 {resolvedImage?.alt && <meta property="og:image:alt" content={resolvedImage.alt} />}
 
