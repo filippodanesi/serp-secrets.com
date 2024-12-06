@@ -99,7 +99,7 @@ if (tags.length > 0) {
 
             {/* Meta information - "Published on [date] by [author]" format */}
             <div class="mt-4 text-sm flex items-center flex-wrap gap-x-2" transition:name={`post-meta-${post.slug}`}>
-                <span>Pub. <FormattedDate date={publishDate} /></span>
+                <span>Published on <FormattedDate date={publishDate} /></span>
                 <span>by</span>
                 <a href="https://www.filippodanesi.it" class="font-medium hover:underline">Filippo Danesi</a>
                 
@@ -118,7 +118,7 @@ if (tags.length > 0) {
                     <>
                         <span class="text-neutral-500">/</span>
                         <span>
-                            Upd. <FormattedDate date={updatedDate} />
+                            Updated on <FormattedDate date={updatedDate} />
                         </span>
                     </>
                 )}
