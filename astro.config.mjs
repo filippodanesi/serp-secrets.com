@@ -71,8 +71,8 @@ export default defineConfig({
           flipButtons: false
         },
         preferencesModal: {
-          layout: "box",
-          position: "right",
+          layout: "cloud",
+          position: "center",
           equalWeightButtons: true,
           flipButtons: false
         }
