@@ -104,15 +104,15 @@ if (tags.length > 0) {
             <div class="mt-4 text-sm flex items-center justify-between" transition:name={`post-meta-${post.slug}`}>
                 {/* Date and author info */}
                 <div class="flex items-center flex-wrap gap-x-1.5">
-                    <span>Published on<FormattedDate date={publishDate} /></span>
-                    <span>by</span>
+                    <span>Published by</span>
                     <a href="https://www.filippodanesi.it" class="font-medium hover:underline">Filippo Danesi</a>
-                    
+                    <span>on <FormattedDate date={publishDate} /></span>
+                
                     {updatedDate && (
                         <>
                             <span class="text-neutral-500">/</span>
                             <span>
-                                Updated on <FormattedDate date={updatedDate} />
+                                Updated by <a href="https://www.filippodanesi.it" class="font-medium hover:underline">Filippo Danesi</a> on <FormattedDate date={updatedDate} />
                             </span>
                         </>
                     )}
