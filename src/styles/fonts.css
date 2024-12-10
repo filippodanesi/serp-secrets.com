@@ -15,18 +15,18 @@
     font-display: swap;
   }
   
-  /* Fraunces Variable */
+  /* Newsreader Variable */
   @font-face {
-    font-family: 'Fraunces';
-    src: url('/src/fonts/fraunces/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf') format('truetype-variations');
+    font-family: 'Newsreader';
+    src: url('/src/fonts/newsreader/Newsreader-VariableFont_opsz,wght.ttf') format('truetype-variations');
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
   }
   
   @font-face {
-    font-family: 'Fraunces';
-    src: url('/src/fonts/fraunces/Fraunces-Italic-VariableFont_SOFT,WONK,opsz,wght.ttf') format('truetype-variations');
+    font-family: 'Newsreader';
+    src: url('/src/fonts/newsreader/Newsreader-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations');
     font-weight: 100 900;
     font-style: italic;
     font-display: swap;
