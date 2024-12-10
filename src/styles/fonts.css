@@ -1,33 +1,99 @@
-/* Inter Variable */
+/* Public Sans Variable Font */
 @font-face {
-    font-family: 'Inter';
-    src: url('/src/fonts/inter/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations');
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'Inter';
-    src: url('/src/fonts/inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations');
-    font-weight: 100 900;
-    font-style: italic;
-    font-display: swap;
-  }
-  
-  /* Newsreader Variable */
-  @font-face {
-    font-family: 'Newsreader';
-    src: url('/src/fonts/newsreader/Newsreader-VariableFont_opsz,wght.ttf') format('truetype-variations');
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'Newsreader';
-    src: url('/src/fonts/newsreader/Newsreader-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations');
-    font-weight: 100 900;
-    font-style: italic;
-    font-display: swap;
-  }
+  font-family: 'Public Sans';
+  src: url('/src/fonts/public-sans/PublicSans-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Public Sans';
+  src: url('/src/fonts/public-sans/PublicSans-Italic-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+/* Roca Font Family */
+@font-face {
+  font-family: 'Roca';
+  src: url('/src/fonts/roca/Roca Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roca';
+  src: url('/src/fonts/roca/Roca Thin Italic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roca';
+  src: url('/src/fonts/roca/Roca Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roca';
+  src: url('/src/fonts/roca/Roca Light Italic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roca';
+  src: url('/src/fonts/roca/Roca Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roca';
+  src: url('/src/fonts/roca/Roca Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roca';
+  src: url('/src/fonts/roca/Roca Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roca';
+  src: url('/src/fonts/roca/Roca Bold Italic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roca';
+  src: url('/src/fonts/roca/Roca Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roca';
+  src: url('/src/fonts/roca/Roca Black Italic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roca';
+  src: url('/src/fonts/roca/Roca Heavy.ttf') format('truetype');
+  font-weight: 950;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roca';
+  src: url('/src/fonts/roca/Roca Heavy Italic.ttf') format('truetype');
+  font-weight: 950;
+  font-style: italic;
+}
