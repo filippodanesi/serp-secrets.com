@@ -6,7 +6,7 @@ module.exports = {
     theme: {
         fontFamily: {
             sans: ['Neue Haas Unica', ...defaultTheme.fontFamily.sans],
-            serif: ['Cormorant', ...defaultTheme.fontFamily.serif]
+            serif: ['Sole Serif Display', ...defaultTheme.fontFamily.serif]
         },
         extend: {
             textColor: {

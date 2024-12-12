@@ -160,6 +160,15 @@
   font-display: swap;
 }
 
+/* Saol Display - Medium */
+@font-face {
+  font-family: 'Sole Serif Display';
+  src: url('/src/fonts/sole-serif/sole-serif-display-medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Cormorant- Variable */
 @font-face {
   font-family: 'Cormorant';

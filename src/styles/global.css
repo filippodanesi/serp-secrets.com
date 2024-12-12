@@ -21,7 +21,7 @@
 
 /* Custom styles */
 .prose-dante :where(h1, h2, h3, h4, h5, h6):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-    font-family: "Cormorant", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    font-family: "Sole Serif Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     font-weight: 500;
 }
 
