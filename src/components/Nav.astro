@@ -131,29 +131,29 @@ const navLinks = (siteConfig.headerNavLinks ?? []).filter((link: Link) => link.h
         .menu-item:nth-child(4) { transition-delay: 0.25s; }
 
         .menu-toggle-icon {
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: background-color 0.2s;
         }
 
         .menu-toggle-icon:before,
         .menu-toggle-icon:after {
             @apply w-6 h-px absolute left-1/2 top-0 origin-center -translate-x-1/2 bg-current;
             content: '';
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.2s ease-out;
         }
 
         .menu-toggle-icon:before { @apply -translate-y-1.5; }
         .menu-toggle-icon:after { @apply translate-y-1.5; }
 
         .menu-toggle.is-active .menu-toggle-icon {
-            @apply rotate-90;
+            background-color: transparent;
         }
 
         .menu-toggle.is-active .menu-toggle-icon:before {
-            @apply rotate-45 translate-y-0;
+            @apply translate-y-0 rotate-45;
         }
 
         .menu-toggle.is-active .menu-toggle-icon:after {
-            @apply -rotate-45 translate-y-0;
+            @apply translate-y-0 -rotate-45;
         }
     }
 </style>
