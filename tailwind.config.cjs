@@ -21,13 +21,14 @@ module.exports = {
             },
             colors: {
                 customBlue: {
-                  DEFAULT: 'rgb(28, 107, 187)',
-                  dark: 'rgb(47, 116, 187)',
-                },
-              },
+                    DEFAULT: 'rgb(28, 107, 187)',
+                    dark: 'rgb(47, 116, 187)',
+                }
+            },
             typography: (theme) => ({
                 dante: {
                     css: {
+                        '--typography-serif': theme('fontFamily.serif').join(', '),
                         '--tw-prose-body': theme('textColor.main / 100%'),
                         '--tw-prose-headings': theme('textColor.main / 100%'),
                         '--tw-prose-lead': theme('textColor.main / 100%'),
@@ -44,6 +45,10 @@ module.exports = {
                         '--tw-prose-pre-bg': theme('colors.zinc.800'),
                         '--tw-prose-th-borders': theme('borderColor.main / 100%'),
                         '--tw-prose-td-borders': theme('borderColor.main / 100%'),
+                        'h1,h2,h3,h4,h5,h6': {
+                            fontFamily: 'var(--typography-serif)',
+                            fontWeight: 500
+                        }
                     }
                 },
                 DEFAULT: {
