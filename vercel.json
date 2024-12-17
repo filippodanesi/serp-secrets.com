@@ -6,7 +6,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.google-analytics.com https://*.googletagmanager.com https://*.google.com https://*.google.it https://*.doubleclick.net https://platform.twitter.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://platform.twitter.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://*.google.com https://*.google.it https://*.doubleclick.net https://platform.twitter.com https://pbs.twimg.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.google.com https://*.google.it https://*.doubleclick.net https://api.twitter.com https://api.github.com https://auth.decapcms.com; frame-src 'self' https://platform.twitter.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.google-analytics.com https://*.googletagmanager.com https://*.google.com https://*.google.it https://*.doubleclick.net https://platform.twitter.com https://unpkg.com https://analytics.ahrefs.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://platform.twitter.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://*.google.com https://*.google.it https://*.doubleclick.net https://platform.twitter.com https://pbs.twimg.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.google.com https://*.google.it https://*.doubleclick.net https://api.twitter.com https://api.github.com; frame-src 'self' https://platform.twitter.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
         },
         {
           "key": "Permissions-Policy",
@@ -35,4 +35,4 @@
       ]
     }
   ]
- }
+}
