@@ -10,7 +10,7 @@ A technical publication exploring the convergence of SEO and artificial intellig
 
 ## Stack
 
-The platform leverages Astro for static site generation, TypeScript for robust development, and Tailwind CSS for styling. Enhanced with [Fuse.js](https://www.fusejs.io/) for advanced search capabilities and [astro-cookieconsent](https://github.com/jop-software/astro-cookieconsent) for privacy compliance.
+The platform leverages [Astro](https://astro.build) v4.5 for static site generation, [TypeScript](https://www.typescriptlang.org/) for robust development, and [Tailwind CSS](https://tailwindcss.com/) v3.4 for styling. Enhanced with [MDX](https://mdxjs.com/) for advanced content authoring, [Fuse.js](https://www.fusejs.io/) v7.0 for powerful search capabilities, [React](https://react.dev/) v18.3 for interactive components, and [astro-cookieconsent](https://github.com/jop-software/astro-cookieconsent) for privacy compliance. Optimized with [Sharp](https://sharp.pixelplumbing.com/) for efficient image processing and deployable on [Vercel](https://vercel.com) with built-in analytics.
 
 ## Development
 
