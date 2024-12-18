@@ -30,7 +30,7 @@ const socialIcons: Record<SocialNetwork, string> = {
     {/* Mobile Order: Social Icons (centered) on top, Copyright and Cookie Settings below */}
     <div class="flex flex-col gap-6 sm:flex-row sm:justify-between sm:items-center">
         {/* Social Icons - Centered on mobile, right on desktop */}
-        <div class="order-first sm:order-last flex justify-center sm:justify-end gap-6">
+        <div class="order-first sm:order-last flex justify-left sm:justify-end gap-6">
             {siteConfig.socialLinks?.map((link) => (
                 <a 
                     href={link.href}
