@@ -23,7 +23,9 @@ npm run preview    # Preview build
 
 ## Contribute
 
-For technical issues, submit through [GitHub Issues](https://github.com/JustGoodUI/dante-astro-theme/issues). Content suggestions and collaborations can be proposed via our [Contact Form](https://www.serp-secrets.com/contact).
+For technical issues, submit through [GitHub Issues](https://github.com/JustGoodUI/dante-astro-theme/issues). 
+
+Content suggestions and collaborations can be proposed via our [Contact Form](https://www.serp-secrets.com/contact).
 
 ## License
 
