@@ -22,7 +22,7 @@ const {
 
 const title = isHome 
     ? Astro.props.title 
-    : [Astro.props.title, siteConfig.title].filter(Boolean).join(' &#92; ');
+    : [Astro.props.title, siteConfig.title].filter(Boolean).join(' \\ ');
 
 const resolvedImage = image?.src
     ? {
