@@ -1,8 +1,8 @@
 ---
-title: About
+title: My SEO Journey
 publishDate: '2024-11-07'
 seo:
-  title: About Me
+  title: My SEO Journey
   description: Learn more about the person behind the website and embark on a journey of inspiration and shared experiences.
   image:
     src: '/about.webp'
