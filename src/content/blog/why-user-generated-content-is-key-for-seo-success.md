@@ -30,7 +30,7 @@ Integration is key to driving the most value from UGC. Think about how user test
 Some of the latest Google core updates, especially that of [March 2024](https://www.serp-secrets.com/blog/in-depth-analysis-of-googles-march-2024-updates/), which **reduced low-quality and unoriginal content by a whopping 45%**, have given a new twist to the jungle of SEO. This massive shift has brought much more emphasis on authentic and worthy content ranking in search. The key to success lies in understanding and adapting to these changes through strategic UGC implementation.
 
 <figure>
-  <img src="https://searchengineland.com/wp-content/seloads/2024/05/SERP-Volatility-All-categories-US.png.webp" alt="A graph showing SERP volatility across all categories in the US during Google updates">
+  <img src="/SERP-Volatility-All-categories-US.png.webp" alt="A graph showing SERP volatility across all categories in the US during Google updates">
   <figcaption>"SERP Volatility All Categories US" - Source: <a href="https://searchengineland.com/google-algorithm-updates-2024-in-review-4-core-updates-and-3-spam-updates-436749">Search Engine Land</a>, by Barry Schwartz</figcaption>
 </figure>
 
