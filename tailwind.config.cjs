@@ -5,8 +5,26 @@ module.exports = {
     darkMode: 'class',
     theme: {
         fontFamily: {
-            sans: ['Inter', ...defaultTheme.fontFamily.sans],
-            serif: ['Newsreader', ...defaultTheme.fontFamily.serif]
+            sans: [
+                '-apple-system',
+                'system-ui',
+                'BlinkMacSystemFont',
+                'Segoe UI',
+                'Roboto',
+                'Helvetica Neue',
+                'Arial',
+                ...defaultTheme.fontFamily.sans
+            ],
+            serif: [
+                '-apple-system',
+                'system-ui',
+                'BlinkMacSystemFont',
+                'Segoe UI',
+                'Roboto',
+                'Helvetica Neue',
+                'Arial',
+                ...defaultTheme.fontFamily.serif
+            ]
         },
         extend: {
             textColor: {
