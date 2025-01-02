@@ -86,9 +86,10 @@ if (tags.length > 0) {
                 <div class="mb-6 sm:hidden">
                     <a 
                         href={`/categories/${slugify(tags[0])}/`}
-                        class="inline-flex items-center justify-center px-4 py-1 font-serif text-xs leading-tight italic 
+                        class="inline-flex items-center justify-center px-4 py-1 font-sans text-xs leading-tight 
        text-[rgb(var(--color-text-main)/0.7)] bg-[rgb(var(--color-bg-main))] 
-       border border-[rgb(var(--color-border-main)/0.1)] rounded-full hover:underline"
+       border border-[rgb(var(--color-border-main)/0.1)] rounded-full 
+       hover:text-[rgb(var(--color-text-main))]"
                     >
                         {tags[0]}
                     </a>
@@ -122,9 +123,10 @@ if (tags.length > 0) {
                 {tags.length > 0 && (
                     <a 
                         href={`/categories/${slugify(tags[0])}/`}
-                        class="inline-flex items-center justify-center px-4 py-1 font-serif text-xs leading-tight italic 
+                        class="inline-flex items-center justify-center px-4 py-1 font-sans text-xs leading-tight 
        text-[rgb(var(--color-text-main)/0.7)] bg-[rgb(var(--color-bg-main))] 
-       border border-[rgb(var(--color-border-main)/0.1)] rounded-full hover:underline"
+       border border-[rgb(var(--color-border-main)/0.1)] rounded-full 
+       hover:text-[rgb(var(--color-text-main))]"
                     >
                         {tags[0]}
                     </a>
