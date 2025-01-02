@@ -16,13 +16,11 @@ module.exports = {
                 ...defaultTheme.fontFamily.sans
             ],
             serif: [
-                '-apple-system',
-                'system-ui',
-                'BlinkMacSystemFont',
-                'Segoe UI',
-                'Roboto',
-                'Helvetica Neue',
-                'Arial',
+                'Georgia',
+                'Cambria',
+                'Times New Roman',
+                'Times',
+                'serif',
                 ...defaultTheme.fontFamily.serif
             ]
         },
