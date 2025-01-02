@@ -87,8 +87,8 @@ if (tags.length > 0) {
                     <a 
                         href={`/categories/${slugify(tags[0])}/`}
                         class="inline-flex items-center justify-center px-4 py-1 font-serif text-xs leading-tight italic 
-                            text-[rgb(var(--color-text-main))] bg-[rgb(var(--color-bg-main))] 
-                            border border-[rgb(var(--color-border-main))] rounded-full hover:underline"
+       text-[rgb(var(--color-text-main)/0.7)] bg-[rgb(var(--color-bg-main))] 
+       border border-[rgb(var(--color-border-main)/0.1)] rounded-full hover:underline"
                     >
                         {tags[0]}
                     </a>
@@ -122,9 +122,9 @@ if (tags.length > 0) {
                 {tags.length > 0 && (
                     <a 
                         href={`/categories/${slugify(tags[0])}/`}
-                        class="hidden sm:inline-flex items-center justify-center px-4 py-1 text-xs font-sans leading-tight 
-       text-gray-900 bg-white border border-gray-200 rounded-full
-       transition hover:bg-gray-100"
+                        class="inline-flex items-center justify-center px-4 py-1 font-serif text-xs leading-tight italic 
+       text-[rgb(var(--color-text-main)/0.7)] bg-[rgb(var(--color-bg-main))] 
+       border border-[rgb(var(--color-border-main)/0.1)] rounded-full hover:underline"
                     >
                         {tags[0]}
                     </a>
