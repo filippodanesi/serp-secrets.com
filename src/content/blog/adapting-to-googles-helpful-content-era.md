@@ -12,7 +12,7 @@ seo:
 ---
 
 <figure>
-  <img src="/adapting-to-googles-helpful-content-era.webp" alt="abstract 3d illustration with abstract light scattering on it">
+  <img id="cover-img" src="/adapting-to-googles-helpful-content-era.webp" alt="abstract 3d illustration with abstract light scattering on it">
   <figcaption>Photo by <a href="https://unsplash.com/@theshubhamdhage?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Shubham Dhage</a> on <a href="https://unsplash.com/photos/a-3d-image-of-a-box-with-a-lot-of-bubbles-coming-out-of-it-50GSjnC7qXw?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

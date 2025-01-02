@@ -11,7 +11,7 @@ seo:
 ---
 
 <figure>
-  <img src="/what-is-googles-search-generative-experience.webp" alt="A green spiral staircase with a white ball in it photo">
+  <img id="cover-img" src="/what-is-googles-search-generative-experience.webp" alt="A green spiral staircase with a white ball in it photo">
   <figcaption>Photo by <a href="https://unsplash.com/@sunx?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Li Zhang</a> on <a href="https://unsplash.com/photos/a-green-spiral-staircase-with-a-white-ball-in-it-HYwU-Fl6IoM?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

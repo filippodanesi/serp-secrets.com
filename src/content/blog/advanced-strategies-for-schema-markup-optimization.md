@@ -11,7 +11,7 @@ seo:
 ---
 
 <figure>
-  <img src="/advanced-strategies-for-schema-markup-optimization.webp" alt="A multicolored cube of glass on a white background photo">
+  <img id="cover-img" src="/advanced-strategies-for-schema-markup-optimization.webp" alt="A multicolored cube of glass on a white background photo">
   <figcaption>Photo by <a href="https://unsplash.com/@0xalyx?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">ALYX</a> on <a href="https://unsplash.com/photos/a-multicolored-cube-of-glass-on-a-white-background-PQghmhag2cg?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

@@ -11,7 +11,7 @@ seo:
 ---
 
 <figure>
-  <img src="/how-to-use-ai-in-seo-forecasting.webp" alt="A blurry image of a white circle photo">
+  <img id="cover-img" src="/how-to-use-ai-in-seo-forecasting.webp" alt="A blurry image of a white circle photo">
   <figcaption>Photo by <a href="https://unsplash.com/@and_machines?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">and machines</a> on <a href="https://unsplash.com/photos/a-blurry-image-of-a-white-circle-bvruqj_Rp-M?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

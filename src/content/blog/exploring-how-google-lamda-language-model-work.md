@@ -11,7 +11,7 @@ seo:
 ---
 
 <figure>
-  <img src="/exploring-how-google-lamda-language-model-work.webp" alt="Pink green and blue abstract painting photo">
+  <img id="cover-img" src="/exploring-how-google-lamda-language-model-work.webp" alt="Pink green and blue abstract painting photo">
   <figcaption>Photo by <a href="https://unsplash.com/@fakurian?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Milad Fakurian</a> on <a href="https://unsplash.com/photos/pink-green-and-blue-abstract-painting-UYgrVfIhBec?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

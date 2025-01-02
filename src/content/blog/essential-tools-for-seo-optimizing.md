@@ -11,7 +11,7 @@ seo:
 ---
 
 <figure>
-  <img src="/essential-tools-for-seo-optimizing.webp" alt="A blurry photo of a bunch of curved lines photo">
+  <img id="cover-img" src="/essential-tools-for-seo-optimizing.webp" alt="A blurry photo of a bunch of curved lines photo">
   <figcaption>Photo by <a href="https://unsplash.com/@joey_f?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Joey F.</a> on <a href="https://unsplash.com/photos/a-blurry-photo-of-a-bunch-of-curved-lines-rjohWsfOn0Y?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

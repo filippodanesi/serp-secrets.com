@@ -12,7 +12,7 @@ seo:
 ---
 
 <figure>
-  <img src="/geo-the-future-of-digital-optimization.webp" alt="A close up of a cell phone with a blurry background">
+  <img id="cover-img" src="/geo-the-future-of-digital-optimization.webp" alt="A close up of a cell phone with a blurry background">
   <figcaption>Photo by <a href="https://unsplash.com/@theshubhamdhage?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Shubham Dhage</a> on <a href="https://unsplash.com/photos/a-close-up-of-a-cell-phone-with-a-blurry-background-hYGyOBXFZ9o?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

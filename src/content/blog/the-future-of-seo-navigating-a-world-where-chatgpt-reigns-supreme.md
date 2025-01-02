@@ -11,7 +11,7 @@ seo:
 ---
 
 <figure>
-  <img src="/the-future-of-seo-navigating-a-world-where-chatgpt-reigns-supreme.webp" alt="Product Photography on Office Table Backdrop 3d Render">
+  <img id="cover-img" src="/the-future-of-seo-navigating-a-world-where-chatgpt-reigns-supreme.webp" alt="Product Photography on Office Table Backdrop 3d Render">
   <figcaption>Photo by <a href="https://unsplash.com/@theshubhamdhage?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Shubham Dhage</a> on <a href="https://unsplash.com/photos/a-3d-image-of-a-box-with-a-lot-of-bubbles-coming-out-of-it-50GSjnC7qXw?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

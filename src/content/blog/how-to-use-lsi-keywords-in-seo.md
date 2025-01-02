@@ -11,7 +11,7 @@ seo:
 ---
 
 <figure>
-  <img src="/how-to-use-lsi-keywords-in-seo.webp" alt="Blue and white round illustration photo">
+  <img id="cover-img" src="/how-to-use-lsi-keywords-in-seo.webp" alt="Blue and white round illustration photo">
   <figcaption>Photo by <a href="https://unsplash.com/@sebastiansvenson?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Sebastian Svenson</a> on <a href="https://unsplash.com/photos/blue-and-white-round-illustration-LpbyDENbQQg?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

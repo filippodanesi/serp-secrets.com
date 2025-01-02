@@ -11,7 +11,7 @@ seo:
 ---
 
 <figure>
-  <img src="/generative-ai-and-predictive-ai.webp" alt="Product Photography on Office Table Backdrop 3d Render">
+  <img id="cover-img" src="/generative-ai-and-predictive-ai.webp" alt="Product Photography on Office Table Backdrop 3d Render">
   <figcaption>Photo by <a href="https://unsplash.com/@dynamicwang?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Dynamic Wang</a> on <a href="https://unsplash.com/photos/a-close-up-of-a-feather-S5pMXEuLI_Q?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

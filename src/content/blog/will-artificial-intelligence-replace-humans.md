@@ -11,7 +11,7 @@ seo:
 ---
 
 <figure>
-  <img src="/will-artificial-intelligence-replace-humans.webp" alt="A very large group of blue and white objects photo">
+  <img id="cover-img" src="/will-artificial-intelligence-replace-humans.webp" alt="A very large group of blue and white objects photo">
   <figcaption>Photo by <a href="https://unsplash.com/@rick_rothenberg?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Rick Rothenberg</a> on <a href="https://unsplash.com/photos/a-very-large-group-of-blue-and-white-objects-EnlVYvzwY3Y?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 
