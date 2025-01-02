@@ -40,8 +40,6 @@ div#cc-main {
 /* Article image specific styles */
 #article-img {
     border: 1px solid rgb(var(--color-text-main) / 0.08);
-    border-radius: 6px;
-    box-shadow: 0px 2px 2px rgb(var(--color-text-main) / 0.4);
 }
 
 /* Caption styles */
