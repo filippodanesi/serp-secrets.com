@@ -54,6 +54,11 @@ Google's **E-E-A-T guidelines** (Experience, Expertise, Authoritativeness, and T
 
 Building a strong E-E-A-T signal using UGC requires the web page to be very interested in users' credentials and their areas of expertise. Allow users, including experts, to share their thoughts, knowledge, and experiences; verification of these contributors can be highlighted within systems. Encourage long experience sharing that reflects realistic life situations and understanding. Whenever relevant, allow user-generated content to connect with your credible authoritative sources to demonstrate validity.
 
+<figure>
+  <img src="/E-E-A-T-Content-Creator-Perspective.webp" alt="EEAT guidelines for quality raters experience, expertise, authority and trust">
+  <figcaption>"What does E-E-A-T mean in SEO?" - Source: <a href="https://moz.com/learn/seo/google-eat" target="_blank">Moz Learn</a>, by Miriam Ellis</figcaption>
+</figure>
+
 ## SEO Resilience with UGC
 
 You need to create **SEO resilience** through UGC, an overall strategy besides the collection of user reviews. The self-sustaining system shall be capable of producing high-quality user content with continued relevance and authenticity. This calls for the establishment of a lucid procedure of creation, moderation, and optimization.
