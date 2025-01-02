@@ -11,7 +11,7 @@ seo:
 ---
 
 <figure>
-  <img src="/why-user-generated-content-is-key-for-seo-success.webp" alt="A green and black background with wavy lines">
+  <img id="cover-img" src="/why-user-generated-content-is-key-for-seo-success.webp" alt="A green and black background with wavy lines">
   <figcaption>Photo by <a href="https://unsplash.com/@abstralofficial?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Abstral Official</a> on <a href="https://unsplash.com/photos/a-green-and-black-background-with-wavy-lines-CYDlUSK_tIM?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 
@@ -30,7 +30,7 @@ Integration is key to driving the most value from UGC. Think about how user test
 Some of the latest Google core updates, especially that of [March 2024](https://www.serp-secrets.com/blog/in-depth-analysis-of-googles-march-2024-updates/), which **reduced low-quality and unoriginal content by a whopping 45%**, have given a new twist to the jungle of SEO. This massive shift has brought much more emphasis on authentic and worthy content ranking in search. The key to success lies in understanding and adapting to these changes through strategic UGC implementation.
 
 <figure>
-  <img src="/SERP-Volatility-All-categories-US.png.webp" alt="A graph showing SERP volatility across all categories in the US during Google updates">
+  <img id="article-img" src="/SERP-Volatility-All-categories-US.png.webp" alt="A graph showing SERP volatility across all categories in the US during Google updates">
   <figcaption>"SERP Volatility All Categories US" - Source: <a href="https://searchengineland.com/google-algorithm-updates-2024-449417" target="_blank">Search Engine Land</a>, by Barry Schwartz</figcaption>
 </figure>
 
