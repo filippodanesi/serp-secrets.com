@@ -31,7 +31,7 @@ Some of the latest Google core updates, especially that of [March 2024](https://
 
 <figure>
   <img id="article-img" src="/SERP-Volatility-All-categories-US.png.webp" alt="A graph showing SERP volatility across all categories in the US during Google updates">
-  <figcaption>"SERP Volatility All Categories US" - Source: <a href="https://searchengineland.com/google-algorithm-updates-2024-449417" target="_blank">Search Engine Land</a>, by Barry Schwartz</figcaption>
+  <figcaption>"SERP Volatility All Categories US" \ Source: <a href="https://searchengineland.com/google-algorithm-updates-2024-449417" target="_blank">Search Engine Land</a>, by Barry Schwartz</figcaption>
 </figure>
 
 Your UGC strategy should be aligned with such updates that foster not only really informative and detailed user reviews, which are of actual benefit to readers, but also **ensure search engines easily crawl** and display user reviews and ratings through structured data markup. Clearly outline guidelines for sharing specific, helpful experiences-not general feedback. Ongoing monitoring and analysis of user content performance via [Google Analytics](https://www.serp-secrets.com/blog/essential-tools-for-seo-optimizing/) will help further refine your strategy and ensure search visibility remains strong.
@@ -56,7 +56,7 @@ Building a strong E-E-A-T signal using UGC requires the web page to be very inte
 
 <figure>
   <img id="article-img" src="/E-E-A-T-Content-Creator-Perspective.webp" alt="EEAT guidelines for quality raters experience, expertise, authority and trust">
-  <figcaption>"What does E-E-A-T mean in SEO?" - Source: <a href="https://moz.com/learn/seo/google-eat" target="_blank">Moz Learn</a>, by Miriam Ellis</figcaption>
+  <figcaption>"What does E-E-A-T mean in SEO?" \ Source: <a href="https://moz.com/learn/seo/google-eat" target="_blank">Moz Learn</a>, by Miriam Ellis</figcaption>
 </figure>
 
 ## SEO Resilience with UGC
