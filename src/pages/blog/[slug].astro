@@ -122,9 +122,9 @@ if (tags.length > 0) {
                 {tags.length > 0 && (
                     <a 
                         href={`/categories/${slugify(tags[0])}/`}
-                        class="hidden sm:inline-flex items-center justify-center px-4 py-1 font-serif text-xs leading-tight italic 
+                        class="hidden sm:inline-flex items-center justify-center px-4 py-1 font-sans text-xs leading-tight 
                             text-[rgb(var(--color-text-main))] bg-[rgb(var(--color-bg-main))] 
-                            border border-[rgb(var(--color-border-main))] rounded-full
+                            border border-[rgb(var(--color-border-main) / 0.1)] rounded-full
                             transition hover:bg-muted"
                     >
                         {tags[0]}
