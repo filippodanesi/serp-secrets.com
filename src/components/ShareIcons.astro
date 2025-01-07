@@ -1,62 +1,127 @@
 ---
+// ShareIcons.astro
+const socialShareIcons = {
+    Facebook: `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`,
+    Twitter: `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 512 462.799"><path fill="currentColor" d="M403.229 0h78.506L310.219 196.04 512 462.799H354.002L230.261 301.007 88.669 462.799h-78.56l183.455-209.683L0 0h161.999l111.856 147.88L403.229 0zm-27.556 415.805h43.505L138.363 44.527h-46.68l283.99 371.278z"/></svg>`,
+    LinkedIn: `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"><path d="M0 0v24h24v-24h-24zm8 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.397-2.586 7-2.777 7 2.476v6.759z"/></svg>`,
+    Copy: `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24">
+        <g class="copy-icon">
+            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1z"/>
+            <path d="M20 5H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h12v14z"/>
+        </g>
+        <g class="check-icon" style="display: none">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+        </g>
+    </svg>`
+};
+
 const { url, title } = Astro.props;
 
-const shares = [
-    {
-        name: 'Facebook',
-        url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`
-    },
-    {
-        name: 'Twitter',
-        url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 512 462.799"><path d="M403.229 0h78.506L310.219 196.04 512 462.799H354.002L230.261 301.007 88.669 462.799h-78.56l183.455-209.683L0 0h161.999l111.856 147.88L403.229 0zm-27.556 415.805h43.505L138.363 44.527h-46.68l283.99 371.278z"/></svg>`
-    },
-    {
-        name: 'LinkedIn',
-        url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M0 0v24h24v-24h-24zm8 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.397-2.586 7-2.777 7 2.476v6.759z"/></svg>`
-    }
-];
+// Funzioni per generare gli URL di condivisione
+const shareUrls = {
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+};
 ---
 
-<div class="flex gap-6 mt-6">
-    {shares.map(({ name, url, icon }) => (
-        <a
-            href={url}
-            class="text-gray-600 hover:text-gray-900 transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Share on ${name}`}
-        >
-            <Fragment set:html={icon} />
-        </a>
-    ))}
-    <button 
-        class="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-        data-url={url}
-        aria-label="Copy link"
+<div class="flex items-center gap-4 mt-5 text-text-main">
+    <a 
+        href={shareUrls.facebook}
+        class="hover:text-text-muted transition-colors duration-200"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Share on Facebook"
     >
-        Copy
+        <Fragment set:html={socialShareIcons.Facebook} />
+    </a>
+    <a 
+        href={shareUrls.twitter}
+        class="hover:text-text-muted transition-colors duration-200"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Share on Twitter"
+    >
+        <Fragment set:html={socialShareIcons.Twitter} />
+    </a>
+    <a 
+        href={shareUrls.linkedin}
+        class="hover:text-text-muted transition-colors duration-200"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Share on LinkedIn"
+    >
+        <Fragment set:html={socialShareIcons.LinkedIn} />
+    </a>
+    <button 
+        class="copy-url-button inline-flex items-center justify-center gap-2 px-4 py-1 text-xs font-medium leading-tight text-main bg-main border border-main rounded-full hover:bg-muted"
+        aria-label="Copy link"
+        data-url={url}
+        data-tooltip-default="Copy"
+        data-tooltip-success="Copied"
+    >
+        <Fragment set:html={socialShareIcons.Copy} />
+        <span>Copy</span>
     </button>
 </div>
 
-<script>
-    function handleCopy(e) {
-        const button = e.target.closest('button');
-        if (!button) return;
-        
-        const url = button.dataset.url || window.location.href;
-        navigator.clipboard.writeText(url)
-            .then(() => {
-                button.textContent = 'Copied!';
-                setTimeout(() => button.textContent = 'Copy', 2000);
-            })
-            .catch(console.error);
+<style>
+    svg {
+        fill: currentColor;
     }
 
-    document.addEventListener('click', handleCopy);
-    document.addEventListener('astro:page-load', () => {
-        document.addEventListener('click', handleCopy);
-    });
+    .copy-icon,
+    .check-icon {
+        transition: display 0.3s ease;
+    }
+</style>
+
+<script>
+    function setupCopyButton() {
+        const copyUrlButton = document.querySelector('.copy-url-button') as HTMLButtonElement;
+        if (!copyUrlButton) return;
+
+        copyUrlButton.addEventListener('click', async () => {
+            const url = copyUrlButton.getAttribute('data-url') || window.location.href;
+            const buttonText = copyUrlButton.querySelector('span');
+            const copyIcon = copyUrlButton.querySelector('.copy-icon');
+            const checkIcon = copyUrlButton.querySelector('.check-icon');
+            
+            try {
+                await navigator.clipboard.writeText(url);
+                
+                // Cambia il testo
+                if (buttonText) {
+                    buttonText.textContent = copyUrlButton.getAttribute('data-tooltip-success') || 'Copied';
+                }
+                
+                // Mostra l'icona di spunta
+                if (copyIcon && checkIcon) {
+                    copyIcon.style.display = 'none';
+                    checkIcon.style.display = 'block';
+                }
+                
+                setTimeout(() => {
+                    // Ripristina il testo originale
+                    if (buttonText) {
+                        buttonText.textContent = copyUrlButton.getAttribute('data-tooltip-default') || 'Copy';
+                    }
+                    
+                    // Ripristina l'icona originale
+                    if (copyIcon && checkIcon) {
+                        copyIcon.style.display = 'block';
+                        checkIcon.style.display = 'none';
+                    }
+                }, 2500);
+            } catch (err) {
+                console.error('Failed to copy:', err);
+            }
+        });
+    }
+
+    // Setup iniziale
+    setupCopyButton();
+
+    // Setup per le navigazioni successive
+    document.addEventListener('astro:page-load', setupCopyButton);
 </script>
