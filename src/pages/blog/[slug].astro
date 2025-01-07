@@ -1,10 +1,9 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Button from '../../components/Button.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import PostPreview from '../../components/PostPreview.astro';
-import Subscribe from '../../components/Subscribe.astro';
+import ShareIcons from '../../components/ShareIcons.astro';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
 import { slugify } from '../../utils/common-utils';
 import BlogPostingStructuredData from '../../components/structured-data/BlogPostingStructuredData.astro';
@@ -99,7 +98,7 @@ if (tags.length > 0) {
                 {title}
             </h1>
 
-            {/* Meta information with date and author */}
+            {/* Meta information with date, author and share icons */}
             <div class="mt-4 text-sm flex items-center justify-between" transition:name={`post-meta-${post.slug}`}>
                 {/* Date and author info */}
                 <div class="flex items-center flex-wrap gap-x-1.5">
@@ -129,18 +128,14 @@ if (tags.length > 0) {
                     </a>
                 )}
             </div>
+
+            {/* Share Icons */}
+            <ShareIcons url={href} title={title} />
         </header>
 
         {/* Article Content */}
         <div class="max-w-none prose prose-dante dark:prose-invert sm:prose-lg" transition:animate="slide">
             <Content />
-        </div>
-
-        {/* Share Button */}
-        <div class="mt-8 flex flex-wrap items-center gap-6 text-sm justify-between sm:mt-12 sm:text-base">
-            <Button class="copy-url-button" aria-label="Copy link" data-url={href} data-tooltip-default="Copy link" data-tooltip-success="Copied">
-                Share
-            </Button>
         </div>
     </article>
 
@@ -155,33 +150,3 @@ if (tags.length > 0) {
         )
     }
 </BaseLayout>
-
-<script>
-    function setupCopyButton() {
-        const copyUrlButton = document.querySelector('.copy-url-button') as HTMLButtonElement;
-        if (!copyUrlButton) return;
-
-        copyUrlButton.addEventListener('click', async () => {
-            const url = copyUrlButton.getAttribute('data-url') || window.location.href;
-            const defaultLabel = copyUrlButton.innerText;
-            
-            try {
-                await navigator.clipboard.writeText(url);
-                
-                copyUrlButton.innerText = copyUrlButton.getAttribute('data-tooltip-success') || 'Copied';
-                
-                setTimeout(() => {
-                    copyUrlButton.innerText = defaultLabel;
-                }, 2500);
-            } catch (err) {
-                console.error('Failed to copy:', err);
-            }
-        });
-    }
-
-    // Setup on initial load
-    setupCopyButton();
-    
-    // Setup on subsequent navigations
-    document.addEventListener('astro:page-load', setupCopyButton);
-</script>

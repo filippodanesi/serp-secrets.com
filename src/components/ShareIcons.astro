@@ -1,0 +1,90 @@
+---
+// ShareIcons.astro
+const socialShareIcons = {
+    Facebook: `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>`,
+    Twitter: `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 512 462.799"><path fill="currentColor" d="M403.229 0h78.506L310.219 196.04 512 462.799H354.002L230.261 301.007 88.669 462.799h-78.56l183.455-209.683L0 0h161.999l111.856 147.88L403.229 0zm-27.556 415.805h43.505L138.363 44.527h-46.68l283.99 371.278z"/></svg>`,
+    LinkedIn: `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"><path d="M0 0v24h24v-24h-24zm8 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.397-2.586 7-2.777 7 2.476v6.759z"/></svg>`,
+    Share: `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"><path d="M5 7c2.761 0 5 2.239 5 5s-2.239 5-5 5-5-2.239-5-5 2.239-5 5-5zm11.122 12.065c-.073.301-.122.611-.122.935 0 2.209 1.791 4 4 4s4-1.791 4-4-1.791-4-4-4c-1.165 0-2.204.506-2.935 1.301l-5.488-2.927c-.23.636-.549 1.229-.943 1.764l5.488 2.927zm7.878-15.065c0-2.209-1.791-4-4-4s-4 1.791-4 4c0 .324.049.634.122.935l-5.488 2.927c.395.535.713 1.127.943 1.764l5.488-2.927c.731.795 1.77 1.301 2.935 1.301 2.209 0 4-1.791 4-4z"/></svg>`
+};
+
+const { url, title } = Astro.props;
+
+const shareUrls = {
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+};
+---
+
+<div class="flex items-center gap-4 mt-4 text-text-main">
+    <a 
+        href={shareUrls.facebook}
+        class="hover:text-text-muted transition-colors duration-200"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Share on Facebook"
+    >
+        <Fragment set:html={socialShareIcons.Facebook} />
+    </a>
+    <a 
+        href={shareUrls.twitter}
+        class="hover:text-text-muted transition-colors duration-200"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Share on Twitter"
+    >
+        <Fragment set:html={socialShareIcons.Twitter} />
+    </a>
+    <a 
+        href={shareUrls.linkedin}
+        class="hover:text-text-muted transition-colors duration-200"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Share on LinkedIn"
+    >
+        <Fragment set:html={socialShareIcons.LinkedIn} />
+    </a>
+    <button 
+        class="copy-url-button hover:text-text-muted transition-colors duration-200"
+        aria-label="Copy link"
+        data-url={url}
+        data-tooltip-default="Copy link"
+        data-tooltip-success="Copied"
+    >
+        <Fragment set:html={socialShareIcons.Share} />
+    </button>
+</div>
+
+<style>
+    svg {
+        fill: currentColor;
+    }
+</style>
+
+<script>
+    function setupCopyButton() {
+        const copyUrlButton = document.querySelector('.copy-url-button') as HTMLButtonElement;
+        if (!copyUrlButton) return;
+
+        copyUrlButton.addEventListener('click', async () => {
+            const url = copyUrlButton.getAttribute('data-url') || window.location.href;
+            
+            try {
+                await navigator.clipboard.writeText(url);
+                copyUrlButton.setAttribute('aria-label', copyUrlButton.getAttribute('data-tooltip-success') || 'Copied');
+                
+                setTimeout(() => {
+                    copyUrlButton.setAttribute('aria-label', copyUrlButton.getAttribute('data-tooltip-default') || 'Copy link');
+                }, 2500);
+            } catch (err) {
+                console.error('Failed to copy:', err);
+            }
+        });
+    }
+
+    // Setup on initial load
+    setupCopyButton();
+    
+    // Setup on subsequent navigations
+    document.addEventListener('astro:page-load', setupCopyButton);
+</script>
