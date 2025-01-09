@@ -80,24 +80,24 @@ if (tags.length > 0) {
 
         {/* Article Header */}
         <header class="mb-8 mt-6">
-            {/* Category tag - Mobile only container */}
+            {/* Category tag - For both mobile and desktop */}
             {tags.length > 0 && (
-                <div class="mb-6 sm:hidden">
+                <div class="mb-4">
                     <a 
                         href={`/categories/${slugify(tags[0])}/`}
-                        class="inline-flex items-center justify-center px-4 py-1 text-xs leading-tight font-medium
+                        class="inline-flex items-center justify-center px-4 py-1 text-sm font-bold uppercase
                             text-main bg-main border border-main rounded-full hover:bg-muted"
                     >
                         {tags[0]}
                     </a>
                 </div>
             )}
-        
+
             {/* Article Title */}
             <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight" transition:name={`post-title-${post.slug}`}>
                 {title}
             </h1>
-        
+
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-4">
                 {/* Meta information */}
                 <div class="text-sm flex items-center flex-wrap gap-x-1.5" transition:name={`post-meta-${post.slug}`}>
@@ -114,21 +114,9 @@ if (tags.length > 0) {
                         </>
                     )}
                 </div>
-        
-                {/* Category tag - Desktop only */}
-                {tags.length > 0 && (
-                    <a 
-                        href={`/categories/${slugify(tags[0])}/`}
-                        class="hidden sm:inline-flex items-center justify-center px-4 py-1 text-xs leading-tight font-medium
-                            text-main bg-main border border-main rounded-full
-                            transition hover:bg-muted mt-2 sm:mt-0"
-                    >
-                        {tags[0]}
-                    </a>
-                )}
             </div>
-        
-            {/* Share Icons - Moved here */}
+
+            {/* Share Icons */}
             <div class="border-t border-main/10 mt-6 pt-6">
                 <ShareIcons url={href} title={title} />
             </div>
