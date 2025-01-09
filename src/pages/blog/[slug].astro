@@ -82,10 +82,10 @@ if (tags.length > 0) {
         <header class="mb-8 mt-6">
             {/* Category tag - For both mobile and desktop */}
             {tags.length > 0 && (
-                <div class="mb-4">
+                <div class="mb-5">
                     <a 
                         href={`/categories/${slugify(tags[0])}/`}
-                        class="inline-flex items-center text-xs font-medium uppercase text-[rgb(var(--color-text-muted)_/_0.6)] rounded-full"
+                        class="inline-flex items-center text-xs font-bold uppercase text-[rgb(var(--color-text-muted)_/_0.6)] rounded-full"
                     >
                         {tags[0]}
                     </a>
