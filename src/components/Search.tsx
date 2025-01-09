@@ -1,24 +1,151 @@
-// src/components/Search.tsx
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Fuse from 'fuse.js';
 
-interface SearchProps {
-  posts: Array<{
-    title: string;
-    url: string;
-    description?: string;
-    body: string;
-  }>;
+interface Post {
+  title: string;
+  url: string;
+  description?: string;
+  body: string;
 }
+
+interface SearchProps {
+  posts: Array<Post>;
+}
+
+// Clean markdown and other syntax from text
+function cleanText(text: string): string {
+  return text
+    // Remove markdown links
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    // Remove image markdown
+    .replace(/!\[([^\]]+)\]\([^)]+\)/g, '')
+    // Remove inline code
+    .replace(/`([^`]+)`/g, '$1')
+    // Remove bold/italic
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1')
+    // Remove HTML tags
+    .replace(/<[^>]+>/g, '')
+    // Remove URLs
+    .replace(/https?:\/\/[^\s]+/g, '')
+    // Remove multiple spaces
+    .replace(/\s+/g, ' ')
+    // Remove markdown headers
+    .replace(/#{1,6}\s/g, '')
+    // Trim
+    .trim();
+}
+
+// Function to highlight search terms in text
+function highlightText(text: string, searchQuery: string): string {
+  if (!searchQuery) return text;
+  
+  const words = searchQuery.trim().toLowerCase().split(/\s+/);
+  let highlightedText = text;
+  
+  words.forEach(word => {
+    const regex = new RegExp(`(${word})`, 'gi');
+    highlightedText = highlightedText.replace(regex, '<mark class="bg-yellow-100/50 px-1 rounded">$1</mark>');
+  });
+  
+  return highlightedText;
+}
+
+// Get relevant context around matched terms
+function getMatchContext(text: string, searchQuery: string, contextLength: number = 150): string | null {
+  if (!searchQuery || !text) return null;
+  
+  const cleanedText = cleanText(text);
+  const words = searchQuery.trim().toLowerCase().split(/\s+/);
+  
+  // Find the first occurrence of any search word
+  let firstIndex = -1;
+  let matchedWord = '';
+  
+  words.forEach(word => {
+    const index = cleanedText.toLowerCase().indexOf(word);
+    if (index !== -1 && (firstIndex === -1 || index < firstIndex)) {
+      firstIndex = index;
+      matchedWord = word;
+    }
+  });
+  
+  if (firstIndex === -1) return null;
+  
+  const start = Math.max(0, firstIndex - contextLength);
+  const end = Math.min(cleanedText.length, firstIndex + matchedWord.length + contextLength);
+  
+  let context = cleanedText.slice(start, end);
+  
+  // Add ellipsis if needed
+  if (start > 0) context = '...' + context;
+  if (end < cleanedText.length) context += '...';
+  
+  return highlightText(context, searchQuery);
+}
+
+const fuseOptions = {
+  keys: [
+    { 
+      name: 'title', 
+      weight: 1.5,
+      getFn: (obj: Post) => cleanText(obj.title)
+    },
+    { 
+      name: 'body', 
+      weight: 1,
+      getFn: (obj: Post) => cleanText(obj.body)
+    }
+  ],
+  threshold: 0.3,
+  ignoreLocation: true,
+  minMatchCharLength: 2,
+  shouldSort: true,
+  findAllMatches: true,
+  includeMatches: true,
+  distance: 100000
+};
 
 export default function Search({ posts }: SearchProps) {
   const [query, setQuery] = useState('');
-  const fuse = new Fuse(posts, {
-    keys: ['title', 'description', 'body'],
-    threshold: 0.3,
-  });
+  const [processedResults, setProcessedResults] = useState<Array<{
+    title: string;
+    url: string;
+    context: string | null;
+  }>>([]);
+  
+  const fuse = useMemo(() => new Fuse(posts, fuseOptions), [posts]);
 
-  const results = query ? fuse.search(query) : [];
+  // Process search results
+  React.useEffect(() => {
+    if (!query) {
+      setProcessedResults([]);
+      return;
+    }
+
+    const searchResults = fuse.search(query);
+    
+    const processed = searchResults.map(result => {
+      // Clean and highlight title
+      const cleanedTitle = cleanText(result.item.title);
+      const highlightedTitle = highlightText(cleanedTitle, query);
+      
+      // Get context from body
+      const context = result.matches
+        ?.find(match => match.key === 'body')
+        ?.value as string;
+      
+      const processedContext = context ? getMatchContext(context, query) : null;
+
+      return {
+        title: highlightedTitle,
+        url: result.item.url,
+        context: processedContext
+      };
+    });
+
+    setProcessedResults(processed);
+  }, [query, fuse]);
 
   return (
     <div className="not-prose">
@@ -34,27 +161,34 @@ export default function Search({ posts }: SearchProps) {
       </div>
 
       <div className="space-y-8">
-        {query && results.length === 0 ? (
-          <p className="text-[rgb(var(--color-text-muted))/60] text-sm font-sans">No results found.</p>
+        {query && processedResults.length === 0 ? (
+          <p className="text-[rgb(var(--color-text-muted))/60] text-sm font-sans">
+            No results found.
+          </p>
         ) : (
-          results.map((result, index) => (
+          processedResults.map((result, index) => (
             <a 
               key={index}
-              href={result.item.url}
-              className="flex justify-between items-start gap-8 group"
+              href={result.url}
+              className="block group space-y-3"
             >
-              <div className="grow">
-                <h2 className="text-xl leading-tight font-serif font-medium group-hover:underline group-hover:decoration-solid group-hover:underline-offset-4 group-hover:decoration-1 sm:text-2xl">
-                  {result.item.title}
-                </h2>
-                {result.item.description && (
-                  <div className="mt-3 text-sm leading-normal">
-                    {result.item.description}
-                  </div>
-                )}
-              </div>
-              <div className="hidden font-serif italic opacity-0 transition group-hover:opacity-100 sm:inline-flex sm:gap-1 sm:items-center sm:shrink-0">
-                Read Post
+              {/* Title */}
+              <h2 
+                className="text-xl leading-tight font-serif font-medium group-hover:underline group-hover:decoration-solid group-hover:underline-offset-4 group-hover:decoration-1 sm:text-2xl"
+                dangerouslySetInnerHTML={{ __html: result.title }}
+              />
+              
+              {/* Context */}
+              {result.context && (
+                <div 
+                  className="text-sm text-[rgb(var(--color-text-muted))] leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: result.context }}
+                />
+              )}
+              
+              {/* Read link */}
+              <div className="inline-flex items-center gap-1 font-serif italic text-sm opacity-60 group-hover:opacity-100">
+                Read article
                 <svg 
                   className="fill-current w-4 h-4"
                   viewBox="0 0 16 16"
