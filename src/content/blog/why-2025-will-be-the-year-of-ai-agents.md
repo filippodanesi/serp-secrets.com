@@ -21,9 +21,12 @@ The artificial intelligence landscape is approaching a **transformative inflecti
 
 The evolution from passive AI assistants to **proactive AI agents** represents one of the most significant technological leaps since the advent of cloud computing. Traditional [AI tools](https://www.serp-secrets.com/blog/will-chatgpt-end-googles-search-dominance/) operate within strictly defined parameters, responding only when prompted. In contrast, the **next generation of AI agents** will demonstrate genuine agency—the ability to proactively identify needs, formulate plans, and take independent action to achieve objectives. This fundamental shift from reactive to proactive systems marks the beginning of a new era in artificial intelligence.
 
-According to **Gartner's groundbreaking analysis**, we're witnessing the early stages of an exponential growth curve. Their [prediction](https://www.gartner.com/en/articles/intelligent-agent-in-ai) that approximately **one-third of enterprise software applications** will incorporate agentic AI by 2028—up from just 1% today—signals the beginning of a massive transformation in how organizations operate. 
+According to **Gartner's groundbreaking analysis**, we're witnessing the early stages of an exponential growth curve. Their [prediction](https://www.gartner.com/en/articles/intelligent-agent-in-ai) that approximately **one-third of enterprise software applications** will incorporate agentic AI by 2028—up from just 1% today—signals the beginning of a massive transformation in how organizations operate.
 
-![enter image description here](https://emt.gartnerweb.com/ngw/globalassets/en/articles/images/mind-the-ai-agency-gap.jpg?_gl=1*jtkacs*_ga*MTE1OTQwMjI3NC4xNzM2NDA5MjI4*_ga_R1W5CE5FEV*MTczNjQwOTIyNy4xLjEuMTczNjQwOTI0OS40MC4wLjA.*_gcl_au*NTc5OTUzNzI3LjE3MzY0MDkyMjk.)
+<figure>
+  <img id="article-img" src="/mind-the-ai-agency-gap.jpg" alt="A chart titled 'Mind the AI Agency Gap' compares human agency, deterministic chatbots, and LLM-based assistants from low to high agency across various criteria like adaptability and task complexity.">
+  <figcaption>"Agency level comparison between humans, chatbots and LLM assistants" \ Source: <a href="https://www.gartner.com/en/articles/intelligent-agent-in-ai" target="_blank">Gartner</a>, by Tom Coshow</figcaption>
+</figure>
 
 Even more striking is their forecast that **15% of daily workplace decisions** will be autonomously handled by AI agents within the same timeframe, representing a fundamental shift in how businesses operate and make decisions.
 
@@ -59,7 +62,10 @@ The challenge of managing thousands of independent AI agents has led to the deve
 
 The financial impact of AI agent adoption presents a complex landscape of opportunities and challenges. **Goldman Sachs' analysis** [suggests](https://www.goldmansachs.com/images/migrated/insights/pages/gs-research/gen-ai--too-much-spend,-too-little-benefit-/TOM_AI%202.0_ForRedaction.pdf) more measured productivity gains than many enthusiasts predict—potentially just a **0.5% increase in US productivity** over the next decade. 
 
-[enter link description here](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https://substack-post-media.s3.amazonaws.com/public/images/b1a515f2-5afe-4996-aebb-484b51d82b9d_1029x732.png)
+<figure>
+  <img id="article-img" src="public/b1a515f2-5afe-4996-aebb-484b51d82b9d_1029x732.jpg" alt="Bar chart showing average annual growth of real potential GDP and its components from 1950 to 2053, with projections from 2024 onwards. Bars split into real GDP, labor productivity, and labor force.">
+  <figcaption>"Average annual growth of real potential GDP and its components (1950-2053)" \ Source: <a href="https://www.goldmansachs.com/images/migrated/insights/pages/gs-research/gen-ai--too-much-spend%2C-too-little-benefit-/TOM_AI%202.0_ForRedaction.pdf" target="_blank">Goldman Sachs</a>, by Allison Nathan, Jenny Grimberg & Ashley Rhodes</figcaption>
+</figure>
 
 However, this conservative estimate may not fully capture the compound effects of AI agent integration across multiple sectors and use cases. The true economic impact will emerge from a combination of direct cost savings and transformative new business capabilities.
 
