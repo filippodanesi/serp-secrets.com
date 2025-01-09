@@ -6,7 +6,7 @@ tags:
   - Artificial Intelligence
 seo:
   image:
-    src: '/understanding-shadow-dom-for-a-optimized-indexing.webp'
+    src: '/why-2025-will-be-the-year-of-ai-agents.webp'
     alt: "Round gray button on white surface"
 ---
 
