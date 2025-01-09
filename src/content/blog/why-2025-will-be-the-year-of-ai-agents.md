@@ -63,7 +63,7 @@ The challenge of managing thousands of independent AI agents has led to the deve
 The financial impact of AI agent adoption presents a complex landscape of opportunities and challenges. **Goldman Sachs' analysis** [suggests](https://www.goldmansachs.com/images/migrated/insights/pages/gs-research/gen-ai--too-much-spend,-too-little-benefit-/TOM_AI%202.0_ForRedaction.pdf) more measured productivity gains than many enthusiasts predict—potentially just a **0.5% increase in US productivity** over the next decade. 
 
 <figure>
-  <img id="article-img" src="public/b1a515f2-5afe-4996-aebb-484b51d82b9d_1029x732.jpg" alt="Bar chart showing average annual growth of real potential GDP and its components from 1950 to 2053, with projections from 2024 onwards. Bars split into real GDP, labor productivity, and labor force.">
+  <img id="article-img" src="/b1a515f2-5afe-4996-aebb-484b51d82b9d_1029x732.jpg" alt="Bar chart showing average annual growth of real potential GDP and its components from 1950 to 2053, with projections from 2024 onwards. Bars split into real GDP, labor productivity, and labor force.">
   <figcaption>"Average annual growth of real potential GDP and its components (1950-2053)" \ Source: <a href="https://www.goldmansachs.com/images/migrated/insights/pages/gs-research/gen-ai--too-much-spend%2C-too-little-benefit-/TOM_AI%202.0_ForRedaction.pdf" target="_blank">Goldman Sachs</a>, by Allison Nathan, Jenny Grimberg & Ashley Rhodes</figcaption>
 </figure>
 
