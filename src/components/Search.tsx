@@ -45,8 +45,8 @@ function highlightText(text: string, searchQuery: string): string {
   
   words.forEach(word => {
     const regex = new RegExp(`(${word})`, 'gi');
-    highlightedText = highlightedText.replace(regex, '<mark class="bg-yellow-100/50 px-1 rounded">$1</mark>');
-  });
+    highlightedText = highlightedText.replace(regex, '<span class="font-bold px-1 rounded bg-[rgb(var(--color-bg-muted))]">$1</span>');
+});
   
   return highlightedText;
 }
