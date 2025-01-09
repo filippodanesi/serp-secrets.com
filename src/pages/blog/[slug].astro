@@ -85,7 +85,7 @@ if (tags.length > 0) {
                 <div class="mb-5">
                     <a 
                         href={`/categories/${slugify(tags[0])}/`}
-                        class="inline-flex items-center text-xs font-bold uppercase text-[rgb(var(--color-text-muted)_/_0.6)] hover:underline"
+                        class="text-xs font-regular italic text-[rgb(var(--color-text-muted)_/_0.6)] hover:underline"
                     >
                         {tags[0]}
                     </a>
@@ -93,20 +93,20 @@ if (tags.length > 0) {
             )}
 
             {/* Article Title */}
-            <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight" transition:name={`post-title-${post.slug}`}>
+            <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight mb-6 text-[rgb(var(--color-text-main))]" transition:name={`post-title-${post.slug}`}>
                 {title}
             </h1>
 
-            <div class="mt-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-t border-main/10 pt-6">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                 {/* Meta information */}
-                <div class="text-sm flex items-center flex-wrap gap-x-1.5" transition:name={`post-meta-${post.slug}`}>
+                <div class="text-sm text-[rgb(var(--color-text-muted)_/_0.8)]" transition:name={`post-meta-${post.slug}`}>
                     <span>Published by</span>
                     <a href="https://www.filippodanesi.it" class="font-medium hover:underline">Filippo Danesi</a>
                     <span>on <FormattedDate date={publishDate} /></span>
                 
                     {updatedDate && (
                         <>
-                            <span class="text-neutral-500">/</span>
+                            <span>/</span>
                             <span>
                                 Updated by <a href="https://www.filippodanesi.it" class="font-medium hover:underline">Filippo Danesi</a> on <FormattedDate date={updatedDate} />
                             </span>
@@ -115,7 +115,7 @@ if (tags.length > 0) {
                 </div>
 
                 {/* Share Icons */}
-                <div>
+                <div class="mt-4 sm:mt-0">
                     <ShareIcons url={href} title={title} />
                 </div>
             </div>
