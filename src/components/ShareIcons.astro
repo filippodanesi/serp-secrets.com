@@ -54,14 +54,11 @@ const shareUrls = {
         <Fragment set:html={socialShareIcons.LinkedIn} />
     </a>
     <button 
-        class="copy-url-button inline-flex items-center justify-center gap-2 px-4 py-1 text-xs font-medium leading-tight text-main bg-main border border-main rounded-full hover:bg-muted"
+        class="copy-url-button hover:text-text-muted transition-colors duration-200"
         aria-label="Copy link"
         data-url={url}
-        data-tooltip-default="Copy"
-        data-tooltip-success="Copied"
     >
         <Fragment set:html={socialShareIcons.Copy} />
-        <span>Copy</span>
     </button>
 </div>
 
@@ -83,17 +80,11 @@ const shareUrls = {
 
         copyUrlButton.addEventListener('click', async () => {
             const url = copyUrlButton.getAttribute('data-url') || window.location.href;
-            const buttonText = copyUrlButton.querySelector('span');
             const copyIcon = copyUrlButton.querySelector('.copy-icon');
             const checkIcon = copyUrlButton.querySelector('.check-icon');
             
             try {
                 await navigator.clipboard.writeText(url);
-                
-                // Cambia il testo
-                if (buttonText) {
-                    buttonText.textContent = copyUrlButton.getAttribute('data-tooltip-success') || 'Copied';
-                }
                 
                 // Mostra l'icona di spunta
                 if (copyIcon && checkIcon) {
@@ -102,11 +93,6 @@ const shareUrls = {
                 }
                 
                 setTimeout(() => {
-                    // Ripristina il testo originale
-                    if (buttonText) {
-                        buttonText.textContent = copyUrlButton.getAttribute('data-tooltip-default') || 'Copy';
-                    }
-                    
                     // Ripristina l'icona originale
                     if (copyIcon && checkIcon) {
                         copyIcon.style.display = 'block';
