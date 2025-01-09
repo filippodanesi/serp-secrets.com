@@ -1,30 +1,72 @@
 import React, { useState, useMemo } from 'react';
 import Fuse from 'fuse.js';
 
+interface Post {
+  title: string;
+  url: string;
+  description?: string;
+  body: string;
+}
+
 interface SearchProps {
-  posts: Array<{
-    title: string;
-    url: string;
-    description?: string;
-    body: string;
-  }>;
+  posts: Array<Post>;
+}
+
+// Fuse.js configuration optimized for blog content
+const fuseOptions = {
+  keys: [
+    // Title has highest weight as it's most relevant for user queries
+    { name: 'title', weight: 1.5 },
+    // Description is a good summary of content
+    { name: 'description', weight: 1 },
+    // Body is important but shouldn't overwhelm more specific matches
+    { name: 'body', weight: 0.7 }
+  ],
+  // Threshold: 0 is perfect match, 1 is match anything
+  // 0.4 provides good balance between precision and recall
+  threshold: 0.4,
+  // Search anywhere in the text, not just from the beginning
+  ignoreLocation: true,
+  // Minimum length for a match, reduces false positives
+  minMatchCharLength: 3,
+  // Sort results by score
+  shouldSort: true,
+  // Find all matching instances, not just the first
+  findAllMatches: true,
+  // Required for highlighting matches and showing context
+  includeMatches: true,
+  // Allow matching terms even if they're far apart
+  distance: 100000
+};
+
+/**
+ * Extracts a relevant snippet of text around the matched term
+ * Shows ~50 chars before and ~100 chars after the match
+ */
+function getMatchContext(result: Fuse.FuseResult<Post>): string | null {
+  const bodyMatch = result.matches?.find(m => m.key === 'body');
+  if (!bodyMatch || !bodyMatch.indices?.[0]) return null;
+
+  const [start] = bodyMatch.indices[0];
+  const contextStart = Math.max(0, start - 50);
+  const contextEnd = Math.min(bodyMatch.value?.length || 0, start + 100);
+  
+  let snippet = bodyMatch.value?.substring(contextStart, contextEnd) || '';
+  
+  // Add ellipsis if we're not at the start/end of the content
+  if (contextStart > 0) snippet = '...' + snippet;
+  if (contextEnd < (bodyMatch.value?.length || 0)) snippet = snippet + '...';
+  
+  return snippet;
 }
 
 export default function Search({ posts }: SearchProps) {
   const [query, setQuery] = useState('');
   
-  // Create Fuse instance with improved configuration
-  const fuse = useMemo(() => new Fuse(posts, {
-    keys: [
-      { name: 'title', weight: 1 },
-      { name: 'description', weight: 0.75 },
-      { name: 'body', weight: 0.5 }
-    ],
-    threshold: 0.3,
-    ignoreLocation: true,
-    minMatchCharLength: 2
-  }), [posts]);
+  // Memoize Fuse instance to avoid recreating it on every render
+  const fuse = useMemo(() => new Fuse(posts, fuseOptions), [posts]);
 
+  // Memoize search results to avoid recomputing on every render
   const results = useMemo(() => 
     query ? fuse.search(query) : [], 
     [query, fuse]
@@ -64,11 +106,10 @@ export default function Search({ posts }: SearchProps) {
                     {result.item.description}
                   </div>
                 )}
-                {/* Optionally show matching content from body */}
+                {/* Show context snippet if there's a body match */}
                 {result.matches?.find(match => match.key === 'body') && (
                   <div className="mt-2 text-sm text-[rgb(var(--color-text-muted))]">
-                    {/* Show a snippet of the matching content */}
-                    ...{result.matches.find(match => match.key === 'body')?.value?.substring(0, 150)}...
+                    {getMatchContext(result)}
                   </div>
                 )}
               </div>
