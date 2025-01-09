@@ -1,5 +1,4 @@
-// src/components/Search.tsx
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Fuse from 'fuse.js';
 
 interface SearchProps {
@@ -13,12 +12,23 @@ interface SearchProps {
 
 export default function Search({ posts }: SearchProps) {
   const [query, setQuery] = useState('');
-  const fuse = new Fuse(posts, {
-    keys: ['title', 'description', 'body'],
+  
+  // Create Fuse instance with improved configuration
+  const fuse = useMemo(() => new Fuse(posts, {
+    keys: [
+      { name: 'title', weight: 1 },
+      { name: 'description', weight: 0.75 },
+      { name: 'body', weight: 0.5 }
+    ],
     threshold: 0.3,
-  });
+    ignoreLocation: true,
+    minMatchCharLength: 2
+  }), [posts]);
 
-  const results = query ? fuse.search(query) : [];
+  const results = useMemo(() => 
+    query ? fuse.search(query) : [], 
+    [query, fuse]
+  );
 
   return (
     <div className="not-prose">
@@ -35,7 +45,9 @@ export default function Search({ posts }: SearchProps) {
 
       <div className="space-y-8">
         {query && results.length === 0 ? (
-          <p className="text-[rgb(var(--color-text-muted))/60] text-sm font-sans">No results found.</p>
+          <p className="text-[rgb(var(--color-text-muted))/60] text-sm font-sans">
+            No results found.
+          </p>
         ) : (
           results.map((result, index) => (
             <a 
@@ -50,6 +62,13 @@ export default function Search({ posts }: SearchProps) {
                 {result.item.description && (
                   <div className="mt-3 text-sm leading-normal">
                     {result.item.description}
+                  </div>
+                )}
+                {/* Optionally show matching content from body */}
+                {result.matches?.find(match => match.key === 'body') && (
+                  <div className="mt-2 text-sm text-[rgb(var(--color-text-muted))]">
+                    {/* Show a snippet of the matching content */}
+                    ...{result.matches.find(match => match.key === 'body')?.value?.substring(0, 150)}...
                   </div>
                 )}
               </div>
