@@ -36,7 +36,7 @@ const currentTag = allTags.find((tag) => {
 ---
 
 <BaseLayout
-    title={`${currentTag?.name}`}
+    title={`All articles about ${currentTag?.name} | ${siteConfig.site.title}`}
     description={siteConfig.tagDescriptions[params.slug] || `Explore a curated collection of blog posts under ${currentTag?.name}`}
     image={{ src: '/og-image.webp' }}
     showHeader={false}
