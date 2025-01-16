@@ -93,7 +93,7 @@ if (tags.length > 0) {
             )}
 
             {/* Article Title */}
-            <h1 class="text-3xl leading-tight font-serif font-medium sm:text-4xl sm:leading-tight mb-6 text-[rgb(var(--color-text-main))]" transition:name={`post-title-${post.slug}`}>
+            <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight mb-6 text-[rgb(var(--color-text-main))]" transition:name={`post-title-${post.slug}`}>
                 {title}
             </h1>
 
@@ -101,7 +101,7 @@ if (tags.length > 0) {
                 {/* Meta information */}
                 <div class="text-sm text-[rgb(var(--color-text-muted)_/_0.8)]" transition:name={`post-meta-${post.slug}`}>
                     <span>Published by</span>
-                    <a href="https://www.filippodanesi.it" class="font-medium hover:underline">Filippo Danesi</a>
+                    <a href="https://www.filippodanesi.it" target="_blank" class="font-medium hover:underline">Filippo Danesi</a>
                     <span>on <FormattedDate date={publishDate} /></span>
                 
                     {updatedDate && (
