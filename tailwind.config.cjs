@@ -5,8 +5,8 @@ module.exports = {
     darkMode: 'class',
     theme: {
         fontFamily: {
-            sans: ['Inter', ...defaultTheme.fontFamily.sans],
-            serif: ['Newsreader', ...defaultTheme.fontFamily.serif]
+            sans: ['Geist', ...defaultTheme.fontFamily.sans],
+            serif: ['Gelasio', ...defaultTheme.fontFamily.serif]
         },
         extend: {
             textColor: {
