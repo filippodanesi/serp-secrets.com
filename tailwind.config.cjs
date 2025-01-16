@@ -5,8 +5,8 @@ module.exports = {
     darkMode: 'class',
     theme: {
         fontFamily: {
-            sans: ['Soehne', ...defaultTheme.fontFamily.sans],
-            serif: ['GT Super', ...defaultTheme.fontFamily.serif]
+            sans: ['Geist', ...defaultTheme.fontFamily.sans],
+            serif: ['Libre Caslon Text', ...defaultTheme.fontFamily.serif]
         },
         extend: {
             textColor: {
