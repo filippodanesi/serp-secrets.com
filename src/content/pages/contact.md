@@ -1,5 +1,5 @@
 ---
-title: Get In Touch
+title: Get In Touch With Me
 publishDate: '2024-11-07'
 seo:
   title: Get In Touch
