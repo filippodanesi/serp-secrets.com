@@ -1,7 +1,36 @@
-// src/pages/sitemap.xml.ts
-import { type APIRoute } from 'astro';
+import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import siteConfig from '../data/site-config';
+import type { SiteConfig } from '../data/site-config';
+
+const removeTrailingSlash = (str: string) => str.replace(/\/$/, '');
+const addTrailingSlash = (str: string) => str.endsWith('/') ? str : `${str}/`;
+const normalizeUrl = (url: string) => addTrailingSlash(url.replace(/^\/+/, ''));
+
+const generateStaticUrls = (config: SiteConfig, site: URL): string[] => {
+  const urls = new Set<string>();
+  
+  // Add homepage
+  urls.add(site.href);
+  
+  // Add header navigation links
+  config.headerNavLinks?.forEach(link => {
+    if (!link.href.includes(':') && link.href !== '/blog/') {
+      const fullUrl = new URL(normalizeUrl(link.href), site).href;
+      urls.add(fullUrl);
+    }
+  });
+  
+  // Add category pages
+  if (config.tagDescriptions) {
+    Object.keys(config.tagDescriptions).forEach(tag => {
+      const categoryUrl = new URL(`categories/${tag}/`, site).href;
+      urls.add(categoryUrl);
+    });
+  }
+  
+  return Array.from(urls);
+};
 
 export const GET: APIRoute = async ({ site }) => {
   if (!site) {
@@ -9,36 +38,28 @@ export const GET: APIRoute = async ({ site }) => {
   }
 
   try {
-    const paths = new Set<string>();
+    const baseUrl = new URL(site);
+    const staticUrls = generateStaticUrls(siteConfig, baseUrl);
     
-    // Add header links (excluding blog and dynamic pages)
-    siteConfig.headerNavLinks?.forEach(link => {
-      if (link.href !== '/blog/' && !link.href.includes(':')) {
-        paths.add(link.href);
-      }
-    });
-
-    // Add static category pages
-    Object.keys(siteConfig.tagDescriptions).forEach(tag => {
-      paths.add(`/categories/${tag}/`);
-    });
-
     // Get blog posts
     const posts = await getCollection('blog');
+    const sortedPosts = posts.sort((a, b) => {
+      const dateA = a.data.updatedDate || a.data.publishDate;
+      const dateB = b.data.updatedDate || b.data.publishDate;
+      return dateB.valueOf() - dateA.valueOf();
+    });
 
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${site}</loc>
-  </url>
-${Array.from(paths).map(path => `  <url>
-    <loc>${new URL(path.replace(/^\//, ''), site).href}</loc>
+${staticUrls.map(url => `  <url>
+    <loc>${removeTrailingSlash(url)}</loc>
   </url>`).join('\n')}
-${posts.map(post => {
+${sortedPosts.map(post => {
   const lastmod = post.data.updatedDate || post.data.publishDate;
+  const postUrl = new URL(`blog/${post.slug}/`, baseUrl).href;
   return `  <url>
-    <loc>${new URL(`blog/${post.slug}/`, site).href}</loc>
-    ${lastmod ? `<lastmod>${lastmod.toISOString().split('T')[0]}</lastmod>` : ''}
+    <loc>${removeTrailingSlash(postUrl)}</loc>${lastmod ? `
+    <lastmod>${lastmod.toISOString().split('T')[0]}</lastmod>` : ''}
   </url>`;
 }).join('\n')}
 </urlset>`;
