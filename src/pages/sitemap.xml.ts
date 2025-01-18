@@ -3,21 +3,20 @@ import { getCollection } from 'astro:content';
 import siteConfig from '../data/site-config';
 import type { SiteConfig } from '../data/site-config';
 
-const removeTrailingSlash = (str: string) => str.replace(/\/$/, '');
-const addTrailingSlash = (str: string) => str.endsWith('/') ? str : `${str}/`;
-const normalizeUrl = (url: string) => addTrailingSlash(url.replace(/^\/+/, ''));
+const ensureTrailingSlash = (url: string) => url.endsWith('/') ? url : `${url}/`;
+const normalizeUrl = (url: string) => ensureTrailingSlash(url.replace(/^\/+/, ''));
 
 const generateStaticUrls = (config: SiteConfig, site: URL): string[] => {
   const urls = new Set<string>();
   
   // Add homepage
-  urls.add(site.href);
+  urls.add(ensureTrailingSlash(site.href));
   
   // Add header navigation links
   config.headerNavLinks?.forEach(link => {
     if (!link.href.includes(':') && link.href !== '/blog/') {
       const fullUrl = new URL(normalizeUrl(link.href), site).href;
-      urls.add(fullUrl);
+      urls.add(ensureTrailingSlash(fullUrl));
     }
   });
   
@@ -25,7 +24,7 @@ const generateStaticUrls = (config: SiteConfig, site: URL): string[] => {
   if (config.tagDescriptions) {
     Object.keys(config.tagDescriptions).forEach(tag => {
       const categoryUrl = new URL(`categories/${tag}/`, site).href;
-      urls.add(categoryUrl);
+      urls.add(ensureTrailingSlash(categoryUrl));
     });
   }
   
@@ -52,13 +51,13 @@ export const GET: APIRoute = async ({ site }) => {
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${staticUrls.map(url => `  <url>
-    <loc>${removeTrailingSlash(url)}</loc>
+    <loc>${url}</loc>
   </url>`).join('\n')}
 ${sortedPosts.map(post => {
   const lastmod = post.data.updatedDate || post.data.publishDate;
-  const postUrl = new URL(`blog/${post.slug}/`, baseUrl).href;
+  const postUrl = ensureTrailingSlash(new URL(`blog/${post.slug}/`, baseUrl).href);
   return `  <url>
-    <loc>${removeTrailingSlash(postUrl)}</loc>${lastmod ? `
+    <loc>${postUrl}</loc>${lastmod ? `
     <lastmod>${lastmod.toISOString().split('T')[0]}</lastmod>` : ''}
   </url>`;
 }).join('\n')}
