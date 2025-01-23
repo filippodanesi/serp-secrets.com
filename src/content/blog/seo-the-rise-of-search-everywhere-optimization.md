@@ -1,5 +1,5 @@
 ---
-title: "SEO: The Rise of Search Everywhere Optimization"
+title: "SEO, The Rise of Search Everywhere Optimization"
 excerpt: "Explore how Search Everywhere Optimization is transforming digital visibility beyond traditional SEO, encompassing multi-platform strategies for comprehensive online presence."
 publishDate: '2025-01-18'
 tags:
