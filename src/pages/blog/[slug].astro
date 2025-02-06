@@ -93,9 +93,14 @@ if (tags.length > 0) {
             )}
 
             {/* Article Title */}
-            <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight mb-6 text-[rgb(var(--color-text-main))]" transition:name={`post-title-${post.slug}`}>
+            <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight mb-4 text-[rgb(var(--color-text-main))]" transition:name={`post-title-${post.slug}`}>
                 {title}
             </h1>
+
+            {/* Description */}
+            <div class="text-sm text-[rgb(var(--color-text-muted)_/_0.6)] pb-4 mb-6 border-b border-[rgb(var(--color-text-muted)_/_0.1)]">
+                {seo?.description ?? excerpt}
+            </div>
 
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                 {/* Meta information */}
