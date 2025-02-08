@@ -15,6 +15,10 @@ export default defineConfig({
   trailingSlash: 'always',
   markdown: {
     remarkPlugins: [remarkReadingTime],
+    images: {
+      optimizeImages: true,
+      defaultDimensions: true
+    }
   },
   redirects: {
     '/seo-strategies/': '/categories/seo-strategies/',
