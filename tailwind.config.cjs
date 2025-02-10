@@ -6,7 +6,7 @@ module.exports = {
     theme: {
         fontFamily: {
             sans: ['Instrument Sans', ...defaultTheme.fontFamily.sans],
-            serif: ['Instrument Serif', ...defaultTheme.fontFamily.serif]
+            serif: ['PT Serif', ...defaultTheme.fontFamily.serif]
         },
         extend: {
             textColor: {
