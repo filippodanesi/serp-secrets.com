@@ -1,5 +1,3 @@
-
-
 /* Instrument Sans Variable */
 @font-face {
   font-family: 'Instrument Sans';
@@ -17,19 +15,36 @@
   font-display: swap;
  }
  
- /* Instrument Serif */
+ /* PT Serif */
  @font-face {
-  font-family: 'Instrument Serif';
-  src: url('/src/fonts/instrument-serif/InstrumentSerif-Regular.ttf') format('truetype');
+  font-family: 'PT Serif';
+  src: url('/src/fonts/pt-serif/PTSerif-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
  }
  
  @font-face {
-  font-family: 'Instrument Serif';
-  src: url('/src/fonts/instrument-serif/InstrumentSerif-Italic.ttf') format('truetype');
-  font-weight: normal;
-  font-style: italic;
+  font-family: 'PT Serif';
+  src: url('/src/fonts/pt-serif/PTSerif-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
   font-display: swap;
  }
+
+  /* PT Serif Italic */
+  @font-face {
+    font-family: 'PT Serif';
+    src: url('/src/fonts/pt-serif/PTSerif-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+   }
+   
+  @font-face {
+    font-family: 'PT Serif';
+    src: url('/src/fonts/pt-serif/PTSerif-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+  }
