@@ -47,5 +47,4 @@ figcaption,
 figcaption a {
     font-size: 0.7rem !important;
     color: rgb(var(--color-text-muted) / 0.6) !important;
-    text-align: center;
 }
