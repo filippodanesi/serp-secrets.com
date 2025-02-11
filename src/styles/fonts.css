@@ -1,49 +1,33 @@
-/* Instrument Sans Variable */
+/* Inter Variable */
 @font-face {
-  font-family: 'Instrument Sans';
-  src: url('/src/fonts/instrument-sans/InstrumentSans-VariableFont_wdth,wght.ttf') format('truetype-variations');
+  font-family: 'Inter';
+  src: url('/src/fonts/inter/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Instrument Sans';
-  src: url('/src/fonts/instrument-sans/InstrumentSans-Italic-VariableFont_wdth,wght.ttf') format('truetype-variations');
+  font-family: 'Inter';
+  src: url('/src/fonts/inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations');
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
 }
 
-/* PT Serif */
+/* Newsreader Variable */
 @font-face {
-  font-family: 'PT Serif';
-  src: url('/src/fonts/pt-serif/PTSerif-Regular.ttf') format('truetype');
-  font-weight: normal;
+  font-family: 'Newsreader';
+  src: url('/src/fonts/newsreader/Newsreader-VariableFont_opsz,wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'PT Serif';
-  src: url('/src/fonts/pt-serif/PTSerif-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'PT Serif';
-  src: url('/src/fonts/pt-serif/PTSerif-Italic.ttf') format('truetype');
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'PT Serif';
-  src: url('/src/fonts/pt-serif/PTSerif-BoldItalic.ttf') format('truetype');
-  font-weight: 700;
+  font-family: 'Newsreader';
+  src: url('/src/fonts/newsreader/Newsreader-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
   font-style: italic;
   font-display: swap;
 }
