@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#F9F9F7"/>
+  
+  <!-- Title and subtitle -->
+  <text x="60" y="60" font-family="Inter, -apple-system, sans-serif" font-size="24" font-weight="600" fill="#171717">
+    AI Overview Distribution
+  </text>
+  <text x="60" y="90" font-family="Inter, -apple-system, sans-serif" font-size="16" fill="#171717" opacity="0.7">
+    Presence in search results vs. total search volume
+  </text>
+  
+  <!-- Chart Area -->
+  <g transform="translate(60, 140)">
+    <!-- Grid lines - subtle and minimal -->
+    <g stroke="#000000" stroke-opacity="0.1">
+      <line x1="0" y1="0" x2="680" y2="0"/>
+      <line x1="0" y1="100" x2="680" y2="100"/>
+      <line x1="0" y1="200" x2="680" y2="200"/>
+    </g>
+    
+    <!-- Bars - modern and clean -->
+    <g transform="translate(100, 0)">
+      <!-- Group 1 -->
+      <g transform="translate(0, 30)">
+        <text x="90" y="-5" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#171717" text-anchor="middle">29.9%</text>
+        <rect x="0" y="10" width="180" height="80" fill="#000000" rx="4"/>
+        <text x="90" y="120" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#171717" text-anchor="middle">Present in Searches</text>
+      </g>
+      
+      <!-- Group 2 -->
+      <g transform="translate(300, 30)">
+        <text x="90" y="-5" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#171717" text-anchor="middle">11.5%</text>
+        <rect x="0" y="10" width="180" height="40" fill="#000000" opacity="0.6" rx="4"/>
+        <text x="90" y="120" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#171717" text-anchor="middle">Of Total Volume</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Enhanced legend -->
+  <g transform="translate(60, 440)">
+    <rect x="0" y="-15" width="15" height="15" fill="#000000"/>
+    <text x="25" y="0" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#171717">Present in Searches</text>
+    
+    <rect x="200" y="-15" width="15" height="15" fill="#000000" opacity="0.6"/>
+    <text x="225" y="0" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#171717">Search Volume Impact</text>
+    
+    <text x="0" y="30" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#171717" opacity="0.7">
+      Based on analysis of 56,000 keywords across multiple markets
+    </text>
+  </g>
+</svg>

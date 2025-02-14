@@ -7,7 +7,7 @@ tags:
 seo:
   image:
     src: '/how-to-use-lsi-keywords-in-seo.webp'
-    alt: "Blue and white round illustration photo"
+    alt: "Blue and white round illustration photo" 
 ---
 
 <figure>
