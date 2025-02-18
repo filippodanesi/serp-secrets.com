@@ -74,14 +74,14 @@ if (tags.length > 0) {
                             >
                                 Home
                             </a>
-                            <span class="text-[rgb(var(--color-text-muted)_/_0.2)] ml-1">/</span>
+                            <span class="text-[rgb(var(--color-text-muted)_/_0.2)] ml-1">\</span>
                             <a 
                                 href="/categories/"
                                 class="text-[rgb(var(--color-text-muted)_/_0.6)] hover:opacity-70 transition-colors ml-1"
                             >
                                 Categories
                             </a>
-                            <span class="text-[rgb(var(--color-text-muted)_/_0.2)] ml-1">/</span>
+                            <span class="text-[rgb(var(--color-text-muted)_/_0.2)] ml-1">\</span>
                         </div>
                         {/* Category link - Visible on both mobile and desktop */}
                         <a 
@@ -104,25 +104,26 @@ if (tags.length > 0) {
                 {seo?.description ?? excerpt}
             </div>
 
+            {/* Meta information and share icons container */}
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-4 mb-8 border-b border-[rgb(var(--color-text-muted)_/_0.1)]">
                 {/* Meta information */}
-                <div class="text-sm text-[rgb(var(--color-text-muted)_/_0.8)]" transition:name={`post-meta-${post.slug}`}>
+                <div class="text-xs sm:text-sm text-main" transition:name={`post-meta-${post.slug}`}>
                     <span>Published by</span>
                     <a href="https://www.filippodanesi.it" target="_blank" class="font-medium hover:opacity-70">Filippo Danesi</a>
                     <span>on <FormattedDate date={publishDate} /></span>
                 
                     {updatedDate && (
-                        <>
+                        <span class="whitespace-nowrap">
                             <span>/</span>
                             <span>
                                 Updated by <a href="https://www.filippodanesi.it" target="_blank" class="font-medium hover:opacity-70">Filippo Danesi</a> on <FormattedDate date={updatedDate} />
                             </span>
-                        </>
+                        </span>
                     )}
                 </div>
 
-                {/* Share Icons */}
-                <div class="sm:ml-4">
+                {/* Share Icons - Hidden on mobile */}
+                <div class="hidden sm:block sm:ml-4">
                     <ShareIcons url={href} title={title} />
                 </div>
             </div>
