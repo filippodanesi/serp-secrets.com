@@ -5,15 +5,14 @@ seo:
   title: Cookie Policy
   description: Our Cookie Policy explains what cookies are and how we use them on our website.
 ---
- 
-##### **Last Updated**: 09-Nov-2024
 
+##### **Last Updated**: 09-Nov-2024
 
 ## What are cookies?
 
 This Cookie Policy explains what cookies are and how we use them, the types of cookies we use (i.e., the information we collect using cookies and how that information is used), and how to manage the cookie settings.
 
-Cookies are small text files that are used to store small pieces of information. They are stored on your device when the website is loaded on your browser. These cookies help us make the website function properly, make it more secure, provide a better user experience, and understand how the website performs and to analyze what works and where it needs improvement.
+Cookies are small text files that are used to store small pieces of information. They are stored on your device when the website is loaded on your browser. These cookies help us make the website function properly, make it more secure, provide a better user experience, and understand how the website performs and analyze what works and where it needs improvement.
 
 ### How do we use cookies?
 
@@ -28,7 +27,6 @@ Necessary cookies are required to enable the basic features of this site, such a
 
 | Cookie/Storage | Type | Duration | Description |
 |----------------|------|----------|-------------|
-| `cc_cookie` | Cookie | 1 year | Stores your cookie consent preferences |
 | `theme` | localStorage | Persistent | Stores your theme preference (light/dark mode) |
 
 #### Analytics
@@ -36,8 +34,9 @@ Analytical cookies are used to understand how visitors interact with the website
 
 | Cookie | Duration | Description |
 |--------|----------|-------------|
-| `_ga_*` | 1 year 1 month 4 days | Google Analytics sets this cookie to store and count page views. |
-| `_ga` | 1 year 1 month 4 days | Google Analytics sets this cookie to calculate visitor, session, and campaign data and track site usage for the site's analytics report. The cookie stores information anonymously and assigns a randomly generated number to recognize unique visitors. |
+| `_plausible` | Session | Plausible Analytics uses this cookie-free tracking method to measure site traffic without storing personal data. |
+
+[Plausible Analytics](https://plausible.io/) is a privacy-friendly analytics tool that does not use cookies or track personally identifiable information. Instead, it collects anonymous usage data to help us improve the website.
 
 ### Manage Cookie Preferences
 

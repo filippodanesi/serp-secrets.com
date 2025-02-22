@@ -27,10 +27,13 @@ const socialIcons: Record<SocialNetwork, string> = {
     {/* Divider */}
     <div class="border-t border-solid border-main mb-8"></div>
 
-    {/* Mobile Order: Social Icons (centered) on top, Copyright and Cookie Settings below */}
-    <div class="flex flex-col gap-6 sm:flex-row sm:justify-between sm:items-center">
-        {/* Social Icons - Centered on mobile, right on desktop */}
-        <div class="order-first sm:order-last flex justify-left sm:justify-end gap-6">
+    {/* Footer Bottom Section */}
+    <div class="flex justify-between items-center">
+        {/* Copyright */}
+        <span class="text-sm">&copy;{currentYear} {siteConfig.title}</span>
+
+        {/* Social Icons - Right aligned on both mobile and desktop */}
+        <div class="flex justify-end gap-6">
             {siteConfig.socialLinks?.map((link) => (
                 <a 
                     href={link.href}
@@ -42,18 +45,6 @@ const socialIcons: Record<SocialNetwork, string> = {
                     <Fragment set:html={socialIcons[link.text as SocialNetwork]} />
                 </a>
             ))}
-        </div>
-
-        {/* Copyright and Cookie Settings - Below on mobile, left on desktop */}
-        <div class="order-last sm:order-first flex justify-between items-center w-full sm:w-auto gap-4">
-            <span class="text-sm">&copy;{currentYear} {siteConfig.title}</span>
-            <button
-                type="button"
-                data-cc="show-preferencesModal"
-                class="cky-banner-element inline-flex items-center justify-center px-4 py-1 text-xs font-medium leading-tight text-main bg-main border border-main rounded-full hover:bg-muted"
-            >
-                Cookie Settings
-            </button>
         </div>
     </div>
 </footer>
