@@ -12,7 +12,7 @@ seo:
 
 <figure>
   <img id="cover-img" src="/google-ai-overview-impact-on-search-results.avif" alt="A purple and silver object on a black background">
-  <figcaption>Photo by <a href="https://unsplash.com/@fakurian?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Milad Fakurian</a> on <a href="https://unsplash.com/photos/a-purple-and-silver-object-on-a-black-background-p3xtAnimJ6U?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></figcaption>
+  <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 
 Google's AI Overview represents a significant shift in how search engines present information to users. As SEO professionals, we're witnessing a fundamental change in **SERP architecture** that affects both our **technical approach** and **content strategy**. Through comprehensive analysis of over **56,000 keywords** across multiple markets, we can now identify clear patterns in how Google implements this feature and, more importantly, how it impacts our optimization efforts.

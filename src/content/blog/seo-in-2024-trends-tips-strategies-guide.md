@@ -12,7 +12,7 @@ seo:
 
 <figure>
   <img id="cover-img" src="/seo-in-2024-trends-tips-strategies-guide.avif" alt="A blue abstract background with squares and cubes photo">
-  <figcaption>Photo by <a href="https://unsplash.com/@rick_rothenberg?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Rick Rothenberg</a> on <a href="https://unsplash.com/photos/a-blue-abstract-background-with-squares-and-cubes-dMzFhYwMHGE?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
+  <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 
 As we step into 2024, the digital marketing world stands at the cusp of a transformative era, particularly in the realm of **Search Engine Optimization (SEO)**. The rapid advancements in technology, coupled with evolving user behaviors and search engine algorithms, have set the stage for a seismic shift in SEO strategies. In this dynamic landscape, staying informed and adaptable is not just beneficial – it's imperative for success.

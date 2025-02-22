@@ -12,7 +12,7 @@ seo:
 
 <figure>
   <img id="cover-img" src="/the-future-of-seo-if-chatgpt-kills-search-engines.avif" alt="A blurry image of a square shaped object photo">
-  <figcaption>Photo by <a href="https://unsplash.com/@and_machines?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">and machines</a> on <a href="https://unsplash.com/photos/a-blurry-image-of-a-square-shaped-object-p97L9-YwRFg?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
+  <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 
 In the ever-evolving world of **digital marketing**, **Search Engine Optimization (SEO)** has remained a cornerstone, continuously adapting to the shifting sands of search engine algorithms and user behavior. Today, we stand at the precipice of another monumental shift, heralded by the rise of **Artificial Intelligence (AI)** technologies, particularly ChatGPT. This blog aims to unravel the potential future of SEO in a scenario where AI, like ChatGPT, overshadows traditional search engines, reshaping how we seek and interact with online information.

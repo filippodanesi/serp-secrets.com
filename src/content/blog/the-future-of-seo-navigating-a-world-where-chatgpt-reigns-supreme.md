@@ -12,7 +12,7 @@ seo:
 
 <figure>
   <img id="cover-img" src="/the-future-of-seo-navigating-a-world-where-chatgpt-reigns-supreme.avif" alt="Product Photography on Office Table Backdrop 3d Render">
-  <figcaption>Photo by <a href="https://unsplash.com/@theshubhamdhage?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Shubham Dhage</a> on <a href="https://unsplash.com/photos/a-3d-image-of-a-box-with-a-lot-of-bubbles-coming-out-of-it-50GSjnC7qXw?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
+  <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 
 The digital landscape is continually evolving, with **search engine optimization (SEO)** at its core. Traditionally, SEO has been about understanding and leveraging search engine algorithms to improve website visibility. However, the rapid advancement of **artificial intelligence (AI)**, particularly conversational AI like ChatGPT, is poised to **disrupt this domain profoundly**. As we delve into this new era, it's crucial to explore how the rise of sophisticated AI could herald the decline of traditional search engines and consequently, transform the future of SEO. This blog aims to unravel the potential shifts, challenges, and opportunities that lie ahead.

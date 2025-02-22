@@ -12,7 +12,7 @@ seo:
 
 <figure>
   <img id="cover-img" src="/seo-2025-upcoming-changes-and-how-to-adapt.avif" alt="Green balloon on white surface photo">
-  <figcaption>Photo by <a href="https://unsplash.com/@dariadurand?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Daria Durand</a> on <a href="https://unsplash.com/photos/green-balloon-on-white-surface-mKWg3NoAo_c?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
+  <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 
 In the dynamic world of digital marketing, **Search Engine Optimization (SEO)** continues to be a fundamental pillar for online success. As we approach 2025, it's essential to **anticipate upcoming changes** and prepare to adapt our SEO strategies. In this article, we'll explore emerging trends and best practices that will shape the future of SEO, offering a comprehensive overview of what lies ahead and how we can best prepare.

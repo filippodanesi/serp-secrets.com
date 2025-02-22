@@ -12,7 +12,7 @@ seo:
 
 <figure>
   <img id="cover-img" src="/in-depth-analysis-of-googles-march-2024-updates.avif" alt="A group of different colored objects on a black background photo">
-  <figcaption>Foto di <a href="https://unsplash.com/it/@iamrohitchoudhari?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Rohit Choudhari</a> su <a href="https://unsplash.com/it/foto/x-nVoti8RKw?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
+  <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 
 ## In-Depth Analysis of Google's March 2024 Updates: Core Update and Spam Update

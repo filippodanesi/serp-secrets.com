@@ -12,7 +12,7 @@ seo:
 
 <figure>
   <img id="cover-img" src="/how-to-use-ai-in-seo-forecasting.avif" alt="A blurry image of a white circle photo">
-  <figcaption>Photo by <a href="https://unsplash.com/@and_machines?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">and machines</a> on <a href="https://unsplash.com/photos/a-blurry-image-of-a-white-circle-bvruqj_Rp-M?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
+  <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 
 In today's digital age, Artificial Intelligence (AI) is emerging as a **powerful ally for SEO** (Search Engine Optimization). Capable of **deciphering and adapting to ever-evolving search algorithms**, AI can help you optimize your content for higher search engine rankings. Here's how an AI-based approach to SEO can **boost your online strategies** and achieve better results.

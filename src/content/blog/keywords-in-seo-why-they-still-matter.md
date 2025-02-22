@@ -12,7 +12,7 @@ seo:
 
 <figure>
   <img id="cover-img" src="/keywords-in-seo-why-they-still-matter.avif" alt="A group of red and blue cubes on a green background">
-  <figcaption>Photo by <a href="https://unsplash.com/@hiestudio?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">HI! ESTUDIO</a> on <a href="https://unsplash.com/photos/a-group-of-red-and-blue-cubes-on-a-green-background-qup1dqACEBw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></figcaption>
+  <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
       
 In the rapidly evolving landscape of search engine optimization, the role of keywords continues to spark intense debate. Despite significant changes in search algorithms and user behavior, **keyword research and implementation remain fundamental components** of successful SEO strategies. Through comprehensive analysis of current search patterns and industry data, we can now identify clear patterns in how search engines process keywords and how this impacts optimization strategies.

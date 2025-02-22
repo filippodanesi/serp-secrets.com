@@ -12,7 +12,7 @@ seo:
 
 <figure>
   <img id="cover-img" src="/why-2025-will-be-the-year-of-ai-agents.avif" alt="Round gray button on white surface">
-  <figcaption>Photo by <a href="https://unsplash.com/@ricvath?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Richard Horvath</a> on <a href="https://unsplash.com/photos/round-gray-button-on-white-surface-TrLO5KNr68o?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></figcaption>
+  <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 
 The artificial intelligence landscape is approaching a **transformative inflection point** that will fundamentally reshape our relationship with technology. As **Marc Benioff, CEO of Salesforce**, emphatically states, we are entering an "**agentic era**" that will fundamentally reshape how we work, interact with technology, and make decisions. This shift represents more than just an incremental advancement in AI capabilities—it marks the emergence of **truly autonomous digital workers** capable of understanding, planning, and executing complex tasks without constant human oversight. The implications of this transformation extend far beyond simple automation, promising to revolutionize everything from decision-making processes to creative problem-solving.

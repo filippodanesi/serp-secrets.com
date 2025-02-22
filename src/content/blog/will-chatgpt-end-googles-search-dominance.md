@@ -12,7 +12,7 @@ seo:
 
 <figure>
  <img id="cover-img" src="/will-chatgpt-end-googles-search-dominance.avif" alt="A close-up of a cell phone with a blurry background illustrating the competition between ChatGPT and Google">
- <figcaption>Photo by <a href="https://unsplash.com/@steve_j?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Steve Johnson</a> on <a href="https://unsplash.com/photos/a-close-up-of-a-cell-phone-with-a-blurry-background-w8HyFZ6w-ds?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></figcaption>
+ <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 
 The search engine landscape, long dominated by Google, is experiencing a **seismic shift** that few could have predicted just a year ago. OpenAI's ChatGPT has emerged as a potentially significant challenger, raising an intriguing question: What's ChatGPT's actual share of search, and could it genuinely threaten Google's supremacy?

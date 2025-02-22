@@ -12,7 +12,7 @@ seo:
 
 <figure>
   <img id="cover-img" src="/exploring-how-google-lamda-language-model-work.avif" alt="Pink green and blue abstract painting photo">
-  <figcaption>Photo by <a href="https://unsplash.com/@fakurian?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Milad Fakurian</a> on <a href="https://unsplash.com/photos/pink-green-and-blue-abstract-painting-UYgrVfIhBec?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
+  <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 
 In the ever-evolving field of conversational AI, **Google LaMDA** has emerged as a groundbreaking language model designed specifically for dialogue applications. With its ability to understand user intent and generate relevant responses, LaMDA is set to revolutionize the way we interact with AI systems. In this blog post, we will explore the inner workings of **Google LaMDA** and its implications for **search engine optimization (SEO)**.
