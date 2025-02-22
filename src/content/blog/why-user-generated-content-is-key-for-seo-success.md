@@ -6,12 +6,12 @@ tags:
   - SEO Strategies
 seo:
   image:
-    src: '/why-user-generated-content-is-key-for-seo-success.webp'
+    src: '/why-user-generated-content-is-key-for-seo-success.avif'
     alt: "A green and black background with wavy lines"
 ---
 
 <figure>
-  <img id="cover-img" src="/why-user-generated-content-is-key-for-seo-success.webp" alt="A green and black background with wavy lines">
+  <img id="cover-img" src="/why-user-generated-content-is-key-for-seo-success.avif" alt="A green and black background with wavy lines">
   <figcaption>Photo by <a href="https://unsplash.com/@abstralofficial?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Abstral Official</a> on <a href="https://unsplash.com/photos/a-green-and-black-background-with-wavy-lines-CYDlUSK_tIM?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

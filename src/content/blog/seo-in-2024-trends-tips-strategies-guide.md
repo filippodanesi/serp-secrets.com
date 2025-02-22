@@ -6,12 +6,12 @@ tags:
   - SEO Strategies
 seo:
   image:
-    src: '/seo-in-2024-trends-tips-strategies-guide.webp'
+    src: '/seo-in-2024-trends-tips-strategies-guide.avif'
     alt: "A blue abstract background with squares and cubes photo"
 ---
 
 <figure>
-  <img id="cover-img" src="/seo-in-2024-trends-tips-strategies-guide.webp" alt="A blue abstract background with squares and cubes photo">
+  <img id="cover-img" src="/seo-in-2024-trends-tips-strategies-guide.avif" alt="A blue abstract background with squares and cubes photo">
   <figcaption>Photo by <a href="https://unsplash.com/@rick_rothenberg?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Rick Rothenberg</a> on <a href="https://unsplash.com/photos/a-blue-abstract-background-with-squares-and-cubes-dMzFhYwMHGE?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

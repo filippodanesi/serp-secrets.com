@@ -6,12 +6,12 @@ tags:
   - Artificial Intelligence
 seo:
   image:
-    src: '/the-future-of-seo-if-chatgpt-kills-search-engines.webp'
+    src: '/the-future-of-seo-if-chatgpt-kills-search-engines.avif'
     alt: "A blurry image of a square shaped object photo"
 ---
 
 <figure>
-  <img id="cover-img" src="/the-future-of-seo-if-chatgpt-kills-search-engines.webp" alt="A blurry image of a square shaped object photo">
+  <img id="cover-img" src="/the-future-of-seo-if-chatgpt-kills-search-engines.avif" alt="A blurry image of a square shaped object photo">
   <figcaption>Photo by <a href="https://unsplash.com/@and_machines?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">and machines</a> on <a href="https://unsplash.com/photos/a-blurry-image-of-a-square-shaped-object-p97L9-YwRFg?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

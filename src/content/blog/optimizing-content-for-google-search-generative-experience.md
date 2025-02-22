@@ -6,12 +6,12 @@ tags:
   - SEO Strategies
 seo:
   image:
-    src: '/optimizing-content-for-google-search-generative-experience.webp'
+    src: '/optimizing-content-for-google-search-generative-experience.avif'
     alt: "An artist's illustration of artificial intelligence (AI) visualizing the flow of information within large language models, created by Tim West as part of the Visualising AI project by Google DeepMind."
 ---
 
 <figure>
-  <img id="cover-img" src="/optimizing-content-for-google-search-generative-experience.webp" alt="An artist's illustration of artificial intelligence (AI) visualizing the flow of information within large language models, created by Tim West as part of the Visualising AI project by Google DeepMind.">
+  <img id="cover-img" src="/optimizing-content-for-google-search-generative-experience.avif" alt="An artist's illustration of artificial intelligence (AI) visualizing the flow of information within large language models, created by Tim West as part of the Visualising AI project by Google DeepMind.">
   <figcaption>Photo by <a href="https://unsplash.com/@googledeepmind?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Google DeepMind</a> on <a href="https://unsplash.com/photos/a-group-of-different-colored-pills-egDR0kw-Ptw?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

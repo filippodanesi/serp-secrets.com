@@ -7,12 +7,12 @@ tags:
   - SEO Strategies
 seo:
   image:
-    src: '/how-to-create-helpful-content-after-hcu.webp'
+    src: '/how-to-create-helpful-content-after-hcu.avif'
     alt: "A blurry image of a pink and blue background"
 ---
 
 <figure>
-  <img id="cover-img" src="/how-to-create-helpful-content-after-hcu.webp" alt="A blurry image of a pink and blue background">
+  <img id="cover-img" src="/how-to-create-helpful-content-after-hcu.avif" alt="A blurry image of a pink and blue background">
   <figcaption>Photo by <a href="https://unsplash.com/@steve_j?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Steve Johnson</a> on <a href="https://unsplash.com/photos/a-blurry-image-of-a-pink-and-blue-background-MC2Hqdm0TeY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

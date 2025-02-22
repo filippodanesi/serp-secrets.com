@@ -6,12 +6,12 @@ tags:
   - SEO Strategies
 seo:
   image:
-    src: '/google-ai-overview-analysis.webp'
+    src: '/google-ai-overview-analysis.avif'
     alt: "Visual representation of Google's AI Overview implementation patterns across different search intents"
 ---
 
 <figure>
-  <img id="cover-img" src="/google-ai-overview-impact-on-search-results.webp" alt="A purple and silver object on a black background">
+  <img id="cover-img" src="/google-ai-overview-impact-on-search-results.avif" alt="A purple and silver object on a black background">
   <figcaption>Photo by <a href="https://unsplash.com/@fakurian?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Milad Fakurian</a> on <a href="https://unsplash.com/photos/a-purple-and-silver-object-on-a-black-background-p3xtAnimJ6U?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

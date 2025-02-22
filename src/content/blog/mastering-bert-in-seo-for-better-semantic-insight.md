@@ -6,12 +6,12 @@ tags:
   - Technical SEO
 seo:
   image:
-    src: '/mastering-bert-in-seo-for-better-semantic-insight.webp'
+    src: '/mastering-bert-in-seo-for-better-semantic-insight.avif'
     alt: "A blue and black object with a black background photo"
 ---
 
 <figure>
-  <img id="cover-img" src="/mastering-bert-in-seo-for-better-semantic-insight.webp" alt="A blue and black object with a black background photo">
+  <img id="cover-img" src="/mastering-bert-in-seo-for-better-semantic-insight.avif" alt="A blue and black object with a black background photo">
   <figcaption>Photo by <a href="https://unsplash.com/@philipsfuture?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Philip Oroni</a> on <a href="https://unsplash.com/photos/a-blue-and-black-object-with-a-black-background-TL4Dh-VLmXA?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

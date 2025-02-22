@@ -6,12 +6,12 @@ tags:
   - SEO Strategies
 seo:
   image:
-    src: '/seo-the-rise-of-search-everywhere-optimization.webp'
+    src: '/seo-the-rise-of-search-everywhere-optimization.avif'
     alt: "Blue and white abstract painting"
 ---
 
 <figure>
-  <img id="cover-img" src="/seo-the-rise-of-search-everywhere-optimization.webp" alt="Blue and white abstract painting">
+  <img id="cover-img" src="/seo-the-rise-of-search-everywhere-optimization.avif" alt="Blue and white abstract painting">
   <figcaption>
     Photo by <a href="https://unsplash.com/@rick_rothenberg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Rick Rothenberg</a> on 
     <a href="https://unsplash.com/photos/blue-and-white-abstract-painting-Nqx3SaMp4kQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>

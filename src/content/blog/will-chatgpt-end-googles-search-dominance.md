@@ -6,12 +6,12 @@ tags:
   - SEO News
 seo:
   image:
-    src: '/will-chatgpt-end-googles-search-dominance.webp'
+    src: '/will-chatgpt-end-googles-search-dominance.avif'
     alt: "A blurry image of a pink and blue object photo"
 ---
 
 <figure>
- <img id="cover-img" src="/will-chatgpt-end-googles-search-dominance.webp" alt="A close-up of a cell phone with a blurry background illustrating the competition between ChatGPT and Google">
+ <img id="cover-img" src="/will-chatgpt-end-googles-search-dominance.avif" alt="A close-up of a cell phone with a blurry background illustrating the competition between ChatGPT and Google">
  <figcaption>Photo by <a href="https://unsplash.com/@steve_j?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Steve Johnson</a> on <a href="https://unsplash.com/photos/a-close-up-of-a-cell-phone-with-a-blurry-background-w8HyFZ6w-ds?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

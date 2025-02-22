@@ -6,12 +6,12 @@ tags:
   - Artificial Intelligence
 seo:
   image:
-    src: '/ai-and-ml-what-are-the-differences.webp'
+    src: '/ai-and-ml-what-are-the-differences.avif'
     alt: "A blurry image of a pink and blue object photo"
 ---
 
 <figure>
-  <img id="cover-img" src="/ai-and-ml-what-are-the-differences.webp" alt="A blurry image of a pink and blue object photo">
+  <img id="cover-img" src="/ai-and-ml-what-are-the-differences.avif" alt="A blurry image of a pink and blue object photo">
   <figcaption>Photo by <a href="https://unsplash.com/@fakurian?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Milad Fakurian</a> on <a href="https://unsplash.com/photos/a-blurry-image-of-a-pink-and-blue-object-tUF--C9oOuE?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 
