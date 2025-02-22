@@ -1,8 +1,7 @@
 ---
 title: "Adapting to Google's Helpful Content era"
 excerpt: "Google's 'Helpful Content' update aims to promote helpful content. Adapting can lead to better rankings and traffic."
-publishDate: 'Aug 29 2024'
-isFeatured: true
+publishDate: '2024-08-29'
 tags:
   - SEO Strategies
 seo:
