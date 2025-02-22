@@ -1,21 +1,21 @@
 ---
 title: "Keywords in SEO: Why They Still Matter"
 excerpt: "Discover why keywords remain crucial for SEO in 2025, from semantic search to entity recognition. Learn how to implement modern keyword strategies for better rankings and conversions."
-publishDate: '2024-02-20'
+publishDate: '2025-02-20'
 tags:
   - SEO Strategies
 seo:
   image:
     src: '/keywords-in-seo-why-they-still-matter.webp'
-    alt: A group of red and blue cubes on a green background
+    alt: "A blurry photo of a bunch of curved lines photo"
 ---
 
 <figure>
   <img id="cover-img" src="/keywords-in-seo-why-they-still-matter.webp" alt="A group of red and blue cubes on a green background">
-  <figcaption>Photo by <a href="https://unsplash.com/@hiestudio?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">HI! ESTUDIO</a> on <a href="https://unsplash.com/photos/a-group-of-red-and-blue-cubes-on-a-green-background-qup1dqACEBw?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
+  <figcaption>Photo by <a href="https://unsplash.com/@hiestudio?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">HI! ESTUDIO</a> on <a href="https://unsplash.com/photos/a-group-of-red-and-blue-cubes-on-a-green-background-qup1dqACEBw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
-
-In the rapidly evolving landscape of search engine optimization, the role of keywords continues to spark intense debate. Despite significant changes in search algorithms and user behavior, **keyword research and implementation remain fundamental components** of successful SEO strategies. Through comprehensive analysis of current search patterns and industry data, we can now identify clear patterns in how search engines process keywords and how this impacts optimization strategies.
+      
+      In the rapidly evolving landscape of search engine optimization, the role of keywords continues to spark intense debate. Despite significant changes in search algorithms and user behavior, **keyword research and implementation remain fundamental components** of successful SEO strategies. Through comprehensive analysis of current search patterns and industry data, we can now identify clear patterns in how search engines process keywords and how this impacts optimization strategies.
 
 ## How Keywords Have Evolved in Modern SEO
 
@@ -24,7 +24,7 @@ Modern SEO has evolved beyond simple keyword matching to embrace **semantic sear
 <figure>
   <img id="article-img" src="/keyword-evolution-timeline-2025.svg" alt="Timeline showing the evolution of keyword strategy from density focus to semantic search">
   <figcaption>
-  Evolution of keyword strategy in SEO from 2011 to present
+    Evolution of keyword strategy in SEO from 2011 to present
   </figcaption>
 </figure>
 
@@ -39,8 +39,8 @@ The data consistently shows that [content strategies](https://www.serp-secrets.c
 <figure>
   <img id="article-img" src="/serp-click-distribution-2025.svg" alt="Bar chart showing click distribution in search results with first position receiving 28.5% of clicks">
   <figcaption>
-  Distribution of clicks across search results positions \
-  Source: <a href="https://www.searchenginejournal.com/why-keywords-still-matter/425671/" target="_blank">Search Engine Journal</a>, by Winston Burton
+    Distribution of clicks across search results positions \
+    Source: <a href="https://www.searchenginejournal.com/why-keywords-still-matter/425671/" target="_blank">Search Engine Journal</a>, by Winston Burton
   </figcaption>
 </figure>
 
