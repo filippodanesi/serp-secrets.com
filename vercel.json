@@ -6,11 +6,11 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self';\nscript-src 'self' 'unsafe-inline' 'unsafe-eval' https://plausible.io;\nstyle-src 'self' 'unsafe-inline' https://fonts.googleapis.com;\nfont-src 'self' https://fonts.gstatic.com;\nimg-src 'self' data:;\nconnect-src 'self' https://plausible.io;\nframe-src 'self';\nmanifest-src 'self';\nobject-src 'none';\nbase-uri 'self';\nform-action 'self';\nframe-ancestors 'none';\nupgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://plausible.io; frame-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
         },
         {
           "key": "Permissions-Policy",
-          "value": "accelerometer=(), autoplay=(), camera=(), cross-origin-isolated=(),\ndisplay-capture=(), encrypted-media=(), fullscreen=(self),\ngeolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(),\nmicrophone=(), midi=(), payment=(), picture-in-picture=(self),\npublickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(self),\nusb=(), web-share=(self), xr-spatial-tracking=(), clipboard-read=(self),\nclipboard-write=(self), gamepad=(), hid=(), idle-detection=(),\ninterest-cohort=(), serial=()"
+          "value": "fullscreen=(self), picture-in-picture=(self), clipboard-read=(self), clipboard-write=(self), web-share=(self)"
         },
         {
           "key": "Referrer-Policy",
