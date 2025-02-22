@@ -6,7 +6,6 @@ import Nav from '../components/Nav.astro';
 import BreadcrumbListStructuredData from '../components/structured-data/BreadcrumbListStructuredData.astro';
 import AboutStructuredData from '../components/structured-data/AboutStructuredData.astro';
 import ContactPageStructuredData from '../components/structured-data/ContactPageStructuredData.astro';
-import Analytics from '../components/Analytics.astro';
 import '../styles/cookieconsent-style.css';
 
 export type Props = HeadProps & { 
@@ -55,7 +54,6 @@ const headProps = {
             {showHeader && <Header />}
             <main class="grow w-full max-w-3xl mx-auto">
                 <slot />
-                <Analytics />
             </main>
             <Footer />
         </div>
