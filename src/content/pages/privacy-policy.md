@@ -6,7 +6,7 @@ seo:
   description: Information about how we collect and handle your data on our website.
 ---
 
-<p class="text-sm text-[rgb(var(--color-text-main)_/_0.6)]">Last Updated: 09-Nov-2024</p>
+<p class="text-sm text-[rgb(var(--color-text-secondary))] pb-6 border-b border-solid border-main inline-block">Last Updated: 22-Feb-2025</p>
 
 ## Who we are
 
