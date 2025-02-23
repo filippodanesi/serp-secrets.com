@@ -6,7 +6,7 @@ seo:
   description: Our Cookie Policy explains what cookies are and how we use them on our website.
 ---
 
-##### **Last Updated**: 09-Nov-2024
+<p class="text-sm text-[rgb(var(--color-text-main)_/_0.6)] mb-8">Last Updated: 22-Feb-2025</p>
 
 ## What are cookies?
 
@@ -25,9 +25,9 @@ The third-party cookies used on our website mainly help us understand how the we
 #### Necessary
 Necessary cookies are required to enable the basic features of this site, such as providing secure log-in or adjusting your consent preferences. These cookies do not store any personally identifiable data.
 
-| Cookie/Storage | Type | Duration | Description |
-|----------------|------|----------|-------------|
-| `theme` | localStorage | Persistent | Stores your theme preference (light/dark mode) |
+| Cookie | Duration | Description |
+|--------|----------|-------------|
+| `theme` | Persistent | Stores your theme preference (light/dark mode) |
 
 #### Analytics
 Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics such as the number of visitors, bounce rate, traffic source, etc.
