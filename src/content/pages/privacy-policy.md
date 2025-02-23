@@ -6,8 +6,6 @@ seo:
   description: Information about how we collect and handle your data on our website.
 ---
 
-<h2 class="mb-12 text-[rgb(var(--color-text-main))] font-sans font-normal sm:mb-14 text-sm sm:text-base leading-normal pb-6 border-b border-solid border-main">Last Updated: 22-Feb-2025</h2>
-
 ## Who we are
 
 Our website address is: https://www.serp-secrets.com/
@@ -58,3 +56,5 @@ We may update this privacy policy from time to time to reflect changes to our pr
 ## Contact information
 
 For any questions or concerns about our privacy policy or your personal data, please contact us at [privacy@filippodanesi.it](mailto:privacy@filippodanesi.it).
+
+<p class="text-sm text-[rgb(var(--color-text-muted)_/_0.6)]">(Last Updated: 22-Feb-2025)</p>
