@@ -6,9 +6,9 @@ seo:
   description: Our Cookie Policy explains what cookies are and how we use them on our website.
 ---
 
-## What are cookies?
-
 This Cookie Policy explains what cookies are and how we use them, the types of cookies we use (i.e., the information we collect using cookies and how that information is used), and how to manage the cookie settings.
+
+## What are cookies?
 
 Cookies are small text files that are used to store small pieces of information. They are stored on your device when the website is loaded on your browser. These cookies help us make the website function properly, make it more secure, provide a better user experience, and understand how the website performs and analyze what works and where it needs improvement.
 

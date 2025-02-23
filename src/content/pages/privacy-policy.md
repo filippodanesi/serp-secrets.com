@@ -12,6 +12,8 @@ Our website address is: https://www.serp-secrets.com/
 
 ## What personal data we collect and why we collect it
 
+Personal data is only used for predefined purposes or purposes that are compatible with these. We always ensure that a legally valid reason exists for processing personal data.
+
 ### Analytics
 
 We use Google Analytics to understand how visitors interact with our website. This service collects data anonymously and helps us improve our website experience. For more information about how Google Analytics handles your data, please visit their [Privacy Policy](https://policies.google.com/privacy).
