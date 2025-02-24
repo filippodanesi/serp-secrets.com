@@ -110,10 +110,10 @@ const siteConfig: SiteConfig = {
         formUrl: '#'
     },
     tagDescriptions: {
-        'technical-seo': 'Personal insights into backend SEO strategies and coding techniques that boost site performance and improve search rankings. I explore site architecture and technical optimization in detail.',
-        'seo-news': 'Authoritative updates and reflections on the latest SEO trends. I dive into algorithm changes, market shifts, and emerging practices in digital marketing.',
-        'seo-strategies': 'Personal insights into effective SEO tactics and winning methodologies, with a focus on keyword research, content optimization, and strategies to boost user engagement',
-        'artificial-intelligence': 'Exploring how AI is transforming SEO and digital marketing. I share insights into machine learning, algorithmic analysis, and AI-driven optimization strategies.'
+        'technical-seo': 'Backend SEO strategies and coding techniques to boost site performance and rankings. Detailed exploration of site architecture and technical optimization methods.',
+        'seo-news': 'Authoritative updates on latest SEO trends. Analysis of algorithm changes, market shifts, and emerging practices in digital marketing landscape.',
+        'seo-strategies': 'Effective SEO tactics and winning methodologies focused on keyword research, content optimization, and proven strategies to increase user engagement.',
+        'artificial-intelligence': 'How AI transforms SEO and digital marketing. Insights into machine learning, algorithmic analysis, and implementation of AI-driven optimization strategies.'
     },
     postsPerPage: 8,
     projectsPerPage: 8
