@@ -19,7 +19,19 @@ export default defineConfig({
         rehypeExternalLinks,
         {
           rel: ['nofollow', 'noopener', 'noreferrer'],
-          target: '_blank'
+          target: '_blank',
+          test: (node) => {
+            if (node.tagName !== 'a' || !node.properties || !node.properties.href) {
+              return false;
+            }
+            
+            const href = node.properties.href;
+            return !(
+              href.startsWith('/') || 
+              href.startsWith('#') ||
+              href.includes('serp-secrets.com')
+            );
+          }
         }
       ]
     ]
