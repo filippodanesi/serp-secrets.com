@@ -45,8 +45,8 @@ export type SiteConfig = {
 
 const siteConfig: SiteConfig = {
     title: 'SERPsecrets',
-    subtitle: 'Personal Thoughts on AI, SEO News, Strategies & Technical Solutions',
-    description: 'A personal take on SEO news, strategies, and AI insights. Practical analysis to help you optimize your online presence in a changing digital world.',
+    subtitle: 'Perspectives on AI, SEO trends, news & digital strategies',
+    description: 'A curated blend of SEO updates, AI reflections, and hands-on tactics. Thoughtful analysis to help you navigate the digital landscape — no hype, just real-world clarity.',
     image: {
         src: '/og-image.webp',
         alt: 'SERPsecrets - SEO Analysis, Strategies & AI Insights'
