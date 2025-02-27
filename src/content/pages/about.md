@@ -18,4 +18,4 @@ Hi, I’m Filippo, the mind behind SERPsecrets. As an SEO specialist and AI enth
 
 From **AI’s role in reshaping SEO practices** to mastering **[Technical SEO](/categories/technical-seo/)** and crafting **[SEO strategies](/categories/seo-strategies/) for digital growth**, I cover the key areas essential for anyone looking to enhance their online visibility in today’s digital landscape.
 
-Want to learn more? Visit my [website](https://www.filippodanesi.it/) to explore my work and services.
+Want to learn more? Visit my [website](https://www.filippodanesi.com/) to explore my work and services.
