@@ -11,7 +11,8 @@ module.exports = {
                 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
             ],
             serif: [
-                'Newsreader', 'Georgia', 'Times New Roman', 'serif',
+                '-apple-system', 'system-ui', 'BlinkMacSystemFont',
+                'Segoe UI', 'Helvetica', 'Arial', 'sans-serif',
                 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
             ],
             mono: [
