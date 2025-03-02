@@ -3,6 +3,8 @@ import siteConfig from '@/data/site-config';
 import '../styles/global.css';
 import '../styles/fonts.css';
 
+import SpeedInsights from '@vercel/speed-insights/astro';
+
 export type Props = {
     title?: string;
     description?: string;
@@ -85,6 +87,10 @@ function formatCanonicalURL(url: string | URL) {
 {resolvedImage?.src && <meta property="twitter:image" content={resolvedImage.src} />}
 {resolvedImage?.alt && <meta name="twitter:image:alt" content={resolvedImage?.alt} />}
 
+<!-- Vercel Speed Insight -->
+<SpeedInsights />
+
+<!-- Plausible Analytics -->
 <script defer data-domain="serp-secrets.com" src="https://plausible.io/js/script.outbound-links.js"></script>
 <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 
