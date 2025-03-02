@@ -100,14 +100,14 @@ if (tags.length > 0) {
             </h1>
 
             {/* Description */}
-            <div class="text-sm sm:text-base text-[rgb(var(--color-text-muted)_/_0.6)] pb-4 mb-4 border-b border-[rgb(var(--color-text-muted)_/_0.1)]">
+            <div class="text-sm sm:text-base text-main pb-4 mb-4 border-b border-[rgb(var(--color-text-muted)_/_0.1)]">
                 {seo?.description ?? excerpt}
             </div>
 
             {/* Meta information and share icons container */}
-            <div class="flex flex-col sm:flex-row sm:items-center text-[rgb(var(--color-text-muted)_/_0.6)] sm:justify-between pb-4 mb-8 border-b border-[rgb(var(--color-text-muted)_/_0.1)]">
+            <div class="flex flex-col sm:flex-row sm:items-center text-main sm:justify-between pb-4 mb-8 border-b border-[rgb(var(--color-text-muted)_/_0.1)]">
                 {/* Meta information */}
-                <div class="text-xs sm:text-sm text-main" transition:name={`post-meta-${post.slug}`}>
+                <div class="text-xs sm:text-sm" transition:name={`post-meta-${post.slug}`}>
                     <span>Published by</span>
                     <a href="https://www.filippodanesi.com" target="_blank" class="font-medium hover:opacity-70">Filippo Danesi</a>
                     <span>on <FormattedDate date={publishDate} /></span>

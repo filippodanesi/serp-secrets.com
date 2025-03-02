@@ -41,13 +41,13 @@ const currentTag = allTags.find((tag) => {
     image={{ src: '/og-image.webp' }}
     showHeader={false}
 >
-    <h1 class="text-3xl leading-tight font-serif sm:text-4xl italic mb-4 sm:leading-tight">
+    <h1 class="text-3xl leading-tight font-serif font-medium sm:text-4xl sm:leading-tight mb-4 text-main">
         {currentTag?.name}
     </h1>
 
     {
         siteConfig.tagDescriptions[params.slug] && (
-            <h2 class="mb-12 text-[rgb(var(--color-text-secondary))] sm:mb-14 text-sm sm:text-base leading-normal pb-6 border-b border-solid border-main inline-block">
+            <h2 class="mb-12 text-main sm:mb-14 text-sm sm:text-base leading-normal pb-6 border-b border-solid border-main inline-block">
                 {siteConfig.tagDescriptions[params.slug]}
             </h2>
         )
