@@ -47,7 +47,7 @@ const navLinks = (siteConfig.headerNavLinks ?? []).filter((link: Link) => link.h
                     {navLinks.map((link, index) => (
                         <li class="menu-item py-1 opacity-0">
                             <NavLink
-                                class="text-sm font-serif text-main hover:underline hover:underline-offset-2 hover:decoration-1"
+                                class="text-base sm:text-sm font-serif text-main hover:underline hover:underline-offset-2 hover:decoration-1"
                                 href={link.href}
                             >
                                 {link.text}
@@ -86,7 +86,7 @@ const navLinks = (siteConfig.headerNavLinks ?? []).filter((link: Link) => link.h
                     {navLinks.map((link) => (
                         <li class="py-1">
                             <NavLink
-                                class="text-sm font-serif text-main hover:underline hover:underline-offset-2 hover:decoration-1"
+                                class="text-base sm:text-sm font-serif text-main hover:underline hover:underline-offset-2 hover:decoration-1"
                                 href={link.href}
                             >
                                 {link.text}
