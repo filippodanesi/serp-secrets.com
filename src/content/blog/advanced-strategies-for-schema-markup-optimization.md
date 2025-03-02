@@ -6,12 +6,12 @@ tags:
   - Technical SEO
 seo:
   image:
-    src: '/advanced-strategies-for-schema-markup-optimization.avif'
+    src: '/advanced-strategies-for-schema-markup-optimization.webp'
     alt: "A multicolored cube of glass on a white background photo"
 ---
 
 <figure>
-  <img id="cover-img" src="/advanced-strategies-for-schema-markup-optimization.avif" alt="A multicolored cube of glass on a white background photo">
+  <img id="cover-img" src="/advanced-strategies-for-schema-markup-optimization.webp" alt="A multicolored cube of glass on a white background photo">
   <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

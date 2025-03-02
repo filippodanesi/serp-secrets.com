@@ -6,12 +6,12 @@ tags:
   - SEO Strategies
 seo:
   image:
-    src: '/training-search-engines-the-next-evolution-of-seo.avif'
+    src: '/training-search-engines-the-next-evolution-of-seo.webp'
     alt: "A black background with a red and blue arrow photo"
 ---
 
 <figure>
-  <img id="cover-img" src="/training-search-engines-the-next-evolution-of-seo.avif" alt="A black background with a red and blue arrow photo">
+  <img id="cover-img" src="/training-search-engines-the-next-evolution-of-seo.webp" alt="A black background with a red and blue arrow photo">
   <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

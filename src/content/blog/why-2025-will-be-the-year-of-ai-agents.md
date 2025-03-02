@@ -6,12 +6,12 @@ tags:
   - Artificial Intelligence
 seo:
   image:
-    src: '/why-2025-will-be-the-year-of-ai-agents.avif'
+    src: '/why-2025-will-be-the-year-of-ai-agents.webp'
     alt: "Round gray button on white surface"
 ---
 
 <figure>
-  <img id="cover-img" src="/why-2025-will-be-the-year-of-ai-agents.avif" alt="Round gray button on white surface">
+  <img id="cover-img" src="/why-2025-will-be-the-year-of-ai-agents.webp" alt="Round gray button on white surface">
   <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

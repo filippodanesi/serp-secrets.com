@@ -6,12 +6,12 @@ tags:
   - SEO News
 seo:
   image:
-    src: '/seo-2025-upcoming-changes-and-how-to-adapt-scaled.avif'
+    src: '/seo-2025-upcoming-changes-and-how-to-adapt-scaled.webp'
     alt: "Green balloon on white surface photo"
 ---
 
 <figure>
-  <img id="cover-img" src="/seo-2025-upcoming-changes-and-how-to-adapt.avif" alt="Green balloon on white surface photo">
+  <img id="cover-img" src="/seo-2025-upcoming-changes-and-how-to-adapt.webp" alt="Green balloon on white surface photo">
   <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

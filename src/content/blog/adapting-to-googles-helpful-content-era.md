@@ -6,12 +6,12 @@ tags:
   - SEO Strategies
 seo:
   image:
-    src: '/adapting-to-googles-helpful-content-era.avif'
+    src: '/adapting-to-googles-helpful-content-era.webp'
     alt: abstract 3d illustration with abstract light scattering on it
 ---
 
 <figure>
-  <img id="cover-img" src="/adapting-to-googles-helpful-content-era.avif" alt="abstract 3d illustration with abstract light scattering on it">
+  <img id="cover-img" src="/adapting-to-googles-helpful-content-era.webp" alt="abstract 3d illustration with abstract light scattering on it">
   <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

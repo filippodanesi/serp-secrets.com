@@ -6,12 +6,12 @@ tags:
   - Artificial Intelligence
 seo:
   image:
-    src: '/will-artificial-intelligence-replace-humans.avif'
+    src: '/will-artificial-intelligence-replace-humans.webp'
     alt: "A very large group of blue and white objects photo"
 ---
 
 <figure>
-  <img id="cover-img" src="/will-artificial-intelligence-replace-humans.avif" alt="A very large group of blue and white objects photo">
+  <img id="cover-img" src="/will-artificial-intelligence-replace-humans.webp" alt="A very large group of blue and white objects photo">
   <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 
