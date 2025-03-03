@@ -12,10 +12,8 @@
         const element = document.documentElement;
         if (theme === 'light') {
             element.classList.remove('dark');
-            element.classList.remove('cc--darkmode');
         } else {
             element.classList.add('dark');
-            element.classList.add('cc--darkmode');
         }
         localStorage.setItem('theme', theme);
     };

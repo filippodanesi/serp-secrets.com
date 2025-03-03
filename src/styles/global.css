@@ -17,6 +17,16 @@
         --color-border-main: 242 241 236; /* #F2F1EC */
         --color-text-muted: 242 241 236; /* #F2F1EC */
     }
+    body {
+        @apply bg-main text-main;
+        font-feature-settings: "liga" 1, "calt" 1;
+    }
+}
+
+@layer components {
+    .prose {
+        @apply max-w-none;
+    }
 }
 
 /* Custom styles */

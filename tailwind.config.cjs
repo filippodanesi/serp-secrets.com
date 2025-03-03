@@ -22,7 +22,8 @@ module.exports = {
         },
         extend: {
             textColor: {
-                main: 'rgb(var(--color-text-main) / <alpha-value>)'
+                main: 'rgb(var(--color-text-main) / <alpha-value>)',
+                muted: 'rgb(var(--color-text-muted) / <alpha-value>)'
             },
             backgroundColor: {
                 main: 'rgb(var(--color-bg-main) / <alpha-value>)',
@@ -30,12 +31,6 @@ module.exports = {
             },
             borderColor: {
                 main: 'rgb(var(--color-border-main) / <alpha-value>)'
-            },
-            colors: {
-                customBlue: {
-                    DEFAULT: 'rgb(28, 107, 187)',
-                    dark: 'rgb(47, 116, 187)',
-                }
             },
             typography: (theme) => ({
                 dante: {
@@ -104,5 +99,5 @@ module.exports = {
             })
         }
     },
-    plugins: [require('@tailwindcss/typography')]
+    plugins: [require('@tailwindcss/typography')],
 };
