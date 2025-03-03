@@ -22,36 +22,36 @@ module.exports = {
         },
         extend: {
             textColor: {
-                main: 'rgb(var(--color-text-main) / <alpha-value>)',
-                muted: 'rgb(var(--color-text-muted) / <alpha-value>)'
+                main: 'rgb(var(--color-text-main))',
+                muted: 'rgb(var(--color-text-muted))'
             },
             backgroundColor: {
-                main: 'rgb(var(--color-bg-main) / <alpha-value>)',
-                muted: 'rgb(var(--color-bg-muted) / <alpha-value>)'
+                main: 'rgb(var(--color-bg-main))',
+                muted: 'rgb(var(--color-bg-muted))'
             },
             borderColor: {
-                main: 'rgb(var(--color-border-main) / <alpha-value>)'
+                main: 'rgb(var(--color-border-main))'
             },
             typography: (theme) => ({
                 dante: {
                     css: {
                         '--typography-serif': theme('fontFamily.serif').join(', '),
-                        '--tw-prose-body': theme('textColor.main / 100%'),
-                        '--tw-prose-headings': theme('textColor.main / 100%'),
-                        '--tw-prose-lead': theme('textColor.main / 100%'),
-                        '--tw-prose-links': theme('textColor.main / 100%'),
-                        '--tw-prose-bold': theme('textColor.main / 100%'),
-                        '--tw-prose-counters': theme('textColor.main / 100%'),
-                        '--tw-prose-bullets': theme('textColor.main / 100%'),
-                        '--tw-prose-hr': theme('borderColor.main / 100%'),
-                        '--tw-prose-quotes': theme('textColor.main / 100%'),
-                        '--tw-prose-quote-borders': theme('borderColor.main / 100%'),
-                        '--tw-prose-captions': theme('textColor.main / 100%'),
-                        '--tw-prose-code': theme('textColor.main / 100%'),
+                        '--tw-prose-body': theme('textColor.main'),
+                        '--tw-prose-headings': theme('textColor.main'),
+                        '--tw-prose-lead': theme('textColor.main'),
+                        '--tw-prose-links': theme('textColor.main'),
+                        '--tw-prose-bold': theme('textColor.main'),
+                        '--tw-prose-counters': theme('textColor.main'),
+                        '--tw-prose-bullets': theme('textColor.main'),
+                        '--tw-prose-hr': theme('borderColor.main'),
+                        '--tw-prose-quotes': theme('textColor.main'),
+                        '--tw-prose-quote-borders': theme('borderColor.main'),
+                        '--tw-prose-captions': theme('textColor.main'),
+                        '--tw-prose-code': theme('textColor.main'),
                         '--tw-prose-pre-code': theme('colors.zinc.100'),
                         '--tw-prose-pre-bg': theme('colors.zinc.800'),
-                        '--tw-prose-th-borders': theme('borderColor.main / 100%'),
-                        '--tw-prose-td-borders': theme('borderColor.main / 100%'),
+                        '--tw-prose-th-borders': theme('borderColor.main'),
+                        '--tw-prose-td-borders': theme('borderColor.main'),
                         'h1,h2,h3,h4,h5,h6': {
                             fontFamily: 'var(--typography-serif)',
                             fontWeight: 500
