@@ -3,7 +3,7 @@ title: Get In Touch With Me
 publishDate: '2024-11-07'
 seo:
   title: Get In Touch With Me
-  description: Get in touch through email or social media! Let me know how I can help.
+  description: Contact me via email or social media with any questions, suggestions, or just to connect. I’ll get back to you as soon as possible!
 ---
 
 Thank you for reaching out! Whether you have a question, a suggestion, or just want to share your thoughts, I'm all ears. Feel free to get in touch through any of the methods below:
