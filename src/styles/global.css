@@ -31,6 +31,31 @@
     .dark .prose-dante p {
         color: rgb(var(--color-text-main)) !important;
     }
+    
+    /* SVG inversion in dark mode */
+    .dark svg:not([class*="no-invert"]) {
+        filter: invert(100%);
+    }
+    
+    /* SVG in img tags inversion in dark mode */
+    .dark img[src$=".svg"]:not([class*="no-invert"]) {
+        filter: invert(100%);
+    }
+}
+
+@layer utilities {
+    .svg-invert {
+        filter: invert(100%);
+    }
+    
+    .dark .svg-auto-invert {
+        filter: invert(100%);
+    }
+    
+    /* Optional: Class to prevent SVG inversion */
+    .no-svg-invert {
+        filter: invert(0%);
+    }
 }
 
 /* Image styles */
