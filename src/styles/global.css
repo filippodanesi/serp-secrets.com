@@ -32,18 +32,19 @@
         color: rgb(var(--color-text-main)) !important;
     }
     
-    /* SVG inversion in dark mode */
-    .dark svg:not([class*="no-invert"]) {
+    /* SVG inversion in dark mode - ONLY inside prose content */
+    .dark .prose svg:not([class*="no-invert"]) {
         filter: invert(100%);
     }
     
-    /* SVG in img tags inversion in dark mode */
-    .dark img[src$=".svg"]:not([class*="no-invert"]) {
+    /* SVG in img tags inversion in dark mode - ONLY inside prose content */
+    .dark .prose img[src$=".svg"]:not([class*="no-invert"]) {
         filter: invert(100%);
     }
 }
 
 @layer utilities {
+    /* Utility classes for manual control */
     .svg-invert {
         filter: invert(100%);
     }
@@ -54,7 +55,7 @@
     
     /* Optional: Class to prevent SVG inversion */
     .no-svg-invert {
-        filter: invert(0%);
+        filter: invert(0%) !important;
     }
 }
 
