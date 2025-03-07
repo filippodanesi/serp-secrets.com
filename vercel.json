@@ -1,15 +1,5 @@
 {
   "trailingSlash": true,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "zeroConfig": true,
-        "installCommand": "npm install --legacy-peer-deps"
-      }
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
