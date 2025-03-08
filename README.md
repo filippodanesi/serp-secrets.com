@@ -17,7 +17,6 @@ A technical publication committed to the convergence of SEO and AI, through deep
 - [React](https://react.dev/) v18.3 - Interactive components
 - [Fuse.js](https://www.fusejs.io/) v7.0 - Search capabilities
 - [Sharp](https://sharp.pixelplumbing.com/) v0.33 - Image optimization
-- [astro-cookieconsent](https://github.com/jop-software/astro-cookieconsent) - Privacy compliance
 - [Vercel](https://vercel.com) - Deployment and analytics
 
 ## Development
@@ -44,4 +43,4 @@ Built with [Dante](https://justgoodui.com/), an Astro theme by JustGoodUI. Conte
 
 ---
 
-© 2024 SERP Secrets
+© 2025 Filippo Danesi
