@@ -20,6 +20,15 @@
     body {
         @apply bg-main text-main;
     }
+    /* Added heading font family styling */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: ui-serif, "Libre Baskerville", Georgia, Cambria, "Times New Roman", Times, serif;
+    }
+    
+    /* Exclude H2 elements inside header tags */
+    header h2 {
+        font-family: inherit;
+    }
 }
 
 @layer components {
