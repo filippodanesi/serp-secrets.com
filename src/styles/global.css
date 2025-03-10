@@ -22,12 +22,12 @@
     }
     /* Added heading font family styling */
     h1, h2, h3, h4, h5, h6 {
-        font-family: ui-serif, "Libre Baskerville", Georgia, Cambria, "Times New Roman", Times, serif;
+        font-family: ui-serif, "Libre Baskerville", Georgia, Cambria, "Times New Roman", Times, serif !important;
     }
     
     /* Exclude H2 elements inside header tags */
     header h2 {
-        font-family: inherit;
+        font-family: inherit !important;
     }
 }
 
