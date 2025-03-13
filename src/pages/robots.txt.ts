@@ -42,7 +42,6 @@ Disallow: /api/
 # Sitemaps
 Sitemap: ${new URL('sitemap.xml', site)}
 Sitemap: ${new URL('news-sitemap.xml', site)}
-Sitemap: ${new URL('image-sitemap.xml', site)}`;
 
     return new Response(robotsTxt.trim(), {
         headers: {
