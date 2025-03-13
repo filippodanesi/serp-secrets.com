@@ -11,7 +11,7 @@
     },
     "dependencies": {
         "@astrojs/internal-helpers": "^0.6.0",
-        "@astrojs/mdx": "^4.1.0",
+        "@astrojs/mdx": "^4.1.1",
         "@astrojs/react": "^4.2.1",
         "@astrojs/rss": "^4.0.11",
         "@astrojs/tailwind": "^6.0.0",

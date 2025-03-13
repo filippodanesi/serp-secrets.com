@@ -9,9 +9,19 @@ seo:
     src: '/why-user-generated-content-is-key-for-seo-success.webp'
     alt: "A green and black background with wavy lines"
 ---
+import { Image } from 'astro:assets';
+import coverImage from '../../assets/images/blog/why-user-generated-content-is-key-for-seo-success.webp';
+import serpVolatilityImage from '../../assets/images/blog/SERP-Volatility-All-categories-US.png.webp';
+import eeatImage from '../../assets/images/blog/E-E-A-T-Content-Creator-Perspective.webp';
 
 <figure>
-  <img id="cover-img" src="/why-user-generated-content-is-key-for-seo-success.webp" alt="A green and black background with wavy lines">
+  <Image 
+    id="cover-img" 
+    src={coverImage} 
+    alt="A green and black background with wavy lines" 
+    loading="eager" 
+    priority={true} 
+  />
   <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 
@@ -30,7 +40,11 @@ Integration is key to driving the most value from UGC. Think about how user test
 Some of the latest Google core updates, especially that of [March 2024](https://www.serp-secrets.com/blog/in-depth-analysis-of-googles-march-2024-updates/), which **reduced low-quality and unoriginal content by a whopping 45%**, have given a new twist to the jungle of SEO. This massive shift has brought much more emphasis on authentic and worthy content ranking in search. The key to success lies in understanding and adapting to these changes through strategic UGC implementation.
 
 <figure>
-  <img id="article-img" src="/SERP-Volatility-All-categories-US.png.webp" alt="A graph showing SERP volatility across all categories in the US during Google updates">
+  <Image 
+    id="article-img" 
+    src={serpVolatilityImage} 
+    alt="A graph showing SERP volatility across all categories in the US during Google updates" 
+  />
   <figcaption>"SERP Volatility All Categories US" \ Source: <a href="https://searchengineland.com/google-algorithm-updates-2024-449417" target="_blank">Search Engine Land</a>, by Barry Schwartz</figcaption>
 </figure>
 
@@ -55,7 +69,11 @@ Google's **E-E-A-T guidelines** (Experience, Expertise, Authoritativeness, and T
 Building a strong E-E-A-T signal using UGC requires the web page to be very interested in users' credentials and their areas of expertise. Allow users, including experts, to share their thoughts, knowledge, and experiences; verification of these contributors can be highlighted within systems. Encourage long experience sharing that reflects realistic life situations and understanding. Whenever relevant, allow user-generated content to connect with your credible authoritative sources to demonstrate validity.
 
 <figure>
-  <img id="article-img" src="/E-E-A-T-Content-Creator-Perspective.webp" alt="EEAT guidelines for quality raters experience, expertise, authority and trust">
+  <Image 
+    id="article-img" 
+    src={eeatImage} 
+    alt="EEAT guidelines for quality raters experience, expertise, authority and trust" 
+  />
   <figcaption>"What does E-E-A-T mean in SEO?" \ Source: <a href="https://moz.com/learn/seo/google-eat" target="_blank">Moz Learn</a>, by Miriam Ellis</figcaption>
 </figure>
 

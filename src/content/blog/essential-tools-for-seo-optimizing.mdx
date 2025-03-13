@@ -9,9 +9,17 @@ seo:
     src: '/essential-tools-for-seo-optimizing.webp'
     alt: "A blurry photo of a bunch of curved lines photo"
 ---
+import { Image } from 'astro:assets';
+import coverImage from '../../assets/images/blog/essential-tools-for-seo-optimizing.webp';
 
 <figure>
-  <img id="cover-img" src="/essential-tools-for-seo-optimizing.webp" alt="A blurry photo of a bunch of curved lines photo">
+  <Image 
+    id="cover-img" 
+    src={coverImage} 
+    alt="A blurry photo of a bunch of curved lines photo" 
+    loading="eager" 
+    priority={true} 
+  />
   <figcaption>Photo by <a href="https://unsplash.com/@joey_f?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Joey F.</a> on <a href="https://unsplash.com/photos/a-blurry-photo-of-a-bunch-of-curved-lines-rjohWsfOn0Y?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

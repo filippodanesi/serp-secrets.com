@@ -9,9 +9,19 @@ seo:
     src: '/why-2025-will-be-the-year-of-ai-agents.webp'
     alt: "Round gray button on white surface"
 ---
+import { Image } from 'astro:assets';
+import coverImage from '../../assets/images/blog/why-2025-will-be-the-year-of-ai-agents.webp';
+import aiAgencyGapImage from '../../assets/images/blog/mind-the-ai-agency-gap.jpg';
+import gdpGrowthImage from '../../assets/images/blog/b1a515f2-5afe-4996-aebb-484b51d82b9d_1029x732.jpg';
 
 <figure>
-  <img id="cover-img" src="/why-2025-will-be-the-year-of-ai-agents.webp" alt="Round gray button on white surface">
+  <Image 
+    id="cover-img" 
+    src={coverImage} 
+    alt="Round gray button on white surface" 
+    loading="eager" 
+    priority={true} 
+  />
   <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 
@@ -24,7 +34,11 @@ The evolution from passive AI assistants to **proactive AI agents** represents o
 According to **Gartner's groundbreaking analysis**, we're witnessing the early stages of an exponential growth curve. Their [prediction](https://www.gartner.com/en/articles/intelligent-agent-in-ai) that approximately **one-third of enterprise software applications** will incorporate agentic AI by 2028—up from just 1% today—signals the beginning of a massive transformation in how organizations operate.
 
 <figure>
-  <img id="article-img" src="/mind-the-ai-agency-gap.jpg" alt="A chart titled 'Mind the AI Agency Gap' compares human agency, deterministic chatbots, and LLM-based assistants from low to high agency across various criteria like adaptability and task complexity.">
+  <Image 
+    id="article-img" 
+    src={aiAgencyGapImage} 
+    alt="A chart titled 'Mind the AI Agency Gap' compares human agency, deterministic chatbots, and LLM-based assistants from low to high agency across various criteria like adaptability and task complexity." 
+  />
   <figcaption>"Agency level comparison between humans, chatbots and LLM assistants" \ Source: <a href="https://www.gartner.com/en/articles/intelligent-agent-in-ai" target="_blank">Gartner</a>, by Tom Coshow</figcaption>
 </figure>
 
@@ -63,7 +77,11 @@ The challenge of managing thousands of independent AI agents has led to the deve
 The financial impact of AI agent adoption presents a complex landscape of opportunities and challenges. **Goldman Sachs' analysis** [suggests](https://www.goldmansachs.com/images/migrated/insights/pages/gs-research/gen-ai--too-much-spend,-too-little-benefit-/TOM_AI%202.0_ForRedaction.pdf) more measured productivity gains than many enthusiasts predict—potentially just a **0.5% increase in US productivity** over the next decade. 
 
 <figure>
-  <img id="article-img" src="/b1a515f2-5afe-4996-aebb-484b51d82b9d_1029x732.jpg" alt="Bar chart showing average annual growth of real potential GDP and its components from 1950 to 2053, with projections from 2024 onwards. Bars split into real GDP, labor productivity, and labor force.">
+  <Image 
+    id="article-img" 
+    src={gdpGrowthImage} 
+    alt="Bar chart showing average annual growth of real potential GDP and its components from 1950 to 2053, with projections from 2024 onwards. Bars split into real GDP, labor productivity, and labor force." 
+  />
   <figcaption>"Average annual growth of real potential GDP and its components (1950-2053)" \ Source: <a href="https://www.goldmansachs.com/images/migrated/insights/pages/gs-research/gen-ai--too-much-spend%2C-too-little-benefit-/TOM_AI%202.0_ForRedaction.pdf" target="_blank">Goldman Sachs</a>, by Allison Nathan, Jenny Grimberg & Ashley Rhodes</figcaption>
 </figure>
 

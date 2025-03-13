@@ -9,9 +9,21 @@ seo:
     src: '/google-ai-overview-analysis.webp'
     alt: "Visual representation of Google's AI Overview implementation patterns across different search intents"
 ---
+import { Image } from 'astro:assets';
+import coverImage from '../../assets/images/blog/google-ai-overview-impact-on-search-results.webp';
+import volumeDistributionImage from '../../assets/images/blog/google-aio-volume-distribution-2025.svg';
+import searchIntentImage from '../../assets/images/blog/google-aio-search-intent-2025.svg';
+import industryDistributionImage from '../../assets/images/blog/google-aio-industry-distribution-2025.svg';
+import serpFeaturesImage from '../../assets/images/blog/google-aio-serp-features-2025.svg';
 
 <figure>
-  <img id="cover-img" src="/google-ai-overview-impact-on-search-results.webp" alt="A purple and silver object on a black background">
+  <Image 
+    id="cover-img" 
+    src={coverImage} 
+    alt="A purple and silver object on a black background" 
+    loading="eager" 
+    priority={true} 
+  />
   <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 
@@ -20,7 +32,11 @@ Google's AI Overview represents a significant shift in how search engines presen
 Our research reveals that AI Overviews appear in approximately **29.9% of analyzed searches**, but only account for **11.5% of total search volume**. This discrepancy is particularly telling - it indicates that Google isn't simply rolling out AI Overviews based on search volume or popularity. Instead, the implementation appears to follow a **sophisticated pattern** tied to user intent and content complexity. This selective deployment suggests that Google is carefully choosing where AI Overviews can provide the most value, rather than applying them universally across all search types.
 
 <figure>
-  <img id="article-img" src="/google-aio-volume-distribution-2025.svg" alt="Chart showing AI Overview distribution in search results: 29.9% of searches covering 11.5% of total search volume">
+  <Image 
+    id="article-img" 
+    src={volumeDistributionImage} 
+    alt="Chart showing AI Overview distribution in search results: 29.9% of searches covering 11.5% of total search volume" 
+  />
   <figcaption>
     "Google AI Overview Distribution in Search Results" \
     Source: <a href="https://www.searchenginejournal.com/google-ai-overviews-found-in-74-of-problem-solving-queries/538504/" target="_blank">Search Engine Journal</a>, by Matt G. Southern
@@ -36,7 +52,11 @@ When we examine the data, we see that **problem-solving queries** trigger AI Ove
 The implementation rate drops significantly for **navigational queries**, appearing in only **19.6% of brand-related searches**. This pattern aligns with user behavior studies showing that navigational searches typically have a clearer intent and require less contextual information. As SEO practitioners, we can leverage this understanding to better allocate our optimization efforts and resources.
 
 <figure>
-  <img id="article-img" src="/google-aio-search-intent-2025.svg" alt="Bar chart showing AI Overview presence across different search intents, with problem-solving queries at 74% and question-based at 69%">
+  <Image 
+    id="article-img" 
+    src={searchIntentImage} 
+    alt="Bar chart showing AI Overview presence across different search intents, with problem-solving queries at 74% and question-based at 69%" 
+  />
   <figcaption>
     "AI Overview Distribution by Search Intent" \
     Source: <a href="https://moz.com/blog/ai-overviews-are-they-affecting-your-search-results-whiteboard-friday" target="_blank">Moz</a>, by Tom Capper
@@ -52,7 +72,11 @@ The **telecommunications sector** leads with a **56% implementation rate**, whil
 Understanding these patterns is crucial for [technical SEO](https://www.serp-secrets.com/categories/technical-seo/) strategy. For sectors with high AI Overview presence, we need to focus on **structured data implementation** and **clear content hierarchy**. The data suggests that Google heavily relies on well-structured content and clear topical relationships when generating these overviews.
 
 <figure>
-  <img id="article-img" src="/google-aio-industry-distribution-2025.svg" alt="Bar chart showing AI Overview implementation rates across industries, from Telecommunications at 56% to Beauty at 14%">
+  <Image 
+    id="article-img" 
+    src={industryDistributionImage} 
+    alt="Bar chart showing AI Overview implementation rates across industries, from Telecommunications at 56% to Beauty at 14%" 
+  />
   <figcaption>
     "AI Overview Implementation Across Industry Verticals" \
     Source: <a href="https://www.searchenginejournal.com/google-ai-overviews-found-in-74-of-problem-solving-queries/538504/" target="_blank">Search Engine Journal</a>, by Matt G. Southern
@@ -86,7 +110,11 @@ For SEO professionals, these findings translate into several key technical focus
 The implementation of AI Overviews represents a significant shift in how Google presents search results, particularly for **informational and problem-solving queries**. Understanding these patterns is crucial for [modern SEO strategy](https://www.serp-secrets.com/categories/seo-strategies/) development and content optimization. Moz's analysis of **over 56,000 keywords** reveals clear patterns that can guide SEO professionals in adapting their strategies to this evolving landscape.
 
 <figure>
-  <img id="article-img" src="/google-aio-serp-features-2025.svg" alt="Comparative chart showing SERP feature presence with and without AI Overviews, including Featured Snippets at 27% vs 5% baseline">
+  <Image 
+    id="article-img" 
+    src={serpFeaturesImage} 
+    alt="Comparative chart showing SERP feature presence with and without AI Overviews, including Featured Snippets at 27% vs 5% baseline" 
+  />
   <figcaption>
     "SERP Features Correlation with AI Overviews" \
     Source: <a href="https://moz.com/blog/ai-overviews-are-they-affecting-your-search-results-whiteboard-friday" target="_blank">Moz</a>, by Tom Capper

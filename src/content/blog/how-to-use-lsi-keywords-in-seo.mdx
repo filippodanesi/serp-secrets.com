@@ -9,9 +9,17 @@ seo:
     src: '/how-to-use-lsi-keywords-in-seo.webp'
     alt: "Blue and white round illustration photo" 
 ---
+import { Image } from 'astro:assets';
+import coverImage from '../../assets/images/blog/how-to-use-lsi-keywords-in-seo.webp';
 
 <figure>
-  <img id="cover-img" src="/how-to-use-lsi-keywords-in-seo.webp" alt="Blue and white round illustration photo">
+  <Image 
+    id="cover-img" 
+    src={coverImage} 
+    alt="Blue and white round illustration photo" 
+    loading="eager" 
+    priority={true} 
+  />
   <figcaption>Photo by <a href="https://unsplash.com/@sebastiansvenson?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Sebastian Svenson</a> on <a href="https://unsplash.com/photos/blue-and-white-round-illustration-LpbyDENbQQg?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
 

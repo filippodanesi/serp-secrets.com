@@ -9,9 +9,19 @@ seo:
     src: '/keywords-in-seo-why-they-still-matter.webp'
     alt: "A blurry photo of a bunch of curved lines photo"
 ---
+import { Image } from 'astro:assets';
+import coverImage from '../../assets/images/blog/keywords-in-seo-why-they-still-matter.webp';
+import timelineImage from '../../assets/images/blog/keyword-evolution-timeline-2025.svg';
+import distributionImage from '../../assets/images/blog/serp-click-distribution-2025.svg';
 
 <figure>
-  <img id="cover-img" src="/keywords-in-seo-why-they-still-matter.webp" alt="A group of red and blue cubes on a green background">
+  <Image 
+  id="cover-img" 
+  src={coverImage} 
+  alt="A group of red and blue cubes on a green background" 
+  loading="eager" 
+  priority={true} 
+/>
   <figcaption>Photo by <a href="https://unsplash.com/@alexshuperart?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Alex Shuper</a> on <a href="https://unsplash.com/photos/a-picture-of-a-woman-with-a-dumbbell-in-her-hand-l2nJZnXxkx4?utm_content=creditCopyText&amp;utm_medium=referral&amp;utm_source=unsplash">Unsplash</a></figcaption>
 </figure>
       
@@ -22,7 +32,7 @@ In the rapidly evolving landscape of search engine optimization, the role of key
 Modern SEO has evolved beyond simple keyword matching to embrace **semantic search and entity recognition**. According to recent [Neil Patel data](https://neilpatel.com/blog/keyword-density/), while keywords remain crucial for SEO, their implementation has shifted dramatically from the keyword-density focused approaches of the past. Today's search engines use **Named Entity Recognition (NER)** to understand not just keywords, but the relationships between concepts, entities, and user intent.
 
 <figure>
-  <img id="article-img" src="/keyword-evolution-timeline-2025.svg" alt="Timeline showing the evolution of keyword strategy from density focus to semantic search">
+  <Image id="article-img" src={timelineImage} alt="Timeline showing the evolution of keyword strategy from density focus to semantic search" />
   <figcaption>
     Evolution of keyword strategy in SEO from 2011 to present
   </figcaption>
@@ -37,7 +47,7 @@ This evolution in search technology means that **search engines now recognize en
 The data consistently shows that [content strategies](https://www.serp-secrets.com/blog/how-to-create-helpful-content-after-hcu/) incorporating semantic SEO principles outperform traditional keyword-focused approaches. This shift reflects a deeper understanding of how users search and how search engines interpret content meaning beyond simple keyword matching.
 
 <figure>
-  <img id="article-img" src="/serp-click-distribution-2025.svg" alt="Bar chart showing click distribution in search results with first position receiving 28.5% of clicks">
+  <Image id="article-img" src={distributionImage} alt="Bar chart showing click distribution in search results with first position receiving 28.5% of clicks" />
   <figcaption>
     Distribution of clicks across search results positions \
     Source: <a href="https://www.searchenginejournal.com/why-keywords-still-matter/425671/" target="_blank">Search Engine Journal</a>, by Winston Burton
