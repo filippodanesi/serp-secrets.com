@@ -1,0 +1,195 @@
+---
+import OpenAI from "openai";
+import fs from 'fs/promises';
+import path from 'path';
+import SearchIcon from '../icons/Search.astro';
+
+export interface Props {
+  content: string;
+  title: string;
+  cacheKey?: string;
+}
+
+const { content, title, cacheKey = "" } = Astro.props;
+
+// Function to generate summary
+async function generateSummary(text: string, articleTitle: string): Promise<string | null> {
+  try {
+    // Initialize the OpenAI client with the new API structure
+    const openai = new OpenAI({
+      apiKey: import.meta.env.OPENAI_API_KEY,
+      dangerouslyAllowBrowser: false
+    });
+
+    const prompt = `Create a brief summary of the article titled "${articleTitle}" as a SINGLE PARAGRAPH of approximately 200 characters. The summary must use complete sentences and end properly without truncation. DO NOT use any formatting:
+    
+    ${text.substring(0, 4000)}`;
+
+    // Use the new chat completions API
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        {
+          role: "system",
+          content: "You are an assistant that creates concise summaries of blog articles. Your task is to create a single paragraph summary of approximately 200 characters. Use complete sentences and ensure the summary ends naturally. Never truncate with '...'. DO NOT use any formatting."
+        },
+        {
+          role: "user",
+          content: prompt
+        }
+      ],
+      temperature: 0.5,
+      max_tokens: 4096,
+    });
+
+    // Get response content and thoroughly clean it
+    let summaryText = response.choices[0]?.message.content?.trim() || "";
+    
+    // First, remove all HTML tags
+    summaryText = summaryText.replace(/<[^>]*>/g, '');
+    
+    // Remove any remaining markdown-style formatting
+    summaryText = summaryText.replace(/\*\*/g, ''); // Remove bold markdown
+    summaryText = summaryText.replace(/\*/g, '');   // Remove italic markdown
+    summaryText = summaryText.replace(/\[|\]/g, ''); // Remove brackets
+    
+    // Remove bullet points, numbers, and other list formatting
+    summaryText = summaryText.replace(/^\s*[\-\*•]\s*/gm, ''); // Remove bullet points
+    summaryText = summaryText.replace(/^\s*\d+\.\s*/gm, '');  // Remove numbered lists
+    
+    // Collapse multiple spaces and clean up
+    summaryText = summaryText.replace(/\s+/g, ' ').trim();
+    
+    // Ensure it's not a list by checking for common patterns
+    if (summaryText.includes('Definition and Purpose:') || 
+        summaryText.includes('Key Components:') ||
+        summaryText.includes('Web Components:')) {
+      // If it appears to be a list-like structure, generate a more concise summary
+      const topics = summaryText.split(/(?::\s*)/g);
+      // Take only the content parts and join them
+      const cleanedParts = [];
+      for (let i = 1; i < topics.length; i++) {
+        let part = topics[i];
+        // Remove the next heading if it exists in this part
+        const nextHeadingIndex = part.lastIndexOf(topics[i+1] ? topics[i+1].split(' ')[0] : '');
+        if (nextHeadingIndex > 0) {
+          part = part.substring(0, nextHeadingIndex);
+        }
+        cleanedParts.push(part.trim());
+      }
+      
+      summaryText = cleanedParts.join(' ').trim();
+    }
+    
+    return summaryText || null;
+  } catch (error) {
+    console.error("Error generating summary:", error);
+    return null; // Return null instead of error message to trigger retry
+  }
+}
+
+// Function to implement rate limiting
+const rateLimiter = (() => {
+  let lastCallTime = 0;
+  const minDelay = 1000; // 1 second between calls
+
+  return async () => {
+    const now = Date.now();
+    const elapsed = now - lastCallTime;
+    
+    if (elapsed < minDelay) {
+      // Wait for the remaining time if needed
+      await new Promise(resolve => setTimeout(resolve, minDelay - elapsed));
+    }
+    
+    lastCallTime = Date.now();
+  };
+})();
+
+// Implementation with loading state
+let isLoading = true;
+let summary: string | null = null;
+
+// Use cache key to avoid regenerating summaries
+const cacheDir = '.astro/summaries';
+
+if (cacheKey) {
+  try {
+    // Create cache directory if it doesn't exist
+    await fs.mkdir(cacheDir, { recursive: true });
+    
+    const cacheFile = path.join(cacheDir, `${cacheKey}.json`);
+    
+    try {
+      // Try to read from cache
+      const cacheData = await fs.readFile(cacheFile, 'utf-8');
+      const parsedData = JSON.parse(cacheData);
+      
+      // Only use cache if summary exists (not null)
+      if (parsedData.summary) {
+        summary = parsedData.summary;
+        isLoading = false;
+      } else {
+        // Generate new summary if cached one was null
+        await rateLimiter();
+        summary = await generateSummary(content, title);
+        isLoading = false;
+        
+        // Only save to cache if summary was successfully generated
+        if (summary) {
+          await fs.writeFile(
+            cacheFile, 
+            JSON.stringify({ summary, timestamp: Date.now() }),
+            'utf-8'
+          );
+        }
+      }
+    } catch (error) {
+      // Generate new summary if cache doesn't exist or is invalid
+      await rateLimiter();
+      summary = await generateSummary(content, title);
+      isLoading = false;
+      
+      // Only save to cache if summary was successfully generated
+      if (summary) {
+        await fs.writeFile(
+          cacheFile, 
+          JSON.stringify({ summary, timestamp: Date.now() }),
+          'utf-8'
+        );
+      }
+    }
+  } catch (error) {
+    console.error("Error with caching:", error);
+    await rateLimiter();
+    summary = await generateSummary(content, title);
+    isLoading = false;
+  }
+} else {
+  await rateLimiter();
+  summary = await generateSummary(content, title);
+  isLoading = false;
+}
+
+// If summary is still null after all attempts, show a placeholder message
+const displaySummary = summary || "Summary generation in progress... Reload the page to try again.";
+---
+
+<div class="ai-summary">
+  <div class="ai-summary-header">
+    <SearchIcon class="ai-icon" />
+    <span>Overview</span>
+  </div>
+  <div class="ai-summary-content">
+    {isLoading ? (
+      <div class="loading-indicator">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <p>Generating summary...</p>
+      </div>
+    ) : (
+      <p>{displaySummary}</p>
+    )}
+  </div>
+</div>

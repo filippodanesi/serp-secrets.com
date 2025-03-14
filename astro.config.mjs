@@ -41,5 +41,8 @@ export default defineConfig({
     tailwind({ applyBaseStyles: false }),
     react(),
     mdx()
-  ]
+  ],
+  vite: {
+    envPrefix: 'OPENAI_',
+  },
 });

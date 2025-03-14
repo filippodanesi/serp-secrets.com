@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import PostPreview from '../../components/PostPreview.astro';
 import ShareIcons from '../../components/ShareIcons.astro';
+import AISummary from '../../components/AISummary.astro';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
 import { slugify } from '../../utils/common-utils';
 import BlogPostingStructuredData from '../../components/structured-data/BlogPostingStructuredData.astro';
@@ -29,6 +30,9 @@ const { href } = Astro.url;
 const { post, prevPost, nextPost } = Astro.props;
 const { title, publishDate, updatedDate, excerpt, tags = [], seo, image } = post.data;
 const { Content, remarkPluginFrontmatter } = await post.render();
+
+// Generate a cache key based on the post slug and last modified date
+const cacheKey = `${post.slug}_${updatedDate ? updatedDate.getTime() : publishDate.getTime()}`;
 
 // Preparazione breadcrumb
 const breadcrumbItems = [
@@ -145,6 +149,13 @@ if (tags.length > 0) {
                 )
             }
         </header>
+
+        {/* AI-Generated Summary */}
+        <AISummary 
+            content={post.body}
+            title={title}
+            cacheKey={cacheKey}
+        />
 
         {/* Article Content */}
         <div class="max-w-none prose prose-dante dark:prose-invert sm:prose-lg" transition:animate="slide">
