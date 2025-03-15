@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
   <!-- Background -->
-  <rect width="800" height="500" fill="#F2F1EC"/>
+  <rect width="800" height="500" fill="rgb(242, 241, 236)"/>
   
   <!-- Title and subtitle -->
-  <text x="60" y="60" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="24" font-weight="600" fill="#171717">
+  <text x="60" y="60" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="24" font-weight="600" fill="rgb(23, 23, 23)">
     Search Intent Distribution
   </text>
-  <text x="60" y="90" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" fill="#171717" opacity="0.7">
+  <text x="60" y="90" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" fill="rgb(23, 23, 23)" opacity="0.7">
     AI Overview presence across different search intents
   </text>
   
@@ -16,40 +16,40 @@
     <g>
       <!-- Problem-solving -->
       <g transform="translate(180, 20)">
-        <text x="-20" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717" text-anchor="end">Problem-solving</text>
-        <rect x="0" y="0" width="370" height="30" fill="#EAE9E1" stroke="#171717" stroke-width="1" rx="4"/>
-        <text x="380" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">74%</text>
+        <text x="-20" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="end">Problem-solving</text>
+        <rect x="0" y="0" width="370" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4"/>
+        <text x="380" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">74%</text>
       </g>
       
       <!-- Question-based -->
       <g transform="translate(180, 80)">
-        <text x="-20" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717" text-anchor="end">Question-based</text>
-        <rect x="0" y="0" width="345" height="30" fill="#EAE9E1" stroke="#171717" stroke-width="1" rx="4"/>
-        <text x="355" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">69%</text>
+        <text x="-20" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="end">Question-based</text>
+        <rect x="0" y="0" width="345" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4"/>
+        <text x="355" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">69%</text>
       </g>
       
       <!-- Non-brand -->
       <g transform="translate(180, 140)">
-        <text x="-20" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717" text-anchor="end">Non-brand</text>
-        <rect x="0" y="0" width="166" height="30" fill="#EAE9E1" stroke="#171717" stroke-width="1" rx="4"/>
-        <text x="176" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">33.3%</text>
+        <text x="-20" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="end">Non-brand</text>
+        <rect x="0" y="0" width="166" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4"/>
+        <text x="176" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">33.3%</text>
       </g>
       
       <!-- Brand-related -->
       <g transform="translate(180, 200)">
-        <text x="-20" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717" text-anchor="end">Brand-related</text>
-        <rect x="0" y="0" width="98" height="30" fill="#EAE9E1" stroke="#171717" stroke-width="1" rx="4"/>
-        <text x="108" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">19.6%</text>
+        <text x="-20" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="end">Brand-related</text>
+        <rect x="0" y="0" width="98" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4"/>
+        <text x="108" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">19.6%</text>
       </g>
     </g>
   </g>
   
   <!-- Enhanced legend -->
   <g transform="translate(60, 440)">
-    <rect x="0" y="-15" width="15" height="15" fill="#EAE9E1" stroke="#171717" stroke-width="1"/>
-    <text x="25" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">AI Overview Presence</text>
+    <rect x="0" y="-15" width="15" height="15" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1"/>
+    <text x="25" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">AI Overview Presence</text>
     
-    <text x="0" y="30" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="#171717" opacity="0.7">
+    <text x="0" y="30" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(23, 23, 23)" opacity="0.7">
       Source: Analysis of search intent patterns across different query types
     </text>
   </g>

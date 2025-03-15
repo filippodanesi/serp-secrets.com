@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
     <!-- Background -->
-    <rect width="800" height="400" fill="#F2F1EC"/>
+    <rect width="800" height="400" fill="rgb(242, 241, 236)"/>
     
     <!-- Title -->
-    <text x="400" y="40" text-anchor="middle" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="20" font-weight="bold" fill="#171717">
+    <text x="400" y="40" text-anchor="middle" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="20" font-weight="bold" fill="rgb(23, 23, 23)">
         Platform Effectiveness in Search Visibility 2024-2025
     </text>
     
     <!-- Grid lines -->
-    <g stroke="#171717" stroke-opacity="0.1" stroke-width="1">
+    <g stroke="rgb(23, 23, 23)" stroke-opacity="0.1" stroke-width="1">
         <line x1="200" y1="80" x2="200" y2="350"/>
         <line x1="300" y1="80" x2="300" y2="350"/>
         <line x1="400" y1="80" x2="400" y2="350"/>
@@ -18,7 +18,7 @@
     </g>
     
     <!-- X-axis labels -->
-    <g font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="#171717">
+    <g font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(23, 23, 23)">
         <text x="200" y="370" text-anchor="middle">10%</text>
         <text x="300" y="370" text-anchor="middle">20%</text>
         <text x="400" y="370" text-anchor="middle">30%</text>
@@ -30,38 +30,38 @@
     <!-- Bars and labels -->
     <g>
         <!-- Google Search -->
-        <rect x="200" y="90" width="420" height="30" fill="#EAE9E1" stroke="#171717" stroke-width="1" rx="2"/>
-        <text x="190" y="110" text-anchor="end" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">Google Search</text>
-        <text x="630" y="110" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">52%</text>
+        <rect x="200" y="90" width="420" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="2"/>
+        <text x="190" y="110" text-anchor="end" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">Google Search</text>
+        <text x="630" y="110" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">52%</text>
         
         <!-- TikTok Search -->
-        <rect x="200" y="130" width="320" height="30" fill="#EAE9E1" stroke="#171717" stroke-width="1" rx="2"/>
-        <text x="190" y="150" text-anchor="end" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">TikTok Search</text>
-        <text x="530" y="150" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">42%</text>
+        <rect x="200" y="130" width="320" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="2"/>
+        <text x="190" y="150" text-anchor="end" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">TikTok Search</text>
+        <text x="530" y="150" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">42%</text>
         
         <!-- Instagram Search -->
-        <rect x="200" y="170" width="280" height="30" fill="#EAE9E1" stroke="#171717" stroke-width="1" rx="2"/>
-        <text x="190" y="190" text-anchor="end" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">Instagram Search</text>
-        <text x="490" y="190" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">38%</text>
+        <rect x="200" y="170" width="280" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="2"/>
+        <text x="190" y="190" text-anchor="end" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">Instagram Search</text>
+        <text x="490" y="190" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">38%</text>
         
         <!-- YouTube Search -->
-        <rect x="200" y="210" width="240" height="30" fill="#EAE9E1" stroke="#171717" stroke-width="1" rx="2"/>
-        <text x="190" y="230" text-anchor="end" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">YouTube Search</text>
-        <text x="450" y="230" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">34%</text>
+        <rect x="200" y="210" width="240" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="2"/>
+        <text x="190" y="230" text-anchor="end" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">YouTube Search</text>
+        <text x="450" y="230" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">34%</text>
         
         <!-- Voice Search -->
-        <rect x="200" y="250" width="200" height="30" fill="#EAE9E1" stroke="#171717" stroke-width="1" rx="2"/>
-        <text x="190" y="270" text-anchor="end" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">Voice Search</text>
-        <text x="410" y="270" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">30%</text>
+        <rect x="200" y="250" width="200" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="2"/>
+        <text x="190" y="270" text-anchor="end" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">Voice Search</text>
+        <text x="410" y="270" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">30%</text>
         
         <!-- Amazon Search -->
-        <rect x="200" y="290" width="160" height="30" fill="#EAE9E1" stroke="#171717" stroke-width="1" rx="2"/>
-        <text x="190" y="310" text-anchor="end" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">Amazon Search</text>
-        <text x="370" y="310" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">30%</text>
+        <rect x="200" y="290" width="160" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="2"/>
+        <text x="190" y="310" text-anchor="end" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">Amazon Search</text>
+        <text x="370" y="310" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">26%</text>
     </g>
     
     <!-- Source -->
-    <text x="400" y="395" text-anchor="middle" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="#171717" opacity="0.7">
+    <text x="400" y="395" text-anchor="middle" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(23, 23, 23)" opacity="0.7">
         Source: Digital Marketing Analytics 2024-2025
     </text>
 </svg>
