@@ -1,37 +1,37 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
-    <rect width="800" height="500" fill="#F9F9F7"/>
+    <rect width="800" height="500" fill="#F2F1EC"/>
     
-    <text x="60" y="60" font-family="Inter, -apple-system, sans-serif" font-size="24" font-weight="600" fill="#171717">
+    <text x="60" y="60" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="24" font-weight="600" fill="#171717">
       Evolution of Keyword Strategy
     </text>
-    <text x="60" y="90" font-family="Inter, -apple-system, sans-serif" font-size="16" fill="#171717" opacity="0.7">
+    <text x="60" y="90" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" fill="#171717" opacity="0.7">
       From keyword density to semantic relevance
     </text>
     
     <g transform="translate(60, 140)">
       <g>
         <!-- Timeline visualization -->
-        <line x1="100" y1="50" x2="600" y2="50" stroke="#000000" stroke-width="2"/>
+        <line x1="100" y1="50" x2="600" y2="50" stroke="#171717" stroke-width="1"/>
         
         <!-- Pre-2011 Era -->
-        <circle cx="150" cy="50" r="8" fill="#000000"/>
-        <text x="150" y="80" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#171717" text-anchor="middle">Pre-2011</text>
-        <text x="150" y="100" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#171717" text-anchor="middle">Keyword Density Focus</text>
+        <circle cx="150" cy="50" r="8" fill="#EAE9E1" stroke="#171717" stroke-width="1"/>
+        <text x="150" y="80" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717" text-anchor="middle">Pre-2011</text>
+        <text x="150" y="100" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="#171717" text-anchor="middle">Keyword Density Focus</text>
         
         <!-- 2011 Panda Update -->
-        <circle cx="350" cy="50" r="8" fill="#000000"/>
-        <text x="350" y="80" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#171717" text-anchor="middle">2011 Panda</text>
-        <text x="350" y="100" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#171717" text-anchor="middle">Quality Content Focus</text>
+        <circle cx="350" cy="50" r="8" fill="#EAE9E1" stroke="#171717" stroke-width="1"/>
+        <text x="350" y="80" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717" text-anchor="middle">2011 Panda</text>
+        <text x="350" y="100" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="#171717" text-anchor="middle">Quality Content Focus</text>
         
         <!-- Modern Era -->
-        <circle cx="550" cy="50" r="8" fill="#000000"/>
-        <text x="550" y="80" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#171717" text-anchor="middle">Modern Era</text>
-        <text x="550" y="100" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#171717" text-anchor="middle">Semantic Search</text>
+        <circle cx="550" cy="50" r="8" fill="#EAE9E1" stroke="#171717" stroke-width="1"/>
+        <text x="550" y="80" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717" text-anchor="middle">Modern Era</text>
+        <text x="550" y="100" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="#171717" text-anchor="middle">Semantic Search</text>
       </g>
     </g>
     
     <g transform="translate(60, 440)">
-      <text x="0" y="30" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#171717" opacity="0.7">
+      <text x="0" y="30" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="#171717" opacity="0.7">
         Based on Google algorithm updates and industry evolution
       </text>
     </g>

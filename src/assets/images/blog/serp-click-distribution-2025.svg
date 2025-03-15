@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
-    <rect width="800" height="500" fill="#F9F9F7"/>
+    <rect width="800" height="500" fill="#F2F1EC"/>
     
-    <text x="60" y="60" font-family="Inter, -apple-system, sans-serif" font-size="24" font-weight="600" fill="#171717">
+    <text x="60" y="60" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="24" font-weight="600" fill="#171717">
       SERP Click Distribution
     </text>
-    <text x="60" y="90" font-family="Inter, -apple-system, sans-serif" font-size="16" fill="#171717" opacity="0.7">
+    <text x="60" y="90" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" fill="#171717" opacity="0.7">
       Distribution of clicks across search results
     </text>
     
     <g transform="translate(60, 140)">
-      <g stroke="#000000" stroke-opacity="0.1">
+      <g stroke="#171717" stroke-opacity="0.1">
         <line x1="0" y1="0" x2="680" y2="0"/>
         <line x1="0" y1="80" x2="680" y2="80"/>
         <line x1="0" y1="160" x2="680" y2="160"/>
@@ -18,25 +18,25 @@
       <g transform="translate(100, 0)">
         <!-- First Position -->
         <g transform="translate(0, 30)">
-          <text x="90" y="-5" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#171717" text-anchor="middle">28.5%</text>
-          <rect x="0" y="10" width="180" height="80" fill="#000000" rx="4"/>
-          <text x="90" y="120" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#171717" text-anchor="middle">First Position Clicks</text>
+          <text x="90" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" fill="#171717" text-anchor="middle">28.5%</text>
+          <rect x="0" y="10" width="180" height="80" fill="#EAE9E1" stroke="#171717" stroke-width="1" rx="4"/>
+          <text x="90" y="120" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717" text-anchor="middle">First Position Clicks</text>
         </g>
         
         <!-- Other Positions -->
         <g transform="translate(300, 30)">
-          <text x="90" y="-5" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#171717" text-anchor="middle">71.5%</text>
-          <rect x="0" y="10" width="180" height="200" fill="#000000" opacity="0.6" rx="4"/>
-          <text x="90" y="120" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#171717" text-anchor="middle">Other Positions</text>
+          <text x="90" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" fill="#171717" text-anchor="middle">71.5%</text>
+          <rect x="0" y="10" width="180" height="200" fill="#EAE9E1" stroke="#171717" stroke-width="1" stroke-opacity="0.6" rx="4"/>
+          <text x="90" y="120" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717" text-anchor="middle">Other Positions</text>
         </g>
       </g>
     </g>
     
     <g transform="translate(60, 440)">
-      <rect x="0" y="-15" width="15" height="15" fill="#000000"/>
-      <text x="25" y="0" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#171717">Position Distribution</text>
+      <rect x="0" y="-15" width="15" height="15" fill="#EAE9E1" stroke="#171717" stroke-width="1"/>
+      <text x="25" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="#171717">Position Distribution</text>
       
-      <text x="0" y="30" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#171717" opacity="0.7">
+      <text x="0" y="30" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="#171717" opacity="0.7">
         Source: Search Engine Journal analysis of click-through rates
       </text>
     </g>
