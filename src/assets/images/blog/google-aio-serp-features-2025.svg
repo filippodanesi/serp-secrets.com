@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" class="chart-svg">
   <!-- Background -->
-  <rect width="800" height="500" fill="rgb(242, 241, 236)"/>
+  <rect width="800" height="500" class="chart-background"/>
   
   <!-- Title and subtitle -->
-  <text x="60" y="60" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="24" font-weight="600" fill="rgb(23, 23, 23)">
+  <text x="60" y="60" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="24" font-weight="600" class="chart-title">
     SERP Features Correlation
   </text>
-  <text x="60" y="90" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" fill="rgb(23, 23, 23)" opacity="0.7">
+  <text x="60" y="90" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" class="chart-subtitle">
     Feature presence with and without AI Overview
   </text>
   
   <!-- Chart Area -->
   <g transform="translate(60, 140)">
     <!-- Grid lines -->
-    <g stroke="rgb(23, 23, 23)" stroke-opacity="0.1">
+    <g class="chart-grid">
       <line x1="0" y1="0" x2="680" y2="0"/>
       <line x1="0" y1="80" x2="680" y2="80"/>
       <line x1="0" y1="160" x2="680" y2="160"/>
@@ -23,45 +23,45 @@
     <g>
       <!-- Featured Snippets -->
       <g transform="translate(100, 30)">
-        <text x="25" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">27%</text>
-        <text x="85" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">5%</text>
-        <rect x="0" y="10" width="50" height="120" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4"/>
-        <rect x="60" y="100" width="50" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" stroke-opacity="0.4" rx="4"/>
-        <text x="25" y="160" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="middle">Featured</text>
-        <text x="25" y="180" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="middle">Snippets</text>
+        <text x="25" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" text-anchor="middle" class="chart-value">27%</text>
+        <text x="85" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" text-anchor="middle" class="chart-value">5%</text>
+        <rect x="0" y="10" width="50" height="120" class="chart-bar" rx="4"/>
+        <rect x="60" y="100" width="50" height="30" class="chart-bar-secondary" rx="4"/>
+        <text x="25" y="160" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" text-anchor="middle" class="chart-label">Featured</text>
+        <text x="25" y="180" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" text-anchor="middle" class="chart-label">Snippets</text>
       </g>
       
       <!-- Things to Know -->
       <g transform="translate(300, 30)">
-        <text x="25" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">12%</text>
-        <text x="85" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">6%</text>
-        <rect x="0" y="10" width="50" height="60" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4" transform="translate(0, 60)"/>
-        <rect x="60" y="100" width="50" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" stroke-opacity="0.4" rx="4"/>
-        <text x="25" y="160" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="middle">Things</text>
-        <text x="25" y="180" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="middle">to Know</text>
+        <text x="25" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" text-anchor="middle" class="chart-value">12%</text>
+        <text x="85" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" text-anchor="middle" class="chart-value">6%</text>
+        <rect x="0" y="10" width="50" height="60" class="chart-bar" rx="4" transform="translate(0, 60)"/>
+        <rect x="60" y="100" width="50" height="30" class="chart-bar-secondary" rx="4"/>
+        <text x="25" y="160" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" text-anchor="middle" class="chart-label">Things</text>
+        <text x="25" y="180" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" text-anchor="middle" class="chart-label">to Know</text>
       </g>
       
       <!-- Found on Web -->
       <g transform="translate(500, 30)">
-        <text x="25" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">18%</text>
-        <text x="85" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">6%</text>
-        <rect x="0" y="10" width="50" height="90" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4" transform="translate(0, 30)"/>
-        <rect x="60" y="100" width="50" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" stroke-opacity="0.4" rx="4"/>
-        <text x="25" y="160" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="middle">Found</text>
-        <text x="25" y="180" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="middle">on Web</text>
+        <text x="25" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" text-anchor="middle" class="chart-value">18%</text>
+        <text x="85" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" text-anchor="middle" class="chart-value">6%</text>
+        <rect x="0" y="10" width="50" height="90" class="chart-bar" rx="4" transform="translate(0, 30)"/>
+        <rect x="60" y="100" width="50" height="30" class="chart-bar-secondary" rx="4"/>
+        <text x="25" y="160" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" text-anchor="middle" class="chart-label">Found</text>
+        <text x="25" y="180" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" text-anchor="middle" class="chart-label">on Web</text>
       </g>
     </g>
   </g>
   
   <!-- Enhanced legend -->
   <g transform="translate(60, 440)">
-    <rect x="0" y="-15" width="15" height="15" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1"/>
-    <text x="25" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">With AI Overview</text>
+    <rect x="0" y="-15" width="15" height="15" class="chart-bar"/>
+    <text x="25" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" class="chart-legend-text">With AI Overview</text>
     
-    <rect x="200" y="-15" width="15" height="15" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" stroke-opacity="0.4"/>
-    <text x="225" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">Baseline (without AIO)</text>
+    <rect x="200" y="-15" width="15" height="15" class="chart-bar-secondary"/>
+    <text x="225" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" class="chart-legend-text">Baseline (without AIO)</text>
     
-    <text x="0" y="30" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(23, 23, 23)" opacity="0.7">
+    <text x="0" y="30" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" class="chart-footer">
       Based on SERP feature analysis across US and UK markets
     </text>
   </g>

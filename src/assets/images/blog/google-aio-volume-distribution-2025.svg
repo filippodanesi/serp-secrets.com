@@ -1,33 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" class="svg-with-vars">
-  <style>
-    .svg-with-vars {
-      --svg-bg: rgb(var(--color-bg-main));
-      --svg-element-bg: rgb(var(--color-bg-muted));
-      --svg-text: rgb(var(--color-text-main));
-      --svg-border: rgb(var(--color-border-main));
-    }
-    
-    .svg-bg { fill: var(--svg-bg); }
-    .svg-element { fill: var(--svg-element-bg); stroke: var(--svg-border); }
-    .svg-text { fill: var(--svg-text); }
-    .svg-grid { stroke: var(--svg-text); opacity: 0.1; }
-  </style>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
   <!-- Background -->
-  <rect width="800" height="500" class="svg-bg"/>
+  <rect width="800" height="500" fill="rgb(242, 241, 236)"/>
   
   <!-- Title and subtitle -->
-  <text x="60" y="60" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="24" font-weight="600" class="svg-text">
+  <text x="60" y="60" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="24" font-weight="600" fill="rgb(23, 23, 23)">
     AI Overview Distribution
   </text>
-  <text x="60" y="90" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" class="svg-text" opacity="0.7">
+  <text x="60" y="90" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" fill="rgb(23, 23, 23)" opacity="0.7">
     Presence in search results vs. total search volume
   </text>
   
   <!-- Chart Area -->
   <g transform="translate(60, 140)">
     <!-- Grid lines - subtle and minimal -->
-    <g class="svg-grid">
+    <g stroke="rgb(23, 23, 23)" stroke-opacity="0.1">
       <line x1="0" y1="0" x2="680" y2="0"/>
       <line x1="0" y1="100" x2="680" y2="100"/>
       <line x1="0" y1="200" x2="680" y2="200"/>
@@ -37,29 +23,29 @@
     <g transform="translate(100, 0)">
       <!-- Group 1 -->
       <g transform="translate(0, 30)">
-        <text x="90" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" class="svg-text" text-anchor="middle">29.9%</text>
-        <rect x="0" y="10" width="180" height="80" class="svg-element" stroke-width="1" rx="4"/>
-        <text x="90" y="120" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" class="svg-text" text-anchor="middle">Present in Searches</text>
+        <text x="90" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">29.9%</text>
+        <rect x="0" y="10" width="180" height="80" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4"/>
+        <text x="90" y="120" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="middle">Present in Searches</text>
       </g>
       
       <!-- Group 2 -->
       <g transform="translate(300, 30)">
-        <text x="90" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" class="svg-text" text-anchor="middle">11.5%</text>
-        <rect x="0" y="10" width="180" height="40" class="svg-element" stroke-width="1" stroke-opacity="0.6" rx="4"/>
-        <text x="90" y="120" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" class="svg-text" text-anchor="middle">Of Total Volume</text>
+        <text x="90" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">11.5%</text>
+        <rect x="0" y="10" width="180" height="40" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" stroke-opacity="0.6" rx="4"/>
+        <text x="90" y="120" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="middle">Of Total Volume</text>
       </g>
     </g>
   </g>
   
   <!-- Enhanced legend -->
   <g transform="translate(60, 440)">
-    <rect x="0" y="-15" width="15" height="15" class="svg-element" stroke-width="1"/>
-    <text x="25" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" class="svg-text">Present in Searches</text>
+    <rect x="0" y="-15" width="15" height="15" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1"/>
+    <text x="25" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">Present in Searches</text>
     
-    <rect x="200" y="-15" width="15" height="15" class="svg-element" stroke-width="1" stroke-opacity="0.6"/>
-    <text x="225" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" class="svg-text">Search Volume Impact</text>
+    <rect x="200" y="-15" width="15" height="15" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" stroke-opacity="0.6"/>
+    <text x="225" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">Search Volume Impact</text>
     
-    <text x="0" y="30" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" class="svg-text" opacity="0.7">
+    <text x="0" y="30" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(23, 23, 23)" opacity="0.7">
       Based on analysis of 56,000 keywords across multiple markets
     </text>
   </g>
