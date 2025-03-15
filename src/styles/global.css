@@ -131,52 +131,6 @@
             transform: scale(1);
         }
     }
-    
-    /* SVG Chart Styles */
-    .chart-svg {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    .chart-background {
-        fill: rgb(var(--color-bg-main));
-    }
-    
-    .chart-title,
-    .chart-value,
-    .chart-label,
-    .chart-legend-text {
-        fill: rgb(var(--color-text-main));
-    }
-    
-    .chart-subtitle,
-    .chart-footer {
-        fill: rgb(var(--color-text-main));
-        opacity: 0.7;
-    }
-    
-    .chart-grid line {
-        stroke: rgb(var(--color-text-main));
-        stroke-opacity: 0.1;
-    }
-    
-    .chart-bar {
-        fill: rgb(var(--color-bg-muted));
-        stroke: rgb(var(--color-border-main));
-        stroke-width: 1;
-    }
-    
-    .chart-bar-secondary {
-        fill: rgb(var(--color-bg-muted));
-        stroke: rgb(var(--color-border-main));
-        stroke-width: 1;
-        stroke-opacity: 0.4;
-    }
-    
-    /* Per preservare gli SVG dai filtri di inversione */
-    .chart-svg.no-invert {
-        filter: none !important;
-    }
 }
 
 @layer utilities {
