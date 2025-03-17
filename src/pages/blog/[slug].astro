@@ -5,7 +5,6 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import PostPreview from '../../components/PostPreview.astro';
 import ShareIcons from '../../components/ShareIcons.astro';
 import AISummary from '../../components/AISummary.astro';
-import TableOfContents from '../../components/TableOfContents.astro';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
 import { slugify } from '../../utils/common-utils';
 import BlogPostingStructuredData from '../../components/structured-data/BlogPostingStructuredData.astro';
@@ -166,9 +165,6 @@ if (tags.length > 0) {
                 <Content />
             </div>
         </article>
-
-        {/* TOC Sidebar */}
-        <TableOfContents headings={remarkPluginFrontmatter.headings} />
         
         {/* Related Posts Section - Full width below the main content */}
         <div class="lg:col-span-2">

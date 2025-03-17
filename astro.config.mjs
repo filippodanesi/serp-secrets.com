@@ -4,7 +4,6 @@ import vercel from '@astrojs/vercel';
 import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 import rehypeExternalLinks from 'rehype-external-links';
-import rehypeSlug from 'rehype-slug';
 import { remarkReadingTime } from './remark-reading-time.mjs';
 
 export default defineConfig({
@@ -17,7 +16,6 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkReadingTime],
     rehypePlugins: [
-      rehypeSlug, // Aggiunge automaticamente gli id agli headings
       [
         rehypeExternalLinks,
         {
