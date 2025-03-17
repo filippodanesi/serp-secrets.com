@@ -38,6 +38,7 @@ Allow: /
 # Block System and Technical URLs
 Disallow: /_astro/
 Disallow: /api/
+Disallow: /cdn-cgi/
 
 # Sitemaps
 Sitemap: ${new URL('sitemap.xml', site)}

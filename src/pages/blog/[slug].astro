@@ -5,6 +5,7 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import PostPreview from '../../components/PostPreview.astro';
 import ShareIcons from '../../components/ShareIcons.astro';
 import AISummary from '../../components/AISummary.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
 import { slugify } from '../../utils/common-utils';
 import BlogPostingStructuredData from '../../components/structured-data/BlogPostingStructuredData.astro';
@@ -64,113 +65,122 @@ if (tags.length > 0) {
     }}
 >
     <BlogPostingStructuredData slot="structured-data" {...post.data} body={post.body} />
-    <article class="mb-16 sm:mb-24">
-        <header class="mb-8 mt-6">
-            {/* Category tag - Mobile and Desktop versions */}
-            {tags.length > 0 && (
-                <div class="mb-5">
-                    <nav class="flex items-center space-x-1 text-xs">
-                        {/* Desktop only breadcrumbs */}
-                        <div class="hidden sm:flex sm:items-center">
+    
+    <div class="relative lg:grid lg:grid-cols-[1fr_220px] lg:gap-6 xl:gap-12">
+        <!-- Main Content Column -->
+        <article class="mb-16 sm:mb-24">
+            <header class="mb-8 mt-6">
+                {/* Category tag - Mobile and Desktop versions */}
+                {tags.length > 0 && (
+                    <div class="mb-5">
+                        <nav class="flex items-center space-x-1 text-xs">
+                            {/* Desktop only breadcrumbs */}
+                            <div class="hidden sm:flex sm:items-center">
+                                <a 
+                                    href="/"
+                                    class="text-[rgb(var(--color-text-muted)_/_0.6)] hover:opacity-70"
+                                >
+                                    Home
+                                </a>
+                                <span class="text-[rgb(var(--color-text-muted)_/_0.2)] ml-1">\</span>
+                                <a 
+                                    href="/categories/"
+                                    class="text-[rgb(var(--color-text-muted)_/_0.6)] hover:opacity-70 ml-1"
+                                >
+                                    Categories
+                                </a>
+                                <span class="text-[rgb(var(--color-text-muted)_/_0.2)] ml-1">\</span>
+                            </div>
+                            {/* Category link - Visible on both mobile and desktop */}
                             <a 
-                                href="/"
-                                class="text-[rgb(var(--color-text-muted)_/_0.6)] hover:opacity-70"
+                                href={`/categories/${slugify(tags[0])}/`}
+                                class="text-[rgb(var(--color-text-muted))] hover:opacity-70 transition-opacity sm:ml-1"
                             >
-                                Home
+                                {tags[0]}
                             </a>
-                            <span class="text-[rgb(var(--color-text-muted)_/_0.2)] ml-1">\</span>
-                            <a 
-                                href="/categories/"
-                                class="text-[rgb(var(--color-text-muted)_/_0.6)] hover:opacity-70 ml-1"
-                            >
-                                Categories
-                            </a>
-                            <span class="text-[rgb(var(--color-text-muted)_/_0.2)] ml-1">\</span>
-                        </div>
-                        {/* Category link - Visible on both mobile and desktop */}
-                        <a 
-                            href={`/categories/${slugify(tags[0])}/`}
-                            class="text-[rgb(var(--color-text-muted))] hover:opacity-70 transition-opacity sm:ml-1"
-                        >
-                            {tags[0]}
-                        </a>
-                    </nav>
+                        </nav>
+                    </div>
+                )}
+
+                {/* Article Title */}
+                <h1 class="text-3xl leading-tight font-serif font-medium sm:text-4xl sm:leading-tight mb-4 text-main" transition:name={`post-title-${post.slug}`}>
+                    {title}
+                </h1>
+
+                {/* Description */}
+                <div class="text-sm sm:text-base text-main pb-4 mb-4 border-b border-[rgb(var(--color-text-muted)_/_0.1)]">
+                    {seo?.description ?? excerpt}
                 </div>
-            )}
 
-            {/* Article Title */}
-            <h1 class="text-3xl leading-tight font-serif font-medium sm:text-4xl sm:leading-tight mb-4 text-main" transition:name={`post-title-${post.slug}`}>
-                {title}
-            </h1>
-
-            {/* Description */}
-            <div class="text-sm sm:text-base text-main pb-4 mb-4 border-b border-[rgb(var(--color-text-muted)_/_0.1)]">
-                {seo?.description ?? excerpt}
-            </div>
-
-            {/* Meta information and share icons container */}
-            <div class="flex flex-col sm:flex-row sm:items-center text-main sm:justify-between pb-4 mb-8 border-b border-[rgb(var(--color-text-muted)_/_0.1)]">
-                {/* Meta information */}
-                <div class="text-xs sm:text-sm" transition:name={`post-meta-${post.slug}`}>
-                    <span>Published by</span>
-                    <a href="https://www.filippodanesi.com" target="_blank" class="font-medium hover:opacity-70">Filippo Danesi</a>
-                    <span>on <FormattedDate date={publishDate} /></span>
-                
-                    {updatedDate && (
-                        <span class="whitespace-nowrap">
-                            <span>/</span>
-                            <span>
-                                Updated by <a href="https://www.filippodanesi.com" target="_blank" class="font-medium hover:opacity-70">Filippo Danesi</a> on <FormattedDate date={updatedDate} />
+                {/* Meta information and share icons container */}
+                <div class="flex flex-col sm:flex-row sm:items-center text-main sm:justify-between pb-4 mb-8 border-b border-[rgb(var(--color-text-muted)_/_0.1)]">
+                    {/* Meta information */}
+                    <div class="text-xs sm:text-sm" transition:name={`post-meta-${post.slug}`}>
+                        <span>Published by</span>
+                        <a href="https://www.filippodanesi.com" target="_blank" class="font-medium hover:opacity-70">Filippo Danesi</a>
+                        <span>on <FormattedDate date={publishDate} /></span>
+                    
+                        {updatedDate && (
+                            <span class="whitespace-nowrap">
+                                <span>/</span>
+                                <span>
+                                    Updated by <a href="https://www.filippodanesi.com" target="_blank" class="font-medium hover:opacity-70">Filippo Danesi</a> on <FormattedDate date={updatedDate} />
+                                </span>
                             </span>
-                        </span>
-                    )}
+                        )}
+                    </div>
+
+                    {/* Share Icons - Hidden on mobile */}
+                    <div class="hidden sm:block sm:ml-4">
+                        <ShareIcons url={href} title={title} />
+                    </div>
                 </div>
 
-                {/* Share Icons - Hidden on mobile */}
-                <div class="hidden sm:block sm:ml-4">
-                    <ShareIcons url={href} title={title} />
-                </div>
+                {/* Featured Image */}
+                {
+                    image && (
+                        <div class="relative -mx-4 sm:mx-0 sm:rounded-xl overflow-hidden aspect-[16/9]">
+                            <img
+                                src={image.src}
+                                alt={image.alt}
+                                class="absolute inset-0 w-full h-full object-cover"
+                                loading="eager"
+                                width="1200"
+                                height="675"
+                                transition:name={`post-image-${post.slug}`}
+                            />
+                        </div>
+                    )
+                }
+            </header>
+
+            {/* AI-Generated Summary */}
+            <AISummary 
+                content={post.body}
+                title={title}
+                cacheKey={cacheKey}
+            />
+
+            {/* Article Content */}
+            <div id="article-content" class="max-w-none prose prose-dante dark:prose-invert sm:prose-lg" transition:animate="slide">
+                <Content />
             </div>
+        </article>
 
-            {/* Featured Image */}
+        {/* TOC Sidebar */}
+        <TableOfContents headings={remarkPluginFrontmatter.headings} />
+        
+        {/* Related Posts Section - Full width below the main content */}
+        <div class="lg:col-span-2">
             {
-                image && (
-                    <div class="relative -mx-4 sm:mx-0 sm:rounded-xl overflow-hidden aspect-[16/9]">
-                        <img
-                            src={image.src}
-                            alt={image.alt}
-                            class="absolute inset-0 w-full h-full object-cover"
-                            loading="eager"
-                            width="1200"
-                            height="675"
-                            transition:name={`post-image-${post.slug}`}
-                        />
+                (prevPost || nextPost) && (
+                    <div class="my-16 sm:my-24">
+                        <p class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">Read Next</p>
+                        {nextPost && <PostPreview post={nextPost} class="mb-10 sm:mb-12" headingLevel="h3" />}
+                        {prevPost && <PostPreview post={prevPost} class="mb-10 sm:mb-12" headingLevel="h3" />}
                     </div>
                 )
             }
-        </header>
-
-        {/* AI-Generated Summary */}
-        <AISummary 
-            content={post.body}
-            title={title}
-            cacheKey={cacheKey}
-        />
-
-        {/* Article Content */}
-        <div class="max-w-none prose prose-dante dark:prose-invert sm:prose-lg" transition:animate="slide">
-            <Content />
         </div>
-    </article>
-
-    {/* Related Posts Section */}
-    {
-        (prevPost || nextPost) && (
-            <div class="my-16 sm:my-24">
-                <p class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">Read Next</p>
-                {nextPost && <PostPreview post={nextPost} class="mb-10 sm:mb-12" headingLevel="h3" />}
-                {prevPost && <PostPreview post={prevPost} class="mb-10 sm:mb-12" headingLevel="h3" />}
-            </div>
-        )
-    }
+    </div>
 </BaseLayout>
