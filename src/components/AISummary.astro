@@ -175,12 +175,27 @@ if (cacheKey) {
 const displaySummary = summary || "Summary generation in progress... Reload the page to try again.";
 ---
 
-<div class="ai-summary">
-  <div class="ai-summary-header">
-    <SearchIcon class="ai-icon" />
-    <span>Overview</span>
-  </div>
-  <div class="ai-summary-content">
+<div class="ai-summary mb-8">
+  <button
+    id="ai-summary-toggle"
+    class="ai-summary-header w-full flex items-center justify-between cursor-pointer p-3 rounded-t-lg border-b border-[rgb(var(--color-text-muted)_/_0.1)] bg-[rgb(var(--color-text-muted)_/_0.05)]"
+    aria-expanded="false"
+    aria-controls="ai-summary-content"
+  >
+    <div class="flex items-center">
+      <SearchIcon class="ai-icon mr-2" />
+      <span class="font-medium">AI Overview</span>
+    </div>
+    <span class="toggle-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </span>
+  </button>
+  <div 
+    id="ai-summary-content" 
+    class="ai-summary-content hidden p-4 border-b border-x border-[rgb(var(--color-text-muted)_/_0.1)] rounded-b-lg"
+  >
     {isLoading ? (
       <div class="loading-indicator">
         <span class="dot"></span>
@@ -193,3 +208,83 @@ const displaySummary = summary || "Summary generation in progress... Reload the 
     )}
   </div>
 </div>
+
+<script>
+  // Add the toggle functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.getElementById('ai-summary-toggle');
+    const summaryContent = document.getElementById('ai-summary-content');
+    const toggleIcon = document.querySelector('.toggle-icon svg');
+    
+    if (toggleButton && summaryContent && toggleIcon) {
+      toggleButton.addEventListener('click', () => {
+        const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+        
+        // Toggle the aria-expanded attribute
+        toggleButton.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+        
+        // Toggle the visibility
+        if (isExpanded) {
+          summaryContent.classList.add('hidden');
+          toggleIcon.style.transform = 'rotate(0deg)';
+        } else {
+          summaryContent.classList.remove('hidden');
+          toggleIcon.style.transform = 'rotate(180deg)';
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  .ai-summary {
+    font-size: 0.9rem;
+  }
+  
+  .ai-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  
+  .loading-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .loading-indicator .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    border-radius: 50%;
+    background-color: rgb(var(--color-text-muted) / 0.6);
+    animation: dotPulse 1.5s infinite ease-in-out;
+  }
+  
+  .loading-indicator .dot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .loading-indicator .dot:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes dotPulse {
+    0%, 80%, 100% { 
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+    40% { 
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Transition for expanding/collapsing */
+  .toggle-icon svg {
+    transition: transform 0.3s ease;
+  }
+</style>
