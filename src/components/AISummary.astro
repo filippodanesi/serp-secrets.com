@@ -175,26 +175,25 @@ if (cacheKey) {
 const displaySummary = summary || "Summary generation in progress... Reload the page to try again.";
 ---
 
-<div class="ai-summary mb-8">
+<div class="ai-summary">
   <button
     id="ai-summary-toggle"
-    class="ai-summary-header w-full flex items-center justify-between cursor-pointer p-3 rounded-t-lg border-b border-[rgb(var(--color-text-muted)_/_0.1)] bg-[rgb(var(--color-text-muted)_/_0.05)]"
+    class="ai-summary-header w-full flex items-center justify-between cursor-pointer"
     aria-expanded="false"
     aria-controls="ai-summary-content"
   >
     <div class="flex items-center">
-      <SearchIcon class="ai-icon mr-2" />
-      <span class="font-medium">AI Overview</span>
+      <SearchIcon class="ai-icon" />
+      <span>Overview</span>
     </div>
-    <span class="toggle-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="6 9 12 15 18 9"></polyline>
-      </svg>
+    <span class="toggle-icon ml-2 opacity-60 text-sm">
+      <span class="expand-text">Expand</span>
+      <span class="collapse-text hidden">Collapse</span>
     </span>
   </button>
   <div 
     id="ai-summary-content" 
-    class="ai-summary-content hidden p-4 border-b border-x border-[rgb(var(--color-text-muted)_/_0.1)] rounded-b-lg"
+    class="ai-summary-content hidden"
   >
     {isLoading ? (
       <div class="loading-indicator">
@@ -214,9 +213,10 @@ const displaySummary = summary || "Summary generation in progress... Reload the 
   document.addEventListener('DOMContentLoaded', () => {
     const toggleButton = document.getElementById('ai-summary-toggle');
     const summaryContent = document.getElementById('ai-summary-content');
-    const toggleIcon = document.querySelector('.toggle-icon svg');
+    const expandText = document.querySelector('.expand-text');
+    const collapseText = document.querySelector('.collapse-text');
     
-    if (toggleButton && summaryContent && toggleIcon) {
+    if (toggleButton && summaryContent && expandText && collapseText) {
       toggleButton.addEventListener('click', () => {
         const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
         
@@ -226,10 +226,12 @@ const displaySummary = summary || "Summary generation in progress... Reload the 
         // Toggle the visibility
         if (isExpanded) {
           summaryContent.classList.add('hidden');
-          toggleIcon.style.transform = 'rotate(0deg)';
+          expandText.classList.remove('hidden');
+          collapseText.classList.add('hidden');
         } else {
           summaryContent.classList.remove('hidden');
-          toggleIcon.style.transform = 'rotate(180deg)';
+          expandText.classList.add('hidden');
+          collapseText.classList.remove('hidden');
         }
       });
     }
@@ -238,27 +240,34 @@ const displaySummary = summary || "Summary generation in progress... Reload the 
 
 <style>
   .ai-summary {
-    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+  
+  .ai-summary-header {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgb(var(--color-text-muted) / 0.1);
+  }
+  
+  .ai-summary-content {
+    padding: 1rem 0 0;
   }
   
   .ai-icon {
-    width: 1.2rem;
-    height: 1.2rem;
+    margin-right: 0.5rem;
   }
   
   .loading-indicator {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    padding: 1rem;
+    gap: 0.5rem;
+    padding: 1rem 0;
   }
   
   .loading-indicator .dot {
     display: inline-block;
-    width: 8px;
-    height: 8px;
-    margin: 0 4px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background-color: rgb(var(--color-text-muted) / 0.6);
     animation: dotPulse 1.5s infinite ease-in-out;
@@ -281,10 +290,5 @@ const displaySummary = summary || "Summary generation in progress... Reload the 
       transform: scale(1);
       opacity: 1;
     }
-  }
-  
-  /* Transition for expanding/collapsing */
-  .toggle-icon svg {
-    transition: transform 0.3s ease;
   }
 </style>
