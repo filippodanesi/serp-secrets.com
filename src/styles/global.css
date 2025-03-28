@@ -96,6 +96,7 @@
         padding: 0.3rem 0 0;
         min-height: 1.6em;
     }
+}    
 
 @layer utilities {
     /* Utility classes for manual control */
