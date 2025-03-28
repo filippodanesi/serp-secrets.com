@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="rgb(242, 241, 236)"/>
+  
+  <!-- Title and subtitle -->
+  <text x="60" y="60" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="24" font-weight="600" fill="rgb(23, 23, 23)">
+    Google Properties Traffic Growth
+  </text>
+  <text x="60" y="90" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" fill="rgb(23, 23, 23)" opacity="0.7">
+    Organic traffic growth for Google-owned properties (2023-2025)
+  </text>
+  
+  <!-- Chart Area -->
+  <g transform="translate(60, 140)">    
+    <!-- Horizontal bars -->
+    <g>
+      <!-- Google Flights -->
+      <g transform="translate(180, 20)">
+        <text x="-20" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="end">Google Flights</text>
+        <rect x="0" y="0" width="400" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4"/>
+        <text x="410" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">+2006%</text>
+      </g>
+      
+      <!-- Google Store -->
+      <g transform="translate(180, 70)">
+        <text x="-20" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="end">Google Store</text>
+        <rect x="0" y="0" width="145" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4"/>
+        <text x="155" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">+145%</text>
+      </g>
+      
+      <!-- Google Travel -->
+      <g transform="translate(180, 120)">
+        <text x="-20" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="end">Google Travel</text>
+        <rect x="0" y="0" width="120" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4"/>
+        <text x="130" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">+120%</text>
+      </g>
+      
+      <!-- Average Growth -->
+      <g transform="translate(180, 170)">
+        <text x="-20" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="end">Average Growth</text>
+        <rect x="0" y="0" width="168" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4"/>
+        <text x="178" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">+168%</text>
+      </g>
+      
+      <!-- Median Growth -->
+      <g transform="translate(180, 220)">
+        <text x="-20" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="end">Median Growth</text>
+        <rect x="0" y="0" width="94" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4"/>
+        <text x="104" y="20" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">+94%</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Enhanced legend -->
+  <g transform="translate(60, 440)">
+    <rect x="0" y="-15" width="15" height="15" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1"/>
+    <text x="25" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">Organic Traffic Growth</text>
+    
+    <text x="0" y="30" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(23, 23, 23)" opacity="0.7">
+      Source: Ahrefs analysis of 57 Google properties (Apr 2023 vs Mar 2025)
+    </text>
+  </g>
+</svg>
