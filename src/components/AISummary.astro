@@ -2,7 +2,8 @@
 import OpenAI from 'openai';
 import fs from 'fs/promises';
 import path from 'path';
-import SearchIcon from '../icons/Search.astro';
+// Rimuoviamo l'importazione di SearchIcon poiché non la useremo più
+// import SearchIcon from '../icons/Search.astro';
 
 export interface Props {
   content: string;
@@ -183,13 +184,11 @@ const displaySummary = summary || "Summary generation in progress... Reload the 
     aria-controls="ai-summary-content"
   >
     <div class="flex items-center">
-      <SearchIcon class="ai-icon" />
+      <!-- Sostituiamo la lente con la freccia > -->
+      <span class="arrow-icon">&#62;</span>
       <span>Article Summary</span>
     </div>
-    <span class="toggle-icon ml-2 opacity-60 text-sm">
-      <span class="expand-text">Expand</span>
-      <span class="collapse-text hidden">Collapse</span>
-    </span>
+    <!-- Rimuoviamo i testi Expand/Collapse poiché la freccia indicherà lo stato -->
   </button>
   <div 
     id="ai-summary-content" 
@@ -213,10 +212,9 @@ const displaySummary = summary || "Summary generation in progress... Reload the 
   document.addEventListener('DOMContentLoaded', () => {
     const toggleButton = document.getElementById('ai-summary-toggle');
     const summaryContent = document.getElementById('ai-summary-content');
-    const expandText = document.querySelector('.expand-text');
-    const collapseText = document.querySelector('.collapse-text');
+    const arrowIcon = document.querySelector('.arrow-icon');
     
-    if (toggleButton && summaryContent && expandText && collapseText) {
+    if (toggleButton && summaryContent && arrowIcon) {
       toggleButton.addEventListener('click', () => {
         const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
         
@@ -226,12 +224,12 @@ const displaySummary = summary || "Summary generation in progress... Reload the 
         // Toggle the visibility
         if (isExpanded) {
           summaryContent.classList.add('hidden');
-          expandText.classList.remove('hidden');
-          collapseText.classList.add('hidden');
+          // Resetta la rotazione della freccia
+          arrowIcon.classList.remove('rotated');
         } else {
           summaryContent.classList.remove('hidden');
-          expandText.classList.add('hidden');
-          collapseText.classList.remove('hidden');
+          // Ruota la freccia
+          arrowIcon.classList.add('rotated');
         }
       });
     }
@@ -252,8 +250,16 @@ const displaySummary = summary || "Summary generation in progress... Reload the 
     padding: 0.5rem 0 0;
   }
   
-  .ai-icon {
+  .arrow-icon {
     margin-right: 0.4rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .arrow-icon.rotated {
+    transform: rotate(90deg);
   }
   
   .loading-indicator {
