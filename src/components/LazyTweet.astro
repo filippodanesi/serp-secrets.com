@@ -1,19 +1,17 @@
 ---
 // src/components/StyledLazyTweet.astro
-// Minimalist tweet component that matches the SVG design style
+// Minimalist tweet component without most styles
 
 interface Props {
   url: string;
   theme?: 'light' | 'dark';
-  align?: 'center' | 'left' | 'right';
   hideThread?: boolean;
   caption?: string;
 }
 
 const { 
   url, 
-  theme = 'light', 
-  align = 'center',
+  theme = 'light',
   hideThread = false,
   caption
 } = Astro.props;
@@ -27,18 +25,15 @@ const getTweetId = (tweetUrl) => {
 const tweetId = getTweetId(url);
 ---
 
-<figure class={`tweet-container tweet-align-${align}`}>
+<figure class="tweet-container">
   <div class="tweet-card" data-tweet-url={url} data-theme={theme} data-hide-thread={hideThread ? "true" : "false"}>
     <div class="tweet-header">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tweet-logo">
-        <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-      </svg>
-      <a href={url} target="_blank" rel="noopener noreferrer" class="view-on-twitter">
+      <a href={url} target="_blank" rel="noopener noreferrer">
         View on Twitter
       </a>
     </div>
     <div class="tweet-placeholder">
-      <div class="tweet-loading-text">Loading tweet...</div>
+      <div>Loading tweet...</div>
       <a href={url} target="_blank" rel="noopener noreferrer">Tweet ID: {tweetId}</a>
     </div>
   </div>
@@ -128,92 +123,5 @@ const tweetId = getTweetId(url);
   .tweet-container {
     margin: 2rem 0;
     width: 100%;
-    font-family: system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-  }
-  
-  .tweet-align-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .tweet-align-left {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .tweet-align-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  
-  .tweet-card {
-    min-height: 120px;
-    max-width: 550px;
-    width: 100%;
-    background-color: rgb(242, 241, 236);
-    border: 1px solid rgb(var(--color-border-main) / .15);
-    border-radius: 4px;
-    padding: 16px;
-    transition: box-shadow 0.2s ease;
-  }
-  
-  .tweet-card:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .tweet-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-  }
-  
-  .tweet-logo {
-    color: rgb(23, 23, 23);
-    margin-right: 12px;
-  }
-  
-  .view-on-twitter {
-    font-size: 14px;
-    color: rgb(23, 23, 23);
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  .view-on-twitter:hover {
-    text-decoration: underline;
-  }
-  
-  .tweet-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background-color: rgb(var(--color-bg-muted));
-    border-radius: 4px;
-    min-height: 80px;
-  }
-  
-  .tweet-loading-text {
-    font-size: 16px;
-    color: rgb(23, 23, 23);
-    opacity: 0.7;
-    margin-bottom: 8px;
-  }
-  
-  figcaption {
-    margin-top: 0.75rem;
-    font-size: 14px;
-    color: rgb(23, 23, 23);
-    opacity: 0.7;
-    text-align: center;
-  }
-  
-  /* Styles for Twitter embed once loaded */
-  :global(.twitter-tweet) {
-    margin: 0 !important;
   }
 </style>
