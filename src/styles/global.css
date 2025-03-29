@@ -172,12 +172,10 @@ figcaption a {
 }
 
 .twitter-tweet {
-    padding: var(--tc-padding, 1em);
-    font-family: Inter;
     font-size: 0.9rem !important;
-    border: 1px solid rgb(var(--color-border-main) / .15);
+    border: 1px solid rgb(var(--color-border-main) / .15) !important;
     border-radius: 8px;
-    margin: 2rem 0 3rem;
-    padding: 1.5rem;
-    background-color: rgb(var(--color-bg-muted));
+    margin: 2rem 0 3rem !important;
+    padding: 1.5rem !important;
+    background-color: rgb(var(--color-bg-muted)) !important;
 }
