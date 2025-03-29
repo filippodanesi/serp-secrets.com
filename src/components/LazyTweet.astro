@@ -1,0 +1,138 @@
+---
+// src/components/LazyTweet.astro
+// Un componente per incorporare tweet con caricamento lazy ottimizzato per SEO
+
+interface Props {
+  url: string;
+  theme?: 'light' | 'dark';
+  align?: 'center' | 'left' | 'right';
+  hideThread?: boolean;
+  caption?: string;
+}
+
+const { 
+  url, 
+  theme = 'light', 
+  align = 'center',
+  hideThread = false,
+  caption
+} = Astro.props;
+---
+
+<figure class={`tweet-container tweet-align-${align}`}>
+  <div class="tweet-embed" data-tweet-url={url} data-theme={theme} data-hide-thread={hideThread ? "true" : "false"}>
+    <a href={url} target="_blank" rel="noopener noreferrer">Visualizza il tweet su Twitter</a>
+  </div>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<script>
+  // Caricamento lazy utilizzando Intersection Observer
+  document.addEventListener('DOMContentLoaded', () => {
+    const tweetEmbeds = document.querySelectorAll('.tweet-embed');
+    
+    // Carica lo script di Twitter solo se ci sono tweet sulla pagina
+    if (tweetEmbeds.length === 0) return;
+    
+    // Funzione per caricare lo script Twitter
+    let twitterScriptLoaded = false;
+    const loadTwitterScript = () => {
+      if (twitterScriptLoaded) return Promise.resolve();
+      
+      return new Promise((resolve) => {
+        const script = document.createElement('script');
+        script.src = 'https://platform.twitter.com/widgets.js';
+        script.async = true;
+        script.charset = 'utf-8';
+        script.onload = () => {
+          twitterScriptLoaded = true;
+          resolve();
+        };
+        document.body.appendChild(script);
+      });
+    };
+    
+    // Trasforma il div in un embed Twitter
+    const renderTweet = (element) => {
+      const url = element.dataset.tweetUrl;
+      const theme = element.dataset.theme;
+      const hideThread = element.dataset.hideThread === 'true';
+      
+      // Crea il blockquote
+      const blockquote = document.createElement('blockquote');
+      blockquote.className = 'twitter-tweet';
+      
+      if (theme) blockquote.setAttribute('data-theme', theme);
+      if (hideThread) blockquote.setAttribute('data-hide-thread', 'true');
+      
+      const link = document.createElement('a');
+      link.href = url;
+      blockquote.appendChild(link);
+      
+      // Sostituisci il contenuto del div
+      element.innerHTML = '';
+      element.appendChild(blockquote);
+      
+      // Processa con la API Twitter
+      if (window.twttr && window.twttr.widgets) {
+        window.twttr.widgets.load(element);
+      }
+    };
+    
+    // Usa Intersection Observer per il lazy loading
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          loadTwitterScript().then(() => {
+            renderTweet(entry.target);
+            observer.unobserve(entry.target);
+          });
+        }
+      });
+    }, { rootMargin: '200px' });
+    
+    // Osserva tutti gli embed
+    tweetEmbeds.forEach(embed => {
+      observer.observe(embed);
+    });
+  });
+</script>
+
+<style>
+  .tweet-container {
+    margin: 2rem 0;
+    width: 100%;
+  }
+  
+  .tweet-align-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tweet-align-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .tweet-align-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .tweet-embed {
+    min-height: 200px;
+    max-width: 550px;
+    width: 100%;
+  }
+  
+  figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #666;
+    text-align: center;
+  }
+</style>
