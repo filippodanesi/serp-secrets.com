@@ -27,11 +27,6 @@ const tweetId = getTweetId(url);
 
 <figure class="tweet-container">
   <div class="tweet-card" data-tweet-url={url} data-theme={theme} data-hide-thread={hideThread ? "true" : "false"}>
-    <div class="tweet-header">
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        View on Twitter
-      </a>
-    </div>
     <div class="tweet-placeholder">
       <div>Loading tweet...</div>
       <a href={url} target="_blank" rel="noopener noreferrer">Tweet ID: {tweetId}</a>
