@@ -178,4 +178,5 @@ figcaption a {
     margin: 2rem 0 3rem !important;
     padding: 1.5rem !important;
     background-color: rgb(var(--color-bg-muted)) !important;
+    font-family: 'system-ui', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
