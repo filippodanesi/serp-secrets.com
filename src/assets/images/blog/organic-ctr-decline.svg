@@ -22,7 +22,7 @@
     <!-- Bars - modern and clean -->
     <g>
       <!-- Without AI Overview (Baseline) -->
-      <g transform="translate(100, 0)">
+      <g transform="translate(00, 0)">
         <text x="90" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">100%</text>
         <rect x="0" y="10" width="180" height="190" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4"/>
         <text x="90" y="220" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="middle">Without AI Overview</text>
@@ -30,7 +30,7 @@
       </g>
       
       <!-- Ahrefs Study -->
-      <g transform="translate(340, 0)">
+      <g transform="translate(250, 0)">
         <text x="90" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">60%</text>
         <rect x="0" y="10" width="180" height="114" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4"/>
         <text x="90" y="220" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="middle">With AI Overview</text>
@@ -38,7 +38,7 @@
       </g>
       
       <!-- Seer Interactive -->
-      <g transform="translate(580, 0)">
+      <g transform="translate(500, 0)">
         <text x="90" y="-5" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">30%</text>
         <rect x="0" y="10" width="180" height="57" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4"/>
         <text x="90" y="220" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="middle">With AI Overview</text>
@@ -48,11 +48,11 @@
     
     <!-- Decrease annotations - inline instead of arrows -->
     <g transform="translate(340, 134)">
-      <text x="90" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">-40%</text>
+      <text x="0" y="10" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">-40%</text>
     </g>
     
     <g transform="translate(580, 77)">
-      <text x="90" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">-70%</text>
+      <text x="10" y="10" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">-70%</text>
     </g>
   </g>
   
