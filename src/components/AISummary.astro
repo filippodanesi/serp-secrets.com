@@ -151,12 +151,13 @@ const displaySummary = summary || "Summary generation in progress... Reload the 
       <svg class="arrow-icon" width="12" height="12" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
         <path d="M3 2L7 5L3 8V2Z" fill="currentColor"/>
       </svg>
-      <span class="text-sm sm:text-sm">Article Summary</span>
+      <span style="font-size: 0.9rem">Article Summary</span>
     </div>
   </button>
   <div 
     id="ai-summary-content" 
     class="ai-summary-content hidden"
+    style="font-size: 0.9rem"
   >
     {isLoading ? (
       <div class="loading-indicator">
