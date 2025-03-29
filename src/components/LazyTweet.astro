@@ -125,7 +125,6 @@ const tweetId = getTweetId(url);
 </script>
 
 <style>
-  /* Style that matches the shared SVG */
   .tweet-container {
     margin: 2rem 0;
     width: 100%;
@@ -155,7 +154,7 @@ const tweetId = getTweetId(url);
     max-width: 550px;
     width: 100%;
     background-color: rgb(242, 241, 236);
-    border: 1px solid rgb(23, 23, 23);
+    border: 1px solid rgb(var(--color-border-main) / .15);
     border-radius: 4px;
     padding: 16px;
     transition: box-shadow 0.2s ease;
@@ -193,7 +192,7 @@ const tweetId = getTweetId(url);
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-color: rgb(234, 233, 225);
+    background-color: rgb(var(--color-bg-muted));
     border-radius: 4px;
     min-height: 80px;
   }
