@@ -2,18 +2,25 @@
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = async ({ site }) => {
-    if (!site) {
-        return new Response('Site URL not configured', { status: 500 });
-    }
+  if (!site) {
+    return new Response('Site URL not configured', { status: 500 });
+  }
 
-    const robotsTxt = `# Block AI Training and Content Scraping Bots
+  const robotsTxt = `# Allow beneficial AI bots
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Block other AI scrapers and non-transparent bots
 User-agent: Anthropic-ai
-User-agent: ChatGPT-User
 User-agent: ClaudeBot
 User-agent: Claude-Web
 User-agent: Cohere-ai
-User-agent: GPTBot
-User-agent: Google-Extended
 User-agent: Amazonbot
 User-agent: AwarioRssBot
 User-agent: AwarioSmartBot
@@ -27,11 +34,10 @@ User-agent: Omgili
 User-agent: Omgilibot
 User-agent: Peer39_crawler
 User-agent: Peer39_crawler/1.0
-User-agent: PerplexityBot
 User-agent: YouBot
 Disallow: /
 
-# Allow Search Engine Crawlers
+# Allow Search Engine Crawlers (Google, Bing, ecc.)
 User-agent: *
 Allow: /
 
@@ -43,10 +49,10 @@ Disallow: /cdn-cgi/
 Sitemap: ${new URL('sitemap.xml', site)}
 Sitemap: ${new URL('news-sitemap.xml', site)}`;
 
-    return new Response(robotsTxt.trim(), {
-        headers: {
-            'Content-Type': 'text/plain',
-            'Cache-Control': 'public, max-age=3600'
-        }
-    });
+  return new Response(robotsTxt.trim(), {
+    headers: {
+      'Content-Type': 'text/plain',
+      'Cache-Control': 'public, max-age=3600'
+    }
+  });
 };
