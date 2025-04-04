@@ -6,17 +6,21 @@ export const GET: APIRoute = async ({ site }) => {
     return new Response('Site URL not configured', { status: 500 });
   }
 
-  const robotsTxt = `# Allow beneficial AI bots
-User-agent: GPTBot
+  const robotsTxt = `# Allow search engine crawlers (Google, Bing, ecc.)
+User-agent: *
 Allow: /
 
-User-agent: PerplexityBot
+# Allow AI bots that offrono visibilità controllata
+User-agent: GPTBot
 Allow: /
 
 User-agent: Google-Extended
 Allow: /
 
-# Block other AI scrapers and non-transparent bots
+User-agent: PerplexityBot
+Allow: /
+
+# Block known AI scrapers and non-transparent bots
 User-agent: Anthropic-ai
 User-agent: ClaudeBot
 User-agent: Claude-Web
@@ -37,15 +41,11 @@ User-agent: Peer39_crawler/1.0
 User-agent: YouBot
 Disallow: /
 
-# Allow Search Engine Crawlers (Google, Bing, ecc.)
-User-agent: *
-Allow: /
-
-# Block System and Technical URLs
+# Block system and technical URLs
 Disallow: /api/
 Disallow: /cdn-cgi/
 
-# Sitemaps
+# Sitemap URLs
 Sitemap: ${new URL('sitemap.xml', site)}
 Sitemap: ${new URL('news-sitemap.xml', site)}`;
 
