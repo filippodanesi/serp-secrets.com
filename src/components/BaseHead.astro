@@ -84,4 +84,8 @@ function formatCanonicalURL(url: string | URL) {
 {resolvedImage?.src && <meta property="twitter:image" content={resolvedImage.src} />}
 {resolvedImage?.alt && <meta name="twitter:image:alt" content={resolvedImage?.alt} />}
 
+<!-- Preload Fonts -->
+<link rel="preload" href="/fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/Geist-Medium.woff2" as="font" type="font/woff2" crossorigin>
+
 <script defer data-domain="serp-secrets.com" data-api="https://aged-bird-34c9.filippo-danesi-007.workers.dev/stats/event" src="https://aged-bird-34c9.filippo-danesi-007.workers.dev/stats/script.outbound-links.js"></script>
