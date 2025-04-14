@@ -31,6 +31,10 @@
     header h2 {
         font-family: inherit !important;
     }
+
+    .prose h3 {
+        color: rgb(var(--color-text-muted) / .8) !important
+    }    
 }
 
 @layer components {
