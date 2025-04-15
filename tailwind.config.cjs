@@ -6,14 +6,12 @@ module.exports = {
     theme: {
         fontFamily: {
             sans: [
-                'Geist', 'system-ui', 'BlinkMacSystemFont',
+                'Inter', 'system-ui', 'BlinkMacSystemFont',
                 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif',
                 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
             ],
             serif: [
-                'Geist', 'system-ui', 'BlinkMacSystemFont',
-                'Segoe UI', 'Helvetica', 'Arial', 'sans-serif',
-                'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
+                'Newsreader', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif',
             ]
         },
         extend: {
