@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+    <!-- Background -->
+    <rect width="800" height="500" fill="rgb(242, 241, 236)"/>
+    
+    <!-- Title -->
+    <text x="60" y="60" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="24" font-weight="600" fill="rgb(23, 23, 23)">
+        AI Impact on SEO Task Efficiency
+    </text>
+    <text x="60" y="90" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" fill="rgb(23, 23, 23)" opacity="0.7">
+        Percentage reduction in time required per task category (2025)
+    </text>
+    
+    <!-- Chart area -->
+    <g transform="translate(100, 130)">
+        <!-- Y-axis labels -->
+        <g font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="end">
+            <text x="0" y="25">Content Creation</text>
+            <text x="0" y="85">Technical Audits</text>
+            <text x="0" y="145">Keyword Research</text>
+            <text x="0" y="205">Competitive Analysis</text>
+            <text x="0" y="265">Performance Reporting</text>
+        </g>
+        
+        <!-- X-axis -->
+        <g transform="translate(10, 300)">
+            <line x1="0" y1="0" x2="590" y2="0" stroke="rgb(23, 23, 23)" stroke-opacity="0.2" stroke-width="1"/>
+            
+            <!-- X-axis labels -->
+            <g font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(23, 23, 23)" text-anchor="middle">
+                <text x="0" y="20">0%</text>
+                <text x="118" y="20">20%</text>
+                <text x="236" y="20">40%</text>
+                <text x="354" y="20">60%</text>
+                <text x="472" y="20">80%</text>
+                <text x="590" y="20">100%</text>
+            </g>
+            
+            <!-- Grid lines -->
+            <g stroke="rgb(23, 23, 23)" stroke-opacity="0.1" stroke-width="1">
+                <line x1="0" y1="0" x2="0" y2="-290"/>
+                <line x1="118" y1="0" x2="118" y2="-290"/>
+                <line x1="236" y1="0" x2="236" y2="-290"/>
+                <line x1="354" y1="0" x2="354" y2="-290"/>
+                <line x1="472" y1="0" x2="472" y2="-290"/>
+                <line x1="590" y1="0" x2="590" y2="-290"/>
+            </g>
+        </g>
+        
+        <!-- Bars -->
+        <g transform="translate(10, 0)">
+            <!-- Content Creation -->
+            <rect x="0" y="10" width="331" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="2"/>
+            <text x="341" y="30" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">56%</text>
+            <text x="10" y="30" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(255, 255, 255)">Generative AI</text>
+            
+            <!-- Technical Audits -->
+            <rect x="0" y="70" width="448" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="2"/>
+            <text x="458" y="90" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">76%</text>
+            <text x="10" y="90" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(255, 255, 255)">Agentic AI</text>
+            
+            <!-- Keyword Research -->
+            <rect x="0" y="130" width="377" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="2"/>
+            <text x="387" y="150" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">64%</text>
+            <text x="10" y="150" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(255, 255, 255)">Hybrid</text>
+            
+            <!-- Competitive Analysis -->
+            <rect x="0" y="190" width="413" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="2"/>
+            <text x="423" y="210" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">70%</text>
+            <text x="10" y="210" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(255, 255, 255)">Agentic AI</text>
+            
+            <!-- Performance Reporting -->
+            <rect x="0" y="250" width="472" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="2"/>
+            <text x="482" y="270" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">80%</text>
+            <text x="10" y="270" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(255, 255, 255)">Agentic AI</text>
+        </g>
+    </g>
+    
+    <!-- Legend -->
+    <g transform="translate(100, 450)">
+        <rect x="0" y="0" width="15" height="15" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1"/>
+        <text x="25" y="13" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">Time Efficiency Gain</text>
+        
+        <text x="300" y="13" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(23, 23, 23)" opacity="0.7">
+            Source: LinkedIn, SurferSEO, Writesonic (2025)
+        </text>
+    </g>
+</svg>

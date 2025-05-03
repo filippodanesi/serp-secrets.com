@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+    <!-- Background -->
+    <rect width="800" height="500" fill="rgb(242, 241, 236)"/>
+    
+    <!-- Title -->
+    <text x="60" y="60" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="24" font-weight="600" fill="rgb(23, 23, 23)">
+        Generative vs Agentic AI: Functional Comparison
+    </text>
+    <text x="60" y="90" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="16" fill="rgb(23, 23, 23)" opacity="0.7">
+        Core capabilities and implementation differences in SEO applications
+    </text>
+
+    <!-- Left Column - Generative AI -->
+    <g transform="translate(100, 130)">
+        <text x="125" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="18" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">Generative AI</text>
+        
+        <!-- Box -->
+        <rect x="0" y="20" width="250" height="300" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4"/>
+        
+        <!-- Content -->
+        <g transform="translate(20, 40)" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">
+            <text x="0" y="0" font-weight="600">Input Mode:</text>
+            <text x="0" y="25">Prompt-based requests</text>
+            
+            <text x="0" y="60" font-weight="600">Primary Function:</text>
+            <text x="0" y="85">Creates content on demand</text>
+            
+            <text x="0" y="120" font-weight="600">Interaction Model:</text>
+            <text x="0" y="145">Request → Response cycle</text>
+            
+            <text x="0" y="180" font-weight="600">User Involvement:</text>
+            <text x="0" y="205">Editorial oversight required</text>
+            
+            <text x="0" y="240" font-weight="600">Key Advantage:</text>
+            <text x="0" y="265">Content production velocity</text>
+        </g>
+    </g>
+    
+    <!-- Right Column - Agentic AI -->
+    <g transform="translate(450, 130)">
+        <text x="125" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="18" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">Agentic AI</text>
+        
+        <!-- Box -->
+        <rect x="0" y="20" width="250" height="300" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="4"/>
+        
+        <!-- Content -->
+        <g transform="translate(20, 40)" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">
+            <text x="0" y="0" font-weight="600">Input Mode:</text>
+            <text x="0" y="25">Goal-oriented directives</text>
+            
+            <text x="0" y="60" font-weight="600">Primary Function:</text>
+            <text x="0" y="85">Executes multi-step tasks</text>
+            
+            <text x="0" y="120" font-weight="600">Interaction Model:</text>
+            <text x="0" y="145">Goal → Plan → Execute → Report</text>
+            
+            <text x="0" y="180" font-weight="600">User Involvement:</text>
+            <text x="0" y="205">Supervisory oversight</text>
+            
+            <text x="0" y="240" font-weight="600">Key Advantage:</text>
+            <text x="0" y="265">Operational automation</text>
+        </g>
+    </g>
+    
+    <!-- Connecting Arrow -->
+    <g transform="translate(350, 280)">
+        <line x1="0" y1="0" x2="100" y2="0" stroke="rgb(23, 23, 23)" stroke-width="2"/>
+        <polygon points="100,0 90,-5 90,5" fill="rgb(23, 23, 23)"/>
+        <polygon points="0,0 10,-5 10,5" fill="rgb(23, 23, 23)"/>
+    </g>
+    
+    <!-- Integration Text -->
+    <text x="400" y="260" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">Complementary</text>
+    <text x="400" y="310" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">Integration</text>
+    
+    <!-- Source -->
+    <text x="400" y="470" text-anchor="middle" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(23, 23, 23)" opacity="0.7">
+        Source: IBM, LinkedIn, Writesonic (2025)
+    </text>
+</svg>
