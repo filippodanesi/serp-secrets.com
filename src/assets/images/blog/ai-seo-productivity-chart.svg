@@ -51,36 +51,36 @@
             <!-- Content Creation -->
             <rect x="0" y="10" width="331" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="2"/>
             <text x="341" y="30" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">56%</text>
-            <text x="10" y="30" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(255, 255, 255)">Generative AI</text>
+            <text x="10" y="30" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(23, 23, 23)">Generative AI</text>
             
             <!-- Technical Audits -->
             <rect x="0" y="70" width="448" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="2"/>
             <text x="458" y="90" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">76%</text>
-            <text x="10" y="90" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(255, 255, 255)">Agentic AI</text>
+            <text x="10" y="90" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(23, 23, 23)">Agentic AI</text>
             
             <!-- Keyword Research -->
             <rect x="0" y="130" width="377" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="2"/>
             <text x="387" y="150" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">64%</text>
-            <text x="10" y="150" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(255, 255, 255)">Hybrid</text>
+            <text x="10" y="150" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(23, 23, 23)">Hybrid</text>
             
             <!-- Competitive Analysis -->
             <rect x="0" y="190" width="413" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="2"/>
             <text x="423" y="210" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">70%</text>
-            <text x="10" y="210" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(255, 255, 255)">Agentic AI</text>
+            <text x="10" y="210" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(23, 23, 23)">Agentic AI</text>
             
             <!-- Performance Reporting -->
             <rect x="0" y="250" width="472" height="30" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1" rx="2"/>
             <text x="482" y="270" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">80%</text>
-            <text x="10" y="270" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(255, 255, 255)">Agentic AI</text>
+            <text x="10" y="270" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(23, 23, 23)">Agentic AI</text>
         </g>
     </g>
     
     <!-- Legend -->
     <g transform="translate(100, 450)">
-        <rect x="0" y="0" width="15" height="15" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1"/>
-        <text x="25" y="13" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">Time Efficiency Gain</text>
+        <rect x="0" y="-15" width="15" height="15" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1"/>
+        <text x="25" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">Time Efficiency Gain</text>
         
-        <text x="300" y="13" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(23, 23, 23)" opacity="0.7">
+        <text x="300" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(23, 23, 23)" opacity="0.7">
             Source: LinkedIn, SurferSEO, Writesonic (2025)
         </text>
     </g>
