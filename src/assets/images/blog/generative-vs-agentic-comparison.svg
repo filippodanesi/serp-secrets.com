@@ -11,7 +11,7 @@
     </text>
 
     <!-- Left Column - Generative AI -->
-    <g transform="translate(100, 130)">
+    <g transform="translate(60, 130)">
         <text x="125" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="18" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">Generative AI</text>
         
         <!-- Box -->
@@ -63,15 +63,15 @@
     </g>
     
     <!-- Connecting Arrow -->
-    <g transform="translate(350, 280)">
+    <g transform="translate(330, 280)">
         <line x1="0" y1="0" x2="100" y2="0" stroke="rgb(23, 23, 23)" stroke-width="2"/>
         <polygon points="100,0 90,-5 90,5" fill="rgb(23, 23, 23)"/>
         <polygon points="0,0 10,-5 10,5" fill="rgb(23, 23, 23)"/>
     </g>
     
     <!-- Integration Text -->
-    <text x="400" y="260" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">Complementary</text>
-    <text x="400" y="310" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">Integration</text>
+    <text x="380" y="260" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">Complementary</text>
+    <text x="380" y="310" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" font-weight="600" fill="rgb(23, 23, 23)" text-anchor="middle">Integration</text>
     
     <!-- Source -->
     <text x="400" y="470" text-anchor="middle" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="12" fill="rgb(23, 23, 23)" opacity="0.7">

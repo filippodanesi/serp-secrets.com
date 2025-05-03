@@ -11,7 +11,7 @@
     </text>
     
     <!-- Chart area -->
-    <g transform="translate(150, 130)">
+    <g transform="translate(190, 130)">
         <!-- Y-axis labels - Moved further left -->
         <g font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)" text-anchor="end">
             <text x="-10" y="25">Content Creation</text>
@@ -76,7 +76,7 @@
     </g>
     
     <!-- Legend -->
-    <g transform="translate(100, 450)">
+    <g transform="translate(70, 485)">
         <rect x="0" y="-15" width="15" height="15" fill="rgb(234, 233, 225)" stroke="rgb(23, 23, 23)" stroke-width="1"/>
         <text x="25" y="0" font-family="system-ui, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol" font-size="14" fill="rgb(23, 23, 23)">Time Efficiency Gain</text>
         
