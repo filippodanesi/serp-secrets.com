@@ -15,23 +15,34 @@ interface SearchProps {
 // Clean markdown and other syntax from text
 function cleanText(text: string): string {
   return text
+    // Remove import statements
+    .replace(/import\s+.*?from\s+['"].*?['"];?/g, '')
+    // Remove export statements
+    .replace(/export\s+.*?;?/g, '')
     // Remove markdown links
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
     // Remove image markdown
     .replace(/!\[([^\]]+)\]\([^)]+\)/g, '')
     // Remove inline code
     .replace(/`([^`]+)`/g, '$1')
+    // Remove code blocks
+    .replace(/```[\s\S]*?```/g, '')
+    // Remove HTML tags and components (including Astro components)
+    .replace(/<[^>]+>[\s\S]*?<\/[^>]+>/g, '')
+    .replace(/<[^>]+>/g, '')
+    // Remove JSX expressions
+    .replace(/\{.*?\}/g, '')
+    // Remove URLs
+    .replace(/https?:\/\/[^\s]+/g, '')
     // Remove bold/italic
     .replace(/\*\*([^*]+)\*\*/g, '$1')
     .replace(/\*([^*]+)\*/g, '$1')
-    // Remove HTML tags
-    .replace(/<[^>]+>/g, '')
-    // Remove URLs
-    .replace(/https?:\/\/[^\s]+/g, '')
-    // Remove multiple spaces
-    .replace(/\s+/g, ' ')
     // Remove markdown headers
     .replace(/#{1,6}\s/g, '')
+    // Remove front matter
+    .replace(/---[\s\S]*?---/g, '')
+    // Remove multiple spaces and line breaks
+    .replace(/\s+/g, ' ')
     // Trim
     .trim();
 }
@@ -46,7 +57,7 @@ function highlightText(text: string, searchQuery: string): string {
   words.forEach(word => {
     const regex = new RegExp(`(${word})`, 'gi');
     highlightedText = highlightedText.replace(regex, '<span class="font-bold px-1 rounded bg-[rgb(var(--color-bg-muted))]">$1</span>');
-});
+  });
   
   return highlightedText;
 }
@@ -131,16 +142,23 @@ export default function Search({ posts }: SearchProps) {
       const highlightedTitle = highlightText(cleanedTitle, query);
       
       // Get context from body
-      const context = result.matches
-        ?.find(match => match.key === 'body')
-        ?.value as string;
+      let context = null;
       
-      const processedContext = context ? getMatchContext(context, query) : null;
+      // Find best match in body
+      if (result.matches) {
+        const bodyMatch = result.matches.find(match => match.key === 'body');
+        if (bodyMatch?.value) {
+          context = getMatchContext(bodyMatch.value as string, query);
+        } else {
+          // Fallback to using the full body if no specific match
+          context = getMatchContext(result.item.body, query);
+        }
+      }
 
       return {
         title: highlightedTitle,
         url: result.item.url,
-        context: processedContext
+        context: context
       };
     });
 
