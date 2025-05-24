@@ -20,6 +20,16 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+# Allow agentic-AI users
+User-agent: Claude-User
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
 # Block known AI scrapers and non-transparent bots
 User-agent: Anthropic-ai
 User-agent: ClaudeBot
