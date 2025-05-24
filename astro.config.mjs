@@ -10,8 +10,7 @@ export default defineConfig({
   site: 'https://www.serp-secrets.com',
   output: 'server',
   adapter: vercel({
-    isr: { expiration: 60 * 60 * 24 },
-    skewProtection: true
+    isr: { expiration: 60 * 60 * 24 }
   }),
   trailingSlash: 'always',
   markdown: {
