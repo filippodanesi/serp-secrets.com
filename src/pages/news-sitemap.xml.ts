@@ -8,6 +8,16 @@ function isWithinLastTwoDays(date: Date): boolean {
   return date >= twoDaysAgo;
 }
 
+// Escape special XML characters
+function escapeXml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
 export const GET: APIRoute = async ({ site }) => {
   if (!site) {
     return new Response('Site URL not configured', { status: 500 });
@@ -48,7 +58,7 @@ ${recentPosts.map(post => `  <url>
         <news:language>en</news:language>
       </news:publication>
       <news:publication_date>${post.data.publishDate.toISOString()}</news:publication_date>
-      <news:title>${post.data.title}</news:title>
+      <news:title>${escapeXml(post.data.title)}</news:title>
     </news:news>
   </url>`).join('\n')}
 </urlset>`;
