@@ -8,7 +8,7 @@ const parser = new MarkdownIt();
 export async function GET(context) {
   const blog = await getCollection('blog');
   return rss({
-    title: 'Serp Secrets',
+    title: 'SERPsecrets',
     description: 'SEO insights and strategies for better search engine rankings',
     site: context.site,
     items: blog.map((post) => ({
