@@ -6,10 +6,10 @@ module.exports = {
     theme: {
         fontFamily: {
             sans: [
-                'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'
+                'Inter', 'Arial', 'Helvetica', 'sans-serif'
             ],
             serif: [
-                'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'
+                'Inter', 'Arial', 'Helvetica', 'sans-serif'
             ]
         },
         extend: {
