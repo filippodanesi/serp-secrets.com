@@ -24,7 +24,7 @@
     }
     /* Heading font family styling */
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Arial', 'Helvetica', 'sans-serif', !important;
+        font-family: 'Inter', 'Arial', 'Helvetica', 'sans-serif', !important;
     }
     
     /* Exclude H2 elements inside header tags */
@@ -59,7 +59,7 @@
     
     /* Classe personalizzata per applicare font sans-serif */
     .heading-sans {
-        font-family: 'Arial', 'Helvetica', 'sans-serif', !important;
+        font-family: 'Inter', 'Arial', 'Helvetica', 'sans-serif', !important;
     }
     
     /* AI Summary Component Styles */
@@ -75,7 +75,7 @@
         display: flex;
         align-items: center;
         font-weight: 600;
-        font-family: 'Arial', 'Helvetica', 'sans-serif', !important;
+        font-family: 'Inter', 'Arial', 'Helvetica', 'sans-serif', !important;
     }
 
     .ai-icon {
@@ -185,5 +185,5 @@ figcaption a {
     margin: 2rem 0 3rem !important;
     padding: 1.5rem !important;
     background-color: rgb(var(--color-bg-muted)) !important;
-    font-family: 'Arial', 'Helvetica', 'sans-serif', !important;
+    font-family: 'Inter', 'Arial', 'Helvetica', 'sans-serif', !important;
 }
