@@ -6,10 +6,10 @@ module.exports = {
     theme: {
         fontFamily: {
             sans: [
-                'Inter', 'Arial', 'Helvetica', 'sans-serif'
+                'Arial', 'Helvetica', 'sans-serif'
             ],
             serif: [
-                'Inter', 'Arial', 'Helvetica', 'sans-serif'
+                'Arial', 'Helvetica', 'sans-serif'
             ]
         },
         extend: {
