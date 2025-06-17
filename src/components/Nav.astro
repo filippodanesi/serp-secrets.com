@@ -1,7 +1,6 @@
 ---
 import type { Link } from '../data/site-config';
 import NavLink from './NavLink.astro';
-import ThemeToggle from './ThemeToggle.astro';
 import SearchIcon from '../icons/Search.astro';
 import siteConfig from '@/data/site-config';
 
@@ -25,7 +24,6 @@ const navLinks = (siteConfig.headerNavLinks ?? []).filter((link: Link) => link.h
                 <a href="/search/" class="flex items-center hover:opacity-80 transition-opacity" aria-label="Search">
                     <SearchIcon class="w-5 h-5" />
                 </a>
-                <ThemeToggle class="hidden" />
                 {
                     navLinks.length > 0 && (
                         <button
@@ -71,12 +69,11 @@ const navLinks = (siteConfig.headerNavLinks ?? []).filter((link: Link) => link.h
             </svg>
         </a>
 
-        <!-- Search and Theme Toggle -->
+        <!-- Search -->
         <div class="absolute right-0 top-8 z-10 flex items-center gap-4">
             <a href="/search/" class="flex items-center hover:opacity-80 transition-opacity" aria-label="Search">
                 <SearchIcon class="w-5 h-5" />
             </a>
-            <ThemeToggle class="hidden" />
         </div>
 
         <!-- Menu -->
