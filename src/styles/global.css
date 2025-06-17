@@ -8,7 +8,7 @@
     :root {
         --color-text-main: 12 10 9; /* #0C0A09 */
         --color-bg-main: 255 255 255; /* #FFFFFF */
-        --color-bg-muted: 229 231 235; /* #E5E7EB */
+        --color-bg-muted: 250 250 249; /* #FAFAF9 */
         --color-border-main: 12 10 9; /* #0C0A09 */
         --color-text-muted: 0 0 0; /* #000000 */
     }

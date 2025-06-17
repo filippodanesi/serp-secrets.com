@@ -7,7 +7,8 @@
         "start": "astro dev",
         "build": "astro build",
         "preview": "astro preview",
-        "astro": "astro"
+        "astro": "astro",
+        "update:svg-colors": "node scripts/updateSvgColors.js"
     },
     "dependencies": {
         "@astrojs/internal-helpers": "^0.6.1",
