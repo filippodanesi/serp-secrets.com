@@ -25,7 +25,7 @@ const navLinks = (siteConfig.headerNavLinks ?? []).filter((link: Link) => link.h
                 <a href="/search/" class="flex items-center hover:opacity-80 transition-opacity" aria-label="Search">
                     <SearchIcon class="w-5 h-5" />
                 </a>
-                <ThemeToggle />
+                <ThemeToggle class="hidden" />
                 {
                     navLinks.length > 0 && (
                         <button
@@ -76,7 +76,7 @@ const navLinks = (siteConfig.headerNavLinks ?? []).filter((link: Link) => link.h
             <a href="/search/" class="flex items-center hover:opacity-80 transition-opacity" aria-label="Search">
                 <SearchIcon class="w-5 h-5" />
             </a>
-            <ThemeToggle />
+            <ThemeToggle class="hidden" />
         </div>
 
         <!-- Menu -->
