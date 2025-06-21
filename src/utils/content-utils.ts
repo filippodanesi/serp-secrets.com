@@ -59,6 +59,7 @@ export function decodeHtmlEntities(text: string): string {
     '&hellip;': '…',
     '&lsquo;': "'",
     '&rsquo;': "'",
+    '&#8217;': "'",
     '&ldquo;': '"',
     '&rdquo;': '"',
   };
