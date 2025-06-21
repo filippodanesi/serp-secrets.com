@@ -26,7 +26,7 @@ const title = isHome
     ? Astro.props.title 
     : titleAlreadyIncludesSiteName 
         ? Astro.props.title 
-        : [Astro.props.title, siteConfig.title].filter(Boolean).join(' | ');
+        : [Astro.props.title, siteConfig.title].filter(Boolean).join(' ~ ');
 
 const resolvedImage = image?.src
     ? {
