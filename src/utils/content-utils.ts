@@ -44,6 +44,7 @@ export function decodeHtmlEntities(text: string): string {
   
   const entities: { [key: string]: string } = {
     '&amp;': '&',
+    '&#038;': '&',
     '&lt;': '<',
     '&gt;': '>',
     '&quot;': '"',
