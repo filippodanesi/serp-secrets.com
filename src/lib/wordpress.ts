@@ -135,6 +135,61 @@ const getWordPressUrl = () => {
   return 'http://serp-secrets.local/wp-json/wp/v2';
 };
 
+// Cache configuration
+interface CacheEntry<T> {
+  data: T;
+  timestamp: number;
+  ttl: number; // Time to live in milliseconds
+}
+
+class WordPressCache {
+  private cache = new Map<string, CacheEntry<any>>();
+  private defaultTTL = 5 * 60 * 1000; // 5 minutes default
+
+  set<T>(key: string, data: T, ttl = this.defaultTTL): void {
+    this.cache.set(key, {
+      data,
+      timestamp: Date.now(),
+      ttl
+    });
+  }
+
+  get<T>(key: string): T | null {
+    const entry = this.cache.get(key);
+    if (!entry) return null;
+
+    // Check if cache has expired
+    if (Date.now() - entry.timestamp > entry.ttl) {
+      this.cache.delete(key);
+      return null;
+    }
+
+    return entry.data;
+  }
+
+  clear(): void {
+    this.cache.clear();
+  }
+
+  // Clear expired entries
+  cleanup(): void {
+    const now = Date.now();
+    for (const [key, entry] of this.cache.entries()) {
+      if (now - entry.timestamp > entry.ttl) {
+        this.cache.delete(key);
+      }
+    }
+  }
+}
+
+// Global cache instance
+const wpCache = new WordPressCache();
+
+// Cleanup expired cache entries every 10 minutes
+if (typeof setInterval !== 'undefined') {
+  setInterval(() => wpCache.cleanup(), 10 * 60 * 1000);
+}
+
 const WORDPRESS_API_URL = getWordPressUrl();
 const WORDPRESS_POSTS_PER_PAGE = 100; // Max allowed by WordPress
 
@@ -146,9 +201,18 @@ export class WordPressAPI {
   }
 
   /**
-   * Fetch all posts from WordPress
+   * Fetch all posts from WordPress with caching
    */
   async getAllPosts(): Promise<WordPressPost[]> {
+    const cacheKey = 'all_posts';
+    const cached = wpCache.get<WordPressPost[]>(cacheKey);
+    
+    if (cached) {
+      console.log('📦 Using cached WordPress posts');
+      return cached;
+    }
+
+    console.log('🔄 Fetching WordPress posts from API...');
     const allPosts: WordPressPost[] = [];
     let page = 1;
     let hasMore = true;
@@ -156,7 +220,13 @@ export class WordPressAPI {
     while (hasMore) {
       try {
         const response = await fetch(
-          `${this.baseUrl}/posts?page=${page}&per_page=${WORDPRESS_POSTS_PER_PAGE}&status=publish&_embed=1&yoast_head_json=1`
+          `${this.baseUrl}/posts?page=${page}&per_page=${WORDPRESS_POSTS_PER_PAGE}&status=publish&_embed=1&yoast_head_json=1`,
+          {
+            headers: {
+              'Accept': 'application/json',
+              'Cache-Control': 'no-cache'
+            }
+          }
         );
         
         if (!response.ok) {
@@ -183,36 +253,79 @@ export class WordPressAPI {
       }
     }
 
-    return allPosts.filter(post => post.status === 'publish');
+    const publishedPosts = allPosts.filter(post => post.status === 'publish');
+    
+    // Cache for 5 minutes
+    wpCache.set(cacheKey, publishedPosts, 5 * 60 * 1000);
+    console.log(`✅ Cached ${publishedPosts.length} WordPress posts`);
+    
+    return publishedPosts;
   }
 
   /**
-   * Fetch a single post by slug
+   * Fetch a single post by slug with caching
    */
   async getPostBySlug(slug: string): Promise<WordPressPost | null> {
+    const cacheKey = `post_${slug}`;
+    const cached = wpCache.get<WordPressPost | null>(cacheKey);
+    
+    if (cached !== null) {
+      console.log(`📦 Using cached post: ${slug}`);
+      return cached;
+    }
+
+    console.log(`🔄 Fetching post from API: ${slug}`);
     try {
       const response = await fetch(
-        `${this.baseUrl}/posts?slug=${slug}&status=publish&_embed=1&yoast_head_json=1`
+        `${this.baseUrl}/posts?slug=${slug}&status=publish&_embed=1&yoast_head_json=1`,
+        {
+          headers: {
+            'Accept': 'application/json',
+            'Cache-Control': 'no-cache'
+          }
+        }
       );
       
       if (!response.ok) {
+        wpCache.set(cacheKey, null, 2 * 60 * 1000); // Cache null for 2 minutes
         return null;
       }
 
       const posts: WordPressPost[] = await response.json();
-      return posts.length > 0 ? posts[0] : null;
+      const post = posts.length > 0 ? posts[0] : null;
+      
+      // Cache for 10 minutes (longer for individual posts)
+      wpCache.set(cacheKey, post, 10 * 60 * 1000);
+      console.log(`✅ Cached post: ${slug}`);
+      
+      return post;
     } catch (error) {
       console.error(`Error fetching WordPress post with slug ${slug}:`, error);
+      wpCache.set(cacheKey, null, 1 * 60 * 1000); // Cache error for 1 minute
       return null;
     }
   }
 
   /**
-   * Fetch categories
+   * Fetch categories with caching
    */
   async getCategories(): Promise<WordPressCategory[]> {
+    const cacheKey = 'categories';
+    const cached = wpCache.get<WordPressCategory[]>(cacheKey);
+    
+    if (cached) {
+      console.log('📦 Using cached WordPress categories');
+      return cached;
+    }
+
+    console.log('🔄 Fetching WordPress categories from API...');
     try {
-      const response = await fetch(`${this.baseUrl}/categories?per_page=100`);
+      const response = await fetch(`${this.baseUrl}/categories?per_page=100`, {
+        headers: {
+          'Accept': 'application/json',
+          'Cache-Control': 'no-cache'
+        }
+      });
       
       if (!response.ok) {
         console.warn(`WordPress categories endpoint returned ${response.status}`);
@@ -226,7 +339,11 @@ export class WordPressAPI {
       }
 
       try {
-        return JSON.parse(text);
+        const categories = JSON.parse(text);
+        // Cache for 15 minutes (categories change less frequently)
+        wpCache.set(cacheKey, categories, 15 * 60 * 1000);
+        console.log(`✅ Cached ${categories.length} WordPress categories`);
+        return categories;
       } catch (parseError) {
         console.error('Error parsing WordPress categories JSON:', parseError);
         console.log('Response text:', text.substring(0, 200));
@@ -239,11 +356,25 @@ export class WordPressAPI {
   }
 
   /**
-   * Fetch tags
+   * Fetch tags with caching
    */
   async getTags(): Promise<WordPressTag[]> {
+    const cacheKey = 'tags';
+    const cached = wpCache.get<WordPressTag[]>(cacheKey);
+    
+    if (cached) {
+      console.log('📦 Using cached WordPress tags');
+      return cached;
+    }
+
+    console.log('🔄 Fetching WordPress tags from API...');
     try {
-      const response = await fetch(`${this.baseUrl}/tags?per_page=100`);
+      const response = await fetch(`${this.baseUrl}/tags?per_page=100`, {
+        headers: {
+          'Accept': 'application/json',
+          'Cache-Control': 'no-cache'
+        }
+      });
       
       if (!response.ok) {
         console.warn(`WordPress tags endpoint returned ${response.status}`);
@@ -257,7 +388,11 @@ export class WordPressAPI {
       }
 
       try {
-        return JSON.parse(text);
+        const tags = JSON.parse(text);
+        // Cache for 15 minutes (tags change less frequently)
+        wpCache.set(cacheKey, tags, 15 * 60 * 1000);
+        console.log(`✅ Cached ${tags.length} WordPress tags`);
+        return tags;
       } catch (parseError) {
         console.error('Error parsing WordPress tags JSON:', parseError);
         console.log('Response text:', text.substring(0, 200));
@@ -285,6 +420,14 @@ export class WordPressAPI {
       console.error(`Error fetching WordPress media with ID ${id}:`, error);
       return null;
     }
+  }
+
+  /**
+   * Clear all cache (useful for development or manual refresh)
+   */
+  clearCache(): void {
+    wpCache.clear();
+    console.log('🗑️ WordPress cache cleared');
   }
 }
 
