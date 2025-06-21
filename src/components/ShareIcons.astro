@@ -25,10 +25,10 @@ const shareUrls = {
 };
 ---
 
-<div class="flex items-center gap-5 sm:gap-4 mt-5 sm:mt-0 text-text-main">
+<div class="flex items-center gap-5 sm:gap-4 mt-5 sm:mt-0 text-main">
     <a 
         href={shareUrls.facebook}
-        class="hover:text-text-muted"
+        class="hover:text-muted"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Share on Facebook"
@@ -37,7 +37,7 @@ const shareUrls = {
     </a>
     <a 
         href={shareUrls.twitter}
-        class="hover:text-text-muted"
+        class="hover:text-muted"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Share on Twitter"
@@ -46,7 +46,7 @@ const shareUrls = {
     </a>
     <a 
         href={shareUrls.linkedin}
-        class="hover:text-text-muted"
+        class="hover:text-muted"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Share on LinkedIn"
@@ -54,7 +54,7 @@ const shareUrls = {
         <Fragment set:html={socialShareIcons.LinkedIn} />
     </a>
     <button 
-        class="copy-url-button hover:text-text-muted"
+        class="copy-url-button hover:text-muted"
         aria-label="Copy link"
         data-url={url}
     >

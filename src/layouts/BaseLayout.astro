@@ -18,9 +18,13 @@ export type Props = HeadProps & {
         items?: Array<{ name: string; item: string }>;
         currentPageName?: string;
     };
+    headerProps?: {
+        subtitle?: string;
+        totalPosts?: number;
+    };
 };
 
-const { showHeader = true, metaTags, breadcrumb, ...head } = Astro.props;
+const { showHeader = true, metaTags, breadcrumb, headerProps, ...head } = Astro.props;
 
 const pathname = Astro.url.pathname;
 const isAboutPage = pathname === '/about' || pathname === '/about/';
@@ -54,9 +58,9 @@ const headProps = {
         </script>
     </head>
     <body class="bg-main text-main">
-        <div class="flex flex-col min-h-screen px-4 md:px-8">
+        <div class="flex flex-col min-h-screen px-4 md:px-6 lg:px-8">
             <Nav />
-            {showHeader && <Header />}
+            {showHeader && <Header {...headerProps} />}
             <main class="grow w-full max-w-3xl mx-auto">
                 <slot />
             </main>

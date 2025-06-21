@@ -1,33 +1,59 @@
 ---
-import { getCollection } from 'astro:content';
+export const prerender = false;
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Button from '../components/Button.astro';
-import PostPreview from '../components/PostPreview.astro';
+import FormattedDate from '../components/FormattedDate.astro';
 import siteConfig from '../data/site-config'
-import { sortItemsByDateDesc } from '../utils/data-utils';
+import { getAllUnifiedPosts, decodeHtmlEntities } from '../utils/content-utils';
 import BlogStructuredData from '../components/structured-data/BlogStructuredData.astro';
 
-const posts = (await getCollection('blog')).sort(sortItemsByDateDesc).slice(0, 5);
+const allPosts = await getAllUnifiedPosts();
+const posts = allPosts.slice(0, 8);
 ---
 
 <BaseLayout 
-    title="SERPsecrets \\ SEO Analysis, Strategies & AI Insights"
+    title="SERPsecrets | SEO & AI Convergence"
     description={siteConfig.description} 
     image={siteConfig.image}
     isHome={true}
+    headerProps={{
+        totalPosts: allPosts.length
+    }}
 >
-   <BlogStructuredData slot="structured-data" posts={posts} />
-    {
-        posts.length > 0 && (
-            <div class="mb-16 sm:mb-24">
-                {/* <p class="mb-12 sm:mb-16 text-xl font-serif italic sm:mb-10 sm:text-2xl" style="color: rgb(var(--color-text-muted) / 0.6) !important;">Latest Posts</p> */}
-                {posts.map((post) => (
-                    <PostPreview post={post} class="mb-10 sm:mb-12" headingLevel="h3" />
-                ))}
-                <div class="mt-12 sm:mt-16">
-                    <Button href="/blog/">View All Posts</Button>
-                </div>
-            </div>
-        )
-    }
+      <BlogStructuredData slot="structured-data" posts={posts} />
+   
+   <div class="space-y-1">
+        {posts.map((post) => (
+            <article>
+                <a 
+                    href={`/blog/${post.slug}/`} 
+                    class="flex items-center justify-between py-3 px-2 -mx-2 rounded hover:bg-muted/30 transition-colors group"
+                >
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-base font-medium text-main group-hover:text-accent transition-colors truncate">
+                            {decodeHtmlEntities(post.data.title)}
+                        </h3>
+                        {post.data.excerpt && (
+                            <p class="text-sm text-muted mt-1 line-clamp-1">
+                                {decodeHtmlEntities(post.data.excerpt)}
+                            </p>
+                        )}
+                    </div>
+                    <div class="flex-shrink-0 ml-4">
+                        <time class="text-xs text-muted font-mono">
+                            <FormattedDate date={post.data.publishDate} />
+                        </time>
+                    </div>
+                </a>
+            </article>
+        ))}
+    
+        <div class="pt-6 mt-6 border-t border-main">
+            <a 
+                href="/blog/" 
+                class="text-sm text-muted hover:text-accent transition-colors"
+            >
+                View all posts →
+            </a>
+        </div>
+    </div>
 </BaseLayout>

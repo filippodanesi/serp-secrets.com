@@ -1,21 +1,28 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-type AnchorProps = HTMLAttributes<'a'> & { type?: never };
-type ButtonProps = HTMLAttributes<'button'> & { href?: never };
+type AnchorProps = HTMLAttributes<'a'> & { type?: never; variant?: 'primary' | 'secondary' };
+type ButtonProps = HTMLAttributes<'button'> & { href?: never; variant?: 'primary' | 'secondary' };
 type Props = ButtonProps | AnchorProps;
 
 const { 
   href, 
   class: className,
+  variant = 'primary',
   'data-url': dataUrl,
   'data-tooltip-default': tooltipDefault,
   'data-tooltip-success': tooltipSuccess,
   ...rest 
 } = Astro.props;
 
-const buttonClasses = 
-  'inline-flex items-center justify-center px-6 py-2 font-serif text-sm leading-tight italic text-main bg-main border border-main rounded-full transition hover:bg-muted';
+const baseClasses = 'inline-flex items-center justify-center px-5 py-2.5 font-medium text-sm leading-tight rounded-lg transition-colors duration-200 font-sans tracking-tight';
+
+const variantClasses = {
+  primary: 'bg-accent text-white hover:bg-accent/90',
+  secondary: 'bg-main/5 text-main border border-main/20 hover:bg-main/10 hover:border-main/30'
+};
+
+const buttonClasses = `${baseClasses} ${variantClasses[variant]}`;
 ---
 
 {

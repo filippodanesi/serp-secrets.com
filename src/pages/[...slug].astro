@@ -44,23 +44,23 @@ const pageName = getPageName(title);
         currentPageName: pageName
     }}
 >
-    <article class="mb-16 sm:mb-24">
+    <article class="mb-12">
         <header class="mb-8">
-            <h1 class="text-3xl leading-tight font-serif font-medium sm:text-4xl sm:leading-tight mb-4 text-main">
+            <h1 class="text-2xl font-semibold text-main mb-3">
                 {title}
             </h1>
             {
                 seo?.description && page.slug !== 'home' && (
-                    <h2 class="mb-12 text-[rgb(var(--color-text-secondary))] sm:mb-14 text-sm sm:text-base leading-normal pb-6 border-b border-solid border-main w-full">
+                    <p class="text-sm text-muted leading-relaxed">
                         {page.slug === 'contact' 
-                            ? "Contact me via email or social media with any questions, suggestions, or just to connect." 
+                            ? "Get in touch via email or social media." 
                             : seo.description
                         }
-                    </h2>
+                    </p>
                 )
             }
         </header>
-        <div class="max-w-none prose prose-dante sm:prose-lg">
+        <div class="prose prose-dante prose-sm max-w-none">
             <Content />
         </div>
     </article>

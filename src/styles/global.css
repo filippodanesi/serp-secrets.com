@@ -6,34 +6,96 @@
 
 @layer base {
     :root {
-        --color-text-main: 12 10 9; /* #0C0A09 */
-        --color-bg-main: 255 255 255; /* #FFFFFF */
-        --color-bg-muted: 250 250 249; /* #FAFAF9 */
-        --color-border-main: 12 10 9; /* #0C0A09 */
-        --color-text-muted: 0 0 0; /* #000000 */
+        --background: 0 0% 100%;
+        --foreground: 20 14.3% 4.1%;
+        --card: 0 0% 100%;
+        --card-foreground: 20 14.3% 4.1%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 20 14.3% 4.1%;
+        --primary: 24 9.8% 10%;
+        --primary-foreground: 60 9.1% 97.8%;
+        --secondary: 60 4.8% 95.9%;
+        --secondary-foreground: 24 9.8% 10%;
+        --muted: 60 4.8% 95.9%;
+        --muted-foreground: 25 5.3% 44.7%;
+        --accent: 60 4.8% 95.9%;
+        --accent-foreground: 24 9.8% 10%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 60 9.1% 97.8%;
+        --border: 20 5.9% 95%;
+        --input: 20 5.9% 95%;
+        --ring: 20 14.3% 4.1%;
+        --radius: 0.5rem;
+        
+        /* Mapping per compatibilità con il nostro sistema */
+        --color-text-main: 20 14.3% 4.1%; /* foreground */
+        --color-bg-main: 0 0% 100%; /* background */
+        --color-bg-muted: 60 4.8% 95.9%; /* muted */
+        --color-border-main: 20 5.9% 90%; /* border */
+        --color-text-muted: 25 5.3% 44.7%; /* muted-foreground */
+        --color-accent: 24 9.8% 10%; /* primary */
     }
-    html.dark {
-        --color-text-main: 242 241 236; /* #F2F1EC */
-        --color-bg-main: 23 23 23; /* #171717 */
-        --color-bg-muted: 36 36 36; /* #242424 */
-        --color-border-main: 242 241 236; /* #F2F1EC */
-        --color-text-muted: 242 241 236; /* #F2F1EC */
+    
+    .dark {
+        --background: 20 14.3% 4.1%;
+        --foreground: 60 9.1% 97.8%;
+        --card: 20 14.3% 4.1%;
+        --card-foreground: 60 9.1% 97.8%;
+        --popover: 20 14.3% 4.1%;
+        --popover-foreground: 60 9.1% 97.8%;
+        --primary: 60 9.1% 97.8%;
+        --primary-foreground: 24 9.8% 10%;
+        --secondary: 12 6.5% 15.1%;
+        --secondary-foreground: 60 9.1% 97.8%;
+        --muted: 12 6.5% 15.1%;
+        --muted-foreground: 24 5.4% 63.9%;
+        --accent: 12 6.5% 15.1%;
+        --accent-foreground: 60 9.1% 97.8%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 60 9.1% 97.8%;
+        --border: 12 6.5% 12%;
+        --input: 12 6.5% 12%;
+        --ring: 24 5.7% 82.9%;
+        
+        /* Mapping per compatibilità con il nostro sistema */
+        --color-text-main: 60 9.1% 97.8%; /* foreground */
+        --color-bg-main: 20 14.3% 4.1%; /* background */
+        --color-bg-muted: 12 6.5% 15.1%; /* muted */
+        --color-border-main: 12 6.5% 15.1%; /* border */
+        --color-text-muted: 24 5.4% 63.9%; /* muted-foreground */
+        --color-accent: 60 9.1% 97.8%; /* primary */
     }
+    
+    * {
+        border-color: hsl(var(--border));
+    }
+    
     body {
         @apply bg-main text-main;
+        font-family: 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif';
+        font-feature-settings: 'rlig' 1, 'calt' 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
     }
+    
     /* Heading font family styling */
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Inter', 'Arial', 'Helvetica', 'sans-serif', !important;
+        font-family: 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif' !important;
+        font-weight: 600;
+        letter-spacing: -0.025em;
     }
     
     /* Exclude H2 elements inside header tags */
     header h2 {
         font-family: inherit !important;
+        font-weight: 400;
     }
 
     .prose h3 {
-        color: rgb(var(--color-text-muted) / .8) !important
+        color: hsl(var(--foreground)) !important;
+        font-weight: 600;
     }    
 }
 
@@ -44,7 +106,7 @@
     
     /* Dark mode paragraph color */
     .dark .prose-dante p {
-        color: rgb(var(--color-text-main)) !important;
+        color: hsl(var(--foreground)) !important;
     }
     
     /* SVG inversion in dark mode - ONLY inside prose content */
@@ -59,23 +121,26 @@
     
     /* Classe personalizzata per applicare font sans-serif */
     .heading-sans {
-        font-family: 'Inter', 'Arial', 'Helvetica', 'sans-serif', !important;
+        font-family: 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif' !important;
+        font-weight: 600;
+        letter-spacing: -0.025em;
     }
     
     /* AI Summary Component Styles */
     .ai-summary {
-        border: 1px solid rgb(var(--color-border-main) / 0.15);
-        border-radius: 8px;
-        margin: 2rem 0 3rem;
+        border: 1px solid hsl(var(--border));
+        border-radius: calc(var(--radius));
+        margin: 2rem 0;
         padding: 1.5rem;
-        background-color: rgb(var(--color-bg-muted));
+        background-color: hsl(var(--muted));
     }
 
     .ai-summary-header {
         display: flex;
         align-items: center;
         font-weight: 600;
-        font-family: 'Inter', 'Arial', 'Helvetica', 'sans-serif', !important;
+        font-family: 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif' !important;
+        margin-bottom: 0.5rem;
     }
 
     .ai-icon {
@@ -83,13 +148,15 @@
         width: 1.25rem;
         height: 1.25rem;
         flex-shrink: 0;
-        stroke-width: 2.5;
+        stroke-width: 2;
+        color: hsl(var(--primary));
     }
 
     .ai-summary-content {
         font-size: 0.95rem;
         line-height: 1.6;
         min-height: 1.6em;
+        color: hsl(var(--foreground) / 0.9);
     }
 
     .ai-summary-content p {
@@ -106,17 +173,17 @@
 
     .loading-indicator p {
         margin-top: 0.5rem;
-        font-size: 0.9rem;
-        color: rgb(var(--color-text-muted) / 0.6);
+        font-size: 0.875rem;
+        color: hsl(var(--muted-foreground));
     }
 
     .dot {
         display: inline-block;
-        width: 8px;
-        height: 8px;
-        margin: 0 4px;
+        width: 6px;
+        height: 6px;
+        margin: 0 3px;
         border-radius: 50%;
-        background-color: rgb(var(--color-text-muted) / 0.6);
+        background-color: hsl(var(--primary));
         animation: bounce 1.4s infinite ease-in-out both;
     }
 
@@ -159,7 +226,7 @@
 #article-img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: calc(var(--radius));
 }
 
 #cover-img {
@@ -168,22 +235,40 @@
 }
 
 #article-img {
-    border: 1px solid rgb(var(--color-text-main) / 0.08);
+    border: 1px solid hsl(var(--border));
 }
 
 /* Caption styles */
 figcaption, 
 figcaption a {
-    font-size: 0.7rem !important;
-    color: rgb(var(--color-text-muted) / 0.6) !important;
+    font-size: 0.75rem !important;
+    color: #78716c !important;
+    margin-top: 0.5rem;
 }
 
 .twitter-tweet {
-    font-size: 0.9rem !important;
-    border: 1px solid rgb(var(--color-border-main) / .15) !important;
-    border-radius: 8px;
-    margin: 2rem 0 3rem !important;
+    font-size: 0.875rem !important;
+    border: 1px solid hsl(var(--border)) !important;
+    border-radius: calc(var(--radius));
+    margin: 2rem 0 !important;
     padding: 1.5rem !important;
-    background-color: rgb(var(--color-bg-muted)) !important;
-    font-family: 'Inter', 'Arial', 'Helvetica', 'sans-serif', !important;
+    background-color: hsl(var(--muted)) !important;
+    font-family: 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif' !important;
+}
+
+/* Animation Styles */
+.fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 800ms ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

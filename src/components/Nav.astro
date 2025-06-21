@@ -7,11 +7,11 @@ import siteConfig from '@/data/site-config';
 const navLinks = (siteConfig.headerNavLinks ?? []).filter((link: Link) => link.href !== '/search');
 ---
 
-<nav class="min-h-10 pt-4 pb-12 relative sm:min-h-14 sm:pb-24 md:pt-8">
+<nav class="min-h-10 pt-4 pb-10 relative sm:min-h-14 sm:pb-16 md:pt-6">
     <!-- Mobile Navigation -->
     <div class="md:hidden w-full max-w-3xl mx-auto relative">
         <div class="flex justify-between items-center">
-            <a href="/" class="flex items-center hover:opacity-80 transition-opacity" aria-label="Go to homepage">
+            <a href="/" class="flex items-center hover:opacity-70 transition-opacity" aria-label="Go to homepage">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 192 192" class="w-7 h-7">
                     <path d="M99.6 23.1h-7v144.3h7V23.1zM168.8 91.8H23.4v7h145.4v-7zM47.2 41.7l-5 5L145 148.8l5-5zM145 41.7L42.2 143.8l5 4.9L150 46.7zM30.1 64.8l-2.6 6.5l134.6 54.5l2.7-6.5zM120.3 27.1L65.4 160.8l6.5 2.6l54.9-133.7zM162.3 65l-134.9 54l2.6 6.5l134.9-54zM72.2 27l-6.5 2.6l54.2 134l6.5-2.6z"></path>
                     <style>
@@ -21,13 +21,13 @@ const navLinks = (siteConfig.headerNavLinks ?? []).filter((link: Link) => link.h
             </a>
 
             <div class="flex items-center gap-4">
-                <a href="/search/" class="flex items-center hover:opacity-80 transition-opacity" aria-label="Search">
+                <a href="/search/" class="flex items-center p-2 hover:bg-muted/50 rounded-lg transition-colors" aria-label="Search">
                     <SearchIcon class="w-5 h-5" />
                 </a>
                 {
                     navLinks.length > 0 && (
                         <button
-                            class="menu-toggle w-8 h-8 flex items-center justify-center relative z-30"
+                            class="menu-toggle w-8 h-8 flex items-center justify-center relative z-30 hover:bg-muted/50 rounded-lg transition-colors"
                             aria-label="Open Menu"
                             aria-expanded="false"
                             aria-controls="menu-items"
@@ -45,7 +45,7 @@ const navLinks = (siteConfig.headerNavLinks ?? []).filter((link: Link) => link.h
                     {navLinks.map((link, index) => (
                         <li class="menu-item py-1 opacity-0">
                             <NavLink
-                                class="text-base sm:text-sm font-sans text-main hover:underline hover:underline-offset-2 hover:decoration-1"
+                                class="text-base font-medium text-main hover:text-accent transition-colors"
                                 href={link.href}
                             >
                                 {link.text}
@@ -60,7 +60,7 @@ const navLinks = (siteConfig.headerNavLinks ?? []).filter((link: Link) => link.h
     <!-- Desktop Navigation -->
     <div class="hidden md:block">
         <!-- Logo -->
-        <a href="/" class="absolute left-0 top-8 hover:opacity-80 transition-opacity" aria-label="Go to homepage">
+        <a href="/" class="absolute left-0 top-6 hover:opacity-70 transition-opacity" aria-label="Go to homepage">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 192 192" class="w-7 h-7">
                 <path d="M99.6 23.1h-7v144.3h7V23.1zM168.8 91.8H23.4v7h145.4v-7zM47.2 41.7l-5 5L145 148.8l5-5zM145 41.7L42.2 143.8l5 4.9L150 46.7zM30.1 64.8l-2.6 6.5l134.6 54.5l2.7-6.5zM120.3 27.1L65.4 160.8l6.5 2.6l54.9-133.7zM162.3 65l-134.9 54l2.6 6.5l134.9-54zM72.2 27l-6.5 2.6l54.2 134l6.5-2.6z"></path>
                 <style>
@@ -70,8 +70,8 @@ const navLinks = (siteConfig.headerNavLinks ?? []).filter((link: Link) => link.h
         </a>
 
         <!-- Search -->
-        <div class="absolute right-0 top-8 z-10 flex items-center gap-4">
-            <a href="/search/" class="flex items-center hover:opacity-80 transition-opacity" aria-label="Search">
+        <div class="absolute right-0 top-6 z-10 flex items-center gap-4">
+            <a href="/search/" class="flex items-center p-2 hover:bg-muted/50 rounded-lg transition-colors" aria-label="Search">
                 <SearchIcon class="w-5 h-5" />
             </a>
         </div>
@@ -83,7 +83,7 @@ const navLinks = (siteConfig.headerNavLinks ?? []).filter((link: Link) => link.h
                     {navLinks.map((link) => (
                         <li class="py-1">
                             <NavLink
-                                class="text-base sm:text-sm font-sans text-main hover:underline hover:underline-offset-2 hover:decoration-1"
+                                class="text-sm font-medium text-main hover:text-accent transition-colors px-2 py-1 rounded hover:bg-muted/30"
                                 href={link.href}
                             >
                                 {link.text}
@@ -99,43 +99,46 @@ const navLinks = (siteConfig.headerNavLinks ?? []).filter((link: Link) => link.h
 <style>
     @media (max-width: 767px) {
         .menu {
-            @apply fixed top-0 left-0 right-0 h-screen flex-col gap-6 px-6 pt-24 pb-10 z-20;
-            background: rgb(var(--color-bg-main) / 0.85);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            transform: translateY(-100%);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            @apply fixed top-0 left-0 right-0 h-screen flex-col gap-8 px-6 pt-24 pb-12 z-20;
+            background: hsl(var(--background) / 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
         }
 
         .menu.is-visible {
-            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
         }
 
         .menu.is-visible .menu-item {
             opacity: 1;
             transform: translateY(0);
-            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.4s ease, transform 0.4s ease;
         }
 
         .menu-item {
-            transform: translateY(20px);
+            opacity: 0;
+            transform: translateY(12px);
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
-        .menu-item:nth-child(1) { transition-delay: 0.1s; }
-        .menu-item:nth-child(2) { transition-delay: 0.15s; }
-        .menu-item:nth-child(3) { transition-delay: 0.2s; }
-        .menu-item:nth-child(4) { transition-delay: 0.25s; }
+        .menu-item:nth-child(1) { transition-delay: 0.05s; }
+        .menu-item:nth-child(2) { transition-delay: 0.1s; }
+        .menu-item:nth-child(3) { transition-delay: 0.15s; }
+        .menu-item:nth-child(4) { transition-delay: 0.2s; }
 
         .menu-toggle-icon {
-            transition: background-color 0.2s;
+            transition: all 0.2s ease;
         }
 
         .menu-toggle-icon:before,
         .menu-toggle-icon:after {
             @apply w-6 h-px absolute left-1/2 top-0 origin-center -translate-x-1/2 bg-current;
             content: '';
-            transition: transform 0.2s ease-out;
+            transition: all 0.2s ease;
         }
 
         .menu-toggle-icon:before { @apply -translate-y-1.5; }

@@ -1,16 +1,10 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
+export const prerender = false;
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SearchComponent from '../components/Search.tsx';
+import { getPostsForSearch } from '../utils/content-utils';
 
-const allPosts = await getCollection('blog');
-const posts = allPosts.map((post: CollectionEntry<'blog'>) => ({
-  title: post.data.title,
-  url: `/blog/${post.slug}`,
-  description: post.data.excerpt || '',
-  body: post.body
-}));
+const posts = await getPostsForSearch();
 
 const title = "Search";
 

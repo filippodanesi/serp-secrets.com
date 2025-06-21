@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Pagination from '../../components/Pagination.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import siteConfig from '../../data/site-config';
+import { getAllUnifiedPosts, decodeHtmlEntities } from '../../utils/content-utils';
+
+// Get all posts and show first page
+const allPosts = await getAllUnifiedPosts();
+const pageSize = siteConfig.postsPerPage || 10;
+const totalPages = Math.ceil(allPosts.length / pageSize);
+const blog = allPosts.slice(0, pageSize);
+
+// Create page object for pagination
+const page = {
+    data: blog,
+    currentPage: 1,
+    lastPage: totalPages,
+    total: allPosts.length,
+    size: pageSize,
+    start: 1,
+    end: Math.min(pageSize, allPosts.length),
+    url: {
+        current: '/blog/',
+        next: totalPages > 1 ? '/blog/page/2/' : undefined,
+        prev: undefined,
+    }
+};
+
+// Breadcrumb
+const breadcrumbItems = [
+    {
+        name: 'Archive',
+        item: `${Astro.site}blog/`
+    }
+];
+---
+
+<BaseLayout
+    title="Archive"
+    description="A complete list of all published articles and insights on SEO, AI, and digital marketing strategies."
+    image={{ src: '/og-image.webp' }}
+    showHeader={false}
+    breadcrumb={{
+        items: breadcrumbItems,
+        currentPageName: 'Archive'
+    }}
+>
+    <div class="mb-8">
+        <h1 class="text-2xl font-semibold text-main mb-2">Archive</h1>
+        <p class="text-sm text-muted">
+            {page.total} articles
+        </p>
+    </div>
+
+    <div class="space-y-1">
+        {blog.map((post) => (
+            <article>
+                <a 
+                    href={`/blog/${post.slug}/`} 
+                    class="flex items-center justify-between py-3 px-2 -mx-2 rounded hover:bg-muted/30 transition-colors group"
+                >
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-base font-medium text-main group-hover:text-accent transition-colors truncate">
+                            {decodeHtmlEntities(post.data.title)}
+                        </h3>
+                        {post.data.excerpt && (
+                            <p class="text-sm text-muted mt-1 line-clamp-1">
+                                {decodeHtmlEntities(post.data.excerpt)}
+                            </p>
+                        )}
+                    </div>
+                    <div class="flex-shrink-0 ml-4">
+                        <time class="text-xs text-muted font-mono">
+                            <FormattedDate date={post.data.publishDate} />
+                        </time>
+                    </div>
+                </a>
+            </article>
+        ))}
+    </div>
+
+    {totalPages > 1 && (
+        <div class="mt-12 pt-6 border-t border-main">
+            <Pagination page={page} />
+        </div>
+    )}
+</BaseLayout> 

@@ -20,11 +20,11 @@ const { links } = Astro.props;
             links.map((item, index) => (
                 <li>
                     {item.url ? (
-                        <a href={item.url} class={`hover:underline text-[color:var(--color-text-main)]`}>
+                        <a href={item.url} class="hover:underline text-main">
                             {item.label}
                         </a>
                     ) : (
-                        <span class="text-[color:var(--color-text-main)]">{item.label}</span>
+                        <span class="text-main">{item.label}</span>
                     )}
                     {index < links.length - 1 && <span class="mx-2 text-gray-400">/</span>}
                 </li>

@@ -4,7 +4,6 @@ import vercel from '@astrojs/vercel';
 import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 import rehypeExternalLinks from 'rehype-external-links';
-import { remarkReadingTime } from './remark-reading-time.mjs';
 
 export default defineConfig({
   site: 'https://www.serp-secrets.com',
@@ -14,7 +13,6 @@ export default defineConfig({
   }),
   trailingSlash: 'always',
   markdown: {
-    remarkPlugins: [remarkReadingTime],
     rehypePlugins: [
       [
         rehypeExternalLinks,
@@ -43,6 +41,6 @@ export default defineConfig({
     mdx()
   ],
   vite: {
-    envPrefix: 'OPENAI_',
+    envPrefix: ['OPENAI_', 'WORDPRESS_', 'ENABLE_WORDPRESS'],
   },
 });

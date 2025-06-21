@@ -1,47 +1,45 @@
 ---
-import { getCollection } from 'astro:content';
-import ArrowRight from '../../icons/ArrowRight.astro';
+export const prerender = false;
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Subscribe from '../../components/Subscribe.astro';
-import { sortItemsByDateDesc, getAllTags, getPostsByTag } from '../../utils/data-utils';
+import { getAllUnifiedTags, getUnifiedPostsByTag } from '../../utils/content-utils';
 
-const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
-const tags = getAllTags(posts).sort((tagA, tagB) => {
-    const postCountTagA = getPostsByTag(posts, tagA.slug).length;
-    const postCountTagB = getPostsByTag(posts, tagB.slug).length;
-    return postCountTagB - postCountTagA;
-});
+const tags = (await getAllUnifiedTags()).sort((tagA, tagB) => tagB.count - tagA.count);
 ---
 
 <BaseLayout
-    title="What I'm Writing About"
-    description="Find a wide range of topics, articles, and insights organized by tags, making it effortless to locate the content that interests you most."
+    title="Categories"
+    description="Browse articles by topic and category to find exactly what you're looking for."
     showHeader={false}
 >
-    <h1 class="text-3xl leading-tight font-serif font-medium sm:text-4xl sm:leading-tight mb-4 text-main">What I'm Writing About</h1>
-    <h2 class="mb-12 sm:mb-14 text-sm sm:text-base heading-sans leading-normal pb-6 border-b border-solid border-main inline-block">
-        Browse through all the topics I've written about. Each tag represents a collection of related posts, making it easy to explore specific areas of
-        interest.
-    </h2>
-    {
-        tags.map((tag) => {
-            const postCount = getPostsByTag(posts, tag.slug).length;
+    <div class="mb-8">
+        <h1 class="text-2xl font-semibold text-main mb-2">Categories</h1>
+        <p class="text-sm text-muted">
+            Browse by topic ({tags.length} categories)
+        </p>
+    </div>
+
+    <div class="space-y-1">
+        {tags.map((tag) => {
+            const postCount = tag.count;
             return (
-                <a class="mb-10 flex justify-between items-start gap-8 group sm:mb-12" href={`/categories/${tag.slug}/`}>
-                    <div class="grow">
-                        <h3 class="text-xl leading-tight font-serif font-medium group-hover:underline group-hover:decoration-solid group-hover:underline-offset-4 group-hover:decoration-1 sm:text-2xl">
+                <article>
+                    <a 
+                        href={`/categories/${tag.slug}/`} 
+                        class="flex items-center justify-between py-3 px-2 -mx-2 rounded hover:bg-muted/30 transition-colors group"
+                    >
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-base font-medium text-main group-hover:text-accent transition-colors truncate">
                             {tag.name}
-                        </h3>
-                        <div class="mt-1 text-sm leading-normal">
-                            {postCount} {postCount === 1 ? 'post' : 'posts'}
+                            </h3>
                         </div>
-                    </div>
-                    <div class="hidden font-serif italic opacity-0 transition group-hover:opacity-100 sm:inline-flex sm:gap-1 sm:items-center sm:shrink-0">
-                        View Category Archive <ArrowRight class="fill-current w-4 h-4" />
+                        <div class="flex-shrink-0 ml-4">
+                            <span class="text-xs text-muted font-mono">
+                                {postCount} {postCount === 1 ? 'post' : 'posts'}
+                            </span>
                     </div>
                 </a>
+                </article>
             );
-        })
-    }
-   <!-- <Subscribe class="my-16 sm:my-24" /> --> 
+        })}
+    </div>
 </BaseLayout>

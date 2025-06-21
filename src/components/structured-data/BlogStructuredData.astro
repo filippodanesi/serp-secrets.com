@@ -1,11 +1,23 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import siteConfig from '@/data/site-config';
+import type { UnifiedPost } from '@/utils/content-utils';
 
 interface Props {
-    posts: CollectionEntry<'blog'>[];
+    posts: UnifiedPost[];
 }
 const { posts } = Astro.props;
+
+// Helper function to build correct image URL
+const getImageUrl = (imageSrc: string) => {
+    // If it's already a full URL (WordPress images), return as is
+    if (imageSrc.startsWith('http://') || imageSrc.startsWith('https://')) {
+        return imageSrc;
+    }
+    // If it's a relative path (Astro images), prepend site URL
+    return `${Astro.site}${imageSrc.replace(/^\//, '')}`;
+};
+
 const personInfo = {
     '@type': 'Person',
     '@id': `${Astro.site}#identity`,
@@ -28,8 +40,8 @@ const structuredData = {
     keywords: ['Technical Seo', 'Seo News', 'Seo Strategies', 'Artificial Intelligence'],
     image: {
         '@type': 'ImageObject',
-        url: `${Astro.site}${siteConfig.image?.src.replace('/', '')}`,
-        caption: siteConfig.image?.alt,
+        url: getImageUrl(siteConfig.image?.src || 'og-image.webp'),
+        caption: siteConfig.image?.alt || '',
         width: '1200',
         height: '630'
     },
@@ -67,8 +79,8 @@ const structuredData = {
         dateModified: (post.data.updatedDate || post.data.publishDate).toISOString(),
         url: `${Astro.site}blog/${post.slug}`,
         inLanguage: 'en',
-        keywords: post.data.tags,
-        articleSection: post.data.tags[0],
+        keywords: post.data.tags?.join(', ') || '',
+        articleSection: post.data.tags?.[0] || 'Blog',
         isAccessibleForFree: 'http://schema.org/True',
         copyrightYear: new Date(post.data.publishDate).getFullYear(),
         mainEntityOfPage: {
@@ -81,8 +93,8 @@ const structuredData = {
         },
         image: {
             '@type': 'ImageObject',
-            url: post.data.seo?.image?.src ? `${Astro.site}${post.data.seo.image.src.replace('/', '')}` : `${Astro.site}og-image.webp`,
-            caption: post.data.seo?.image?.alt,
+            url: getImageUrl(post.data.seo?.image?.src || post.data.image?.src || 'og-image.webp'),
+            caption: post.data.seo?.image?.alt || post.data.image?.alt || '',
             width: '1200',
             height: '630'
         },

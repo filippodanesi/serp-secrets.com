@@ -1,6 +1,6 @@
 // src/pages/news-sitemap.xml.ts
 import { type APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
+import { getAllUnifiedPosts } from '../utils/content-utils';
 
 function isWithinLastTwoDays(date: Date): boolean {
   const twoDaysAgo = new Date();
@@ -25,7 +25,7 @@ export const GET: APIRoute = async ({ site }) => {
 
   try {
     // Get blog posts
-    const posts = await getCollection('blog');
+    const posts = await getAllUnifiedPosts();
     
     // Filter posts from last 2 days
     const recentPosts = posts.filter(post => 

@@ -19,9 +19,14 @@ const {
     robots = 'max-image-preview:large'
 } = Astro.props;
 
+// Check if the title already contains the site name (e.g., from Yoast SEO)
+const titleAlreadyIncludesSiteName = Astro.props.title?.includes(siteConfig.title);
+
 const title = isHome 
     ? Astro.props.title 
-    : [Astro.props.title, siteConfig.title].filter(Boolean).join(' \\ ');
+    : titleAlreadyIncludesSiteName 
+        ? Astro.props.title 
+        : [Astro.props.title, siteConfig.title].filter(Boolean).join(' | ');
 
 const resolvedImage = image?.src
     ? {

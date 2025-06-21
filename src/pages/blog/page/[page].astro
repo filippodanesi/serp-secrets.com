@@ -1,0 +1,124 @@
+---
+import type { GetStaticPathsOptions, Page } from 'astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Pagination from '../../../components/Pagination.astro';
+import FormattedDate from '../../../components/FormattedDate.astro';
+import siteConfig from '../../../data/site-config';
+import { getAllUnifiedPosts, decodeHtmlEntities, type UnifiedPost } from '../../../utils/content-utils';
+
+export const prerender = false;
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+    const posts = await getAllUnifiedPosts();
+    return paginate(posts, { pageSize: siteConfig.postsPerPage || 10 });
+}
+
+type Props = { page?: Page<UnifiedPost> };
+
+// Handle dynamic routing for pages 2+
+const pageParam = Astro.params.page;
+
+// This file handles /blog/2/, /blog/3/, etc.
+// Page 1 (/blog/) is handled by index.astro
+// If the param is not a number, it's probably a post slug - let [slug].astro handle it
+if (!pageParam) {
+    return Astro.redirect('/blog/');
+}
+
+const currentPage = parseInt(pageParam);
+
+// If it's not a valid page number, it's probably a post slug
+// Return a 404-like response so Astro tries the next route ([slug].astro)
+if (isNaN(currentPage) || currentPage < 2) {
+    return new Response(null, { status: 404 });
+}
+
+// Get posts and paginate manually for dynamic routes
+const allPosts = await getAllUnifiedPosts();
+const pageSize = siteConfig.postsPerPage || 10;
+const totalPages = Math.ceil(allPosts.length / pageSize);
+
+// Check if requested page exists
+if (currentPage > totalPages) {
+    return Astro.redirect('/blog/');
+}
+
+const startIndex = (currentPage - 1) * pageSize;
+const endIndex = startIndex + pageSize;
+const blog = allPosts.slice(startIndex, endIndex);
+
+// Create page object for dynamic routing
+const page = Astro.props.page || {
+    data: blog,
+    currentPage,
+    lastPage: totalPages,
+    total: allPosts.length,
+    size: pageSize,
+    start: startIndex + 1,
+    end: Math.min(endIndex, allPosts.length),
+    url: {
+        current: currentPage === 1 ? '/blog/' : `/blog/page/${currentPage}/`,
+        next: currentPage < totalPages ? (currentPage === 1 ? '/blog/page/2/' : `/blog/page/${currentPage + 1}/`) : undefined,
+        prev: currentPage > 1 ? (currentPage === 2 ? '/blog/' : `/blog/page/${currentPage - 1}/`) : undefined,
+    }
+};
+
+// Preparazione breadcrumb
+const breadcrumbItems = [
+    {
+        name: 'Archive',
+        item: `${Astro.site}blog/`
+    }
+];
+
+const currentPageName = page.currentPage > 1 ? `Archive - Page ${page.currentPage}` : 'Archive';
+---
+
+<BaseLayout
+    title="Archive"
+    description="A complete list of all published articles and insights on SEO, AI, and digital marketing strategies."
+    image={{ src: '/og-image.webp' }}
+    showHeader={false}
+    breadcrumb={{
+        items: breadcrumbItems,
+        currentPageName: currentPageName
+    }}
+>
+    <div class="mb-8">
+        <h1 class="text-2xl font-semibold text-main mb-2">Archive</h1>
+        <p class="text-sm text-muted">
+            {page.currentPage > 1 ? `Page ${page.currentPage} of ${page.lastPage}` : `${page.total} articles`}
+        </p>
+    </div>
+
+    <div class="space-y-1">
+        {blog.map((post, index) => (
+            <article>
+                <a 
+                    href={`/blog/${post.slug}/`} 
+                    class="flex items-center justify-between py-3 px-2 -mx-2 rounded hover:bg-muted/30 transition-colors group"
+                >
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-base font-medium text-main group-hover:text-accent transition-colors truncate">
+                            {decodeHtmlEntities(post.data.title)}
+                        </h3>
+                        {post.data.excerpt && (
+                            <p class="text-sm text-muted mt-1 line-clamp-1">
+                                {decodeHtmlEntities(post.data.excerpt)}
+                            </p>
+                        )}
+                    </div>
+                    <div class="flex-shrink-0 ml-4">
+                        <time class="text-xs text-muted font-mono">
+                            <FormattedDate date={post.data.publishDate} />
+                        </time>
+                    </div>
+                </a>
+            </article>
+        ))}
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-main">
+        <Pagination page={page} />
+    </div>
+</BaseLayout>

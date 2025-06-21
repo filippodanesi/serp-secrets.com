@@ -1,38 +1,67 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
-import PostPreview from '../../components/PostPreview.astro';
-import ShareIcons from '../../components/ShareIcons.astro';
-import AISummary from '../../components/AISummary.astro';
-import { sortItemsByDateDesc } from '../../utils/data-utils';
 import { slugify } from '../../utils/common-utils';
 import BlogPostingStructuredData from '../../components/structured-data/BlogPostingStructuredData.astro';
+import { 
+    getAllUnifiedPosts, 
+    getUnifiedPostBySlug, 
+    getAdjacentPosts,
+    isWordPressPost,
+    decodeHtmlEntities,
+    type UnifiedPost 
+} from '../../utils/content-utils';
 
-export const prerender = true;
+export const prerender = false;
 
 export async function getStaticPaths() {
-    const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
-    const postCount = posts.length;
-    return posts.map((post, index) => ({
+    const posts = await getAllUnifiedPosts();
+    return posts.map((post) => ({
         params: { slug: post.slug },
-        props: {
-            post,
-            prevPost: index + 1 !== postCount ? posts[index + 1] : null,
-            nextPost: index !== 0 ? posts[index - 1] : null
-        }
+        props: { post }
     }));
 }
 
-type Props = { post: CollectionEntry<'blog'>; prevPost: CollectionEntry<'blog'>; nextPost: CollectionEntry<'blog'> };
+type Props = { post?: UnifiedPost };
 
-const { href } = Astro.url;
-const { post, prevPost, nextPost } = Astro.props;
+// Get the slug from URL params for dynamic routing
+const { slug } = Astro.params;
+
+if (!slug) {
+    return new Response(null, { status: 404 });
+}
+
+// Try to get the post - either from props (static) or by slug (dynamic)
+let post = Astro.props.post;
+if (!post) {
+    try {
+        post = await getUnifiedPostBySlug(slug);
+    } catch (error) {
+        console.error('Error fetching post:', error);
+        return new Response(null, { status: 404 });
+    }
+}
+
+// Return 404 if post not found
+if (!post) {
+    return new Response(null, { status: 404 });
+}
+
 const { title, publishDate, updatedDate, excerpt, tags = [], seo, image } = post.data;
-const { Content, remarkPluginFrontmatter } = await post.render();
 
-// Generate a cache key based on the post slug and last modified date
-const cacheKey = `${post.slug}_${updatedDate ? updatedDate.getTime() : publishDate.getTime()}`;
+// Get adjacent posts for navigation
+const { nextPost, prevPost } = await getAdjacentPosts(post.slug);
+
+// Handle content rendering
+let Content;
+if (isWordPressPost(post)) {
+    // For WordPress posts, render HTML content directly
+    Content = () => ({ $$render: () => post.body });
+} else {
+    // For Astro posts, use the standard render method
+    const { Content: AstroContent } = await post.render();
+    Content = AstroContent;
+}
 
 // Preparazione breadcrumb
 const breadcrumbItems = [
@@ -42,7 +71,6 @@ const breadcrumbItems = [
     }
 ];
 
-// Aggiungi categoria se presente
 if (tags.length > 0) {
     const categorySlug = slugify(tags[0]);
     breadcrumbItems.push({
@@ -64,113 +92,119 @@ if (tags.length > 0) {
     }}
 >
     <BlogPostingStructuredData slot="structured-data" {...post.data} body={post.body} />
-    <article class="mb-16 sm:mb-24">
-        <header class="mb-8 mt-6">
-            {/* Category tag - Mobile and Desktop versions */}
-            {tags.length > 0 && (
-                <div class="mb-5">
-                    <nav class="flex items-center space-x-1 text-xs">
-                        {/* Desktop only breadcrumbs */}
-                        <div class="hidden sm:flex sm:items-center">
-                            <a 
-                                href="/"
-                                class="text-[rgb(var(--color-text-muted)_/_0.6)] hover:opacity-70"
-                            >
-                                Home
-                            </a>
-                            <span class="text-[rgb(var(--color-text-muted)_/_0.2)] ml-1">\</span>
-                            <a 
-                                href="/categories/"
-                                class="text-[rgb(var(--color-text-muted)_/_0.6)] hover:opacity-70 ml-1"
-                            >
-                                Categories
-                            </a>
-                            <span class="text-[rgb(var(--color-text-muted)_/_0.2)] ml-1">\</span>
-                        </div>
-                        {/* Category link - Visible on both mobile and desktop */}
+    
+    <article class="mb-12">
+        <header class="mb-8">
+            <h1 class="text-2xl sm:text-3xl font-semibold text-main mb-4 leading-tight tracking-tight">
+                {decodeHtmlEntities(title)}
+            </h1>
+
+            <div class="flex items-center gap-3 text-xs text-muted font-mono mb-6">
+                <time>
+                    {updatedDate ? 'Updated on ' : ''}<FormattedDate date={updatedDate || publishDate} />
+                </time>
+                {tags.length > 0 && (
+                    <div class="hidden sm:flex items-center gap-3">
+                        <span>/</span>
                         <a 
                             href={`/categories/${slugify(tags[0])}/`}
-                            class="text-[rgb(var(--color-text-muted))] hover:opacity-70 transition-opacity sm:ml-1"
+                            class="text-muted hover:text-foreground transition-colors"
                         >
                             {tags[0]}
                         </a>
-                    </nav>
+                    </div>
+                )}
+            </div>
+
+            {image && (
+                <div class="mb-8 aspect-[3/2] overflow-hidden rounded-lg">
+                    <img
+                        src={image.src}
+                        alt={image.alt}
+                        class="w-full h-full object-cover"
+                        loading="eager"
+                        width="1200"
+                        height="800"
+                    />
                 </div>
             )}
-
-            {/* Article Title */}
-            <h1 class="text-3xl leading-tight font-serif font-medium sm:text-4xl sm:leading-tight mb-4 text-main" transition:name={`post-title-${post.slug}`}>
-                {title}
-            </h1>
-
-            {/* Description */}
-            <div class="text-sm sm:text-base text-[rgb(var(--color-text-muted)_/_0.6)] pb-4 mb-4 border-b border-[rgb(var(--color-text-muted)_/_0.1)]">
-                {seo?.description ?? excerpt}
-            </div>
-
-            {/* Meta information and share icons container */}
-            <div class="flex flex-col sm:flex-row sm:items-center text-main sm:justify-between pb-4 mb-8 border-b border-[rgb(var(--color-text-muted)_/_0.1)]">
-                {/* Meta information */}
-                <div class="text-xs sm:text-sm" transition:name={`post-meta-${post.slug}`}>
-                    <span>Published by</span>
-                    <a href="https://www.filippodanesi.com" target="_blank" class="font-medium hover:opacity-70">Filippo Danesi</a>
-                    <span>on <FormattedDate date={publishDate} /></span>
-                
-                    {updatedDate && (
-                        <span class="whitespace-nowrap">
-                            <span>/</span>
-                            <span>
-                                Updated by <a href="https://www.filippodanesi.com" target="_blank" class="font-medium hover:opacity-70">Filippo Danesi</a> on <FormattedDate date={updatedDate} />
-                            </span>
-                        </span>
-                    )}
-                </div>
-
-                {/* Share Icons - Hidden on mobile */}
-                <div class="hidden sm:block sm:ml-4">
-                    <ShareIcons url={href} title={title} />
-                </div>
-            </div>
-
-            {/* Featured Image */}
-            {
-                image && (
-                    <div class="relative -mx-4 sm:mx-0 sm:rounded-xl overflow-hidden aspect-[16/9]">
-                        <img
-                            src={image.src}
-                            alt={image.alt}
-                            class="absolute inset-0 w-full h-full object-cover"
-                            loading="eager"
-                            width="1200"
-                            height="675"
-                            transition:name={`post-image-${post.slug}`}
-                        />
-                    </div>
-                )
-            }
         </header>
 
-        {/* AI-Generated Summary
-        <AISummary 
-            content={post.body}
-            title={title}
-            cacheKey={cacheKey}
-        /> */}
-
-        {/* Article Content */}
-        <div class="max-w-none prose prose-dante dark:prose-invert sm:prose-lg" transition:animate="slide">
-            <Content />
+        <div class={`prose prose-dante prose-sm max-w-none ${isWordPressPost(post) ? 'wordpress-content' : ''}`}>
+            {isWordPressPost(post) ? (
+                <div set:html={post.body} />
+            ) : (
+                <Content />
+            )}
         </div>
     </article>
 
-    {/* Related Posts Section */}
-    {
-        (prevPost || nextPost) && (
-            <div class="my-16 sm:my-24">
-                <p class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">Read Next</p>
-                {nextPost && <PostPreview post={nextPost} class="mb-10 sm:mb-12" headingLevel="h3" />}
-                {prevPost && <PostPreview post={prevPost} class="mb-10 sm:mb-12" headingLevel="h3" />}
+    {(prevPost || nextPost) && (
+        <nav class="mt-12 pt-6 border-t border-main">
+            <div class="flex flex-col gap-4">
+                {nextPost && (
+                    <div>
+                        <p class="text-xs text-muted font-mono uppercase tracking-wider mb-2">Next</p>
+                        <a 
+                            href={`/blog/${nextPost.slug}/`}
+                            class="text-base font-medium text-main hover:text-accent transition-colors"
+                        >
+                            {decodeHtmlEntities(nextPost.data.title)}
+                        </a>
+                    </div>
+                )}
+                {prevPost && (
+                    <div>
+                        <p class="text-xs text-muted font-mono uppercase tracking-wider mb-2">Previous</p>
+                        <a 
+                            href={`/blog/${prevPost.slug}/`}
+                            class="text-base font-medium text-main hover:text-accent transition-colors"
+                        >
+                            {decodeHtmlEntities(prevPost.data.title)}
+                        </a>
+                    </div>
+                )}
             </div>
-        )
-    }
+        </nav>
+    )}
 </BaseLayout>
+
+<style>
+    /* Additional styles for WordPress content */
+    .wordpress-content img {
+        border-radius: calc(var(--radius));
+        margin: 2rem 0;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3/2;
+        object-fit: cover;
+    }
+    
+    .wordpress-content blockquote {
+        border-left: 4px solid hsl(var(--border));
+        padding-left: 1.5rem;
+        margin: 2rem 0;
+        font-style: italic;
+        color: hsl(var(--muted-foreground));
+    }
+    
+    .wordpress-content pre {
+        background-color: hsl(var(--muted));
+        border: 1px solid hsl(var(--border));
+        border-radius: calc(var(--radius));
+        padding: 1rem;
+        overflow-x: auto;
+    }
+    
+    .wordpress-content code {
+        background-color: hsl(var(--muted));
+        padding: 0.25rem 0.5rem;
+        border-radius: calc(var(--radius) - 2px);
+        font-size: 0.875rem;
+    }
+    
+    .wordpress-content pre code {
+        background: none;
+        padding: 0;
+    }
+</style>

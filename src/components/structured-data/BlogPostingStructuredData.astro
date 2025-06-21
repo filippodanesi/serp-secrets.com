@@ -2,7 +2,21 @@
 import type { CollectionEntry } from 'astro:content';
 import siteConfig from '@/data/site-config';
 
-type Props = CollectionEntry<'blog'>['data'] & { body?: string };
+// Support both Astro and WordPress posts
+type Props = {
+  title: string;
+  excerpt?: string;
+  publishDate: Date;
+  updatedDate?: Date;
+  image?: { src: string; alt?: string };
+  tags?: string[];
+  seo?: {
+    title?: string;
+    description?: string;
+    image?: { src: string; alt?: string };
+  };
+  body?: string;
+};
 
 const { title, excerpt, publishDate, updatedDate, image, tags, seo, body } = Astro.props;
 
@@ -15,7 +29,14 @@ const getArticleSection = (tags: string[]) => {
 };
 
 const getWordCount = (content: string) => {
-   return content.replace(/\s+/g, ' ').replace(/[^\w\s]/g, '').trim().split(' ').filter(word => word.length > 0).length;
+   // Remove HTML tags for WordPress content
+   const cleanContent = content
+     .replace(/<[^>]*>/g, '') // Remove HTML tags
+     .replace(/&[^;]+;/g, ' ') // Remove HTML entities
+     .replace(/\s+/g, ' ') // Normalize whitespace
+     .trim();
+   
+   return cleanContent.split(' ').filter(word => word.length > 0).length;
 };
 
 const wordCount = body ? getWordCount(body) : 0;
@@ -32,11 +53,24 @@ const personInfo = {
     ]
 };
 
+// Helper function to build correct image URL
+const getImageUrl = (imageSrc: string) => {
+    // If it's already a full URL (WordPress images), return as is
+    if (imageSrc.startsWith('http://') || imageSrc.startsWith('https://')) {
+        return imageSrc;
+    }
+    // If it's a relative path (Astro images), prepend site URL
+    return `${Astro.site}${imageSrc.replace(/^\//, '')}`;
+};
+
+const defaultImage = 'og-image.webp';
+const imageSrc = seo?.image?.src || image?.src || defaultImage;
+
 const imageObject = {
     '@type': 'ImageObject',
-    '@id': `${Astro.site}${(image?.src || 'og-image.webp').replace(/^\//, '')}`,
-    'url': `${Astro.site}${(image?.src || 'og-image.webp').replace(/^\//, '')}`,
-    'caption': image?.alt || '',
+    '@id': getImageUrl(imageSrc),
+    'url': getImageUrl(imageSrc),
+    'caption': seo?.image?.alt || image?.alt || '',
     'width': '1200',
     'height': '630'
 };

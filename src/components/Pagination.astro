@@ -1,33 +1,37 @@
 ---
-import ArrowLeft from '../icons/ArrowLeft.astro';
-import ArrowRight from '../icons/ArrowRight.astro';
-import IconButton from './IconButton.astro';
-
 const { page, class: className } = Astro.props;
 ---
 
-<nav aria-label="Pagination" class:list={['px-12 py-2 relative text-center', className]}>
+<nav aria-label="Pagination" class:list={['flex items-center justify-between text-sm', className]}>
     {
-        page.url.prev && (
-            <IconButton
-                class="absolute left-0 top-1/2 -translate-y-1/2"
-                href={`${page.url.prev}/`}
+        page.url.prev ? (
+            <a
+                href={page.url.prev}
+                class="text-muted hover:text-accent transition-colors"
                 aria-label={`Go to page ${page.currentPage - 1} of ${page.lastPage}`}
             >
-                <ArrowLeft class="w-5 h-5 fill-current" />
-            </IconButton>
+                ← Previous
+            </a>
+        ) : (
+            <span class="text-muted/50">← Previous</span>
         )
     }
-    <span class="text-sm" aria-current="page">Page {page.currentPage} of {page.lastPage}</span>
+    
+    <span class="text-muted font-mono" aria-current="page">
+        {page.currentPage} / {page.lastPage}
+    </span>
+    
     {
-        page.url.next && (
-            <IconButton
-                class="absolute right-0 top-1/2 -translate-y-1/2"
-                href={`${page.url.next}/`}
+        page.url.next ? (
+            <a
+                href={page.url.next}
+                class="text-muted hover:text-accent transition-colors"
                 aria-label={`Go to page ${page.currentPage + 1} of ${page.lastPage}`}
             >
-                <ArrowRight class="w-5 h-5 fill-current" />
-            </IconButton>
+                Next →
+            </a>
+        ) : (
+            <span class="text-muted/50">Next →</span>
         )
     }
 </nav>

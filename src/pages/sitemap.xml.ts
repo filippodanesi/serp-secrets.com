@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content';
+import { getAllUnifiedPosts } from '../utils/content-utils';
 import siteConfig from '../data/site-config';
 import type { SiteConfig } from '../data/site-config';
 
@@ -41,7 +41,7 @@ export const GET: APIRoute = async ({ site }) => {
     const staticUrls = generateStaticUrls(siteConfig, baseUrl);
     
     // Get blog posts
-    const posts = await getCollection('blog');
+    const posts = await getAllUnifiedPosts();
     const sortedPosts = posts.sort((a, b) => {
       const dateA = a.data.updatedDate || a.data.publishDate;
       const dateB = b.data.updatedDate || b.data.publishDate;

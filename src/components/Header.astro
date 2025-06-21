@@ -1,18 +1,38 @@
 ---
 import siteConfig from '@/data/site-config';
+
+interface Props {
+    subtitle?: string;
+    totalPosts?: number;
+}
+
+const { subtitle, totalPosts } = Astro.props;
+
+// Create dynamic subtitle for homepage
+const getSubtitle = () => {
+    if (subtitle) return subtitle;
+    if (totalPosts !== undefined) {
+        return `${totalPosts} deep dives into SEO and AI convergence down, many more to go.`;
+    }
+    return siteConfig.subtitle;
+};
 ---
 
-<header class="w-full max-w-3xl mx-auto mb-12 sm:mb-14 border-b border-solid border-main pb-6">
+<header class="w-full border-b border-main max-w-3xl mx-auto mb-8 pb-3">
     {
         siteConfig.logo && siteConfig.logo?.src ? (
-            <a href="/">
+            <a href="/" class="inline-block hover:opacity-80 transition-opacity">
                 <img src={siteConfig.logo.src} alt={siteConfig.logo.alt || ''} class="max-h-12" />
             </a>
         ) : (
-            <h1 class="text-3xl leading-tight font-serif font-medium sm:text-4xl sm:leading-tight mb-4 text-main">
-                    {siteConfig.title}
+            <h1 class="text-2xl font-semibold text-main mb-3">
+                {siteConfig.title}
             </h1>
         )
     }
-    {siteConfig.subtitle && <h2 class="text-sm sm:text-base text-main mt-2">{siteConfig.subtitle}</h2>}
+    {getSubtitle() && (
+        <h2 class="text-sm text-muted leading-relaxed">
+            {getSubtitle()}
+        </h2>
+    )}
 </header>

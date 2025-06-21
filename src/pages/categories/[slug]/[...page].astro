@@ -1,59 +1,98 @@
 ---
-import type { GetStaticPathsOptions, Page } from 'astro';
-import { type CollectionEntry, getCollection } from 'astro:content';
+import type { Page } from 'astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Pagination from '../../../components/Pagination.astro';
-import PostPreview from '../../../components/PostPreview.astro';
-import Subscribe from '../../../components/Subscribe.astro';
+import FormattedDate from '../../../components/FormattedDate.astro';
 import siteConfig from '../../../data/site-config';
-import { sortItemsByDateDesc, getAllTags, getPostsByTag } from '../../../utils/data-utils';
+import { getAllUnifiedTags, getUnifiedPostsByTag, decodeHtmlEntities, type UnifiedPost } from '../../../utils/content-utils';
 
-export const prerender = true;
+export const prerender = false;
 
-export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-    const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
-    const tags = getAllTags(posts);
+// Handle dynamic routing
+const params = Astro.params;
+const pageParam = params.page;
+const currentPage = pageParam ? parseInt(pageParam as string) : 1;
 
-    return tags.flatMap((tag) => {
-        const filteredPosts = getPostsByTag(posts, tag.slug);
-        return paginate(filteredPosts, {
-            params: { slug: tag.slug },
-            pageSize: siteConfig.postsPerPage || 4
-        });
-    });
+// Get posts for this tag
+const allTags = await getAllUnifiedTags();
+const currentTag = allTags.find((tag) => tag.slug === params.slug);
+
+if (!currentTag) {
+    return Astro.redirect('/404');
 }
 
-type Props = { page: Page<CollectionEntry<'blog'>> };
+const allPostsForTag = await getUnifiedPostsByTag(currentTag.slug);
+const pageSize = siteConfig.postsPerPage || 10;
+const totalPages = Math.ceil(allPostsForTag.length / pageSize);
+const startIndex = (currentPage - 1) * pageSize;
+const endIndex = startIndex + pageSize;
+const blog = allPostsForTag.slice(startIndex, endIndex);
 
-const { page } = Astro.props;
-const blog = page.data;
-const params = Astro.params;
-const allPosts = await getCollection('blog');
-const allTags = getAllTags(allPosts);
-const currentTag = allTags.find((tag) => {
-    return tag.slug === params.slug;
-});
+// Create page object for dynamic routing
+const page = {
+    data: blog,
+    currentPage,
+    lastPage: totalPages,
+    total: allPostsForTag.length,
+    size: pageSize,
+    start: startIndex + 1,
+    end: Math.min(endIndex, allPostsForTag.length),
+    url: {
+        current: `/categories/${params.slug}/${currentPage > 1 ? currentPage : ''}/`,
+        next: currentPage < totalPages ? `/categories/${params.slug}/${currentPage + 1}/` : undefined,
+        prev: currentPage > 1 ? (currentPage === 2 ? `/categories/${params.slug}/` : `/categories/${params.slug}/${currentPage - 1}/`) : undefined,
+    }
+} as Page<UnifiedPost>;
 ---
 
 <BaseLayout
     title={`${currentTag?.name}`}
-    description={siteConfig.tagDescriptions[params.slug] || `Explore a curated collection of blog posts under ${currentTag?.name}`}
+    description={siteConfig.tagDescriptions[params.slug] || `Articles about ${currentTag?.name}`}
     image={{ src: '/og-image.webp' }}
     showHeader={false}
+    breadcrumb={{
+        items: [{
+            name: 'Categories',
+            item: `${Astro.site}categories/`
+        }],
+        currentPageName: currentTag?.name || params.slug
+    }}
 >
-    <h1 class="text-3xl leading-tight font-serif font-medium sm:text-4xl sm:leading-tight mb-4 text-main">
-        {currentTag?.name}
-    </h1>
+    <div class="mb-8">
+        <h1 class="text-2xl font-semibold text-main mb-2">{currentTag?.name}</h1>
+        <p class="text-sm text-muted">
+            {page.currentPage > 1 ? `Page ${page.currentPage} of ${page.lastPage}` : `${page.total} articles`}
+        </p>
+    </div>
 
-    {
-        siteConfig.tagDescriptions[params.slug] && (
-            <h2 class="mb-12 text-main sm:mb-14 text-sm sm:text-base heading-sans leading-normal pb-6 border-b border-solid border-main inline-block">
-                {siteConfig.tagDescriptions[params.slug]}
-            </h2>
-        )
-    }
+    <div class="space-y-1">
+        {blog.map((post, index) => (
+            <article>
+                <a 
+                    href={`/blog/${post.slug}/`} 
+                    class="flex items-center justify-between py-3 px-2 -mx-2 rounded hover:bg-muted/30 transition-colors group"
+                >
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-base font-medium text-main group-hover:text-accent transition-colors truncate">
+                            {decodeHtmlEntities(post.data.title)}
+                        </h3>
+                        {post.data.excerpt && (
+                            <p class="text-sm text-muted mt-1 line-clamp-1">
+                                {decodeHtmlEntities(post.data.excerpt)}
+                            </p>
+                        )}
+                    </div>
+                    <div class="flex-shrink-0 ml-4">
+                        <time class="text-xs text-muted font-mono">
+                            <FormattedDate date={post.data.publishDate} />
+                        </time>
+                    </div>
+                </a>
+            </article>
+        ))}
+    </div>
 
-    {blog.map((post) => <PostPreview post={post} class="mb-10 sm:mb-12" />)}
-    <Pagination page={page} class="my-16 sm:my-24" />
-    <!-- <Subscribe class="my-16 sm:my-24" /> --> 
+    <div class="mt-12 pt-6 border-t border-main">
+        <Pagination page={page} />
+    </div>
 </BaseLayout>
