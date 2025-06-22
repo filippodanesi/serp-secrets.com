@@ -75,7 +75,7 @@ module.exports = {
             },
             fontFamily: {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
-                serif: ['Newsreader', ...defaultTheme.fontFamily.serif],
+                serif: ['Inter', ...defaultTheme.fontFamily.serif],
                 mono: defaultTheme.fontFamily.mono,
             },
             fontSize: {
