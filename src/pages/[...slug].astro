@@ -51,12 +51,14 @@ const pageName = getPageName(title);
             </h1>
             {
                 seo?.description && page.slug !== 'home' && (
-                    <p class="text-sm text-muted leading-relaxed">
+                    <h2 class="text-sm text-muted leading-relaxed">
                         {page.slug === 'contact' 
-                            ? "Get in touch via email or social media." 
+                            ? "Contact me via email or social media." 
+                            : page.slug === 'about'
+                            ? "I like SEO and AI, I guess."
                             : seo.description
                         }
-                    </p>
+                    </h2>
                 )
             }
         </header>

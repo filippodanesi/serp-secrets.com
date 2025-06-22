@@ -13,9 +13,9 @@ const tags = (await getAllUnifiedTags()).sort((tagA, tagB) => tagB.count - tagA.
 >
     <div class="mb-8">
         <h1 class="text-2xl font-semibold text-main mb-2">Categories</h1>
-        <p class="text-sm text-muted">
-            Browse by topic ({tags.length} categories)
-        </p>
+        <h2 class="text-sm font-normal text-muted">
+            All the chaos, neatly organized ({tags.length} categories)
+        </h2>
     </div>
 
     <div class="space-y-1">
