@@ -15,44 +15,59 @@ const socialIcons: Record<SocialNetwork, string> = {
 ---
 
 <footer class="w-full max-w-3xl mx-auto pt-12 pb-8 sm:pt-16 sm:pb-10">
-    {/* Legal Section
-    <div class="flex flex-col gap-3 mb-8">
-        <p class="font-semibold text-sm text-main mb-1">Legal</p>
-        <div class="flex gap-6">
-            <a class="font-medium text-sm text-muted hover:text-accent transition-colors" href="/privacy-policy/">Privacy Policy</a>
-            <a class="font-medium text-sm text-muted hover:text-accent transition-colors" href="/cookie-policy/">Cookie Policy</a>
-        </div>
-    </div> */}
-
-    {/* Divider */}
-    <div class="border-t border-main mb-6"></div>
-
-    {/* Footer Bottom Section */}
-    <div class="flex flex-row justify-between items-center gap-4">
-        {/* Copyright */}
-        <span class="text-xs text-muted">
-            &copy;{currentYear} 
-            <a 
-               href="https://www.filippodanesi.com" 
-               target="_blank" 
-               rel="noopener noreferrer">
-                Filippo Danesi
-            </a>
-        </span>
-
-        {/* Social Icons */}
-        <div class="flex gap-2">
-            {siteConfig.socialLinks?.map((link) => (
+    <div class="w-full text-center">
+        {/* Top Section - Brand and Navigation */}
+        <div class="w-full justify-between sm:flex sm:items-center sm:justify-between mb-6">
+            {/* Brand Section */}
+            <div class="flex items-center justify-center sm:justify-start mb-4 sm:mb-0">
                 <a 
-                    href={link.href}
-                    class="text-muted hover:text-accent transition-colors p-1 hover:bg-muted/30 rounded"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={link.text}
+                    href="/" 
+                    class="flex items-center gap-2 text-main hover:text-accent transition-colors"
                 >
-                    <Fragment set:html={socialIcons[link.text as SocialNetwork]} />
+                    <span class="font-semibold text-lg">SERPsecrets</span>
                 </a>
-            ))}
+            </div>
+
+            {/* Navigation Links */}
+            <div class="flex flex-wrap justify-center gap-6 sm:gap-8">
+                <a class="font-medium text-sm text-muted hover:text-accent transition-colors" href="/about/">About</a>
+                <a class="font-medium text-sm text-muted hover:text-accent transition-colors" href="/contact/">Contact</a>
+                <a class="font-medium text-sm text-muted hover:text-accent transition-colors" href="/privacy-policy/">Privacy</a>
+                <a class="font-medium text-sm text-muted hover:text-accent transition-colors" href="/cookie-policy/">Cookies</a>
+            </div>
+        </div>
+
+        {/* Divider */}
+        <div class="border-t border-main mb-6"></div>
+
+        {/* Bottom Section - Copyright and Social */}
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+            {/* Copyright */}
+            <span class="text-xs text-muted order-2 sm:order-1">
+                &copy;{currentYear} 
+                <a 
+                   href="https://www.filippodanesi.com" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="hover:text-accent transition-colors">
+                    Filippo Danesi
+                </a>
+            </span>
+
+            {/* Social Icons */}
+            <div class="flex gap-2 order-1 sm:order-2">
+                {siteConfig.socialLinks?.map((link) => (
+                    <a 
+                        href={link.href}
+                        class="text-muted hover:text-accent transition-colors p-1 hover:bg-muted/30 rounded"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={link.text}
+                    >
+                        <Fragment set:html={socialIcons[link.text as SocialNetwork]} />
+                    </a>
+                ))}
+            </div>
         </div>
     </div>
 </footer>
