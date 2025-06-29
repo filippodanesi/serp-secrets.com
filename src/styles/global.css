@@ -238,7 +238,11 @@
     border: 1px solid hsl(var(--border));
 }
 
-/* Caption styles */
+/* Figure and caption styles */
+figure {
+    margin-bottom: 2rem;
+}
+
 figcaption, 
 figcaption a {
     font-size: 0.75rem !important;
