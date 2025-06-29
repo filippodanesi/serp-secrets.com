@@ -16,7 +16,7 @@ Personal data is only used for predefined purposes or purposes that are compatib
 
 ### Analytics
 
-We use Google Analytics to understand how visitors interact with our website. This service collects data anonymously and helps us improve our website experience. For more information about how Google Analytics handles your data, please visit their [Privacy Policy](https://policies.google.com/privacy).
+We use Plausible Analytics to understand how visitors interact with our website. This service collects data anonymously without cookies and helps us improve our website experience. For more information, please visit [Plausible Privacy Policy](https://plausible.io/privacy).
 
 ### Cookies
 
@@ -59,4 +59,4 @@ We may update this privacy policy from time to time to reflect changes to our pr
 
 For any questions or concerns about our privacy policy or your personal data, please contact us at [privacy@filippodanesi.com](mailto:privacy@filippodanesi.com).
 
-<p class="text-sm text-[rgb(var(--color-text-muted)_/_0.6)]">(Last Updated: 22-Feb-2025)</p>
+<p class="text-sm text-[rgb(var(--color-text-muted)_/_0.6)]">(Last Updated: 09-Nov-2024)</p>

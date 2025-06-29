@@ -21,20 +21,14 @@ The third-party cookies used on our website mainly help us understand how the we
 ### Types of Cookies We Use
 
 #### Necessary
-Necessary cookies are required to enable the basic features of this site, such as providing secure log-in or adjusting your consent preferences. These cookies do not store any personally identifiable data.
+This website does not use any necessary cookies. Your theme preference (light/dark mode) is stored locally on your device using browser local storage, which does not involve cookies.
 
 | Cookie | Duration | Description |
 |--------|----------|-------------|
-| `theme` | Persistent | Stores your theme preference (light/dark mode) |
+| None | - | This website operates without cookies |
 
 #### Analytics
-Analytical cookies are used to understand how visitors interact with the website. These cookies help provide information on metrics such as the number of visitors, bounce rate, traffic source, etc.
-
-| Cookie | Duration | Description |
-|--------|----------|-------------|
-| `_plausible` | Session | Plausible Analytics uses this cookie-free tracking method to measure site traffic without storing personal data. |
-
-[Plausible Analytics](https://plausible.io/) is a privacy-friendly analytics tool that does not use cookies or track personally identifiable information. Instead, it collects anonymous usage data to help us improve the website.
+We use Plausible Analytics, which is a privacy-friendly analytics tool that does not use cookies or collect personally identifiable information. It measures site traffic anonymously to help us improve the website.
 
 ### Manage Cookie Preferences
 
@@ -49,4 +43,4 @@ In addition to this, different browsers provide different methods to block and d
 
 If you are using any other web browser, please visit your browser's official support documents.
 
-<p class="text-sm text-[rgb(var(--color-text-muted)_/_0.6)]">(Last Updated: 22-Feb-2025)</p>
+<p class="text-sm text-[rgb(var(--color-text-muted)_/_0.6)]">(Last Updated: 09-Nov-2024)</p>
