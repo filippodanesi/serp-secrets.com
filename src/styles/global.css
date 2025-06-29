@@ -240,7 +240,7 @@
 
 /* Figure and caption styles */
 figure {
-    margin-bottom: 2rem;
+    margin-bottom: 2rem !important;
 }
 
 figcaption, 
