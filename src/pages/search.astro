@@ -18,7 +18,7 @@ const metaTags = {
 <BaseLayout title={title} showHeader={false} metaTags={metaTags}>
   <article class="mb-16 sm:mb-24">
     <header class="mb-8">
-      <h1 class="text-3xl leading-tight font-serif font-medium sm:text-4xl sm:leading-tight mb-4 text-main">{title}</h1>
+      <h1 class="text-2xl font-semibold text-main mb-2">{title}</h1>
     </header>
     <div class="max-w-none prose prose-dante sm:prose-lg">
       <SearchComponent client:load posts={posts} />
