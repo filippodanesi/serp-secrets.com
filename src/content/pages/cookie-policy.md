@@ -39,4 +39,4 @@ In addition to this, different browsers provide different methods to block and d
 
 If you are using any other web browser, please visit your browser's official support documents.
 
-<p class="text-sm text-[rgb(var(--color-text-muted)_/_0.6)]">(Last Updated: 09-Nov-2024)</p>
+<p class="text-sm text-muted">(Last Updated: 29-Jun-2025)</p>

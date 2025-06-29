@@ -45,7 +45,7 @@ Under the General Data Protection Regulation (GDPR), you have several rights reg
 - The right to object
 - Rights in relation to automated decision making and profiling
 
-To exercise any of these rights, please contact us at [privacy@filippodanesi.com](mailto:privacy@filippodanesi.com).
+To exercise any of these rights, please contact us at [hello@serp-secrets.com](mailto:hello@serp-secrets.com).
 
 ## How we protect your data
 
@@ -57,6 +57,6 @@ We may update this privacy policy from time to time to reflect changes to our pr
 
 ## Contact information
 
-For any questions or concerns about our privacy policy or your personal data, please contact us at [privacy@filippodanesi.com](mailto:privacy@filippodanesi.com).
+For any questions or concerns about our privacy policy or your personal data, please contact us at [hello@serp-secrets.com](mailto:hello@serp-secrets.com).
 
-<p class="text-sm text-[rgb(var(--color-text-muted)_/_0.6)]">(Last Updated: 09-Nov-2024)</p>
+<p class="text-sm text-muted">(Last Updated: 29-Jun-2025)</p>
