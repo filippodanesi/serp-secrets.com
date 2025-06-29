@@ -23,12 +23,8 @@ The third-party cookies used on our website mainly help us understand how the we
 #### Necessary
 This website does not use any necessary cookies. Your theme preference (light/dark mode) is stored locally on your device using browser local storage, which does not involve cookies.
 
-| Cookie | Duration | Description |
-|--------|----------|-------------|
-| None | - | This website operates without cookies |
-
 #### Analytics
-We use Plausible Analytics, which is a privacy-friendly analytics tool that does not use cookies or collect personally identifiable information. It measures site traffic anonymously to help us improve the website.
+We use [Plausible Analytics](https://plausible.io/privacy-focused-web-analytics), which is a privacy-friendly analytics tool that does not use cookies or collect personally identifiable information. It measures site traffic anonymously to help us improve the website.
 
 ### Manage Cookie Preferences
 
