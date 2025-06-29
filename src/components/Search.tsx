@@ -173,7 +173,7 @@ export default function Search({ posts }: SearchProps) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search articles..."
-          className="w-full p-4 bg-main text-sm focus:bg-muted border border-main rounded-none focus:outline-none font-serif placeholder-muted"
+          className="w-full p-4 bg-main text-sm focus:bg-muted border border-main rounded-none focus:outline-none font-serif placeholder-muted-foreground"
           aria-label="Search articles"
         />
       </div>
