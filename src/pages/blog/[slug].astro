@@ -11,6 +11,7 @@ import {
     decodeHtmlEntities,
     type UnifiedPost 
 } from '../../utils/content-utils';
+import AuthorBlock from '../../components/AuthorBlock.astro';
 
 export const prerender = false;
 
@@ -24,14 +25,12 @@ export async function getStaticPaths() {
 
 type Props = { post?: UnifiedPost };
 
-// Get the slug from URL params for dynamic routing
 const { slug } = Astro.params;
 
 if (!slug) {
     return new Response(null, { status: 404 });
 }
 
-// Try to get the post - either from props (static) or by slug (dynamic)
 let post = Astro.props.post;
 if (!post) {
     try {
@@ -42,28 +41,22 @@ if (!post) {
     }
 }
 
-// Return 404 if post not found
 if (!post) {
     return new Response(null, { status: 404 });
 }
 
 const { title, publishDate, updatedDate, excerpt, tags = [], seo, image } = post.data;
 
-// Get adjacent posts for navigation
 const { nextPost, prevPost } = await getAdjacentPosts(post.slug);
 
-// Handle content rendering
 let Content;
 if (isWordPressPost(post)) {
-    // For WordPress posts, render HTML content directly
     Content = () => ({ $$render: () => post.body });
 } else {
-    // For Astro posts, use the standard render method
     const { Content: AstroContent } = await post.render();
     Content = AstroContent;
 }
 
-// Preparazione breadcrumb
 const breadcrumbItems = [
     {
         name: 'Archive',
@@ -99,21 +92,21 @@ if (tags.length > 0) {
                 {decodeHtmlEntities(title)}
             </h1>
 
-            <div class="flex items-center gap-3 text-xs text-muted font-mono mb-6">
+            <div class="flex flex-wrap items-center gap-x-6 gap-y-4 text-xs text-muted font-mono mb-6">
                 <time>
                     {updatedDate ? 'Updated on ' : ''}<FormattedDate date={updatedDate || publishDate} />
                 </time>
+                
                 {tags.length > 0 && (
                     <div class="hidden sm:flex items-center gap-3">
                         <span>/</span>
-                        <a 
-                            href={`/categories/${slugify(tags[0])}/`}
-                            class="text-muted hover:text-foreground transition-colors"
-                        >
+                        <a href={`/categories/${slugify(tags[0])}/`} class="text-muted hover:text-foreground transition-colors">
                             {tags[0]}
                         </a>
                     </div>
                 )}
+                
+                <AuthorBlock post={post} display="byline" />
             </div>
 
             {image && (
@@ -137,6 +130,9 @@ if (tags.length > 0) {
                 <Content />
             )}
         </div>
+
+        <AuthorBlock post={post} display="full" />
+        
     </article>
 
     {(prevPost || nextPost) && (
@@ -170,7 +166,6 @@ if (tags.length > 0) {
 </BaseLayout>
 
 <style>
-    /* Additional styles for WordPress content */
     .wordpress-content img {
         border-radius: calc(var(--radius));
         margin: 2rem 0;

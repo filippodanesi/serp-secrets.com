@@ -1,8 +1,8 @@
 ---
-title: My SEO Journey
+title: Hi, I'm Filippo
 publishDate: '2024-11-07'
 seo:
-  title: My SEO Journey
+  title: Hi, I'm Filippo
   description: Meet Filippo, the SEO specialist and AI enthusiast behind these insights and ramblings about search optimization.
   image:
     src: '/about.webp'
