@@ -11,7 +11,7 @@ import {
     decodeHtmlEntities,
     type UnifiedPost 
 } from '../../utils/content-utils';
-import AuthorBlockStatic from '../../components/AuthorBlockStatic.astro';
+import AuthorBlock from '../../components/AuthorBlock.astro';
 
 export const prerender = false;
 
@@ -106,7 +106,7 @@ if (tags.length > 0) {
                     </div>
                 )}
                 
-                <AuthorBlockStatic display="byline" />
+                <AuthorBlock display="byline" />
             </div>
 
             {image && (
@@ -131,7 +131,7 @@ if (tags.length > 0) {
             )}
         </div>
 
-        <AuthorBlockStatic display="full" />
+        <AuthorBlock display="full" />
         
     </article>
 
