@@ -6,9 +6,9 @@ type Props = {
 const { display } = Astro.props;
 
 const author = 'Filippo Danesi';
-const authorImage = '/images/authors/filippo-danesi.jpg';
-const authorBio = 'Filippo Danesi è un consulente SEO e fondatore di SERPsecrets. Con oltre 15 anni di esperienza, aiuta le aziende a navigare la complessità dei motori di ricerca.';
-const authorTwitter = 'https://twitter.com/filippodanesi';
+const authorImage = '/filippo-danesi.webp';
+const authorBio = 'For over 6 years, Filippo\'s passion has been exploring where code, content, and data meet. As the founder of SERPsecrets and an SEO specialist, he uses data and AI not just to increase search engine visibility, but to build clear and effective user journeys, turning complex analytics into straightforward strategies that deliver real results.';
+const authorTwitter = 'https://www.linkedin.com/in/filippodanesi/';
 ---
 
 {display === 'byline' && (
@@ -27,7 +27,7 @@ const authorTwitter = 'https://twitter.com/filippodanesi';
             <h2 class="text-lg font-semibold text-main">About the Author: {author}</h2>
             <p class="mt-2 text-sm text-muted leading-relaxed">{authorBio}</p>
             <a href={authorTwitter} target="_blank" rel="noopener noreferrer" class="mt-3 inline-block text-sm text-accent hover:underline">
-                Follow on Twitter
+                Follow on LinkedIn
             </a>
         </div>
     </section>
