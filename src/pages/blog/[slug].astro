@@ -165,12 +165,12 @@ if (tags.length > 0) {
 
 <style is:inline>
     .wordpress-content img {
-        border-radius: calc(var(--radius));
-        margin: 2rem 0;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 3/2;
-        object-fit: cover;
+      border-radius: calc(var(--radius));
+      margin: 2rem 0;
+      max-width: 100%;
+      height: auto;
+      width: auto;       /* lascia che segua l'intrinseco, scala solo in larghezza */
+      object-fit: unset; /* o semplicemente rimuovi la proprietà */
     }
     
     .wordpress-content blockquote {
