@@ -434,6 +434,8 @@ export class WordPressAPI {
 /**
  * Transform WordPress post to Astro-compatible format
  */
+import { isSameDay } from '../utils/common-utils';
+
 export function transformWordPressPost(
   wpPost: WordPressPost,
   categories: WordPressCategory[] = [],
@@ -486,7 +488,7 @@ export function transformWordPressPost(
       title: wpPost.title.rendered,
       excerpt: excerpt,
       publishDate: new Date(wpPost.date),
-      updatedDate: wpPost.modified !== wpPost.date ? new Date(wpPost.modified) : undefined,
+      updatedDate: !isSameDay(wpPost.modified, wpPost.date) ? new Date(wpPost.modified) : undefined,
       tags: allTags,
       image: featuredImage, // Featured image for display in post
       seo: {

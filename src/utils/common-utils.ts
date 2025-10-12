@@ -15,3 +15,18 @@ export function slugify(input?: string) {
 
     return slug;
 }
+
+/**
+ * Check if two dates are on the same day (ignoring time)
+ * @param date1 First date (string or Date)
+ * @param date2 Second date (string or Date)
+ * @returns true if both dates are on the same day, false otherwise
+ */
+export function isSameDay(date1: string | Date, date2: string | Date): boolean {
+    const d1 = new Date(date1);
+    const d2 = new Date(date2);
+    
+    return d1.getFullYear() === d2.getFullYear() &&
+           d1.getMonth() === d2.getMonth() &&
+           d1.getDate() === d2.getDate();
+}
