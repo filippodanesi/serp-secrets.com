@@ -32,10 +32,12 @@ const isAboutPage = pathname === '/about' || pathname === '/about/';
 const isContactPage = pathname === '/contact' || pathname === '/contact/';
 
 // Exclude specific IPs from analytics tracking
-const excludedIPsEnv = import.meta.env.ANALYTICS_EXCLUDED_IPS || '';
-const excludedIPs = excludedIPsEnv 
-    ? excludedIPsEnv.split(',').map((ip: string) => ip.trim())
-    : ['45.80.136.164', '2001:4860:7:142f::fa']; // Default: your IPv4 and IPv6
+const excludedIPsV4 = import.meta.env.ANALYTICS_EXCLUDED_IPS_V4 || '45.80.136.164';
+const excludedIPsV6 = import.meta.env.ANALYTICS_EXCLUDED_IPS_V6 || '2001:4860:7:142f::fa';
+
+const ipV4List = excludedIPsV4.split(',').map((ip: string) => ip.trim()).filter(Boolean);
+const ipV6List = excludedIPsV6.split(',').map((ip: string) => ip.trim()).filter(Boolean);
+const excludedIPs = [...ipV4List, ...ipV6List];
 
 // clientAddress is only available in server-rendered pages, not in prerendered pages
 let shouldTrackAnalytics = true;
