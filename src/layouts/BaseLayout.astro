@@ -31,6 +31,22 @@ const pathname = Astro.url.pathname;
 const isAboutPage = pathname === '/about' || pathname === '/about/';
 const isContactPage = pathname === '/contact' || pathname === '/contact/';
 
+// Exclude specific IPs from analytics tracking
+const excludedIPsEnv = import.meta.env.ANALYTICS_EXCLUDED_IPS || '';
+const excludedIPs = excludedIPsEnv 
+    ? excludedIPsEnv.split(',').map((ip: string) => ip.trim())
+    : ['45.80.136.164']; // Default: your IP
+
+// clientAddress is only available in server-rendered pages, not in prerendered pages
+let shouldTrackAnalytics = true;
+try {
+    const clientIP = Astro.clientAddress;
+    shouldTrackAnalytics = !excludedIPs.includes(clientIP);
+} catch (e) {
+    // If clientAddress is not available (prerendered page), always track
+    shouldTrackAnalytics = true;
+}
+
 const headProps = {
     ...head,
     ...metaTags
@@ -51,7 +67,7 @@ const headProps = {
         {isAboutPage && <AboutStructuredData />}
         {isContactPage && <ContactPageStructuredData />}
         <slot name="structured-data" />
-        <Analytics />
+        {shouldTrackAnalytics && <Analytics />}
         <script>
             if (localStorage.theme === 'dark') {
                 document.documentElement.classList.add('dark');
