@@ -35,13 +35,18 @@ const isContactPage = pathname === '/contact' || pathname === '/contact/';
 const excludedIPsEnv = import.meta.env.ANALYTICS_EXCLUDED_IPS || '';
 const excludedIPs = excludedIPsEnv 
     ? excludedIPsEnv.split(',').map((ip: string) => ip.trim())
-    : ['45.80.136.164']; // Default: your IP
+    : ['45.80.136.164', '2001:4860:7:142f::fa']; // Default: your IPv4 and IPv6
 
 // clientAddress is only available in server-rendered pages, not in prerendered pages
 let shouldTrackAnalytics = true;
 try {
     const clientIP = Astro.clientAddress;
     shouldTrackAnalytics = !excludedIPs.includes(clientIP);
+    
+    // Debug log (rimuovi dopo test)
+    if (import.meta.env.DEV) {
+        console.log('Client IP:', clientIP, '| Should track:', shouldTrackAnalytics);
+    }
 } catch (e) {
     // If clientAddress is not available (prerendered page), always track
     shouldTrackAnalytics = true;
