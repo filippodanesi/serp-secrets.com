@@ -6,6 +6,7 @@ import Nav from '../components/Nav.astro';
 import BreadcrumbListStructuredData from '../components/structured-data/BreadcrumbListStructuredData.astro';
 import AboutStructuredData from '../components/structured-data/AboutStructuredData.astro';
 import ContactPageStructuredData from '../components/structured-data/ContactPageStructuredData.astro';
+import { Analytics } from '@vercel/analytics/astro';
 
 export type Props = HeadProps & { 
     showHeader?: boolean;
@@ -50,6 +51,7 @@ const headProps = {
         {isAboutPage && <AboutStructuredData />}
         {isContactPage && <ContactPageStructuredData />}
         <slot name="structured-data" />
+        <Analytics />
         <script>
             if (localStorage.theme === 'dark') {
                 document.documentElement.classList.add('dark');

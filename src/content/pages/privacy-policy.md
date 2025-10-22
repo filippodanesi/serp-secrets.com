@@ -16,7 +16,7 @@ Personal data is only used for predefined purposes or purposes that are compatib
 
 ### Analytics
 
-We use Plausible Analytics to understand how visitors interact with our website. This service collects data anonymously without cookies and helps us improve our website experience. For more information, please visit [Plausible Privacy Policy](https://plausible.io/privacy).
+We use Vercel Web Analytics to understand how visitors interact with our website. This service collects data anonymously without cookies and helps us improve our website experience. Vercel Analytics does not use cookies, does not track users across sites, and does not collect personal information. For more information, please visit [Vercel Analytics Privacy Policy](https://vercel.com/docs/analytics/privacy-policy).
 
 ### Cookies
 
