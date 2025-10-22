@@ -41,6 +41,6 @@ export default defineConfig({
     mdx()
   ],
   vite: {
-    envPrefix: ['OPENAI_', 'WORDPRESS_', 'ENABLE_WORDPRESS', 'ANALYTICS_'],
+    envPrefix: ['OPENAI_', 'WORDPRESS_', 'ENABLE_WORDPRESS'],
   },
 });

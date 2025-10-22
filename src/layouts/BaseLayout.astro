@@ -6,6 +6,7 @@ import Nav from '../components/Nav.astro';
 import BreadcrumbListStructuredData from '../components/structured-data/BreadcrumbListStructuredData.astro';
 import AboutStructuredData from '../components/structured-data/AboutStructuredData.astro';
 import ContactPageStructuredData from '../components/structured-data/ContactPageStructuredData.astro';
+import Analytics from '@vercel/analytics/astro';
 
 export type Props = HeadProps & { 
     showHeader?: boolean;
@@ -50,60 +51,7 @@ const headProps = {
         {isAboutPage && <AboutStructuredData />}
         {isContactPage && <ContactPageStructuredData />}
         <slot name="structured-data" />
-        
-        <!-- Vercel Analytics with IP blocking -->
-        <script is:inline>
-            // Check if IP is excluded from analytics BEFORE loading scripts
-            (async function() {
-                // Check localStorage cache first (expires after 1 hour)
-                const cached = localStorage.getItem('analytics_check');
-                let shouldBlock = false;
-                
-                if (cached) {
-                    try {
-                        const { excluded, timestamp } = JSON.parse(cached);
-                        const oneHour = 60 * 60 * 1000;
-                        if (Date.now() - timestamp < oneHour) {
-                            shouldBlock = excluded;
-                            if (shouldBlock) {
-                                console.log('[Analytics] IP excluded (cached)');
-                                return; // Don't load analytics
-                            }
-                        }
-                    } catch (e) {}
-                }
-                
-                // Fetch fresh data from API
-                try {
-                    const response = await fetch('/api/check-ip');
-                    const data = await response.json();
-                    
-                    // Cache the result
-                    localStorage.setItem('analytics_check', JSON.stringify({
-                        excluded: data.excluded,
-                        timestamp: Date.now()
-                    }));
-                    
-                    shouldBlock = data.excluded;
-                    
-                    if (data.excluded) {
-                        console.log('[Analytics] IP excluded from tracking:', data.ip);
-                        return; // Don't load analytics
-                    }
-                } catch (e) {
-                    console.error('[Analytics] Error checking IP:', e);
-                }
-                
-                // Only load Analytics if not blocked
-                if (!shouldBlock) {
-                    // Load Vercel Analytics script
-                    const script = document.createElement('script');
-                    script.src = '/_vercel/insights/script.js';
-                    script.defer = true;
-                    document.head.appendChild(script);
-                }
-            })();
-        </script>
+        <Analytics />
         <script>
             if (localStorage.theme === 'dark') {
                 document.documentElement.classList.add('dark');
