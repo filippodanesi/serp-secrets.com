@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/_next/'],
       },
     ],
-    sitemap: 'https://www.filippodanesi.com/sitemap.xml',
-    host: 'https://www.filippodanesi.com',
+    sitemap: 'https://www.serp-secrets.com/sitemap.xml',
+    host: 'https://www.serp-secrets.com',
   }
 }

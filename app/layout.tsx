@@ -6,19 +6,19 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import { PersonJsonLd, WebSiteJsonLd } from './components/JsonLd'
 
-const siteUrl = 'https://www.filippodanesi.com'
+const siteUrl = 'https://www.serp-secrets.com'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Filippo Danesi ~ SEO & AI Search Strategist (AEO/GEO)',
-    template: '%s ~ Filippo Danesi',
+    default: 'SERP Secrets',
+    template: '%s ~ SERP Secrets',
   },
-  description: 'SEO and Content Marketing Specialist with 6+ years of experience. Combining data, AI, and content to drive search growth across international markets.',
-  keywords: ['SEO', 'Content Marketing', 'AI', 'LLM', 'NLP', 'Technical SEO', 'GEO', 'AEO', 'Filippo Danesi'],
-  authors: [{ name: 'Filippo Danesi', url: siteUrl }],
-  creator: 'Filippo Danesi',
-  publisher: 'Filippo Danesi',
+  description: 'Thoughts on SEO, AI, content marketing, and the future of search. Exploring how artificial intelligence is reshaping digital marketing strategies.',
+  keywords: ['SEO', 'Content Marketing', 'AI', 'LLM', 'NLP', 'Technical SEO', 'GEO', 'AEO', 'SERP Secrets'],
+  authors: [{ name: 'Filippo Danesi' }],
+  creator: 'SERP Secrets',
+  publisher: 'SERP Secrets',
   robots: {
     index: true,
     follow: true,
@@ -41,23 +41,23 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: siteUrl,
-    siteName: 'Filippo Danesi',
-    title: 'Filippo Danesi ~ SEO & AI Search Strategist (AEO/GEO)',
-    description: 'SEO and Content Marketing Specialist with 6+ years of experience. Combining data, AI, and content to drive search growth.',
+    siteName: 'SERP Secrets',
+    title: 'SERP Secrets',
+    description: 'Thoughts on SEO, AI, content marketing, and the future of search.',
     images: [
       {
-        url: '/api/og',
+        url: '/api/og?title=SERP%20Secrets',
         width: 1200,
         height: 630,
-        alt: 'Filippo Danesi ~ SEO & AI Search Strategist (AEO/GEO)',
+        alt: 'SERP Secrets',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Filippo Danesi ~ SEO & AI Search Strategist (AEO/GEO)',
-    description: 'SEO and Content Marketing Specialist with 6+ years of experience. Combining data, AI, and content to drive search growth.',
-    images: ['/api/og'],
+    title: 'SERP Secrets',
+    description: 'Thoughts on SEO, AI, content marketing, and the future of search.',
+    images: ['/api/og?title=SERP%20Secrets'],
     creator: '@filippodanesi',
   },
   verification: {
@@ -78,6 +78,7 @@ export default function RootLayout({
       <head>
         <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+        <link rel="alternate" type="application/rss+xml" title="SERP Secrets" href="/feed.xml" />
         <PersonJsonLd />
         <WebSiteJsonLd />
       </head>
