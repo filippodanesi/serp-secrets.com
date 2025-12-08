@@ -11,8 +11,8 @@ const siteUrl = 'https://www.serp-secrets.com'
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'SERP Secrets',
-    template: '%s ~ SERP Secrets',
+    default: 'SERPsecrets ~ SEO & AI Convergence',
+    template: '%s ~ SERPsecrets',
   },
   description: 'Thoughts on SEO, AI, content marketing, and the future of search. Exploring how artificial intelligence is reshaping digital marketing strategies.',
   keywords: ['SEO', 'Content Marketing', 'AI', 'LLM', 'NLP', 'Technical SEO', 'GEO', 'AEO', 'SERP Secrets'],

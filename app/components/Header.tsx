@@ -44,7 +44,7 @@ export default function Header() {
         <nav>
           <Link href="/archive/" className={isActive('/archive') ? 'active' : ''}>Archive</Link>
           <Link href="/categories/" className={isActive('/categories') ? 'active' : ''}>Categories</Link>
-          <Link href="/about/" className={isActive('/about') ? 'active' : ''}>About</Link>
+          <Link href="/about/" className={isActive('/about') ? 'active' : ''}>Author</Link>
           <Link href="/contact/" className={isActive('/contact') ? 'active' : ''}>Contact</Link>
         </nav>
       </div>
