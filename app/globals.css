@@ -347,6 +347,10 @@ footer {
     border-top: 1px solid var(--border);
 }
 
+.experience-item:last-child {
+    border-bottom: none;
+}
+
 .experience-header {
     display: flex;
     justify-content: space-between;
@@ -749,6 +753,10 @@ footer {
     opacity: 0.7;
 }
 
+.category-card:last-child {
+    border-bottom: none;
+}
+
 .category-name {
     font-size: 14px;
     font-weight: 500;
@@ -870,6 +878,10 @@ footer {
 
 .archive-post:first-child {
     border-top: 1px solid var(--border);
+}
+
+.archive-post:last-child {
+    border-bottom: none;
 }
 
 .archive-post-date {
