@@ -607,7 +607,7 @@ footer {
 }
 
 .mdx-li::marker {
-    color: var(--text-muted);
+    color: var(--border);
 }
 
 .mdx-blockquote {
