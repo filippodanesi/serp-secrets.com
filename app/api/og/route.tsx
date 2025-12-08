@@ -11,27 +11,45 @@ export async function GET() {
           width: '100%',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: '#ffffff',
+          justifyContent: 'space-between',
+          backgroundColor: '#fafafa',
           fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          padding: '80px',
         }}
       >
         <div
           style={{
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
+            gap: '16px',
+          }}
+        >
+          <p
+            style={{
+              fontSize: 24,
+              color: '#a3a3a3',
+              margin: 0,
+              letterSpacing: '0.05em',
+            }}
+          >
+            filippodanesi.com
+          </p>
+        </div>
+
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '24px',
           }}
         >
           <h1
             style={{
-              fontSize: 60,
+              fontSize: 72,
               fontWeight: 500,
               color: '#171717',
               margin: 0,
-              marginBottom: 24,
+              lineHeight: 1.1,
             }}
           >
             Filippo Danesi
@@ -43,8 +61,23 @@ export async function GET() {
               margin: 0,
             }}
           >
-            SEO & AI Search Strategist (AEO/GEO)
+            SEO & AI Search Strategist
           </p>
+        </div>
+
+        <div
+          style={{
+            display: 'flex',
+            gap: '32px',
+            fontSize: 20,
+            color: '#a3a3a3',
+          }}
+        >
+          <span>AEO</span>
+          <span>·</span>
+          <span>GEO</span>
+          <span>·</span>
+          <span>LLM Optimization</span>
         </div>
       </div>
     ),
