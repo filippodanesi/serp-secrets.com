@@ -1,15 +1,27 @@
-import Link from 'next/link'
+'use client'
+
+import { useTheme } from './ThemeProvider'
 
 export default function Footer() {
+  const { theme, toggleTheme } = useTheme()
+
   return (
     <footer>
       <div className="footer-content">
-        <span className="footer-text">© 2025 SERP Secrets</span>
-        <div className="footer-links">
-          <Link href="/privacy/" className="footer-link">Privacy</Link>
-          <span className="footer-separator">·</span>
-          <Link href="/cookie/" className="footer-link">Cookie</Link>
-        </div>
+        <span className="footer-text">
+          © 2025{' '}
+          <a
+            href="https://www.filippodanesi.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-link"
+          >
+            Filippo Danesi
+          </a>
+        </span>
+        <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+          {theme === 'dark' ? 'Light' : 'Dark'}
+        </button>
       </div>
     </footer>
   )

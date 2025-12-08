@@ -46,9 +46,6 @@ export default function Header() {
           <Link href="/categories/" className={isActive('/categories') ? 'active' : ''}>Categories</Link>
           <Link href="/about/" className={isActive('/about') ? 'active' : ''}>About</Link>
           <Link href="/contact/" className={isActive('/contact') ? 'active' : ''}>Contact</Link>
-          <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
-            {theme === 'dark' ? 'L' : 'D'}
-          </button>
         </nav>
       </div>
     </header>
