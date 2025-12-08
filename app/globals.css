@@ -541,6 +541,22 @@ footer {
     border-color: var(--text-muted);
 }
 
+/* Post Summary (AEO) */
+.post-summary {
+    background-color: var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+}
+
+.post-summary p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text);
+    margin: 0;
+    font-style: italic;
+}
+
 /* MDX Content */
 .post-content {
     font-size: 15px;

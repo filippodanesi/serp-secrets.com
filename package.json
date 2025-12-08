@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "tinacms dev -c \"next dev\"",
-    "build": "tinacms build && next build",
-    "start": "tinacms build && next start"
+    "build": "node scripts/generate-summaries.js && tinacms build && next build",
+    "start": "tinacms build && next start",
+    "generate-summaries": "node scripts/generate-summaries.js"
   },
   "dependencies": {
     "@tinacms/cli": "^2.0.2",

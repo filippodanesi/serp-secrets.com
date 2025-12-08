@@ -69,6 +69,15 @@ var config_default = defineConfig({
             label: "Draft"
           },
           {
+            type: "string",
+            name: "summary",
+            label: "AI Summary (auto-generated)",
+            description: "Auto-generated summary for AEO. Leave empty to generate on build.",
+            ui: {
+              component: "textarea"
+            }
+          },
+          {
             type: "rich-text",
             name: "body",
             label: "Body",

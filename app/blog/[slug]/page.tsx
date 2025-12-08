@@ -97,6 +97,11 @@ export default async function BlogPostPage({ params }: PageProps) {
         ]}
       />
       <PostHeader frontmatter={frontmatter} readingTime={readingTime} />
+      {frontmatter.summary && (
+        <aside className="post-summary">
+          <p>{frontmatter.summary}</p>
+        </aside>
+      )}
       <div className="post-content">
         <MDXRemote source={content} components={MDXComponents} />
       </div>

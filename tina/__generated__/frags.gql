@@ -6,6 +6,7 @@ fragment PostParts on Post {
   tags
   image
   draft
+  summary
   body
 }
 

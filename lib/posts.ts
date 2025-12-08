@@ -12,6 +12,7 @@ export interface PostFrontmatter {
   tags?: string[];
   image?: string;
   draft?: boolean;
+  summary?: string;
 }
 
 export interface Post {
