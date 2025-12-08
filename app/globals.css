@@ -481,6 +481,27 @@ footer {
     color: var(--border);
 }
 
+.post-card:last-child {
+    border-bottom: none;
+}
+
+/* View Archive Link */
+.view-archive {
+    padding: 24px 0;
+    text-align: center;
+}
+
+.view-archive-link {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.view-archive-link:hover {
+    color: var(--text);
+}
+
 /* Blog Post */
 .post-header {
     margin-bottom: 32px;
