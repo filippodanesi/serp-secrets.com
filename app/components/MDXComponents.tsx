@@ -20,23 +20,27 @@ const components: MDXComponents = {
   },
   pre: ({ children }) => <pre className="mdx-pre">{children}</pre>,
   a: ({ href, children }) => {
-    const isExternal = href?.startsWith('http');
-    if (isExternal) {
+    const isInternal = href?.startsWith('/') ||
+      href?.includes('serp-secrets.com');
+
+    if (isInternal) {
+      // Convert absolute URLs to relative paths
+      const internalHref = href?.replace(/^https?:\/\/(www\.)?serp-secrets\.com/, '') || '/';
       return (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mdx-link"
-        >
+        <Link href={internalHref} className="mdx-link">
           {children}
-        </a>
+        </Link>
       );
     }
     return (
-      <Link href={href || '#'} className="mdx-link">
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mdx-link"
+      >
         {children}
-      </Link>
+      </a>
     );
   },
   hr: () => <hr className="mdx-hr" />,
