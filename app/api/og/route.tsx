@@ -8,6 +8,7 @@ export async function GET(request: NextRequest) {
   const title = searchParams.get('title')
 
   if (title) {
+    // Blog post OG image
     return new ImageResponse(
       (
         <div
@@ -16,8 +17,8 @@ export async function GET(request: NextRequest) {
             width: '100%',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'space-between',
-            backgroundColor: '#fafafa',
+            justifyContent: 'center',
+            backgroundColor: '#ffffff',
             fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
             padding: '80px',
           }}
@@ -26,64 +27,52 @@ export async function GET(request: NextRequest) {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '16px',
-            }}
-          >
-            <p
-              style={{
-                fontSize: 24,
-                color: '#a3a3a3',
-                margin: 0,
-                letterSpacing: '0.05em',
-              }}
-            >
-              serp-secrets.com/blog
-            </p>
-          </div>
-
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
               gap: '24px',
+              borderLeft: '3px solid #e5e5e5',
+              paddingLeft: '32px',
             }}
           >
-            <h1
-              style={{
-                fontSize: title.length > 50 ? 48 : 56,
-                fontWeight: 600,
-                color: '#171717',
-                margin: 0,
-                lineHeight: 1.2,
-                maxWidth: '900px',
-              }}
-            >
-              {title}
-            </h1>
             <p
               style={{
-                fontSize: 28,
+                fontSize: 16,
+                fontWeight: 500,
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
                 color: '#737373',
                 margin: 0,
               }}
             >
-              SERP Secrets
+              Blog
             </p>
+            <h1
+              style={{
+                fontSize: title.length > 60 ? 42 : title.length > 40 ? 48 : 56,
+                fontWeight: 500,
+                color: '#171717',
+                margin: 0,
+                lineHeight: 1.3,
+                maxWidth: '950px',
+              }}
+            >
+              {title}
+            </h1>
           </div>
 
           <div
             style={{
+              position: 'absolute',
+              bottom: '80px',
+              left: '80px',
               display: 'flex',
-              gap: '32px',
-              fontSize: 20,
-              color: '#a3a3a3',
+              alignItems: 'center',
+              gap: '12px',
+              fontSize: 18,
+              color: '#737373',
             }}
           >
-            <span>SEO</span>
-            <span>·</span>
-            <span>AI</span>
-            <span>·</span>
-            <span>Content Marketing</span>
+            <span style={{ color: '#171717', fontWeight: 500 }}>SERP Secrets</span>
+            <span style={{ color: '#e5e5e5' }}>·</span>
+            <span>serp-secrets.com</span>
           </div>
         </div>
       ),
@@ -94,6 +83,7 @@ export async function GET(request: NextRequest) {
     )
   }
 
+  // Default site OG image
   return new ImageResponse(
     (
       <div
@@ -102,8 +92,8 @@ export async function GET(request: NextRequest) {
           width: '100%',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between',
-          backgroundColor: '#fafafa',
+          justifyContent: 'center',
+          backgroundColor: '#ffffff',
           fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
           padding: '80px',
         }}
@@ -113,62 +103,46 @@ export async function GET(request: NextRequest) {
             display: 'flex',
             flexDirection: 'column',
             gap: '16px',
-          }}
-        >
-          <p
-            style={{
-              fontSize: 24,
-              color: '#a3a3a3',
-              margin: 0,
-              letterSpacing: '0.05em',
-            }}
-          >
-            serp-secrets.com
-          </p>
-        </div>
-
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '24px',
+            borderLeft: '3px solid #e5e5e5',
+            paddingLeft: '32px',
           }}
         >
           <h1
             style={{
-              fontSize: 72,
+              fontSize: 64,
               fontWeight: 500,
               color: '#171717',
               margin: 0,
-              lineHeight: 1.1,
+              lineHeight: 1.2,
             }}
           >
             SERP Secrets
           </h1>
           <p
             style={{
-              fontSize: 32,
+              fontSize: 24,
               color: '#737373',
               margin: 0,
+              lineHeight: 1.6,
             }}
           >
-            SEO & AI Search Insights
+            Thoughts on SEO, AI, and the future of search.
           </p>
         </div>
 
         <div
           style={{
+            position: 'absolute',
+            bottom: '80px',
+            left: '80px',
             display: 'flex',
-            gap: '32px',
-            fontSize: 20,
-            color: '#a3a3a3',
+            alignItems: 'center',
+            gap: '16px',
+            fontSize: 16,
+            color: '#737373',
           }}
         >
-          <span>AEO</span>
-          <span>·</span>
-          <span>GEO</span>
-          <span>·</span>
-          <span>LLM Optimization</span>
+          <span>serp-secrets.com</span>
         </div>
       </div>
     ),
