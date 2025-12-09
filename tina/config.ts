@@ -89,6 +89,9 @@ export default defineConfig({
             name: 'body',
             label: 'Body',
             isBody: true,
+            parser: {
+              type: 'mdx',
+            },
           },
         ],
         ui: {
@@ -121,6 +124,9 @@ export default defineConfig({
             name: 'body',
             label: 'Body',
             isBody: true,
+            parser: {
+              type: 'mdx',
+            },
           },
         ],
       },
