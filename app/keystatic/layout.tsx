@@ -1,18 +1,5 @@
-import type { Metadata } from 'next'
+import KeystaticApp from "./keystatic";
 
-export const metadata: Metadata = {
-  title: 'Keystatic Admin',
-  robots: 'noindex, nofollow',
-}
-
-export default function KeystaticLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  )
+export default function KeystaticLayout() {
+  return <KeystaticApp />;
 }
