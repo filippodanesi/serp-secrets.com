@@ -75,7 +75,7 @@ header {
 }
 
 .nav-desktop a {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--text-muted);
     text-decoration: none;
     transition: color 0.2s ease;
@@ -441,12 +441,12 @@ footer {
 }
 
 .footer-text {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--text-muted);
 }
 
 .footer-link {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--text-muted);
     text-decoration: none;
     transition: color 0.2s ease;
@@ -460,7 +460,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .footer-separator {
