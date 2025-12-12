@@ -10,6 +10,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: 'https://www.serp-secrets.com/sitemap.xml',
-    host: 'https://www.serp-secrets.com',
   }
 }
