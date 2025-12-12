@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
-import { ThemeProvider } from './components/ThemeProvider'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import { PersonJsonLd, WebSiteJsonLd } from './components/JsonLd'
 
 const siteUrl = 'https://www.serp-secrets.com'
 
@@ -60,11 +56,6 @@ export const metadata: Metadata = {
     images: ['/api/og?title=SERP%20Secrets'],
     creator: '@filippodanesi',
   },
-  verification: {
-    // google: 'your-google-verification-code',
-    // yandex: 'your-yandex-verification-code',
-    // bing: 'your-bing-verification-code',
-  },
   category: 'technology',
 }
 
@@ -79,17 +70,9 @@ export default function RootLayout({
         <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
         <link rel="alternate" type="application/rss+xml" title="SERP Secrets" href="/feed.xml" />
-        <PersonJsonLd />
-        <WebSiteJsonLd />
       </head>
       <body>
-        <ThemeProvider>
-          <div className="container">
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </div>
-        </ThemeProvider>
+        {children}
         <Analytics />
       </body>
     </html>
