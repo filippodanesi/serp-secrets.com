@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import { getPostBySlug, getAllPosts } from '@/lib/posts';
+import { getPostBySlug, getAllPosts, extractHeadings } from '@/lib/posts';
 import PostHeader from '@/app/components/PostHeader';
 import MDXComponents from '@/app/components/MDXComponents';
+import TableOfContents from '@/app/components/TableOfContents';
 import { BlogPostingJsonLd, BreadcrumbJsonLd } from '@/app/components/JsonLd';
 
 const siteUrl = 'https://www.serp-secrets.com';
@@ -78,34 +79,38 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const { frontmatter, content, readingTime } = post;
   const postUrl = `${siteUrl}/blog/${slug}`;
+  const headings = extractHeadings(content);
 
   return (
-    <article className="blog-post">
-      <BlogPostingJsonLd
-        title={frontmatter.title}
-        description={frontmatter.description}
-        datePublished={frontmatter.date}
-        url={postUrl}
-        image={frontmatter.image}
-        tags={frontmatter.tags}
-      />
-      <BreadcrumbJsonLd
-        items={[
-          { name: 'Home', url: siteUrl },
-          { name: 'Blog', url: `${siteUrl}/blog` },
-          { name: frontmatter.title, url: postUrl },
-        ]}
-      />
-      <PostHeader frontmatter={frontmatter} readingTime={readingTime} />
-      {frontmatter.summary && (
-        <aside className="post-summary">
-          <div className="post-summary-label">Summary</div>
-          <p>{frontmatter.summary}</p>
-        </aside>
-      )}
-      <div className="post-content">
-        <MDXRemote source={content} components={MDXComponents} />
-      </div>
-    </article>
+    <>
+      {headings.length > 0 && <TableOfContents headings={headings} />}
+      <article className="blog-post">
+        <BlogPostingJsonLd
+          title={frontmatter.title}
+          description={frontmatter.description}
+          datePublished={frontmatter.date}
+          url={postUrl}
+          image={frontmatter.image}
+          tags={frontmatter.tags}
+        />
+        <BreadcrumbJsonLd
+          items={[
+            { name: 'Home', url: siteUrl },
+            { name: 'Blog', url: `${siteUrl}/blog` },
+            { name: frontmatter.title, url: postUrl },
+          ]}
+        />
+        <PostHeader frontmatter={frontmatter} readingTime={readingTime} />
+        {frontmatter.summary && (
+          <aside className="post-summary">
+            <div className="post-summary-label">Summary</div>
+            <p>{frontmatter.summary}</p>
+          </aside>
+        )}
+        <div className="post-content">
+          <MDXRemote source={content} components={MDXComponents} />
+        </div>
+      </article>
+    </>
   );
 }

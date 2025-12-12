@@ -1,10 +1,38 @@
 import type { MDXComponents } from 'mdx/types';
 import Link from 'next/link';
+import { ReactNode } from 'react';
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .trim();
+}
+
+function getTextContent(children: ReactNode): string {
+  if (typeof children === 'string') return children;
+  if (typeof children === 'number') return String(children);
+  if (Array.isArray(children)) return children.map(getTextContent).join('');
+  if (children && typeof children === 'object' && 'props' in children) {
+    return getTextContent((children as { props: { children: ReactNode } }).props.children);
+  }
+  return '';
+}
 
 const components: MDXComponents = {
   h1: ({ children }) => <h1 className="mdx-h1">{children}</h1>,
-  h2: ({ children }) => <h2 className="mdx-h2">{children}</h2>,
-  h3: ({ children }) => <h3 className="mdx-h3">{children}</h3>,
+  h2: ({ children }) => {
+    const text = getTextContent(children);
+    const id = slugify(text);
+    return <h2 id={id} className="mdx-h2">{children}</h2>;
+  },
+  h3: ({ children }) => {
+    const text = getTextContent(children);
+    const id = slugify(text);
+    return <h3 id={id} className="mdx-h3">{children}</h3>;
+  },
   h4: ({ children }) => <h4 className="mdx-h4">{children}</h4>,
   p: ({ children }) => <p className="mdx-p">{children}</p>,
   ul: ({ children }) => <ul className="mdx-ul">{children}</ul>,

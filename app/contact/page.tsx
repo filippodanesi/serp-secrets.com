@@ -65,6 +65,28 @@ export default function ContactPage() {
               @filippodanesi
             </a>
           </div>
+          <div className="contact-item">
+            <span className="contact-label">LinkedIn</span>
+            <a
+              href="https://www.linkedin.com/in/filippodanesi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-value"
+            >
+              filippodanesi
+            </a>
+          </div>
+          <div className="contact-item">
+            <span className="contact-label">GitHub</span>
+            <a
+              href="https://github.com/filippodanesi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-value"
+            >
+              filippodanesi
+            </a>
+          </div>
       </div>
     </>
   );

@@ -67,22 +67,233 @@ header {
     height: 20px;
 }
 
-nav {
+/* Desktop nav */
+.nav-desktop {
     display: flex;
     align-items: center;
     gap: 24px;
 }
 
-nav a {
+.nav-desktop a {
     font-size: 14px;
     color: var(--text-muted);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
-nav a:hover,
-nav a.active {
+.nav-desktop a:hover,
+.nav-desktop a.active {
     color: var(--text);
+}
+
+/* Icon buttons in navigation */
+.nav-icon {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav-icon:hover {
+    color: var(--text);
+}
+
+.nav-icon svg {
+    display: block;
+}
+
+/* Mobile menu toggle - hidden on desktop */
+.menu-toggle {
+    display: none;
+}
+
+/* Mobile fullscreen menu */
+.nav-mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.nav-mobile-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-mobile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 8px;
+}
+
+.nav-mobile-content a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 12px 0;
+    transition: color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav-mobile-content a:hover {
+    color: var(--text);
+}
+
+.nav-mobile-content a.active {
+    color: var(--text);
+}
+
+/* Nav search button */
+.nav-search {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.nav-search:hover {
+    color: var(--text);
+}
+
+/* Mobile search button */
+.nav-mobile-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    padding: 12px 0;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav-mobile-search:hover {
+    color: var(--text);
+}
+
+/* Search overlay */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.search-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 48px 24px 0;
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.search-close {
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.search-close:hover {
+    color: var(--text);
+}
+
+.search-content {
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+}
+
+.search-input {
+    width: 100%;
+    font-size: 32px;
+    font-weight: 300;
+    font-family: inherit;
+    color: var(--text);
+    background: none;
+    border: none;
+    padding: 48px 0 16px;
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: var(--border);
+}
+
+.search-results {
+    border-top: 1px solid var(--border);
+    min-height: 200px;
+}
+
+.search-status {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 24px 0;
+}
+
+.search-result {
+    display: block;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.search-result:hover {
+    opacity: 0.6;
+}
+
+.search-result-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 6px;
+}
+
+.search-result-description {
+    display: block;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .theme-toggle {
@@ -907,7 +1118,95 @@ footer {
     border-top: 1px solid var(--border);
 }
 
+/* Table of Contents */
+.toc {
+    display: none;
+    position: fixed;
+    left: calc(50% - 320px - 200px - 48px);
+    top: 120px;
+    width: 180px;
+    max-height: calc(100vh - 160px);
+    overflow-y: auto;
+}
+
+.toc-title {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.toc-title:hover {
+    color: var(--text);
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 2px solid var(--border);
+}
+
+.toc-item {
+    margin-bottom: 0;
+}
+
+.toc-link {
+    display: block;
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 6px 0 6px 12px;
+    margin-left: -2px;
+    border-left: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    line-height: 1.4;
+}
+
+.toc-item-h3 .toc-link {
+    padding-left: 24px;
+}
+
+.toc-link:hover {
+    color: var(--text);
+}
+
+.toc-link.active {
+    color: var(--text);
+    border-left-color: var(--text);
+}
+
+/* Show TOC only on large screens */
+@media (min-width: 1200px) {
+    .toc {
+        display: block;
+    }
+}
+
 /* Responsive */
+@media (max-width: 640px) {
+    .nav-desktop {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+        position: relative;
+        z-index: 999;
+    }
+
+    .nav-mobile-overlay {
+        display: block;
+    }
+}
+
 @media (max-width: 480px) {
     header {
         padding: 32px 0 24px;
@@ -915,10 +1214,6 @@ footer {
 
     .hero {
         padding: 32px 0;
-    }
-
-    nav {
-        gap: 16px;
     }
 
     .experience-header {

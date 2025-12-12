@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useTheme } from './ThemeProvider'
+import { useState, useEffect } from 'react'
+import SearchOverlay from './SearchOverlay'
 
 function Logo() {
   return (
@@ -28,12 +29,30 @@ function Logo() {
 
 export default function Header() {
   const pathname = usePathname()
-  const { theme, toggleTheme } = useTheme()
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
 
   const isActive = (path: string) => {
     if (path === '/') return pathname === '/' || pathname === ''
     return pathname === path || pathname === `${path}/` || pathname.startsWith(`${path}/`)
   }
+
+  // Close menu on route change
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
 
   return (
     <header>
@@ -41,13 +60,68 @@ export default function Header() {
         <Link href="/" className="logo" aria-label="SERP Secrets Home">
           <Logo />
         </Link>
-        <nav>
+
+        {/* Desktop nav */}
+        <nav className="nav-desktop">
           <Link href="/archive/" className={isActive('/archive') ? 'active' : ''}>Archive</Link>
           <Link href="/categories/" className={isActive('/categories') ? 'active' : ''}>Categories</Link>
           <Link href="/about/" className={isActive('/about') ? 'active' : ''}>Author</Link>
           <Link href="/contact/" className={isActive('/contact') ? 'active' : ''}>Contact</Link>
+          <button className="nav-icon" onClick={() => setSearchOpen(true)} aria-label="Search">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <circle cx="11" cy="11" r="7" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+        </nav>
+
+        {/* Mobile menu toggle */}
+        <button
+          className="menu-toggle nav-icon"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+        >
+          {menuOpen ? (
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          ) : (
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          )}
+        </button>
+      </div>
+
+      {/* Mobile fullscreen menu */}
+      <div className={`nav-mobile-overlay ${menuOpen ? 'open' : ''}`}>
+        <nav className="nav-mobile-content">
+          <Link href="/archive/" className={isActive('/archive') ? 'active' : ''}>Archive</Link>
+          <Link href="/categories/" className={isActive('/categories') ? 'active' : ''}>Categories</Link>
+          <Link href="/about/" className={isActive('/about') ? 'active' : ''}>Author</Link>
+          <Link href="/contact/" className={isActive('/contact') ? 'active' : ''}>Contact</Link>
+          <button
+            className="nav-mobile-search"
+            onClick={() => {
+              setMenuOpen(false)
+              setTimeout(() => setSearchOpen(true), 150)
+            }}
+            aria-label="Search"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <circle cx="11" cy="11" r="7" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
         </nav>
       </div>
+
+      {/* Search overlay */}
+      <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   )
 }
