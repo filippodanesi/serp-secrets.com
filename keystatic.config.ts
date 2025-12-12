@@ -2,10 +2,8 @@ import { config, fields, collection } from '@keystatic/core';
 
 export default config({
   storage: {
-    kind: 'cloud',
-  },
-  cloud: {
-    project: 'serpsecrets/serp-secrets-com',
+    kind: 'github',
+    repo: 'filippodanesi/serp-secrets.com',
   },
   collections: {
     posts: collection({
