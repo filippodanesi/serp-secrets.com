@@ -1127,6 +1127,12 @@ footer {
     width: 180px;
     max-height: calc(100vh - 160px);
     overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.toc::-webkit-scrollbar {
+    display: none;
 }
 
 .toc-title {
@@ -1168,10 +1174,6 @@ footer {
     border-left: 2px solid transparent;
     transition: color 0.2s ease, border-color 0.2s ease;
     line-height: 1.4;
-}
-
-.toc-item-h3 .toc-link {
-    padding-left: 24px;
 }
 
 .toc-link:hover {

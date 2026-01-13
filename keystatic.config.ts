@@ -47,6 +47,12 @@ export default config({
         }),
         content: fields.mdx({
           label: 'Content',
+          options: {
+            image: {
+              directory: 'public/images/content',
+              publicPath: '/images/content/',
+            },
+          },
         }),
       },
     }),

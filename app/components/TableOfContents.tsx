@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback, useMemo } from 'react'
 
 export interface TOCHeading {
   id: string
@@ -16,10 +16,13 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>('')
   const [isCollapsed, setIsCollapsed] = useState(false)
 
-  const updateActiveHeading = useCallback(() => {
-    if (headings.length === 0) return
+  // Only show H2 headings for a cleaner ToC
+  const h2Headings = useMemo(() => headings.filter(h => h.level === 2), [headings])
 
-    const headingElements = headings
+  const updateActiveHeading = useCallback(() => {
+    if (h2Headings.length === 0) return
+
+    const headingElements = h2Headings
       .map(({ id }) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null)
 
@@ -46,16 +49,16 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
     if (currentId) {
       setActiveId(currentId)
     }
-  }, [headings])
+  }, [h2Headings])
 
   useEffect(() => {
-    if (headings.length === 0) return
+    if (h2Headings.length === 0) return
 
     updateActiveHeading()
     window.addEventListener('scroll', updateActiveHeading, { passive: true })
 
     return () => window.removeEventListener('scroll', updateActiveHeading)
-  }, [headings, updateActiveHeading])
+  }, [h2Headings, updateActiveHeading])
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault()
@@ -76,7 +79,7 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
     }
   }
 
-  if (headings.length === 0) {
+  if (h2Headings.length === 0) {
     return null
   }
 
@@ -91,8 +94,8 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
       </button>
       {!isCollapsed && (
         <ul className="toc-list">
-          {headings.map(({ id, text, level }) => (
-            <li key={id} className={`toc-item toc-item-h${level}`}>
+          {h2Headings.map(({ id, text }) => (
+            <li key={id} className="toc-item">
               <a
                 href={`#${id}`}
                 onClick={(e) => handleClick(e, id)}
