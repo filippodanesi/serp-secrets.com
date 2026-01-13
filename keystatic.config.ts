@@ -1,4 +1,5 @@
-import { config, fields, collection, component } from '@keystatic/core';
+import { config, fields, collection } from '@keystatic/core';
+import { block } from '@keystatic/core/content-components';
 
 export default config({
   storage: {
@@ -54,9 +55,8 @@ export default config({
             },
           },
           components: {
-            Figure: component({
+            Figure: block({
               label: 'Figure',
-              preview: (props) => (props.caption ? `Figure: ${props.fields.caption.value}` : 'Figure'),
               schema: {
                 image: fields.image({
                   label: 'Image',
