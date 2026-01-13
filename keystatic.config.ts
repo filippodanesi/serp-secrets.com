@@ -1,4 +1,4 @@
-import { config, fields, collection } from '@keystatic/core';
+import { config, fields, collection, component } from '@keystatic/core';
 
 export default config({
   storage: {
@@ -52,6 +52,29 @@ export default config({
               directory: 'public/images/content',
               publicPath: '/images/content/',
             },
+          },
+          components: {
+            Figure: component({
+              label: 'Figure',
+              preview: (props) => (props.caption ? `Figure: ${props.fields.caption.value}` : 'Figure'),
+              schema: {
+                image: fields.image({
+                  label: 'Image',
+                  directory: 'public/images/content',
+                  publicPath: '/images/content/',
+                  validation: { isRequired: true },
+                }),
+                alt: fields.text({
+                  label: 'Alt Text',
+                  description: 'Descriptive text for accessibility (not displayed)',
+                  validation: { isRequired: true },
+                }),
+                caption: fields.text({
+                  label: 'Caption',
+                  description: 'Optional caption displayed below the image',
+                }),
+              },
+            }),
           },
         }),
       },

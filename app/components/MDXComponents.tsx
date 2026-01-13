@@ -77,12 +77,18 @@ const components: MDXComponents = {
       <table className="mdx-table">{children}</table>
     </div>
   ),
+  thead: ({ children }) => <thead className="mdx-thead">{children}</thead>,
+  tbody: ({ children }) => <tbody className="mdx-tbody">{children}</tbody>,
+  tr: ({ children }) => <tr className="mdx-tr">{children}</tr>,
   th: ({ children }) => <th className="mdx-th">{children}</th>,
   td: ({ children }) => <td className="mdx-td">{children}</td>,
   img: ({ src, alt }) => (
+    <img src={src} alt={alt || ''} className="mdx-img" />
+  ),
+  Figure: ({ image, alt, caption }: { image: string; alt: string; caption?: string }) => (
     <figure className="mdx-figure">
-      <img src={src} alt={alt || ''} className="mdx-img" />
-      {alt && <figcaption className="mdx-figcaption">{alt}</figcaption>}
+      <img src={image} alt={alt} className="mdx-figure-img" />
+      {caption && <figcaption className="mdx-figcaption">{caption}</figcaption>}
     </figure>
   ),
 };
