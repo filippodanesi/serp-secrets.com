@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 import { getPostBySlug, getAllPosts, extractHeadings } from '@/lib/posts';
 import PostHeader from '@/app/components/PostHeader';
 import MDXComponents from '@/app/components/MDXComponents';
@@ -108,7 +109,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           </aside>
         )}
         <div className="post-content">
-          <MDXRemote source={content} components={MDXComponents} />
+          <MDXRemote source={content} components={MDXComponents} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
         </div>
       </article>
     </>
