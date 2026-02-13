@@ -1,6 +1,6 @@
 # SERP Secrets
 
-A minimal blog about SEO, AI search, and digital optimization.
+Personal blog about SEO, AI search, and digital optimization.
 
 ## Stack
 
