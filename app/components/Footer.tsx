@@ -9,7 +9,7 @@ export default function Footer() {
     <footer>
       <div className="footer-content">
         <span className="footer-text">
-          © 2025{' '}
+          © {new Date().getFullYear()}{' '}
           <a
             href="https://www.filippodanesi.com"
             target="_blank"
