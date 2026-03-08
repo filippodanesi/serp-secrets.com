@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
+import { siteUrl } from '@/lib/config'
 import './globals.css'
-
-const siteUrl = 'https://www.serp-secrets.com'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

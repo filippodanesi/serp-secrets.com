@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { siteUrl } from '@/lib/config'
 
 export const metadata: Metadata = {
   title: 'Cookie Policy',
   description: 'Cookie policy for serp-secrets.com',
   alternates: {
-    canonical: 'https://www.serp-secrets.com/cookie/',
+    canonical: `${siteUrl}/cookie/`,
   },
 }
 

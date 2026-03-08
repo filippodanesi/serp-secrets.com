@@ -1,13 +1,9 @@
 import Link from 'next/link';
-import type { PostFrontmatter } from '@/lib/posts';
+import { type PostFrontmatter, slugify } from '@/lib/posts';
 
 interface PostHeaderProps {
   frontmatter: PostFrontmatter;
   readingTime: string;
-}
-
-function tagToSlug(tag: string): string {
-  return tag.toLowerCase().replace(/\s+/g, '-');
 }
 
 export default function PostHeader({ frontmatter, readingTime }: PostHeaderProps) {
@@ -33,7 +29,7 @@ export default function PostHeader({ frontmatter, readingTime }: PostHeaderProps
           {frontmatter.tags.map((tag) => (
             <Link
               key={tag}
-              href={`/categories/${tagToSlug(tag)}/`}
+              href={`/categories/${slugify(tag)}/`}
               className="post-tag"
             >
               {tag}

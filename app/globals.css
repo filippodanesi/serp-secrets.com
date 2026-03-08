@@ -4,6 +4,24 @@
     box-sizing: border-box;
 }
 
+/* Skip to content link */
+.skip-to-content {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 9999;
+    padding: 8px 16px;
+    background-color: var(--text);
+    color: var(--bg);
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 0 0 4px 0;
+}
+
+.skip-to-content:focus {
+    left: 0;
+}
+
 :root {
     --bg: #ffffff;
     --text: #171717;
@@ -883,6 +901,27 @@ footer {
     font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
     font-size: 13px;
     line-height: 1.6;
+}
+
+/* Syntax highlighting (rehype-pretty-code) */
+[data-rehype-pretty-code-figure] .mdx-pre {
+    background-color: transparent;
+    padding: 0;
+}
+
+[data-rehype-pretty-code-figure] .mdx-pre code {
+    display: grid;
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+[data-rehype-pretty-code-figure] code [data-line] {
+    padding: 0 16px;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .mdx-link {

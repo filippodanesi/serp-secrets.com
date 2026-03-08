@@ -1,7 +1,35 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/posts';
 import PostCard from '@/app/components/PostCard';
 import { BlogJsonLd } from '@/app/components/JsonLd';
+import { siteUrl } from '@/lib/config';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: `${siteUrl}/`,
+  },
+  openGraph: {
+    title: 'SERP Secrets ~ SEO & AI Convergence',
+    description: 'Thoughts on SEO, AI, content marketing, and the future of search.',
+    url: `${siteUrl}/`,
+    type: 'website',
+    images: [
+      {
+        url: '/api/og?title=SERP%20Secrets',
+        width: 1200,
+        height: 630,
+        alt: 'SERP Secrets',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SERP Secrets ~ SEO & AI Convergence',
+    description: 'Thoughts on SEO, AI, content marketing, and the future of search.',
+    images: ['/api/og?title=SERP%20Secrets'],
+  },
+};
 
 export default function Home() {
   const allPosts = getAllPosts();

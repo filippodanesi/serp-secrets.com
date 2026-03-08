@@ -4,8 +4,7 @@ import { getAllCategories, getCategoryBySlug, getPostsByCategory } from '@/lib/p
 import PostCard from '@/app/components/PostCard';
 import { BreadcrumbJsonLd, CollectionPageJsonLd } from '@/app/components/JsonLd';
 import Link from 'next/link';
-
-const siteUrl = 'https://www.serp-secrets.com';
+import { siteUrl } from '@/lib/config';
 
 interface PageProps {
   params: Promise<{ slug: string }>;

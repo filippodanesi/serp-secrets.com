@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import { BreadcrumbJsonLd } from '@/app/components/JsonLd';
-
-const siteUrl = 'https://www.serp-secrets.com';
+import { siteUrl } from '@/lib/config';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -57,7 +56,7 @@ export default function ContactPage() {
           <div className="contact-item">
             <span className="contact-label">X (Twitter)</span>
             <a
-              href="https://x.com/serikiprotocol"
+              href="https://x.com/filippodanesi"
               target="_blank"
               rel="noopener noreferrer"
               className="contact-value"

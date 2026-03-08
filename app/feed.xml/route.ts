@@ -1,6 +1,5 @@
 import { getAllPosts } from '@/lib/posts';
-
-const siteUrl = 'https://www.serp-secrets.com';
+import { siteUrl } from '@/lib/config';
 
 export async function GET() {
   const posts = getAllPosts();

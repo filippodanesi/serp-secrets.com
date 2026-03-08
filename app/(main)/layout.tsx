@@ -12,9 +12,10 @@ export default function MainLayout({
     <ThemeProvider>
       <PersonJsonLd />
       <WebSiteJsonLd />
+      <a href="#main-content" className="skip-to-content">Skip to content</a>
       <div className="container">
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </div>
     </ThemeProvider>

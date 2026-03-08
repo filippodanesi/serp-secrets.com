@@ -1,15 +1,8 @@
 import type { MDXComponents } from 'mdx/types';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ReactNode } from 'react';
-
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .trim();
-}
+import { slugify } from '@/lib/posts';
 
 function getTextContent(children: ReactNode): string {
   if (typeof children === 'string') return children;
@@ -39,14 +32,16 @@ const components: MDXComponents = {
   ol: ({ children }) => <ol className="mdx-ol">{children}</ol>,
   li: ({ children }) => <li className="mdx-li">{children}</li>,
   blockquote: ({ children }) => <blockquote className="mdx-blockquote">{children}</blockquote>,
-  code: ({ children, className }) => {
+  code: ({ children, className, style, ...props }) => {
     const isInline = !className;
     if (isInline) {
       return <code className="mdx-code-inline">{children}</code>;
     }
-    return <code className={`mdx-code-block ${className || ''}`}>{children}</code>;
+    return <code className={`mdx-code-block ${className || ''}`} style={style} {...props}>{children}</code>;
   },
-  pre: ({ children }) => <pre className="mdx-pre">{children}</pre>,
+  pre: ({ children, style, ...props }) => (
+    <pre className="mdx-pre" style={style} {...props}>{children}</pre>
+  ),
   a: ({ href, children }) => {
     const isInternal = href?.startsWith('/') ||
       href?.includes('serp-secrets.com');
@@ -82,12 +77,38 @@ const components: MDXComponents = {
   tr: ({ children }) => <tr className="mdx-tr">{children}</tr>,
   th: ({ children }) => <th className="mdx-th">{children}</th>,
   td: ({ children }) => <td className="mdx-td">{children}</td>,
-  img: ({ src, alt }) => (
-    <img src={src} alt={alt || ''} className="mdx-img" />
-  ),
+  img: ({ src, alt }) => {
+    if (!src) return null;
+    if (src.startsWith('/')) {
+      return (
+        <Image
+          src={src}
+          alt={alt || ''}
+          width={800}
+          height={450}
+          className="mdx-img"
+          sizes="(max-width: 768px) 100vw, 700px"
+          style={{ width: '100%', height: 'auto' }}
+        />
+      );
+    }
+    return <img src={src} alt={alt || ''} className="mdx-img" loading="lazy" />;
+  },
   Figure: ({ image, alt, caption }: { image: string; alt: string; caption?: string }) => (
     <figure className="mdx-figure">
-      <img src={image} alt={alt} className="mdx-figure-img" />
+      {image.startsWith('/') ? (
+        <Image
+          src={image}
+          alt={alt}
+          width={800}
+          height={450}
+          className="mdx-figure-img"
+          sizes="(max-width: 768px) 100vw, 700px"
+          style={{ width: '100%', height: 'auto' }}
+        />
+      ) : (
+        <img src={image} alt={alt} className="mdx-figure-img" loading="lazy" />
+      )}
       {caption && <figcaption className="mdx-figcaption">{caption}</figcaption>}
     </figure>
   ),

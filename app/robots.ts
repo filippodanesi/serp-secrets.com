@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { siteUrl } from '@/lib/config'
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -9,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/_next/', '/keystatic/'],
       },
     ],
-    sitemap: 'https://www.serp-secrets.com/sitemap.xml',
+    sitemap: `${siteUrl}/sitemap.xml`,
   }
 }

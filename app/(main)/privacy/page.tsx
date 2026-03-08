@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
+import { siteUrl } from '@/lib/config'
 
 export const metadata: Metadata = {
   title: 'Privacy',
   description: 'Privacy policy for serp-secrets.com',
   alternates: {
-    canonical: 'https://www.serp-secrets.com/privacy/',
+    canonical: `${siteUrl}/privacy/`,
   },
 }
 

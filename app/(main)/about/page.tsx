@@ -4,8 +4,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import MDXComponents from '@/app/components/MDXComponents'
-
-const siteUrl = 'https://www.serp-secrets.com'
+import { siteUrl } from '@/lib/config'
 
 function getAboutContent() {
   const filePath = path.join(process.cwd(), 'content', 'pages', 'about.mdx')

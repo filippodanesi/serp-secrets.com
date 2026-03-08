@@ -1,8 +1,9 @@
 import type { MetadataRoute } from 'next'
 import { getAllPosts, getAllCategories } from '@/lib/posts'
+import { siteUrl } from '@/lib/config'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.serp-secrets.com'
+  const baseUrl = siteUrl
 
   const posts = getAllPosts()
   const blogUrls = posts.map((post) => ({

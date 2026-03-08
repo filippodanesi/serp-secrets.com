@@ -1,14 +1,25 @@
 import type { Metadata } from 'next';
+import { execSync } from 'child_process';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
+import rehypePrettyCode from 'rehype-pretty-code';
 import { getPostBySlug, getAllPosts, extractHeadings } from '@/lib/posts';
 import PostHeader from '@/app/components/PostHeader';
 import MDXComponents from '@/app/components/MDXComponents';
 import TableOfContents from '@/app/components/TableOfContents';
 import { BlogPostingJsonLd, BreadcrumbJsonLd } from '@/app/components/JsonLd';
+import { siteUrl } from '@/lib/config';
 
-const siteUrl = 'https://www.serp-secrets.com';
+function getLastModified(slug: string): string | null {
+  try {
+    const filePath = `content/posts/${slug}.mdx`;
+    const result = execSync(`git log -1 --format=%cI -- "${filePath}"`, { encoding: 'utf8' }).trim();
+    return result || null;
+  } catch {
+    return null;
+  }
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -81,6 +92,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const { frontmatter, content, readingTime } = post;
   const postUrl = `${siteUrl}/blog/${slug}`;
   const headings = extractHeadings(content);
+  const lastModified = getLastModified(slug);
 
   return (
     <>
@@ -90,6 +102,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           title={frontmatter.title}
           description={frontmatter.description}
           datePublished={frontmatter.date}
+          dateModified={lastModified ?? undefined}
           url={postUrl}
           image={frontmatter.image}
           tags={frontmatter.tags}
@@ -109,7 +122,21 @@ export default async function BlogPostPage({ params }: PageProps) {
           </aside>
         )}
         <div className="post-content">
-          <MDXRemote source={content} components={MDXComponents} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
+          <MDXRemote
+            source={content}
+            components={MDXComponents}
+            options={{
+              mdxOptions: {
+                remarkPlugins: [remarkGfm],
+                rehypePlugins: [
+                  [rehypePrettyCode, {
+                    theme: 'github-dark-dimmed',
+                    keepBackground: true,
+                  }],
+                ],
+              },
+            }}
+          />
         </div>
       </article>
     </>

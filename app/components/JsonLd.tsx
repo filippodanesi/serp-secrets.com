@@ -1,4 +1,4 @@
-const siteUrl = 'https://www.serp-secrets.com';
+import { siteUrl } from '@/lib/config';
 
 export function PersonJsonLd() {
   const jsonLd = {
@@ -8,7 +8,7 @@ export function PersonJsonLd() {
     url: siteUrl,
     image: `${siteUrl}/og-image.png`,
     sameAs: [
-      'https://x.com/serikiprotocol',
+      'https://x.com/filippodanesi',
     ],
     jobTitle: 'SEO & AI Search Strategist (AEO/GEO)',
     worksFor: {
@@ -91,6 +91,7 @@ interface BlogPostingJsonLdProps {
   title: string;
   description: string;
   datePublished: string;
+  dateModified?: string;
   url: string;
   image?: string;
   tags?: string[];
@@ -100,6 +101,7 @@ export function BlogPostingJsonLd({
   title,
   description,
   datePublished,
+  dateModified,
   url,
   image,
   tags,
@@ -110,7 +112,7 @@ export function BlogPostingJsonLd({
     headline: title,
     description: description,
     datePublished: datePublished,
-    dateModified: datePublished,
+    dateModified: dateModified || datePublished,
     url: url,
     image: image || `${siteUrl}/api/og?title=${encodeURIComponent(title)}`,
     author: {

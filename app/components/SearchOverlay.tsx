@@ -75,11 +75,11 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
     }
   }, [isOpen])
 
-  // Search logic
-  const handleSearch = useCallback(
-    (searchQuery: string) => {
-      setQuery(searchQuery)
+  // Debounced search logic
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
+  const filterPosts = useCallback(
+    (searchQuery: string) => {
       if (searchQuery.trim() === '') {
         setResults([])
         return
@@ -98,6 +98,15 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
       setResults(filtered)
     },
     [posts]
+  )
+
+  const handleSearch = useCallback(
+    (searchQuery: string) => {
+      setQuery(searchQuery)
+      if (debounceRef.current) clearTimeout(debounceRef.current)
+      debounceRef.current = setTimeout(() => filterPosts(searchQuery), 200)
+    },
+    [filterPosts]
   )
 
   if (!isOpen) return null

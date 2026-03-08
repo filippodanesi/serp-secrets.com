@@ -2,8 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/posts';
 import { BreadcrumbJsonLd } from '@/app/components/JsonLd';
-
-const siteUrl = 'https://www.serp-secrets.com';
+import { siteUrl } from '@/lib/config';
 
 export const metadata: Metadata = {
   title: 'Archive',
