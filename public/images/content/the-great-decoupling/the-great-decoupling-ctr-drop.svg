@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="640" height="400" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="48" y="36" font-size="11" font-weight="500" letter-spacing="0.05em" fill="#737373">CTR DROP BY STUDY</text>
+  <text x="48" y="58" font-size="15" font-weight="500" fill="#171717">Organic CTR decline when AI Overviews are present</text>
+
+  <!-- Chart area -->
+  <g transform="translate(48, 84)">
+    <!-- Grid lines (vertical) -->
+    <line x1="180" y1="0" x2="180" y2="280" stroke="#e5e5e5" stroke-width="0.5"/>
+    <line x1="260" y1="0" x2="260" y2="280" stroke="#e5e5e5" stroke-width="0.5"/>
+    <line x1="340" y1="0" x2="340" y2="280" stroke="#e5e5e5" stroke-width="0.5"/>
+    <line x1="420" y1="0" x2="420" y2="280" stroke="#e5e5e5" stroke-width="0.5"/>
+    <line x1="500" y1="0" x2="500" y2="280" stroke="#e5e5e5" stroke-width="0.5"/>
+    <line x1="580" y1="0" x2="580" y2="280" stroke="#e5e5e5" stroke-width="0.5"/>
+
+    <!-- X-axis labels (percentages) -->
+    <text x="180" y="296" font-size="10" fill="#a3a3a3" text-anchor="middle">0%</text>
+    <text x="260" y="296" font-size="10" fill="#a3a3a3" text-anchor="middle">-20%</text>
+    <text x="340" y="296" font-size="10" fill="#a3a3a3" text-anchor="middle">-40%</text>
+    <text x="420" y="296" font-size="10" fill="#a3a3a3" text-anchor="middle">-60%</text>
+    <text x="500" y="296" font-size="10" fill="#a3a3a3" text-anchor="middle">-80%</text>
+    <text x="580" y="296" font-size="10" fill="#a3a3a3" text-anchor="middle">-100%</text>
+
+    <!-- Bars and labels -->
+    <!-- Daily Mail: -89% -->
+    <text x="174" y="18" font-size="11" fill="#171717" text-anchor="end">Daily Mail</text>
+    <rect x="180" y="6" width="356" height="20" rx="2" fill="#171717"/>
+    <text x="542" y="20" font-size="11" font-weight="600" fill="#ffffff">-89%</text>
+
+    <!-- Authoritas: -79% -->
+    <text x="174" y="58" font-size="11" fill="#171717" text-anchor="end">Authoritas</text>
+    <rect x="180" y="46" width="316" height="20" rx="2" fill="#171717" fill-opacity="0.85"/>
+    <text x="502" y="60" font-size="11" font-weight="600" fill="#ffffff">-79%</text>
+
+    <!-- Seer Interactive: -61% -->
+    <text x="174" y="98" font-size="11" fill="#171717" text-anchor="end">Seer Interactive</text>
+    <rect x="180" y="86" width="244" height="20" rx="2" fill="#171717" fill-opacity="0.7"/>
+    <text x="430" y="100" font-size="11" font-weight="600" fill="#ffffff">-61%</text>
+
+    <!-- Ahrefs: -58% -->
+    <text x="174" y="138" font-size="11" fill="#171717" text-anchor="end">Ahrefs</text>
+    <rect x="180" y="126" width="232" height="20" rx="2" fill="#171717" fill-opacity="0.6"/>
+    <text x="418" y="140" font-size="11" font-weight="600" fill="#ffffff">-58%</text>
+
+    <!-- Pew Research: -47% -->
+    <text x="174" y="178" font-size="11" fill="#171717" text-anchor="end">Pew Research</text>
+    <rect x="180" y="166" width="188" height="20" rx="2" fill="#171717" fill-opacity="0.45"/>
+    <text x="374" y="180" font-size="11" font-weight="600" fill="#ffffff">-47%</text>
+
+    <!-- BrightEdge: -30% -->
+    <text x="174" y="218" font-size="11" fill="#171717" text-anchor="end">BrightEdge</text>
+    <rect x="180" y="206" width="120" height="20" rx="2" fill="#171717" fill-opacity="0.3"/>
+    <text x="306" y="220" font-size="11" font-weight="600" fill="#171717">-30%</text>
+
+    <!-- Amsive: -15% -->
+    <text x="174" y="258" font-size="11" fill="#171717" text-anchor="end">Amsive</text>
+    <rect x="180" y="246" width="60" height="20" rx="2" fill="#171717" fill-opacity="0.18"/>
+    <text x="246" y="260" font-size="11" font-weight="600" fill="#171717">-15%</text>
+  </g>
+
+  <!-- Source -->
+  <text x="592" y="392" font-size="9" fill="#a3a3a3" text-anchor="end">Source: Compiled from multiple studies, 2025–2026</text>
+</svg>

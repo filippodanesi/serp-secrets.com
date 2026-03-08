@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 370" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="640" height="370" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="48" y="36" font-size="11" font-weight="500" letter-spacing="0.05em" fill="#737373">CITATION DISTRIBUTION SHIFT</text>
+  <text x="48" y="58" font-size="15" font-weight="500" fill="#171717">Where AI Overview citations come from</text>
+
+  <!-- Stacked bars -->
+  <g transform="translate(48, 88)">
+
+    <!-- July 2025 -->
+    <text x="0" y="-8" font-size="11" font-weight="500" fill="#737373">July 2025</text>
+    <rect x="0" y="0" width="544" height="48" rx="3" fill="#e5e5e5"/>
+    <rect x="0" y="0" width="414" height="48" rx="3" fill="#171717"/>
+    <!-- 76% label -->
+    <text x="207" y="29" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">Top 10 organic — 76%</text>
+    <!-- 24% label -->
+    <text x="479" y="29" font-size="12" font-weight="500" fill="#737373" text-anchor="middle">Other 24%</text>
+
+    <!-- Arrow -->
+    <g transform="translate(252, 62)">
+      <line x1="0" y1="0" x2="0" y2="24" stroke="#e5e5e5" stroke-width="1.5"/>
+      <polygon points="-4,24 0,32 4,24" fill="#e5e5e5"/>
+    </g>
+
+    <!-- February 2026 -->
+    <text x="0" y="112" font-size="11" font-weight="500" fill="#737373">February 2026</text>
+    <rect x="0" y="120" width="544" height="48" rx="3" fill="#e5e5e5"/>
+    <rect x="0" y="120" width="207" height="48" rx="3" fill="#171717"/>
+    <rect x="207" y="120" width="169" height="48" fill="#171717" fill-opacity="0.45"/>
+    <rect x="376" y="120" width="168" height="48" rx="0 3 3 0" fill="#171717" fill-opacity="0.2"/>
+    <!-- Divider lines -->
+    <line x1="207" y1="120" x2="207" y2="168" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="376" y1="120" x2="376" y2="168" stroke="#ffffff" stroke-width="1.5"/>
+
+    <!-- Labels -->
+    <text x="103" y="149" font-size="12" font-weight="600" fill="#ffffff" text-anchor="middle">Top 10</text>
+    <text x="291" y="149" font-size="12" font-weight="500" fill="#ffffff" text-anchor="middle">Pos 11–100</text>
+    <text x="460" y="149" font-size="12" font-weight="500" fill="#171717" text-anchor="middle">Beyond 100</text>
+
+    <!-- Percentage labels below -->
+    <text x="103" y="186" font-size="13" font-weight="600" fill="#171717" text-anchor="middle">38%</text>
+    <text x="291" y="186" font-size="13" font-weight="500" fill="#737373" text-anchor="middle">31%</text>
+    <text x="460" y="186" font-size="13" font-weight="500" fill="#a3a3a3" text-anchor="middle">31%</text>
+  </g>
+
+  <!-- Key insight -->
+  <g transform="translate(48, 302)">
+    <line x1="0" y1="0" x2="544" y2="0" stroke="#e5e5e5" stroke-width="1"/>
+    <text x="0" y="22" font-size="11" fill="#737373">Organic rank correlates less with AI citations than it used to.</text>
+    <text x="0" y="38" font-size="11" fill="#737373">A page at position 40 with strong E-E-A-T is increasingly competitive with a page at #3.</text>
+  </g>
+
+  <!-- Source -->
+  <text x="592" y="360" font-size="9" fill="#a3a3a3" text-anchor="end">Source: Ahrefs, July 2025 &amp; February 2026</text>
+</svg>
