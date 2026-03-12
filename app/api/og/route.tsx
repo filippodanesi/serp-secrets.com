@@ -4,11 +4,11 @@ import type { NextRequest } from 'next/server'
 export const runtime = 'edge'
 
 async function loadInter(weight: 400 | 600) {
-  const api = `https://fonts.googleapis.com/css2?family=Inter:wght@${weight}&display=swap`
-  const css = await fetch(api).then(r => r.text())
-  const match = css.match(/src: url\((.+?)\) format\('woff2'\)/)
-  if (!match) throw new Error('Could not parse Inter font URL')
-  return fetch(match[1]).then(r => r.arrayBuffer())
+  const file = weight === 400
+    ? 'inter-latin-400-normal.woff2'
+    : 'inter-latin-600-normal.woff2'
+  return fetch(`https://cdn.jsdelivr.net/npm/@fontsource/inter/files/${file}`)
+    .then(r => r.arrayBuffer())
 }
 
 export async function GET(request: NextRequest) {
@@ -110,7 +110,6 @@ export async function GET(request: NextRequest) {
     )
   }
 
-  // Default site OG image
   return new ImageResponse(
     (
       <div
