@@ -101,7 +101,7 @@ ${plain}
 
 Write a LinkedIn post following this exact structure:
 1. One-line hook — a short, punchy statement (no emoji, no hashtags)
-2. Three blank lines
+2. One blank line
 3. 2-3 sentences of setup: reference a specific insight or data point from the article
 4. One blank line
 5. A short intro line ending with a colon (e.g. "3 things that stuck with me:")
@@ -125,7 +125,8 @@ Rules:
 - No AI vocabulary: pivotal, underscore, foster, showcase, vibrant, tapestry, delve, crucial, highlight, emphasize, bolster, garner, intricate, enduring, enhance, fostering, align with, landscape (abstract), testament
 - No promotional or advertisement-like tone
 - No superficial participial-clause analysis (avoid ending sentences with ", highlighting/reflecting/contributing to..." phrases)
-- Output ONLY the post text, nothing else`;
+- Output ONLY the post text, nothing else
+- Never use &nbsp; or HTML entities — use only plain newlines for spacing`;
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) throw new Error('ANTHROPIC_API_KEY not set');
