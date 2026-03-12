@@ -1,0 +1,28 @@
+name: Publish latest post to Buffer
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/posts/**'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Wait for Vercel deploy
+        run: sleep 60
+
+      - name: Push latest post to Buffer
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_CHANNEL_ID: ${{ secrets.BUFFER_CHANNEL_ID }}
+          BUFFER_NEXT_WEDNESDAY: 'true'
+        run: node scripts/export-to-linkedin.js --push --limit=1
