@@ -101,7 +101,7 @@ ${plain}
 
 Write a LinkedIn post following this exact structure:
 1. One-line hook — a short, punchy statement (no emoji, no hashtags)
-2. One blank line
+2. Three blank lines
 3. 2-3 sentences of setup: reference a specific insight or data point from the article
 4. One blank line
 5. A short intro line ending with a colon (e.g. "3 things that stuck with me:")
@@ -290,6 +290,22 @@ async function pushToBuffer(posts) {
   }
 
   const now = new Date();
+
+  // Next Wednesday at 10:00 Zurich (UTC+1 winter / UTC+2 summer)
+  function nextWednesday() {
+    const d = new Date(now);
+    const day = d.getUTCDay(); // 0=Sun, 3=Wed
+    const daysUntil = ((3 - day) + 7) % 7 || 7; // always strictly future
+    d.setUTCDate(d.getUTCDate() + daysUntil);
+    d.setUTCHours(0, 0, 0, 0);
+    // Detect Zurich DST: between last Sun of March and last Sun of October = CEST UTC+2
+    const month = d.getUTCMonth() + 1;
+    const isSummer = month > 3 && month < 10;
+    d.setUTCHours(isSummer ? 8 : 9, 0, 0, 0); // 10:00 local
+    return d;
+  }
+
+  const useNextWednesday = process.env.BUFFER_NEXT_WEDNESDAY === 'true';
   const tomorrow = new Date(now);
   tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
   tomorrow.setUTCHours(9, 0, 0, 0);
@@ -306,7 +322,11 @@ async function pushToBuffer(posts) {
       continue;
     }
     let dueAt;
-    if (parsedDate > now) {
+    if (useNextWednesday) {
+      dueAt = nextWednesday().toISOString();
+      // Advance base for next iteration: add 7 days
+      now.setUTCDate(now.getUTCDate() + 7);
+    } else if (parsedDate > now) {
       dueAt = parsedDate.toISOString();
     } else {
       dueAt = nextSlot.toISOString();
