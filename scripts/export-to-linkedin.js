@@ -359,11 +359,19 @@ async function run() {
   const files = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.mdx'));
   console.log(`Found ${files.length} posts`);
 
-  const rows = [];
+  const allMeta = [];
   for (const file of files) {
     const raw = fs.readFileSync(path.join(POSTS_DIR, file), 'utf-8');
     const fm  = parseFrontmatter(raw);
     if (fm.draft === 'true') { console.log(`  Skipping draft: ${file}`); continue; }
+    allMeta.push({ file, fm, raw });
+  }
+  allMeta.sort((a, b) => (a.fm.date || '').localeCompare(b.fm.date || ''));
+  const selectedMeta = limit ? allMeta.slice(-limit) : allMeta;
+  if (limit) console.log(`Limiting to last ${limit} posts by date.`);
+
+  const rows = [];
+  for (const { file, fm, raw } of selectedMeta) {
     const body = extractBody(raw);
     const title = fm.title || '';
     const slug = file.replace(/\.mdx$/, '');
@@ -373,9 +381,7 @@ async function run() {
     rows.push({ date: fm.date || '', title, post, imageUrl: buildOgImageUrl(title) });
   }
 
-  rows.sort((a, b) => a.date.localeCompare(b.date));
-  const filteredRows = limit ? rows.slice(-limit) : rows;
-  if (limit) console.log(`\nLimiting to last ${limit} posts by date.`);
+  const filteredRows = rows;
 
   const lines = [
     ['Date', 'Title', 'LinkedIn Post'].map(escapeCSV).join(','),
