@@ -3,27 +3,9 @@ import type { NextRequest } from 'next/server'
 
 export const runtime = 'edge'
 
-async function loadInter(weight: 400 | 600) {
-  const file = weight === 400
-    ? 'inter-latin-400-normal.woff2'
-    : 'inter-latin-600-normal.woff2'
-  return fetch(`https://cdn.jsdelivr.net/npm/@fontsource/inter/files/${file}`)
-    .then(r => r.arrayBuffer())
-}
-
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const title = searchParams.get('title')
-
-  const [interRegular, interSemiBold] = await Promise.all([
-    loadInter(400),
-    loadInter(600),
-  ])
-
-  const fonts = [
-    { name: 'Inter', data: interRegular, weight: 400 as const },
-    { name: 'Inter', data: interSemiBold, weight: 600 as const },
-  ]
 
   const Logo = () => (
     <svg width="20" height="20" viewBox="0 0 375 375" fill="#171717">
@@ -49,7 +31,6 @@ export async function GET(request: NextRequest) {
             flexDirection: 'column',
             justifyContent: 'center',
             backgroundColor: '#ffffff',
-            fontFamily: 'Inter, sans-serif',
             padding: '80px',
           }}
         >
@@ -62,16 +43,7 @@ export async function GET(request: NextRequest) {
               paddingLeft: '32px',
             }}
           >
-            <p
-              style={{
-                fontSize: 13,
-                fontWeight: 400,
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                color: '#737373',
-                margin: 0,
-              }}
-            >
+            <p style={{ fontSize: 13, fontWeight: 400, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#737373', margin: 0 }}>
               Blog
             </p>
             <h1
@@ -106,7 +78,7 @@ export async function GET(request: NextRequest) {
           </div>
         </div>
       ),
-      { width: 1200, height: 630, fonts }
+      { width: 1200, height: 630 }
     )
   }
 
@@ -120,7 +92,6 @@ export async function GET(request: NextRequest) {
           flexDirection: 'column',
           justifyContent: 'center',
           backgroundColor: '#ffffff',
-          fontFamily: 'Inter, sans-serif',
           padding: '80px',
         }}
       >
@@ -133,26 +104,10 @@ export async function GET(request: NextRequest) {
             paddingLeft: '32px',
           }}
         >
-          <h1
-            style={{
-              fontSize: 64,
-              fontWeight: 600,
-              color: '#171717',
-              margin: 0,
-              lineHeight: 1.2,
-            }}
-          >
+          <h1 style={{ fontSize: 64, fontWeight: 600, color: '#171717', margin: 0, lineHeight: 1.2 }}>
             SERP Secrets
           </h1>
-          <p
-            style={{
-              fontSize: 22,
-              fontWeight: 400,
-              color: '#737373',
-              margin: 0,
-              lineHeight: 1.6,
-            }}
-          >
+          <p style={{ fontSize: 22, fontWeight: 400, color: '#737373', margin: 0, lineHeight: 1.6 }}>
             Thoughts on SEO, AI, and the future of search.
           </p>
         </div>
@@ -173,6 +128,6 @@ export async function GET(request: NextRequest) {
         </div>
       </div>
     ),
-    { width: 1200, height: 630, fonts }
+    { width: 1200, height: 630 }
   )
 }
