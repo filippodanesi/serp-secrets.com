@@ -3,9 +3,21 @@ import type { NextRequest } from 'next/server'
 
 export const runtime = 'edge'
 
+async function loadFonts() {
+  const [regular, semibold] = await Promise.all([
+    fetch('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf').then(r => r.arrayBuffer()),
+    fetch('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf').then(r => r.arrayBuffer()),
+  ])
+  return [
+    { name: 'Inter', data: regular, weight: 400 as const, style: 'normal' as const },
+    { name: 'Inter', data: semibold, weight: 600 as const, style: 'normal' as const },
+  ]
+}
+
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const title = searchParams.get('title')
+  const fonts = await loadFonts()
 
   const Logo = () => (
     <svg width="20" height="20" viewBox="0 0 375 375" fill="#171717">
@@ -32,23 +44,24 @@ export async function GET(request: NextRequest) {
             justifyContent: 'center',
             backgroundColor: '#ffffff',
             padding: '80px',
+            fontFamily: 'Inter',
           }}
         >
           <div
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '16px',
-              borderLeft: '3px solid #e5e5e5',
-              paddingLeft: '32px',
+              gap: '14px',
+              borderLeft: '2px solid #e5e5e5',
+              paddingLeft: '28px',
             }}
           >
-            <p style={{ fontSize: 13, fontWeight: 400, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#737373', margin: 0 }}>
+            <p style={{ fontSize: 12, fontWeight: 400, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#737373', margin: 0 }}>
               Blog
             </p>
             <h1
               style={{
-                fontSize: title.length > 60 ? 42 : title.length > 40 ? 48 : 56,
+                fontSize: title.length > 60 ? 38 : title.length > 40 ? 44 : 50,
                 fontWeight: 600,
                 color: '#171717',
                 margin: 0,
@@ -67,18 +80,18 @@ export async function GET(request: NextRequest) {
               display: 'flex',
               alignItems: 'center',
               gap: '10px',
-              fontSize: 14,
+              fontSize: 13,
               color: '#737373',
             }}
           >
             <Logo />
-            <span style={{ color: '#171717', fontWeight: 600 }}>SERP Secrets</span>
+            <span style={{ color: '#171717', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', fontSize: 11 }}>SERP Secrets</span>
             <span style={{ color: '#e5e5e5' }}>·</span>
-            <span>serp-secrets.com</span>
+            <span style={{ fontSize: 11, letterSpacing: '0.02em' }}>serp-secrets.com</span>
           </div>
         </div>
       ),
-      { width: 1200, height: 630 }
+      { width: 1200, height: 630, fonts }
     )
   }
 
@@ -93,21 +106,22 @@ export async function GET(request: NextRequest) {
           justifyContent: 'center',
           backgroundColor: '#ffffff',
           padding: '80px',
+          fontFamily: 'Inter',
         }}
       >
         <div
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '16px',
-            borderLeft: '3px solid #e5e5e5',
-            paddingLeft: '32px',
+            gap: '14px',
+            borderLeft: '2px solid #e5e5e5',
+            paddingLeft: '28px',
           }}
         >
-          <h1 style={{ fontSize: 64, fontWeight: 600, color: '#171717', margin: 0, lineHeight: 1.2 }}>
+          <h1 style={{ fontSize: 28, fontWeight: 600, color: '#171717', margin: 0, lineHeight: 1.2, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
             SERP Secrets
           </h1>
-          <p style={{ fontSize: 22, fontWeight: 400, color: '#737373', margin: 0, lineHeight: 1.6 }}>
+          <p style={{ fontSize: 16, fontWeight: 400, color: '#737373', margin: 0, lineHeight: 1.6 }}>
             Thoughts on SEO, AI, and the future of search.
           </p>
         </div>
@@ -119,15 +133,15 @@ export async function GET(request: NextRequest) {
             display: 'flex',
             alignItems: 'center',
             gap: '10px',
-            fontSize: 14,
+            fontSize: 13,
             color: '#737373',
           }}
         >
           <Logo />
-          <span>serp-secrets.com</span>
+          <span style={{ fontSize: 11, letterSpacing: '0.02em' }}>serp-secrets.com</span>
         </div>
       </div>
     ),
-    { width: 1200, height: 630 }
+    { width: 1200, height: 630, fonts }
   )
 }
