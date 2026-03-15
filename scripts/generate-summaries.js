@@ -14,18 +14,22 @@ async function generateSummary(content, title) {
       'anthropic-version': '2023-06-01',
     },
     body: JSON.stringify({
-      model: 'claude-haiku-4-5-20251001',
+      model: 'claude-sonnet-4-6',
       max_tokens: 150,
       messages: [
         {
           role: 'user',
-          content: `You are an expert at creating concise, informative summaries optimized for AI search engines and featured snippets.
+          content: `Create a 2-3 sentence summary (max 200 characters) for the article below.
 
-Create a 2-3 sentence summary (max 200 characters) for this article that:
-- Directly answers the main question/topic of the article
-- Uses clear, factual language
-- Is self-contained and useful without reading the full article
-- Avoids fluff words and marketing speak
+Rules:
+- Answer the main question or topic directly
+- Use plain, factual language; prefer simple verbs (is, are, has) over "serves as", "stands as", "boasts"
+- Do not use: pivotal, underscore, foster, showcase, vibrant, tapestry, delve, bolstered, garner, intricate, meticulous, enduring, crucial, landscape (abstract), testament, align with, emphasizing, fostering
+- No rule-of-three lists, no "not just X but also Y" constructions
+- No promotional or travel-guide tone, no puffery
+- Avoid em dashes; use commas or colons instead
+- Reuse the same term if it is the clearest choice; do not substitute synonyms to avoid repetition
+- Self-contained: useful without reading the full article
 
 Title: ${title}
 
