@@ -21,10 +21,7 @@ export async function GET(
 
   const { frontmatter, content } = post;
   const url = `${siteUrl}/blog/${slug}/`;
-  const isoDate =
-    frontmatter.date instanceof Date
-      ? frontmatter.date.toISOString().slice(0, 10)
-      : new Date(frontmatter.date).toISOString().slice(0, 10);
+  const isoDate = new Date(frontmatter.date as unknown as string).toISOString().slice(0, 10);
 
   const header = [
     '---',
