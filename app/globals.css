@@ -765,6 +765,7 @@ footer {
     font-size: 13px;
     color: var(--text-muted);
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 8px;
     margin-bottom: 16px;
@@ -1288,52 +1289,26 @@ footer {
     }
 }
 
-/* Copy for AI */
-.copy-for-ai {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 12px;
-    margin: 24px 0 32px;
-    padding: 12px 14px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background-color: rgba(128, 128, 128, 0.04);
-    font-size: 13px;
-}
-
-.copy-for-ai-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 12px;
+/* Inline meta-row actions (Copy for AI / Markdown) */
+.post-meta-action {
     font: inherit;
-    font-size: 13px;
-    color: var(--text);
-    background-color: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 6px;
+    color: inherit;
+    background: none;
+    border: 0;
+    padding: 0;
     cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.copy-for-ai-button:hover {
-    border-color: var(--text-muted);
-}
-
-.copy-for-ai-button:focus-visible {
-    outline: 2px solid var(--text);
-    outline-offset: 2px;
-}
-
-.copy-for-ai-link {
-    color: var(--text-muted);
     text-decoration: underline;
     text-decoration-color: var(--border);
     text-underline-offset: 3px;
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
-.copy-for-ai-link:hover {
+.post-meta-action:hover,
+.post-meta-action:focus-visible {
     color: var(--text);
     text-decoration-color: currentColor;
+}
+
+.post-meta-action:focus-visible {
+    outline: none;
 }

@@ -8,7 +8,6 @@ import { getPostBySlug, getAllPosts, extractHeadings } from '@/lib/posts';
 import PostHeader from '@/app/components/PostHeader';
 import MDXComponents from '@/app/components/MDXComponents';
 import TableOfContents from '@/app/components/TableOfContents';
-import CopyForAI from '@/app/components/CopyForAI';
 import { BlogPostingJsonLd, BreadcrumbJsonLd } from '@/app/components/JsonLd';
 import { siteUrl } from '@/lib/config';
 
@@ -115,14 +114,13 @@ export default async function BlogPostPage({ params }: PageProps) {
             { name: frontmatter.title, url: postUrl },
           ]}
         />
-        <PostHeader frontmatter={frontmatter} readingTime={readingTime} />
+        <PostHeader frontmatter={frontmatter} readingTime={readingTime} slug={slug} />
         {frontmatter.summary && (
           <aside className="post-summary">
             <div className="post-summary-label">TL;DR</div>
             <p>{frontmatter.summary}</p>
           </aside>
         )}
-        <CopyForAI slug={slug} title={frontmatter.title} />
         <div className="post-content">
           <MDXRemote
             source={content}

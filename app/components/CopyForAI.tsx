@@ -22,14 +22,14 @@ export default function CopyForAI({ slug, title }: CopyForAIProps) {
       const markdown = await res.text();
       await navigator.clipboard.writeText(markdown);
       setStatus('copied');
-      setTimeout(() => setStatus('idle'), 2200);
+      setTimeout(() => setStatus('idle'), 2000);
     } catch {
       setStatus('error');
-      setTimeout(() => setStatus('idle'), 2200);
+      setTimeout(() => setStatus('idle'), 2000);
     }
   }
 
-  const buttonLabel =
+  const label =
     status === 'copied'
       ? 'Copied'
       : status === 'copying'
@@ -39,27 +39,26 @@ export default function CopyForAI({ slug, title }: CopyForAIProps) {
       : 'Copy for AI';
 
   return (
-    <div className="copy-for-ai" role="group" aria-label="AI-friendly actions">
+    <>
+      <span className="post-meta-separator" aria-hidden="true">·</span>
       <button
         type="button"
-        className="copy-for-ai-button copy-button"
+        className="post-meta-action"
         onClick={handleCopy}
         data-copy-ai="true"
         aria-label={`Copy "${title}" as Markdown for AI assistants`}
-        title="Copy this article as clean Markdown to paste into ChatGPT, Claude, Perplexity, etc."
       >
-        <span aria-hidden="true">{status === 'copied' ? '✓' : '⎘'}</span>
-        <span>{buttonLabel}</span>
+        {label}
       </button>
+      <span className="post-meta-separator" aria-hidden="true">·</span>
       <a
-        className="copy-for-ai-link"
+        className="post-meta-action"
         href={rawHref}
         rel="alternate"
         type="text/markdown"
-        title="Open the raw Markdown source of this article"
       >
-        View as Markdown
+        Markdown
       </a>
-    </div>
+    </>
   );
 }

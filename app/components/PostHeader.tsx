@@ -1,12 +1,14 @@
 import Link from 'next/link';
 import { type PostFrontmatter, slugify } from '@/lib/posts';
+import CopyForAI from './CopyForAI';
 
 interface PostHeaderProps {
   frontmatter: PostFrontmatter;
   readingTime: string;
+  slug: string;
 }
 
-export default function PostHeader({ frontmatter, readingTime }: PostHeaderProps) {
+export default function PostHeader({ frontmatter, readingTime, slug }: PostHeaderProps) {
   const formattedDate = new Date(frontmatter.date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -23,6 +25,7 @@ export default function PostHeader({ frontmatter, readingTime }: PostHeaderProps
         <time dateTime={frontmatter.date}>{formattedDate}</time>
         <span className="post-meta-separator">·</span>
         <span>{readingTime}</span>
+        <CopyForAI slug={slug} title={frontmatter.title} />
       </div>
       {frontmatter.tags && frontmatter.tags.length > 0 && (
         <div className="post-tags">
