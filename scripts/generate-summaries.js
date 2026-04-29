@@ -14,12 +14,12 @@ async function generateSummary(content, title) {
       'anthropic-version': '2023-06-01',
     },
     body: JSON.stringify({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 150,
+      model: 'claude-opus-4-7',
+      max_tokens: 250,
       messages: [
         {
           role: 'user',
-          content: `Create a 2-3 sentence summary (max 200 characters) for the article below.
+          content: `Create a 2-3 sentence summary (around 220-250 characters, max 280) for the article below.
 
 Rules:
 - Answer the main question or topic directly
