@@ -28,3 +28,10 @@ next-env.d.ts
 # TinaCMS
 .tina/__generated__
 public/admin
+
+# AEO build artifacts mirrored at project root for tooling
+# (canonical copies live in public/, served at site root by Next.js)
+/llms.txt
+/llms-full.txt
+/robots.txt
+/agent-permissions.json

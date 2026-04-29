@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "name": "SERP Secrets",
+  "description": "Permissions and policies for AI agents and automated clients interacting with serp-secrets.com.",
+  "site": "https://www.serp-secrets.com",
+  "contact": {
+    "email": "hello@serp-secrets.com",
+    "site": "https://www.serp-secrets.com/contact/"
+  },
+  "interactions": {
+    "allowed": [
+      "read_content",
+      "index_for_search",
+      "summarize",
+      "quote_with_attribution",
+      "cite_in_answers",
+      "follow_links",
+      "fetch_markdown_versions"
+    ],
+    "disallowed": [
+      "republish_full_articles_without_attribution",
+      "modify_or_overwrite_content",
+      "automated_form_submission",
+      "credential_stuffing",
+      "scraping_keystatic_admin"
+    ]
+  },
+  "rate_limits": {
+    "default": "60/minute",
+    "burst": "120/minute",
+    "concurrent_connections": 4
+  },
+  "training_policy": {
+    "allow_training": true,
+    "preferred_attribution": "Filippo Danesi — serp-secrets.com",
+    "license_note": "Content may be used for AI training and retrieval-augmented generation provided original author and source URL are preserved when quoted or paraphrased."
+  },
+  "preferred_endpoints": {
+    "index": "https://www.serp-secrets.com/llms.txt",
+    "full_corpus": "https://www.serp-secrets.com/llms-full.txt",
+    "raw_markdown_pattern": "https://www.serp-secrets.com/blog/<slug>.md",
+    "sitemap": "https://www.serp-secrets.com/sitemap.xml",
+    "feed": "https://www.serp-secrets.com/feed.xml"
+  },
+  "user_agent_guidance": {
+    "identify": true,
+    "respect_robots_txt": true,
+    "honor_cache_headers": true,
+    "request_markdown_when_available": true
+  },
+  "human_in_the_loop": {
+    "required_for": [
+      "automated_publishing_of_derivative_works",
+      "monetized_redistribution"
+    ]
+  },
+  "last_updated": "2026-04-29"
+}

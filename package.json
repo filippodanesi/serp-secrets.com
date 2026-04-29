@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/generate-summaries.js && next build",
+    "build": "node scripts/generate-summaries.js && node scripts/generate-aeo-files.js && next build",
     "start": "next start",
-    "generate-summaries": "node scripts/generate-summaries.js"
+    "generate-summaries": "node scripts/generate-summaries.js",
+    "generate-aeo-files": "node scripts/generate-aeo-files.js"
   },
   "dependencies": {
     "@keystatic/core": "^0.5.36",

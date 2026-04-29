@@ -34,6 +34,18 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
+  async rewrites() {
+    return [
+      {
+        source: '/blog/:slug.md',
+        destination: '/api/posts/:slug',
+      },
+      {
+        source: '/blog/:slug.md/',
+        destination: '/api/posts/:slug',
+      },
+    ]
+  },
   async headers() {
     return [
       {
