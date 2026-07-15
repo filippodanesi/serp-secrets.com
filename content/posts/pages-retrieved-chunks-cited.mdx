@@ -1,0 +1,129 @@
+---
+title: Pages Get Retrieved. Chunks Get Cited.
+date: 2026-07-15
+description: >-
+  Your page ranks #3, ChatGPT cites the site at #7. Why AI search selects
+  chunks, not pages, and how to write for the selection layer. 
+tags:
+  - Artificial Intelligence
+draft: false
+---
+## What are the two gates of AI visibility?
+
+AI assistants decide what to cite in two separate passes: first they build a candidate pool of pages, then they select passages from inside that pool. Different signals govern each pass.
+
+**Gate one is the pool.** When ChatGPT, [Google AI Mode](https://www.serp-secrets.com/blog/evolution-of-search-with-ai/), or Perplexity gets a question worth searching, it expands the prompt into multiple sub-queries through [query fan-out](https://www.serp-secrets.com/blog/query-fan-out-google-ai-mode/) and runs them against a search index. Metehan Yeşilyurt's testing puts ChatGPT's retrieval window at [**38 to 65 sources per search**](https://metehan.ai/blog/the-rrf-top-n-playbook-how-to-get-cited-by-chatgpts-web-mode/). Outside that window, nothing downstream matters: the fusion algorithm only scores what gets retrieved. This gate runs on classic SEO. AirOps found pages ranking #1 in Google get cited [**3.5x more often**](https://www.airops.com/blog/chatgpt-decides-sources-cite) than lower positions.
+
+**Gate two is the selection.** Retrieved pages get broken into chunks, each chunk becomes an embedding, and the system measures how close each chunk sits to each sub-query in vector space. Suganthan Mohanadasan, who spent days [reading ChatGPT's raw network traffic](https://suganthan.com/blog/how-chatgpt-picks-sources/), found that a citation binds to a specific sentence, not to the page. Being topically relevant isn't enough. For every claim in the answer, some chunk on some page is the single closest match, and that chunk takes the citation.
+
+The pass-through rate between the gates is brutal: **85% of retrieved pages never appear in the final answer**, per AirOps. They cleared gate one and died at gate two.
+
+And the gates are drifting apart. In [The Great Decoupling](https://www.serp-secrets.com/blog/the-great-decoupling/) I covered Ahrefs' finding that the share of AI Overview citations coming from top-10 organic results fell from **76% in July 2025 to 38% by February 2026**, with a third of citations now coming from beyond position 100. Rankings decide who enters the room. They no longer decide who speaks.
+
+## Haven't search engines always ranked passages?
+
+Yes, and the paper trail is written in granted patents, not conference-slide speculation.
+
+Google announced **passage ranking** in October 2020: the ability to index individual passages rather than whole pages, estimated at launch to affect about 7% of queries. That was passage selection as a ranking feature. It moved your position, and the user still landed on a page.
+
+Three patents show the same machinery moving to the front of the experience:
+
+* [**US11769017B1, "Generative summaries for search results"**](https://patents.google.com/patent/US11769017B1/en), filed March 20, 2023, weeks before SGE was announced. It describes selecting a set of search result documents, extracting content snippets from them, and processing those snippets with a large language model to produce the answer. The snippet, not the page, is what feeds the model.
+* [**US12158907B1, "Thematic Search"**](https://patents.google.com/patent/US12158907B1/en), filed December 2024. A single query generates additional queries based on inferred sub-themes, and each theme gets its own search and its own AI-generated summary. It's the closest public description of the fan-out mechanism running inside AI Mode.
+* [**US11354342B2, "Contextual estimation of link information gain"**](https://patents.google.com/patent/US11354342B2/en) scores a document by how much information it adds beyond documents the user has already seen. Redundancy is penalized by design, before an LLM ever enters the picture.
+
+The academic lineage runs deeper still. Cormack, Clarke and Büttcher published Reciprocal Rank Fusion in 2009. Lewis et al. coined retrieval-augmented generation in [a 2020 paper](https://arxiv.org/abs/2005.11401). Chunk selection is not new. What's new is that the selected chunk became the product.
+
+## What happens inside the selection layer?
+
+Between your page and the citation sit five mechanical steps: fan-out, retrieval, chunking, similarity scoring, and fusion.
+
+Fan-out rewrites the user's prompt into sub-queries that steer toward specific intents and entities. A "best running shoes" prompt becomes a cloud of variants like "best running shoes 2026," "running shoe reviews," and "top picks," each nudging the search toward a slightly different angle of the same need.
+
+Chunking and scoring come next. Every retrieved page gets split into passages, every passage becomes a vector, and cosine similarity measures how close it sits to each sub-query. The chunk whose coordinates land nearest wins that slot in the answer.
+
+Then fusion. ChatGPT merges the ranked lists from all sub-queries using Reciprocal Rank Fusion, an implementation Yeşilyurt found [in ChatGPT's own network code](https://metehan.ai/blog/chatgpt-is-using-reciprocal-rank-fusion-rrf/). The math is short: each page scores 1/(k + rank) in every list it appears in, with k around 60, and the scores add up. The consequence matters more than the formula. **A page ranking #4 across five sub-queries beats a page ranking #1 in one and absent from the rest.** Consistent presence across the fan-out outranks a single trophy position.
+
+### A note on the plumbing
+
+Inspect ChatGPT's traffic yourself and you'll see every source tagged with a `result_source` label: an open-web tier, a publisher tier called `labrador`, and commercial scraping networks. Chris Green captured [**9,946 search runs**](https://searchengineland.com/chatgpt-citations-change-hidden-search-pipelines-481843) and found labrador behind 88.1% of primary sources. Mohanadasan's sample looked different, and ten days later different again; [his follow-up](https://suganthan.com/blog/how-chatgpt-picks-sources-part-2/) walks through the drift honestly. The vendors are perishable. The mechanisms are not: on every retest, fan-out, sentence-level citation binding, domain deduplication, and clean scrapability held. Build for the mechanisms.
+
+One more property worth internalizing: **the grounding is transient**. Dan Petrovic asked a model to retrieve information about a well-known person, then asked it in the next message to recall a snippet from those sources. [It couldn't](https://dejan.ai/blog/search-grounding-is-transient/). Chunks load into the context window, produce the answer, and get purged. A citation today is not memory tomorrow.
+
+## What do RAG engineers know that SEOs are learning late?
+
+The people who build retrieval pipelines have already measured why chunks fail: they lose their context the moment they're cut out of the document.
+
+Anthropic published the numbers in their [Contextual Retrieval](https://www.anthropic.com/engineering/contextual-retrieval) research. A chunk like "the company's revenue grew by 3% over the previous quarter" is useless in isolation. Which company? Which quarter? Their fix was to prepend 50 to 100 tokens of explanatory context to every chunk before indexing it. Top-20 retrieval failures dropped **35%** with contextual embeddings alone, and **49%** once contextual BM25 was added.
+
+Anthropic can do that because they control the indexing pipeline. You don't control ChatGPT's chunker. So you apply the same fix one step earlier, at writing time: **make every section self-contained enough that it needs no rescue.**
+
+The test is decapitation. Cut any H2 section out of your page and read it cold. Does it name its subject, or does it point backwards with "it" and "this approach"? Does it carry its own key entity and at least one claim you could check? A section that only makes sense inside the page is invisible outside it, and outside the page is exactly where the model reads it.
+
+Dan Petrovic reached the same conclusion from the SEO side: he writes content segments that stand on their own when isolated, because models view pages through narrow windows and extract specific chunks. His agency gave the discipline a name, **Selection Rate Optimization**. We spent two decades optimizing for the click. The new target is the selection.
+
+## What does chunk-level optimization look like in practice?
+
+Five moves, each tied to a measured effect.
+
+### Answer in the first sentence under every heading
+
+Content structured as question followed by immediate answer gets cited at **18% versus 8.9%** for everything else, per Kevin Indig's analysis of [1.2 million ChatGPT citations](https://www.growth-memo.com/p/the-science-of-how-ai-pays-attention). The mechanics explain the gap: sub-queries are questions, and a heading-plus-first-sentence pair that mirrors the question-answer shape is the easiest possible embedding match. Don't warm up. The first sentence under each H2 is the chunk's thesis.
+
+### Front-load the whole page too
+
+Position inside the page still matters. The first 30% of a page's content draws **44.2% of all citations** in Indig's data, the middle third gets 31.1%, and the bottom third gets 24.7%. Bottom line up front applies at two scales at once: page level and section level.
+
+### Hold one claim per chunk
+
+A section arguing three things embeds as a blur of all three and matches none of them precisely. A section making one claim, backed by one number, sits at exact coordinates. When you catch a paragraph doing double duty, split it under its own heading. Each new heading is another entry point into the fan-out.
+
+### Match your entities to the fan-out's entities
+
+Ahrefs studied [1.4 million ChatGPT prompts](https://ahrefs.com/blog/why-chatgpt-cites-pages/) and found cited pages have titles more semantically similar to the internal fan-out queries than pages that got passed over. Indig's cited-content sample runs around **20.6% entity density**, proper nouns as a share of all words, against 5 to 8% in average content. The practical move is swapping generics for named things: "a search engine" becomes Google, "research suggests" becomes the study's name and year, "an AI assistant" becomes ChatGPT or Perplexity. Every named entity is a coordinate the fan-out can hit.
+
+### Give every chunk something the model doesn't have
+
+Princeton's [Generative Engine Optimization paper](https://arxiv.org/abs/2311.09735) tested nine optimization methods and found unique quotes and statistics lifted visibility in generative answers by **30 to 40%**, the strongest result of anything tested. Google patented the same instinct years earlier: the information gain patents score documents by what they add beyond what's already been seen. A chunk restating the consensus has an information gain of zero. There is nothing in it worth binding a citation to.
+
+## What about the page-level gate?
+
+None of the above fires if the page can't enter the pool, and the hygiene list is short and unforgiving.
+
+Serve key facts in plain HTML. Mohanadasan's traffic capture shows ChatGPT trying to read two vendors' pricing pages, failing to parse the JavaScript, and citing G2 instead. Their numbers, sourced to someone else's page.
+
+Stay fast. Grounding fetches appear to run on a roughly **two-second timeout**, per David McSweeney's [breakdown of ChatGPT's pipeline](https://queryburst.com/blog/how-chatgpt-works/); a time-to-first-byte over one second risks your content getting truncated or dropped before the model sees it.
+
+Consolidate. ChatGPT deduplicates results by domain, so twenty thin pages collapse into one candidate. One strong page per claim beats the pile.
+
+And keep crawlers in: check your robots.txt, firewall, and CDN defaults before assuming you're even eligible. The full checklist is in [How to Optimize Your Site for ChatGPT and AI Search Engines](https://www.serp-secrets.com/blog/optimize-site-for-ai-search/).
+
+## What does chunk-level optimization not mean?
+
+Three misreadings show up every time this topic comes up, and all three cost money.
+
+**It doesn't mean SEO is dead.** Gate one is SEO. If you're not indexed and ranking somewhere inside the retrieval window, RRF assigns you exactly zero and the selection layer never sees you. Chunk-level work is a second discipline stacked on the first, not a replacement for it.
+
+**It doesn't mean fragmenting content into micro-pages.** Domain deduplication kills that strategy on contact. The model picks your single best page per claim; spreading one strong answer across twenty weak URLs hands the citation to someone who didn't.
+
+**It doesn't mean you're in the model's memory.** Retrieval is rented visibility, purged after every answer. Shaping how a model describes your brand from its training data is a different project on a different clock. Dorron Shapow draws the line well: retrieval visibility takes weeks, entity coherence across the web takes years. Both are worth doing. Confusing them breaks the strategy.
+
+## How do you audit a page at chunk level?
+
+Five steps, one afternoon per page.
+
+1. **Split the page into its sections.** Every H2 and H3 block is a candidate chunk. Retrieval systems won't slice exactly there, but headings are the closest proxy you control.
+2. **Run the decapitation test.** Read each section with the rest of the page hidden. It passes if it names its subject in the first sentence, makes one checkable claim, and would survive as a standalone paragraph inside someone else's answer.
+3. **Score sections against fan-out queries.** Pull real sub-queries where you can: Ahrefs Brand Radar exposes the fan-out queries behind ChatGPT, Grok, and Perplexity responses, and Google's AI Mode can be prompted into revealing its own. Embed your sections and the sub-queries with any open embedding model (EmbeddingGemma runs locally) and compare cosine similarity. Sections that score far from every sub-query are dead weight in the selection layer.
+4. **Find your found-but-not-cited set.** Brand Radar filters for responses where your page entered the retrieval pool and got passed over. That is gate two rejecting you, the exact failure this article is about. Study the chunk that beat yours and note what it does in its first sentence.
+5. **Rewrite and re-measure.** First sentences first, then one claim and one unique number per section. Give it three or four weeks and compare citation rate, not rankings. Rankings measure the wrong gate.
+
+Run it on ten pages and keep the before and after. Original data is the one input this entire system rewards most, which means your audit results are themselves a citation asset.
+
+## Where does this leave SEO?
+
+With two jobs instead of one. The first hasn't changed: earn a place in the index and rank inside the retrieval window. The second is newer and colder: win a similarity contest between your individual sections and machine-written sub-queries that will never appear in a keyword tool.
+
+The page was the unit of optimization for twenty-five years. The model never reads your page. It reads pieces of it, torn out, embedded, and scored one at a time against a question it wrote itself.
+
+Optimize the pieces.
