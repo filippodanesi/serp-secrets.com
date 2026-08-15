@@ -1,0 +1,112 @@
+---
+title: We Shipped llms.txt. Here's What Fetched It.
+date: 2026-10-01
+description: >-
+  This site has served llms.txt for months. Here are the server logs: which
+  agents fetched it, how often, and whether any of it changed anything.
+tags:
+  - Technical SEO
+draft: true
+---
+## What does llms.txt actually promise?
+
+A clean, machine-readable summary of a site, served at a fixed path, so a language model does not have to reconstruct your content from rendered HTML. The proposal is deliberately small: a markdown file at `/llms.txt` with a title, a short description, and curated links grouped under headings, plus an optional `/llms-full.txt` carrying the whole corpus in one request.
+
+The reasoning behind it is sound and has nothing to do with search rankings. Context windows are finite, HTML is mostly navigation and styling, and a model that has to parse a page to find three paragraphs of substance wastes most of its budget on markup. A curated markdown index is a cheaper input.
+
+What the proposal does not claim, anywhere, is that adopting it will get you cited. That claim was added later by people selling generators.
+
+Nobody has published convincing evidence either way, mostly because the people best placed to check are the ones running the sites, and running the logs is more work than writing the opinion. So I ran the logs.
+
+## Is anyone actually searching for this?
+
+Barely, and less than last year. **llms.txt generator** does **590 searches a month** in the US and is **down 18% year over year**. Below it the cluster is tiny: **llms.txt validator** at 90 a month, **llms.txt standard** at 70, **llms.txt example** at 170. The entire keyword set returns nineteen queries.
+
+For comparison, **google ai mode** does 246,000.
+
+I am stating that up front because it changes what this article is for. This is not a traffic play and you should not treat it as one. If you are choosing between writing about llms.txt and writing about anything with a thousand times the search volume, write the other thing.
+
+The reason to publish this is different: the topic has strong opinions and almost no primary data. That asymmetry is worth more than volume.
+
+## What did I ship?
+
+More than the specification asks for, which turns out to matter when reading the logs.
+
+The build pipeline for this site generates four artifacts before Next.js compiles anything:
+
+* **`/llms.txt`**, an index of every published post grouped by category, each entry carrying its title, URL, description, and an estimated token count
+* **`/llms-full.txt`**, the same index plus the complete markdown body of every post, so the entire site can be ingested in a single request
+* **`/robots.txt`**, generated from the same script rather than hand-maintained, with explicit allow rules for eighteen named AI agents including GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot, Amazonbot and meta-externalagent
+* **`/agent-permissions.json`**, a declared interaction policy for automated clients
+
+On top of those, every post is available as raw markdown by appending `.md` to its URL, and every post page carries a "copy for AI" control and a link to that markdown source.
+
+Two design decisions are worth calling out because they affect what the logs can tell you.
+
+First, `llms-full.txt` and the per-post `.md` endpoints are separate paths. That means a fetch of one is distinguishable from a fetch of the other, and I can tell a crawler that wanted the index from one that wanted the corpus.
+
+Second, robots.txt allows the AI agents explicitly rather than relying on a permissive default. Any argument that a crawler did not fetch these files because it was blocked does not apply here.
+
+## What do the logs say?
+
+**[PLACEHOLDER: this is the section only you can write. Pull the request logs for the reporting period and fill in the table and the three findings below. Everything else in this article is finished.]**
+
+**[PLACEHOLDER: state the period and the source, for example "Vercel request logs, 1 March to 30 September 2026, all requests to /llms.txt, /llms-full.txt, /robots.txt and /blog/*.md, grouped by user agent."]**
+
+| User agent | /llms.txt | /llms-full.txt | /blog/*.md | robots.txt |
+| --- | --- | --- | --- | --- |
+| GPTBot | | | | |
+| OAI-SearchBot | | | | |
+| ChatGPT-User | | | | |
+| ClaudeBot | | | | |
+| PerplexityBot | | | | |
+| Google-Extended | | | | |
+| Bytespider | | | | |
+| CCBot | | | | |
+| Everything else | | | | |
+
+Three questions the table should answer, and the answers are the article:
+
+**Did the named agents request `/llms.txt` at all, and how often relative to `/robots.txt`?** Robots is the control. Every crawler that visits fetches it, so the ratio between robots requests and llms.txt requests is the adoption rate among agents that were definitely present and definitely allowed.
+
+**Did anything fetch `/llms-full.txt`?** This is the file the specification exists for. A crawler that pulls the index and never pulls the corpus is treating llms.txt as a sitemap, not as a content source.
+
+**Did per-post markdown get requested more than the index?** If the `.md` endpoints outperform llms.txt, the useful intervention was making content cheaply parseable at the page level, and the index file is decoration.
+
+**[PLACEHOLDER: if the logs show near-zero requests, say so plainly and lead with it. A negative result honestly reported is the most valuable version of this article, and it is the version nobody else has published.]**
+
+## Does being fetched mean being cited?
+
+No, and conflating the two is the most common error in this discussion.
+
+A fetch tells you a file was retrieved. It tells you nothing about whether the content entered a candidate pool, whether any passage from it was selected, or whether a user ever saw a reference to it. In [Pages Get Retrieved. Chunks Get Cited.](https://www.serp-secrets.com/blog/pages-retrieved-chunks-cited/) I worked through the two-gate model that separates these: entering the pool and winning selection are governed by different signals, and most of what enters a pool dies there.
+
+llms.txt, at best, operates before the first gate. It makes your content cheaper to acquire and easier to parse. That is genuinely useful and it is nowhere near sufficient. A perfectly formatted markdown corpus full of generic content is a perfectly formatted corpus that loses every similarity contest it enters.
+
+There is a second reason not to expect a clean causal story. Grounding is transient. Content pulled into a context window produces an answer and is discarded. Whatever a crawler fetched in March is not sitting in a model waiting to help you in October.
+
+So the honest framing for any correlation in the logs is: this file was cheap to serve, it was or was not taken, and any downstream effect is unmeasurable with the instruments available to a single site.
+
+## Should you bother?
+
+It depends entirely on how you generate it, and the cost side of the calculation is where most advice goes wrong.
+
+**Generate it at build time or do not do it.** My version is produced by a script that reads the content directory and writes the files before the build. It has no ongoing cost, it cannot drift out of sync with the site, and if I publish a post at midnight the index includes it. A hand-maintained llms.txt is a file that is accurate for about three weeks and then quietly lies about your site forever.
+
+**Do not buy a generator for this.** The keyword data shows 590 searches a month for **llms.txt generator** and a paid market attached to them. The file is a markdown list of your own URLs with descriptions you already wrote. If your content lives in files, this is under a hundred lines of build script.
+
+**Ship the per-post markdown too.** Whatever the index turns out to be worth, serving each post as raw markdown at a predictable URL is unambiguously useful, costs one rewrite rule, and helps any human or agent that wants the text without the furniture.
+
+**Do not report it as a growth initiative.** The upside is unproven and the search demand is falling. Ship it as hygiene, alongside the rest of the [AI search checklist](https://www.serp-secrets.com/blog/optimize-site-for-ai-search/), and spend the reporting slot on something you can actually attribute.
+
+The wider point is one I made in [Training Search Engines](https://www.serp-secrets.com/blog/training-search-engines-the-next-evolution-of-seo/): making your content easy for a machine to consume is table stakes, not strategy. It removes a reason to skip you. It does not supply a reason to pick you.
+
+## Where does this leave the standard?
+
+Probably as a convention that persists quietly without ever becoming load-bearing.
+
+The search demand is falling, no major AI vendor has committed to honouring it as a contract, and the value proposition depends on a behaviour nobody outside the crawler teams can observe. Those are not the conditions for a standard that wins. They are the conditions for one that lingers, gets implemented by people who like tidy systems, and occasionally turns out to have helped.
+
+I implemented it because it is nearly free and because I wanted to be able to check. Checking is the part almost nobody does.
+
+The logs are the article. Everything else is opinion.
