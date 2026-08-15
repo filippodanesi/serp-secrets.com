@@ -6,7 +6,7 @@
  * Outputs (written to BOTH ./public and project root):
  *   - llms.txt           Index of posts grouped by category, with descriptions.
  *   - llms-full.txt      Full corpus: same index plus each post body.
- *   - robots.txt         Mirror of app/robots.ts so AEO scanners can read it.
+ *   - robots.txt         The site's robots.txt (there is no dynamic route).
  *   - agent-permissions.json  Mirror of public/agent-permissions.json at root.
  *
  * `public/*` files are served at site root in production by Next.js.

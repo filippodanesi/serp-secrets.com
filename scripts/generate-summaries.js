@@ -14,8 +14,12 @@ async function generateSummary(content, title) {
       'anthropic-version': '2023-06-01',
     },
     body: JSON.stringify({
-      model: 'claude-opus-4-7',
-      max_tokens: 250,
+      model: 'claude-opus-5',
+      // Thinking is on by default on Opus 5 and draws from the same max_tokens
+      // budget as the response, so this has to sit well above the summary length.
+      max_tokens: 4000,
+      thinking: { type: 'adaptive' },
+      output_config: { effort: 'low' },
       messages: [
         {
           role: 'user',
@@ -42,8 +46,25 @@ Return ONLY the summary text, nothing else.`,
     }),
   });
 
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`Anthropic API ${response.status}: ${body.slice(0, 300)}`);
+  }
+
   const data = await response.json();
-  return data.content[0].text.trim();
+
+  if (data.stop_reason === 'refusal') {
+    throw new Error(`Request refused (${data.stop_details?.category ?? 'unknown'})`);
+  }
+
+  // Opus 5 returns thinking blocks alongside the text block, so match on type
+  // rather than assuming the summary is content[0].
+  const text = data.content?.find((block) => block.type === 'text')?.text;
+  if (!text) {
+    throw new Error(`No text block in response (stop_reason: ${data.stop_reason})`);
+  }
+
+  return text.trim();
 }
 
 async function processPost(filePath) {
