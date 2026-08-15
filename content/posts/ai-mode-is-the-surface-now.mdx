@@ -1,0 +1,101 @@
+---
+title: AI Mode Is the Surface Now
+date: 2026-08-20
+description: >-
+  While the industry wrote about AI Overviews, Google AI Mode grew 1920% and hit
+  a million monthly searches. Two surfaces, two retrieval paths, one ignored.
+tags:
+  - Artificial Intelligence
+draft: true
+---
+## How big did AI Mode actually get?
+
+Big enough that it stopped being a feature and became the surface. Searches for **google ai mode** in the US ran at 74,000 per month in July 2025. By June 2026 the same query returned **1,000,000**, with a twelve-month average of 246,000 and a year-over-year change of **+1920%**. The variant **ai mode google** adds another 74,000 a month at +508%.
+
+I pulled those numbers from DataForSEO Labs in August 2026, US market, English, and the shape of the curve matters more than any single month. This is not a spike. It climbs through every quarter of the series: 90,500 in October 2025, 165,000 in February 2026, 246,000 in April, 368,000 in May, a million in June.
+
+Now put the other surface beside it. **ai overviews** averages 110,000 a month and is still up 306% year over year, which sounds healthy until you read the recent months. It peaked at **201,000 in April 2026** and has fallen to 110,000, a **45% drop in a single quarter**. The definitional query **what is ai overviews** is down 45% year over year.
+
+One curve is compounding. The other turned over in spring.
+
+## Why did everyone write about AI Overviews instead?
+
+Because AI Overviews arrived first, arrived loudly, and arrived attached to a measurable injury. It appeared above organic results in a market everyone already tracked, it visibly took clicks, and Search Console showed the damage. In [The Great Decoupling](https://www.serp-secrets.com/blog/the-great-decoupling/) I worked through what that damage looked like in the data.
+
+AI Mode had none of that. It launched behind a tab. It reported nothing useful. It looked like a toy for people who like toys, and for most of 2025 it was reasonable to treat it as one.
+
+That reasoning has an expiry date and the date has passed. I wrote about AI Mode in [AI in Search: Google AI Mode and Overviews](https://www.serp-secrets.com/blog/evolution-of-search-with-ai/) in May 2025, when the query was doing 74,000 a month. The analysis was correct for a surface that size. It is fifteen months old and describes something thirteen times smaller than what exists now.
+
+The industry optimized hard for the surface that was easy to see. That is the ordinary failure mode of a discipline built on reporting: we measure what is instrumented, and AI Mode was not.
+
+## Is AI Mode a different surface or the same one with a tab?
+
+Different, and the difference is in the retrieval, not the interface.
+
+An AI Overview is generated against a query the user typed, sitting on top of a results page that still exists underneath it. The blue links are there. The overview is a layer.
+
+AI Mode replaces the results page with a conversation. There are no ten blue links underneath. The user's prompt is expanded into sub-queries through [query fan-out](https://www.serp-secrets.com/blog/query-fan-out-google-ai-mode/), each sub-query runs its own retrieval, and the answer is assembled from passages across all of them. The session continues, which means the second question inherits context from the first, and the third inherits from both.
+
+Three consequences follow, and none of them are cosmetic.
+
+**The unit of competition changes.** In an AI Overview you are competing to be cited alongside a results page you might also rank in. In AI Mode the results page is gone. Citation is not a supplement to the click, it is the entire opportunity.
+
+**Consistency beats peaks.** Fan-out rewards a page that appears across many sub-queries over a page that dominates one. I worked through the mechanics of this in [Pages Get Retrieved. Chunks Get Cited.](https://www.serp-secrets.com/blog/pages-retrieved-chunks-cited/): the fusion step adds up positions across sub-query result lists, so a page at #4 in five lists outscores a page at #1 in one.
+
+**The query you optimized for is not the query that runs.** The user's prompt is an input to the fan-out, not the thing matched against your page. No keyword tool will show you the sub-queries, because Google writes them.
+
+## What are users doing about it?
+
+A meaningful number of them are trying to turn it off, and that behavior is growing.
+
+**turn off ai mode google** does **4,400 searches a month** in the US at **+175% year over year**, with a keyword difficulty of 20. The monthly series is stable and rising: 2,900 in July 2025, 4,400 in June 2026. This is not a spike of curiosity. It is a durable, repeating intent.
+
+Compare it to the equivalent behavior on the older surface. **hide google ai overviews chrome extension** does 4,400 a month too, but it is **down 70% year over year**. People stopped fighting AI Overviews and started fighting AI Mode, which is exactly what you would expect if AI Mode is the thing they now encounter.
+
+I covered the sentiment side of this in [Why Users Are Turning Away from AI Search](https://www.serp-secrets.com/blog/ai-search-backlash/). The update is that the resistance has a new target and the search volume to prove it.
+
+Do not read this as a reprieve. An opt-out query growing 175% a year still describes a minority behavior against a surface growing 1920%. The rejection is real and it is being outrun.
+
+## What actually changes in your workflow?
+
+Five things, and only one of them is new work.
+
+### Stop reporting AI Overviews as the AI story
+
+If your monthly deck has a slide on AI Overviews and no slide on AI Mode, it describes spring 2026. Rebuild the slide around both surfaces, and be explicit that one of them is currently unmeasurable in Search Console.
+
+### Track citation presence, not position, on conversational queries
+
+Rank tracking answers a question AI Mode does not ask. What you need is whether you appear in the answer for the prompts your buyers actually type, checked repeatedly, with the variance reported rather than hidden. That measurement problem is bad enough to deserve its own treatment, and it gets one in the next article in this series.
+
+### Audit for fan-out breadth instead of head-term dominance
+
+Take a page that ranks well for one commercial term and ask what adjacent sub-queries it would plausibly match. If the answer is none, the page is a trophy that wins one list and scores zero in the fusion.
+
+### Write sections that survive being cut out
+
+This is the same discipline as chunk-level optimization, applied to a surface where the page is never displayed at all. Every H2 section should name its subject, make one checkable claim, and read correctly with the rest of the page hidden.
+
+### Keep the page-level gate clean
+
+Nothing above matters if retrieval never reaches you. Plain HTML for key facts, fast time to first byte, no crawler blocked by a CDN default you did not set. The full list is in [How to Optimize Your Site for ChatGPT and AI Search Engines](https://www.serp-secrets.com/blog/optimize-site-for-ai-search/).
+
+## Does the AI Overviews playbook still work here?
+
+Partly, and the part that transfers is the part nobody wanted to hear.
+
+The transferable half is the boring half: be indexed, be retrievable, be fast, be parseable, write self-contained sections, carry named entities and original numbers. Every one of those helps in both surfaces because both surfaces retrieve before they generate.
+
+The half that does not transfer is everything built on the results page still being there. Strategies that assumed the overview sits above your listing, that the user scrolls past it, that a strong position converts the impression into a visit, all of those assume a page that AI Mode does not render.
+
+There is also a reporting trap worth naming. Because AI Overviews are visible in the SERP and AI Mode is not, a team can watch AIO impressions flatten and conclude the AI pressure is easing. The pressure is not easing. It moved to a surface that does not report.
+
+## Where does this leave the next twelve months?
+
+With a surface that grew thirteen times in a year and a discipline that has barely started measuring it.
+
+I would not bet on the million-search month repeating every month. Single-month peaks in this data are volatile and the June figure is the top of a steep climb, not a plateau. But the trend line under it does not require the peak to hold: 74,000 to 246,000 average, quarter after quarter, is already the largest structural shift in Google's interface since the results page was invented.
+
+The industry spent eighteen months learning to optimize for a box that sat above the results. The results went away.
+
+Optimize for the surface that replaced them.
