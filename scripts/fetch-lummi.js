@@ -18,6 +18,7 @@
  *
  * Options:
  *   --slug <slug>     Destination post slug (required) → public/images/content/<slug>/
+ *   --hero            Save as the post's hero instead: public/images/posts/<slug>.<fmt>
  *   --name <name>     Output filename without extension (default: lummi-<id prefix>)
  *   --width <px>      Longest-edge width requested from the CDN (default: 1600)
  *   --format <fmt>    jpg | png | webp | avif (default: webp)
@@ -35,7 +36,7 @@ const ROOT = path.resolve(__dirname, '..');
 const UUID_RE = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
 
 function parseArgs(argv) {
-  const args = { width: 1600, format: 'webp', force: false };
+  const args = { width: 1600, format: 'webp', force: false, hero: false };
   const positional = [];
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
@@ -44,6 +45,7 @@ function parseArgs(argv) {
     else if (a === '--width') args.width = parseInt(argv[++i], 10);
     else if (a === '--format') args.format = argv[++i];
     else if (a === '--force') args.force = true;
+    else if (a === '--hero') args.hero = true;
     else positional.push(a);
   }
   args.image = positional[0];
@@ -116,8 +118,10 @@ async function main() {
   dl.searchParams.set('fm', args.format);
 
   // 3. Download
-  const dir = path.join(ROOT, 'public', 'images', 'content', args.slug);
-  const base = args.name || `lummi-${id.slice(0, 8)}`;
+  const dir = args.hero
+    ? path.join(ROOT, 'public', 'images', 'posts')
+    : path.join(ROOT, 'public', 'images', 'content', args.slug);
+  const base = args.name || (args.hero ? args.slug : `lummi-${id.slice(0, 8)}`);
   const outPath = path.join(dir, `${base}.${args.format}`);
   if (fs.existsSync(outPath) && !args.force) {
     console.error(`❌ ${path.relative(ROOT, outPath)} already exists (use --force to overwrite).`);
@@ -135,20 +139,31 @@ async function main() {
   fs.writeFileSync(outPath, buf);
   console.log(`✅ Saved ${path.relative(ROOT, outPath)} (${(buf.length / 1024).toFixed(0)} KB)`);
 
-  // 4. Ready-to-paste MDX (attribution links are REQUIRED by Lummi's terms)
+  // 4. Record the required attribution in the manifest; MDXComponents renders
+  // it automatically under every image whose path appears here.
+  const publicPath = args.hero
+    ? `/images/posts/${base}.${args.format}`
+    : `/images/content/${args.slug}/${base}.${args.format}`;
+  const manifestPath = path.join(ROOT, 'lib', 'image-credits.json');
+  const manifest = fs.existsSync(manifestPath)
+    ? JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+    : {};
+  manifest[publicPath] = {
+    author: author.name || author.username || 'the author',
+    authorUrl: author.attributionUrl || 'https://www.lummi.ai',
+    sourceUrl: image.attributionUrl || 'https://www.lummi.ai',
+    source: 'Lummi',
+  };
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n');
+  console.log(`✅ Attribution recorded in lib/image-credits.json (renders automatically)`);
+
+  // 5. Ready-to-paste MDX
   const alt = (image.description || image.name || 'Illustration from Lummi')
     .replace(/\s+/g, ' ')
     .trim();
-  const publicPath = `/images/content/${args.slug}/${base}.${args.format}`;
-  const authorName = author.name || author.username || 'the author';
-  const authorUrl = author.attributionUrl || 'https://www.lummi.ai';
-  const imageUrl = image.attributionUrl || 'https://www.lummi.ai';
-
   console.log('\n📋 Paste into the post:\n');
+  if (args.hero) console.log(`frontmatter →  image: ${publicPath}\n`);
   console.log(`![${alt}](${publicPath})`);
-  console.log(`*Photo by [${authorName}](${authorUrl}) on [Lummi](${imageUrl})*`);
-  console.log('\n(hotlink alternative, no download needed:');
-  console.log(`  ${dl.toString()} — same attribution still required)`);
 }
 
 main().catch((err) => {

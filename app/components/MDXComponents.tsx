@@ -1,8 +1,15 @@
 import type { MDXComponents } from 'mdx/types';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ReactNode } from 'react';
+import { ReactNode, isValidElement } from 'react';
 import { slugify } from '@/lib/posts';
+import imageCredits from '@/lib/image-credits.json';
+
+// Maintained by scripts/fetch-lummi.js: public path → required attribution.
+const credits = imageCredits as Record<
+  string,
+  { author: string; authorUrl: string; sourceUrl: string; source: string }
+>;
 
 function getTextContent(children: ReactNode): string {
   if (typeof children === 'string') return children;
@@ -27,7 +34,21 @@ const components: MDXComponents = {
     return <h3 id={id} className="mdx-h3">{children}</h3>;
   },
   h4: ({ children }) => <h4 className="mdx-h4">{children}</h4>,
-  p: ({ children }) => <p className="mdx-p">{children}</p>,
+  p: ({ children }) => {
+    // A credited image renders as <figure>, which cannot live inside <p>:
+    // unwrap paragraphs whose only content is an image.
+    const items = (Array.isArray(children) ? children : [children]).filter(
+      (c) => !(typeof c === 'string' && c.trim() === ''),
+    );
+    if (
+      items.length === 1 &&
+      isValidElement(items[0]) &&
+      (items[0].props as { src?: unknown }).src
+    ) {
+      return <>{children}</>;
+    }
+    return <p className="mdx-p">{children}</p>;
+  },
   ul: ({ children }) => <ul className="mdx-ul">{children}</ul>,
   ol: ({ children }) => <ol className="mdx-ol">{children}</ol>,
   li: ({ children }) => <li className="mdx-li">{children}</li>,
@@ -79,20 +100,37 @@ const components: MDXComponents = {
   td: ({ children }) => <td className="mdx-td">{children}</td>,
   img: ({ src, alt }) => {
     if (!src) return null;
-    if (src.startsWith('/')) {
-      return (
-        <Image
-          src={src}
-          alt={alt || ''}
-          width={800}
-          height={450}
-          className="mdx-img"
-          sizes="(max-width: 768px) 100vw, 700px"
-          style={{ width: '100%', height: 'auto' }}
-        />
-      );
-    }
-    return <img src={src} alt={alt || ''} className="mdx-img" loading="lazy" />;
+    const credit = src.startsWith('/') ? credits[src] : undefined;
+    const picture = src.startsWith('/') ? (
+      <Image
+        src={src}
+        alt={alt || ''}
+        width={800}
+        height={450}
+        className={credit ? 'mdx-figure-img' : 'mdx-img'}
+        sizes="(max-width: 768px) 100vw, 700px"
+        style={{ width: '100%', height: 'auto' }}
+      />
+    ) : (
+      <img src={src} alt={alt || ''} className="mdx-img" loading="lazy" />
+    );
+    if (!credit) return picture;
+    // Attribution is required by the image license (lib/image-credits.json).
+    return (
+      <figure className="mdx-figure">
+        {picture}
+        <figcaption className="mdx-figcaption">
+          Photo by{' '}
+          <a href={credit.authorUrl} target="_blank" rel="noopener noreferrer">
+            {credit.author}
+          </a>{' '}
+          on{' '}
+          <a href={credit.sourceUrl} target="_blank" rel="noopener noreferrer">
+            {credit.source}
+          </a>
+        </figcaption>
+      </figure>
+    );
   },
   Figure: ({ image, alt, caption }: { image: string; alt: string; caption?: string }) => (
     <figure className="mdx-figure">

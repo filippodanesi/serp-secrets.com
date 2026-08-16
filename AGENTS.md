@@ -58,7 +58,7 @@ Personal blog of Filippo Danesi covering SEO, AI search, AEO/GEO, and the future
 - `lib/posts.ts` — single source of truth for post loading. Expose `getAllPosts`, `getPostBySlug`, `getPostsByCategory`, `extractHeadings`, `slugify`. Frontmatter type `PostFrontmatter` lives here.
 - `lib/config.ts` — `siteUrl` (use this, never hardcode the domain).
 - `app/components/JsonLd.tsx` — schema.org components: `PersonJsonLd`, `WebSiteJsonLd`, `BlogJsonLd`, `BlogPostingJsonLd`, `BreadcrumbJsonLd`, `CollectionPageJsonLd`. Reuse these instead of inlining JSON-LD.
-- `app/components/MDXComponents.tsx` — overrides for MDX-rendered elements (links, headings, images).
+- `app/components/MDXComponents.tsx` — overrides for MDX-rendered elements (links, headings, images). Images whose path appears in `lib/image-credits.json` render with an automatic attribution caption; that manifest is maintained by `scripts/fetch-lummi.js`, never by hand.
 - `app/(main)/blog/[slug]/page.tsx` — post page; uses `MDXRemote` with `remark-gfm` and `rehype-pretty-code`.
 - `keystatic.config.ts` — if you change post frontmatter, update both this and the `PostFrontmatter` interface in `lib/posts.ts`.
 

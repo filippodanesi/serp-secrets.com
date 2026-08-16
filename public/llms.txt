@@ -13,6 +13,8 @@ Full corpus in a single file: https://www.serp-secrets.com/llms-full.txt
 
 > Exploring AI applications in SEO and content marketing.
 
+- [AI Mode Is the Surface Now](https://www.serp-secrets.com/blog/ai-mode-is-the-surface-now/): While the industry wrote about AI Overviews, Google AI Mode grew 1920% and hit a million monthly searches. Two surfaces, two retrieval paths, one ignored. (~2.2K tokens)
+- [Pages Get Retrieved. Chunks Get Cited.](https://www.serp-secrets.com/blog/pages-retrieved-chunks-cited/): Your page ranks #3, ChatGPT cites the site at #7. Why AI search selects chunks, not pages, and how to write for the selection layer. (~3.8K tokens)
 - [Checkout Is the New Battleground](https://www.serp-secrets.com/blog/checkout-new-battleground/): Google and OpenAI launched competing protocols for AI-powered checkout. Here's what UCP and ACP mean for merchants, SEO, and the future of e-commerce. (~2.1K tokens)
 - [Why Users Are Turning Away from AI Search](https://www.serp-secrets.com/blog/ai-search-backlash/): AI search is convenient but untrustworthy. This analysis explores the user backlash and the growing demand for authentic, human-generated content. (~4.4K tokens)
 - [Query Fan-Out in Google AI Mode](https://www.serp-secrets.com/blog/query-fan-out-google-ai-mode/): Discover how Google's Query Fan-Out technology transforms single searches into parallel queries, transforming AI search with richer results. (~4.3K tokens)
@@ -41,6 +43,8 @@ Full corpus in a single file: https://www.serp-secrets.com/llms-full.txt
 
 > Actionable SEO strategies and best practices.
 
+- [GEO Grew Up](https://www.serp-secrets.com/blog/geo-grew-up/): Searches for "generative engine optimization" fell 33% while "GEO agency" rose 336%. That gap is what a market looks like when it stops arguing and starts buying. (~2.2K tokens)
+- [Everyone Measures AI Visibility. Nobody Agrees.](https://www.serp-secrets.com/blog/measuring-ai-visibility/): AI visibility tools grew 1000% in a year and no two return the same score for the same brand. What these numbers measure, and what an honest method looks like. (~2.9K tokens)
 - [The Great Decoupling](https://www.serp-secrets.com/blog/the-great-decoupling/): Impressions are up, clicks are down. Learn why AI Overviews are breaking your SEO metrics and what you can do about it. (~4.4K tokens)
 - [How to Optimize Your Site for ChatGPT and AI Search Engines](https://www.serp-secrets.com/blog/optimize-site-for-ai-search/): AI search is changing SEO: discover 8 proven strategies to make your website visible to ChatGPT, Perplexity, Claude and future AI crawlers. (~2.1K tokens)
 - [SEO on Reddit: Best Practice and Benefits](https://www.serp-secrets.com/blog/seo-on-reddit-best-practice-and-benefits/): Learn Reddit SEO best practices and how they boost visibility, authority, and AI-driven search in the digital era. (~2.2K tokens)
