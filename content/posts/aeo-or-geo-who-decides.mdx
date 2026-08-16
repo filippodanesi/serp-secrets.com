@@ -1,0 +1,124 @@
+---
+title: AEO or GEO, and Who Gets to Decide
+date: 2026-08-16
+description: >-
+  Two names for one practice, and a year of data that does not say what the
+  industry says it says. The interesting question is who writes the vocabulary.
+tags:
+  - SEO Strategies
+draft: false
+---
+
+## Are AEO and GEO the same thing?
+
+In practice, yes. Answer engine optimization and generative engine optimization both describe the same work: getting your content retrieved and cited by systems that answer instead of listing. The definitions vendors publish for each are close enough that you can swap the acronyms in most sentences without changing the meaning.
+
+The people searching know this, which is why they search for the difference. Google's related searches for the AEO cluster include **answer engine optimization aeo vs geo**, which is a query you only type when two words are being sold to you as different things and you suspect they are not.
+
+So the terminology confusion is real, it is documented, and it is not going to be resolved by whoever writes the best definition. It will be resolved by whoever gets to publish theirs where people look.
+
+## Is AEO overtaking GEO?
+
+No, and this is where most of the commentary is wrong.
+
+Over the twelve months to mid-August 2026, Google Trends in the US puts **generative engine optimization at an average index of 51** and **answer engine optimization at 32**. Across the whole period AEO ran at **0.62 times** GEO's search interest. It reached parity in **two weeks out of fifty-three**, both of them isolated single-week spikes that dropped back the following week.
+
+![Line chart of AEO search interest as a share of GEO over twelve months. The four-week average rises from about 0.49 in August 2025 to roughly 0.65 by November, then moves sideways through August 2026. The weekly series touches the parity line only twice, on 18 January and 12 April 2026.](/images/content/aeo-or-geo-who-decides/aeo-or-geo-who-decides-convergence.svg)
+
+The shape matters more than the average. AEO gained ground quickly in autumn 2025, then stopped. From November onward the four-week line moves sideways between 0.6 and 0.75 and stays there for nine months. That is not a term on its way to overtaking anything. That is a term that found its level.
+
+## Then why do the volume numbers say something else?
+
+Because they measure a different thing, and they disagree about how much.
+
+DataForSEO Labs, US, English, August 2026: **generative engine optimization does 4,400 searches a month, down 33% year over year**. **Answer engine optimization does 2,400, up 26%.** Run those backward and the ratio of absolute volume went from roughly 0.29 a year ago to 0.55 now, close to doubling.
+
+Google Trends puts the same ratio at 0.54 rising to about 0.65. Same direction, very different magnitude.
+
+Both can be true. Trends is a relative popularity index normalized against its own peak, and it is sampled; absolute volume is modeled from clickstream and ad data. They answer different questions and they have different failure modes. What they agree on is the only claim worth making: **GEO is still the larger term, AEO has closed part of the gap, and nothing in either dataset shows a crossover.**
+
+If you want a rule for reading two sources that disagree, it is this one. Report the claim both of them support and drop the one only your preferred source supports.
+
+## Can you make the data say AEO is winning?
+
+Easily, and I nearly did.
+
+Take the first four weeks of the series and the last two. The ratio goes from 0.49 to 0.84. That is a 72% surge in AEO's share, it is arithmetically correct, and it is worthless. Both ends of that comparison sit in the August seasonal trough, when the index values are 18 and 21 rather than 60 and 90. Ratios built on small numbers move for no reason. Change the window by three weeks in either direction and the story changes with it.
+
+I had written the convergence version of this article before I plotted the full series. The chart is what killed it. A number in a table has no shape, and shape is where the lie usually lives.
+
+Which brings up the real subject, because that same move is being made across this entire category, on purpose, by people with something to sell.
+
+## Who is actually writing the vocabulary?
+
+The vendors. Not mostly. Almost entirely.
+
+Here is the first page of Google for **answer engine optimization tools**, checked on 16 August 2026:
+
+| # | Result | Whose product ranks first in it |
+|---|---|---|
+| 1 | Reddit, r/seogrowth | none, it is a discussion thread |
+| 2 | AirOps, listicle updated 28 July 2026 | not stated in the snippet |
+| 3 | SE Ranking | SE Visible, their own |
+| 4 | HubSpot | it is a product page |
+| 5 | Geoptie | Geoptie |
+| 6 | AIclicks, updated four days ago | AIclicks |
+| 7 | Analyze AI | Analyze AI |
+| 8 | Meltwater | Meltwater |
+| 9 | Writesonic | Writesonic |
+
+**Six of the nine results put their own product at number one in the ranking they publish.** Every one of those pages is a buying guide in form and a sales page in function. The only result on the page written by somebody with nothing to sell is the Reddit thread, and it is in first position.
+
+The pattern repeats on **answer engine optimization services**: nine results, nine of them agencies that sell AEO or listicles of agencies that sell AEO, with a Reddit thread asking who the best agency is sitting at number three.
+
+This is not a scandal. Nobody is breaking a rule. It is what happens when a category is young enough that the only people motivated to write 3,000 words defining it are the people who bill for it. But it means that when a marketing director searches the term to find out what it means, the definition they receive was written by someone whose revenue depends on the answer.
+
+## What does the AI Overview do with all this?
+
+Synthesizes it, and strips off the part that would let you discount it.
+
+Both queries return an AI Overview, with **eleven cited sources** on the tools query and **nine** on the services query. The sources are drawn from the same pool of vendor listicles sitting underneath.
+
+A ranked list of ten blue links carries information beyond its content. You can see that positions three, five, six, seven, eight and nine are all vendors, and the repetition itself is a signal: when six companies each declare themselves the best, a reader discounts all six. That signal does not survive summarization. The AI Overview reads six self-interested documents, finds them in agreement about which tools matter, and returns a consensus. Agreement among competitors normally means something. Here it means they all copied the same category description.
+
+This is the mechanism worth understanding, and it is more general than one acronym. Retrieval systems weight what is [retrievable and well-formed](https://www.serp-secrets.com/blog/pages-retrieved-chunks-cited/), not what is disinterested. There is no field in the index for conflict of interest.
+
+## Why is Reddit first on both queries?
+
+Because Google has the same problem you do and has partially solved it.
+
+Ranking first on a commercial query, above every optimized vendor page, is not an accident of freshness or links. It is a judgment that on a question of the form "which of these products is actually any good", a thread of practitioners arguing is worth more than the best-written page from a company with an answer to sell. The reasons Reddit performs the way it does [have been visible in search results for a while now](https://www.serp-secrets.com/blog/seo-on-reddit-best-practice-and-benefits/), but this is a clean instance of it: the trust problem is explicit, and the fix is to promote the source with no position.
+
+Note what that implies for anyone publishing in this space. On the definitional and commercial queries, the ceiling for a vendor page is position two.
+
+## Does the name actually matter?
+
+For the work, no. For everything around the work, more than it should.
+
+Nothing in the practice changes based on which acronym you use. The tasks are the same: make the content retrievable, make claims self-contained, publish things worth citing, measure whether you get cited.
+
+What changes is organizational. The name goes on the budget line, and the budget line is what gets defended in the autumn planning round. It goes in the job title, and the job title is what a recruiter matches against. It goes in the brief you send to agencies, and it determines which agencies reply. A term you did not choose ends up deciding which vendors you meet.
+
+That is why the vendors are fighting over it. Not to win a definitional argument, but to be the noun that the budget is denominated in.
+
+## What should you do while this settles?
+
+Four things.
+
+**Write GEO and AEO in the same sentence, once, then pick one.** Whichever you use internally, spell out the other on first mention in anything external. It costs six words and it removes the risk that a stakeholder thinks you are talking about a different project than the one they approved.
+
+**Discount every buying guide in this category by default.** Not because the vendors are lying, but because you are reading a comparison written by a competitor. Ask who published it before you read what it recommends. If the answer is a tool that appears in the list, you are reading marketing.
+
+**Ask for the method, not the score.** The measurement side of this category [does not agree with itself](https://www.serp-secrets.com/blog/measuring-ai-visibility/), and any number you are shown is the output of a prompt set somebody chose. How many prompts, how many runs, on which models, refreshed how often. A vendor who cannot answer those four questions is selling you a number, not a measurement.
+
+**Do not wait for the vocabulary.** The underlying work is stable and has been for a year. It is the same [retrieval hygiene](https://www.serp-secrets.com/blog/optimize-site-for-ai-search/) regardless of what the category ends up being called.
+
+## So which one wins?
+
+Probably neither, and the fight is not really about that.
+
+Both terms are describing a workstream that is being absorbed into search the way every specialism eventually is. GEO already [stopped being a debate and became a line item](https://www.serp-secrets.com/blog/geo-grew-up/). AEO is roughly a year behind on the same curve. In three years there is a fair chance both words read like "mobile-first strategy" does now, correct at the time and slightly embarrassing to say out loud.
+
+But the vocabulary of a discipline is not decided by the people doing the work. It is decided by whoever owns the pages that get read while the discipline is still being defined, and right now that is six vendors and a Reddit thread.
+
+Names are not neutral. They arrive attached to invoices.

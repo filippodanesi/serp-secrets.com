@@ -1,12 +1,12 @@
 ---
 title: The Checkout War, Seven Months On
-date: 2026-10-15
+date: 2026-08-13
 description: >-
   In January I called checkout the new battleground. The search data since says
   the hype crested that month and something more useful took its place.
 tags:
   - Artificial Intelligence
-draft: true
+draft: false
 ---
 ## What did I claim in January?
 
@@ -57,7 +57,17 @@ The pattern is unmistakable once you see it beside the protocol decline. Interes
 
 A merchant searching **shopify agentic commerce** is not evaluating the future of retail. They are trying to find out whether the thing their platform announced is switched on, what it costs, and who has to configure it.
 
-**[PLACEHOLDER: this is where your current knowledge goes. Two or three paragraphs on what actually shipped between January and now on Shopify, Stripe and Adyen, and what a merchant can turn on today. Name the features and date them. This is the only section that needs facts I could not verify from search data.]**
+For most of them the answer is that it is already on.
+
+**Shopify** switched Agentic Storefronts on for all US merchants on **24 March 2026**, having previewed them in the Winter '26 Edition the previous December. Eligible products syndicate to ChatGPT, Microsoft Copilot, Google AI Mode, Gemini and the Shop app with no merchant configuration at all. The **Spring '26 Edition on 17 June** shipped more than 150 updates framed almost entirely around agentic discovery. In January the open question was which protocol Shopify would build for. It built one: the **Universal Commerce Protocol**, co-developed with Google and backed by Amazon, American Express, Etsy, Mastercard, Meta, Microsoft, Salesforce, Stripe, Target, Visa and Walmart.
+
+**Stripe** shipped the primitive rather than the storefront. **Shared Payment Tokens** let an agent pay on a buyer's behalf without ever handling card credentials, scoped to a single business, capped by time or amount, revocable, and observable through webhooks. The detail that matters to a merchant is that there is nothing to enable: any seller already processing with Stripe supports them automatically. Coverage has since extended to Visa and Mastercard network tokens and to Affirm and Klarna. Etsy and URBN were among the first at volume.
+
+**Adyen** arrived last and drew the most useful conclusion. **Adyen Agentic**, announced **16 June 2026**, is three API layers, a feed, a cart and a payments layer, and its entire selling point is that it speaks Meta's AI checkout, UCP, Google's Agent Payments Protocol and OpenAI's ACP simultaneously. It is in limited US enterprise availability with no published pricing.
+
+Read those three together and the protocol war has an ending nobody framed as a possible outcome in January, including me. It did not resolve by one standard winning. It resolved by the payments layer declining to choose. Stripe co-authored ACP with OpenAI and also backs UCP. Shopify built UCP with Google while its merchants sell into ChatGPT over ACP. Adyen productized the refusal and called it a universal translator.
+
+Merchants were never going to have to pick, because the infrastructure absorbed the fragmentation. That is what infrastructure is for, and it is the part I got wrong. Adyen's Karan Katyal puts current maturity at **0.5 out of 5** and expects roughly 1.5 within a year, naming catalog normalization, fraud liability and protocol fragmentation as the constraints. A vendor talking down their own launch is usually the most reliable number in a press release.
 
 ## Who is asking now?
 
