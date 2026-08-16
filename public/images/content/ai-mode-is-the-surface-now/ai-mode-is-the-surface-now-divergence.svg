@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="640" height="380" fill="#ffffff"/>
+  <text x="48" y="36" font-size="11" font-weight="500" letter-spacing="0.05em" fill="#737373">TWO SURFACES, TWELVE MONTHS</text>
+  <text x="48" y="58" font-size="15" font-weight="500" fill="#171717">US monthly search volume: AI Mode vs AI Overviews</text>
+  <g transform="translate(48, 80)">
+    <line x1="0" y1="0" x2="544" y2="0" stroke="#e5e5e5" stroke-width="0.5"/>
+    <text x="-8" y="4" font-size="10" fill="#a3a3a3" text-anchor="end">1M</text>
+    <line x1="0" y1="50" x2="544" y2="50" stroke="#e5e5e5" stroke-width="0.5"/>
+    <text x="-8" y="54" font-size="10" fill="#a3a3a3" text-anchor="end">800K</text>
+    <line x1="0" y1="100" x2="544" y2="100" stroke="#e5e5e5" stroke-width="0.5"/>
+    <text x="-8" y="104" font-size="10" fill="#a3a3a3" text-anchor="end">600K</text>
+    <line x1="0" y1="150" x2="544" y2="150" stroke="#e5e5e5" stroke-width="0.5"/>
+    <text x="-8" y="154" font-size="10" fill="#a3a3a3" text-anchor="end">400K</text>
+    <line x1="0" y1="200" x2="544" y2="200" stroke="#e5e5e5" stroke-width="0.5"/>
+    <text x="-8" y="204" font-size="10" fill="#a3a3a3" text-anchor="end">200K</text>
+    <line x1="0" y1="250" x2="544" y2="250" stroke="#e5e5e5" stroke-width="0.5"/>
+    <text x="-8" y="254" font-size="10" fill="#a3a3a3" text-anchor="end">0</text>
+    <text x="0.0" y="272" font-size="10" fill="#a3a3a3" text-anchor="start">Jul 2025</text>
+    <text x="148.4" y="272" font-size="10" fill="#a3a3a3" text-anchor="middle">Oct 2025</text>
+    <text x="296.7" y="272" font-size="10" fill="#a3a3a3" text-anchor="middle">Jan 2026</text>
+    <text x="445.1" y="272" font-size="10" fill="#a3a3a3" text-anchor="middle">Apr 2026</text>
+    <text x="544.0" y="272" font-size="10" fill="#a3a3a3" text-anchor="end">Jun 2026</text>
+    <polyline points="0.0,243.2 49.5,241.7 98.9,234.9 148.4,231.5 197.8,231.5 247.3,227.4 296.7,222.5 346.2,216.2 395.6,208.8 445.1,199.8 494.5,208.8 544.0,222.5" fill="none" stroke="#a3a3a3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="0.0,231.5 49.5,227.4 98.9,199.8 148.4,227.4 197.8,227.4 247.3,227.4 296.7,222.5 346.2,208.8 395.6,188.5 445.1,188.5 494.5,158.0 544.0,0.0" fill="none" stroke="#171717" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="0.0" cy="243.2" r="2.5" fill="#a3a3a3"/>
+    <circle cx="49.5" cy="241.7" r="2.5" fill="#a3a3a3"/>
+    <circle cx="98.9" cy="234.9" r="2.5" fill="#a3a3a3"/>
+    <circle cx="148.4" cy="231.5" r="2.5" fill="#a3a3a3"/>
+    <circle cx="197.8" cy="231.5" r="2.5" fill="#a3a3a3"/>
+    <circle cx="247.3" cy="227.4" r="2.5" fill="#a3a3a3"/>
+    <circle cx="296.7" cy="222.5" r="2.5" fill="#a3a3a3"/>
+    <circle cx="346.2" cy="216.2" r="2.5" fill="#a3a3a3"/>
+    <circle cx="395.6" cy="208.8" r="2.5" fill="#a3a3a3"/>
+    <circle cx="445.1" cy="199.8" r="2.5" fill="#a3a3a3"/>
+    <circle cx="494.5" cy="208.8" r="2.5" fill="#a3a3a3"/>
+    <circle cx="544.0" cy="222.5" r="2.5" fill="#a3a3a3"/>
+    <circle cx="0.0" cy="231.5" r="2.5" fill="#171717"/>
+    <circle cx="49.5" cy="227.4" r="2.5" fill="#171717"/>
+    <circle cx="98.9" cy="199.8" r="2.5" fill="#171717"/>
+    <circle cx="148.4" cy="227.4" r="2.5" fill="#171717"/>
+    <circle cx="197.8" cy="227.4" r="2.5" fill="#171717"/>
+    <circle cx="247.3" cy="227.4" r="2.5" fill="#171717" stroke="#ffffff" stroke-width="1"/>
+    <circle cx="296.7" cy="222.5" r="2.5" fill="#171717" stroke="#ffffff" stroke-width="1"/>
+    <circle cx="346.2" cy="208.8" r="2.5" fill="#171717"/>
+    <circle cx="395.6" cy="188.5" r="2.5" fill="#171717"/>
+    <circle cx="445.1" cy="188.5" r="2.5" fill="#171717"/>
+    <circle cx="494.5" cy="158.0" r="2.5" fill="#171717"/>
+    <circle cx="544.0" cy="0.0" r="2.5" fill="#171717"/>
+    <text x="536" y="10" font-size="11" font-weight="600" fill="#171717" text-anchor="end">1.0M</text>
+    <text x="544" y="240" font-size="11" font-weight="600" fill="#a3a3a3" text-anchor="end">110K</text>
+    <text x="445.1" y="232" font-size="10" font-weight="500" fill="#737373" text-anchor="middle">AIO peak</text>
+    <text x="445.1" y="244" font-size="10" font-weight="500" fill="#737373" text-anchor="middle">Apr 2026</text>
+  </g>
+  <g transform="translate(48, 358)">
+    <line x1="0" y1="0" x2="16" y2="0" stroke="#171717" stroke-width="2.5"/>
+    <text x="22" y="4" font-size="11" fill="#171717">AI Mode</text>
+    <line x1="79" y1="0" x2="95" y2="0" stroke="#a3a3a3" stroke-width="2.5"/>
+    <text x="101" y="4" font-size="11" fill="#a3a3a3">AI Overviews</text>
+    <text x="544" y="4" font-size="9" fill="#a3a3a3" text-anchor="end">Source: DataForSEO Labs, US, Aug 2026</text>
+  </g>
+</svg>
