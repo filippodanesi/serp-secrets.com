@@ -41,7 +41,9 @@ npm start            # serve the production build
 
 Other scripts are one-off utilities, not part of the build: `fix-headings.js`
 (repairs headings lost in the WordPress/TinaCMS migration), `import-wordpress.js`
-(original WXR import), and `export-to-linkedin.js` (see below).
+(original WXR import), `fetch-lummi.js` (downloads a Lummi stock image together
+with the attribution snippet its license requires), and `export-to-linkedin.js`
+(see below).
 
 ## AEO / AI agent endpoints
 
@@ -69,6 +71,7 @@ via `scripts/export-to-linkedin.js`.
 | `ANTHROPIC_API_KEY` | summary generation, LinkedIn export | No — both degrade gracefully |
 | `BUFFER_API_KEY` | Buffer publishing | Only for `--push` |
 | `BUFFER_CHANNEL_ID` | Buffer publishing | Only for `--push` |
+| `LUMMI_API_KEY` | `fetch-lummi.js` | Only for fetching Lummi images |
 
 ## Repository conventions
 

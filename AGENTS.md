@@ -45,6 +45,7 @@ Personal blog of Filippo Danesi covering SEO, AI search, AEO/GEO, and the future
 │   ├── generate-aeo-files.js   # Runs in `npm run build` before next build
 │   ├── fix-headings.js
 │   ├── import-wordpress.js
+│   ├── fetch-lummi.js          # Lummi image + required attribution → public/images/content/
 │   └── export-to-linkedin.js
 ├── keystatic.config.ts     # Keystatic schema (post fields, collections)
 ├── next.config.ts
